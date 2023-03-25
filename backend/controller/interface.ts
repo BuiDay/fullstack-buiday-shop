@@ -1,0 +1,16 @@
+export interface IUserModel{
+    firstName?:string,
+    lastName?:string,
+    email?:string,
+    mobile?:string,
+    password?:string,
+    role?:string,
+    cart?:string[],
+    isBlock?:boolean,
+    address?:string,
+    wishlist?:string[],
+    refreshToken?:string,
+    passwordChangedAt?:Date,
+    passwordResetToken?:String,
+    passwordResetExpires?:Date,
+}
