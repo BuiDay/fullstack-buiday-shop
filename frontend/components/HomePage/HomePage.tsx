@@ -18,6 +18,7 @@ import Headphone from '../../assets/images/headphone.jpg'
 import Speaker from '../../assets/images/speaker.jpg'
 import Laptop from '../../assets/images/laptop.jpg'
 import SpecialProduct from '../SpecialProduct/SpecialProduct';
+import ProductCards from '../ProductCards/ProductCards';
 // import BlogCard from '../../components/Home/BlogCard/BlogCard';
 // import ProductCards from '../../components/Home/ProductCards/ProductCards';
 // import SpecialProduct from '../../components/Home/SpecialProduct/SpecialProduct';
@@ -218,7 +219,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-{/* 
+
             <section className='featured-wrapper home-wrapper-2 py-5'>
                 <div className="container-xxl">
                     <div className="row">
@@ -233,7 +234,7 @@ const Home = () => {
                         <ProductCards img={require('../../assets/images/samsung_1.jpg')}/>
                     </div>
                 </div>
-            </section> */}
+            </section>
 
             <section className={`${styles.famous_wrapper} home-wrapper-2 py-5`}>
                 <div className="container-xxl">

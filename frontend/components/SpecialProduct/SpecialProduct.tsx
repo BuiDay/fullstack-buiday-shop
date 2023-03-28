@@ -39,8 +39,8 @@ const SpecialProduct:React.FC<IProps> = (props) => {
                         </div>
                         <div className='prod-count mt-3'>
                             <p>Products: 5</p>
-                            <div className={styles.progress}>
-                                <div className={`${styles.progress_bar} w-75`} role="progressbar" aria-valuenow={75} aria-valuemin={0} aria-valuemax={100}></div>
+                            <div className='progress mt-3'>
+                                <div className={`${styles.progress_bar} w-75`} role="progressbar" aria-valuenow={"75"} aria-valuemin={"0"} aria-valuemax={"100"}></div>
                             </div>
                         </div>
                         <Link href="#" className='button py-2 px-3 mt-3'>Option</Link>
