@@ -5,6 +5,12 @@ import asyncHandler from 'express-async-handler'
 import { generateRefreshToken } from '../config/refreshToken';
 import generateToken from '../config/jwtToken';
 import { IUserModel } from './interface';
+import validateMongodbId from '../utils/validateMongodbId';
+
+interface IUserRequest extends Request {
+    user: any
+}
+  
 
 export const createUser = asyncHandler(async (req:Request, res:Response):Promise<void> =>{
     const getEmail = req.body.email;
@@ -35,12 +41,6 @@ export const createUser = asyncHandler(async (req:Request, res:Response):Promise
         if(error)
         throw new Error(error.toString())
     }
-    // if(!findUser){
-    //     const newUser = User.create(req.body);
-    //     res.json(newUser)
-    // }else{
-    //     throw new Error("User already exists")
-    // };
 }) 
 
 export const loginUser = asyncHandler(async(req:Request, res:Response):Promise<void>=>{
@@ -89,12 +89,6 @@ export const loginUser = asyncHandler(async(req:Request, res:Response):Promise<v
     }catch(err){
         throw new Error("Invalid Credentials")
     }
-  
-    // if(findUser && await findUser.isPasswordMatched(password)){
-    //     res.json(findUser)
-    // }else{
-    //     throw new Error("Invalid Credentials");
-    // }
 })
 
 // export const loginAdmin = asyncHandler(async(req, res)=>{
@@ -141,3 +135,111 @@ export const loginUser = asyncHandler(async(req:Request, res:Response):Promise<v
 //     //     throw new Error("Invalid Credentials");
 //     // }
 // })
+
+// const handlerRefreshToken = asyncHandler( async(req, res)=>{
+//     const cookie = req.cookies;
+//     if(!cookie?.refreshToken) throw new Error("No refresh token in cookies");
+//     const refreshToken = req.cookies.refreshToken;
+//     const user = await User.findOne({refreshToken})
+//     if(!user) throw new Error("No refresh token present in db or not matched");
+//     jwt.verify(refreshToken, process.env.JWT_KEY,(err, decode)=>{
+//        if(err || user.id !== decode.id){
+//         throw new Error("There is something wrong whitd refresh token");
+//        }
+//        const token = generateToken(user.id);
+//        res.json({token})
+//     })
+// })
+
+export const logoutUser = asyncHandler(async (req:Request, res:Response):Promise<any>=>{
+    const cookie:Record<string,any>= req.cookies;
+    if(!cookie?.refreshToken){
+        throw new Error("No refresh token in cookies");
+    }
+    const refreshToken= cookie.refreshToken;
+    const user = await User.findOne({refreshToken});
+    if(!user){
+        res.clearCookie("refreshToken",{
+            httpOnly:true,
+            secure:true,
+        });
+        return res.sendStatus(204);
+    }
+    
+    await User.findOneAndUpdate(refreshToken,{
+        refreshToken:"",
+    })
+    res.clearCookie("refreshToken",{
+        httpOnly:true,
+        secure:true,
+    })
+    return res.sendStatus(204);
+})
+
+export const getAllUser = asyncHandler( async (req:Request, res:Response):Promise<void> => {
+    try{ 
+        const listUser:IUserModel[] = await User.find();
+        res.json({
+            status:"success",
+            data:listUser
+        })
+    }catch(err){
+        if(err)
+        throw new Error(err.toString())
+    }
+})
+
+export const getUserById = asyncHandler(async (req:Request, res:Response):Promise<void>=>{
+    try{
+        const getId:string = req.params.id;
+        validateMongodbId(getId);
+        const getUser = await User.findById(getId)
+        if(getUser){
+            res.json(getUser);
+        }
+    }catch(err){
+        throw new Error("Not found")
+    }
+})
+
+export const deleteUser = asyncHandler(async (req:Request, res:Response):Promise<void>=>{
+    try{
+        const getId:string = req.params.id;
+        validateMongodbId(getId);
+        const getUser = await User.findByIdAndDelete(getId);
+        if(getUser){
+            res.json({
+                status:"success",
+                code:"1",
+            });
+        }else{
+            throw new Error("Error Delete")
+        }
+    }catch(err){
+        throw new Error("Not found")
+    }
+})
+
+export const updateUser = asyncHandler(async (req:Request, res:Response):Promise<void>=>{
+    try{
+        const req2 = req as IUserRequest
+        const getId = req2.user.id;
+        const getUser = await User.findByIdAndUpdate(getId,{
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            mobile: req.body.mobile,
+    },{
+        new:true,
+    })
+        res.json({
+            status:"success",
+            code:"1",
+            data:getUser
+        })
+    }catch(err)
+    {
+        throw new Error("Error Update")
+    }
+})
+

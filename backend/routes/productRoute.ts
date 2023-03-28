@@ -1,0 +1,15 @@
+import express from 'express';
+const router = express.Router();
+import { authMiddleware,isAdmin}  from "../middlewares/authMiddleware";
+import { addToWishlist, createProduct, deleteProduct, getAllProducts, getProduct, rating, updateProduct } from '../controller/productController';
+
+router.post('/',authMiddleware,isAdmin,createProduct);
+router.put("/id=:id",authMiddleware,updateProduct)
+router.put("/wishlist",authMiddleware,addToWishlist)
+router.put("/rating",authMiddleware,rating)
+router.get('/id=:id',getProduct);
+router.delete('/id=:id',authMiddleware,isAdmin,deleteProduct);
+router.get('/',getAllProducts);
+
+
+export= router
