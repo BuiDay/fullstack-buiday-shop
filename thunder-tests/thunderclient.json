@@ -23,18 +23,93 @@
     "colId": "aef689c0-3185-421a-ad8a-a1de49a651f5",
     "containerId": "",
     "name": "Login",
-    "url": "http://localhost:3000/api/user/login",
+    "url": "http://localhost:8000/api/user/login",
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-03-25T14:45:50.670Z",
-    "modified": "2023-03-25T14:54:48.342Z",
+    "modified": "2023-03-28T04:54:21.800Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\":\"buiday@gmail.com\",\n  \"password\":\"12364\"\n}",
+      "raw": "{\n  \"email\":\"buiday@gmail.com\",\n  \"password\":\"1234\"\n}",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "0fc8ab2c-f0d4-4dce-ad2b-07569c57e412",
+    "colId": "aef689c0-3185-421a-ad8a-a1de49a651f5",
+    "containerId": "",
+    "name": "Logout",
+    "url": "http://localhost:8000/api/user/logout",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-03-28T05:06:07.199Z",
+    "modified": "2023-03-28T05:06:24.283Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "3c15f4c4-74a4-47f6-b5a7-359665e3c000",
+    "colId": "aef689c0-3185-421a-ad8a-a1de49a651f5",
+    "containerId": "",
+    "name": "Get all user",
+    "url": "http://localhost:8000/api/user/get-all-users",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-03-28T05:14:13.370Z",
+    "modified": "2023-03-28T05:14:25.722Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "d37131a9-3b74-4063-9cb9-1954b547722f",
+    "colId": "aef689c0-3185-421a-ad8a-a1de49a651f5",
+    "containerId": "",
+    "name": "Get user by id",
+    "url": "http://localhost:8000/api/user/id=63d9500277de6452617aa4fd",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2023-03-28T05:55:10.215Z",
+    "modified": "2023-03-28T06:18:29.675Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZDk1MDAyNzdkZTY0NTI2MTdhYTRmZCIsImlhdCI6MTY3OTk4NDE0OCwiZXhwIjoxNjgwMDcwNTQ4fQ.bdpomuRXoTz901FmKBKSTSHEN80zfkPBtNPjihZHU7g"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "9a0bbb3c-8059-43b5-a225-6debde232785",
+    "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
+    "containerId": "",
+    "name": "Get All Products",
+    "url": "http://localhost:8000/api/product",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-03-28T06:50:04.742Z",
+    "modified": "2023-03-28T06:50:37.612Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "5003e830-988b-476f-95c7-19c78e3f66de",
+    "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
+    "containerId": "",
+    "name": "Get Product BY Id",
+    "url": "http://localhost:8000/api/product/id=63e6deb3221a5fcd70db0c9f",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-03-28T06:51:19.849Z",
+    "modified": "2023-03-28T06:51:37.846Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]
