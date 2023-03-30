@@ -10,15 +10,18 @@ import Wish from '../../assets/images/wish.svg'
 import Image from 'next/image';
 
 interface IProps{
-    img:string;
+    img?:string;
     grid?:number;
+    data?:any
 }
 
 const ProductCards:React.FC<IProps> = (props) => {
     const location = useRouter();
-    const {grid,img} = props
+    const {grid,img,data} = props
+    console.log(data)
     return (
-        <div className={`${location.pathname=="/ourstore" ? `gr-${grid}`:"col-2"}`}>
+        // <div className={`${location.pathname=="/ourstore" ? `gr-${grid}`:"col-2"}`}>
+        <div className={`gr-${grid}`}>
             <Link href='/product/123' className={`${styles.product_card} position-relative`}>
                 <div className={`${styles.wishlist_icon} position-absolute`}>
                     <Link href="#">
@@ -26,13 +29,13 @@ const ProductCards:React.FC<IProps> = (props) => {
                     </Link>
                 </div>
                 <div className={`${styles.product_image} mb-3`}>
-                    <Image className='img-fluid' src={img} alt="" />
-                    <Image className='img-fluid' src={require('../../assets/images/watch-ultra.png')} alt="" />
+                    <Image className='img-fluid' src={data.images.images[0]} width={200} height={200} alt="" />
+                    <Image className='img-fluid' src={data.images.images[3]} width={200} height={200} alt="" />
                 </div>
                 <div className={styles.product_details}>
-                    <h6 className='brand'>Sony</h6>
+                    <h6 className='brand'>{data.brand}</h6>
                     <h5 className={styles.product_title}>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, distinctio.
+                        {data.title}
                     </h5>
                     {
                         grid === 12 ? 
@@ -42,12 +45,12 @@ const ProductCards:React.FC<IProps> = (props) => {
                     }
                     
                     <StarRatings
-                        rating={2.5}
+                        rating={Math.floor( data.totalRating.split('/')[0])}
                         // edit={false}
                         starDimension="20px"
                         starRatedColor="#ffd700"
                     />
-                    <p className={`${styles.price} mt-2`}>100$</p>
+                    <p className={`${styles.price} mt-2`}>{data.price}</p>
                 </div>
                 <div className={`${styles.action_bar} position-absolute`}>
                     <div className="d-flex flex-column gap-15">

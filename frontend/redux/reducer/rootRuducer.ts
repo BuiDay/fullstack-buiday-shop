@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage'
 import {persistReducer} from "redux-persist"
 import authReducer from '../features/auth/authSilce'
 import appReducer from '../features/app/appSilce'
+import productsReducer from '../features/products/productsSilce'
 import { RootState } from '../index'
 
 
@@ -21,6 +22,7 @@ const authConfig = {
 const rootReducer = combineReducers({
     auth:persistReducer<any, any>(authConfig,authReducer),
     app:appReducer,
+    products:productsReducer
 })
 
 export default rootReducer

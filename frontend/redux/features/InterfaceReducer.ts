@@ -15,8 +15,6 @@ export interface ICategory{
 }
 
 export interface ICategories{
-  status?:string,
-  code?:number
   categories?:ICategory[],
 }
 
@@ -26,6 +24,25 @@ export interface ICategoriesPaypload{
   data?:[]
 }
 //////////////////////////////////////
+
+
+
+
+export interface IProducts{
+  products?:[],
+  isLoading?:boolean,
+  isSuccess?:boolean,
+}
+
+
+export interface IProductsPaypload{
+  status?:string,
+  code?:number
+  data?:[]
+}
+
+
+////////////////////////////////////////
 
 export interface IAuthRegister{
   name?:string,

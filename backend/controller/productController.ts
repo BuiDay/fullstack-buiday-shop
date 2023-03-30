@@ -95,7 +95,7 @@ export const getAllProducts = asyncHandler(async (req:Request, res:Response):Pro
 
         let queryStr = JSON.stringify(queryObj);
             queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match)=>`$${match}`);
-        let query = Product.find(JSON.parse(queryStr));
+        let query = Product.find(JSON.parse(queryStr)).populate("images");;
 
         //sorting
         if(req.query.sort){

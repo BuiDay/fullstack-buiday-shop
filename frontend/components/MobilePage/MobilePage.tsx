@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SideBar from '../Common/SideBar/SideBar';
 import styles from './MobilePage.module.scss'
+import { useAppDispatch, useAppSelector } from '@/redux/hook';
+import { RootState } from '@/redux';
+import { getAllProducts } from '@/redux/features/products/productsSilce';
+import ProductCards from '../ProductCards/ProductCards';
 
-const MobilePage = () => {
+const MobilePage = () => { 
+    const dispatch = useAppDispatch();
+    const products  = useAppSelector((state:RootState) => state.products.products)
+    const [isShowDropdown, setIsShowDropdown] = useState<boolean>(false)
+    useEffect(() => {
+      dispatch(getAllProducts())
+     
+  }, [])
+
+  console.log(products)
+
     return (
         <div className={`store-wrapper home_wrapper_2 py-4`}>
                 <div className="container-xxl">
@@ -42,11 +56,11 @@ const MobilePage = () => {
 
                             <div className="products-list pb-5 d-flex flex-wrap gap-10">
                               {
-                                    // productsState?.map((item,index)=>{
-                                    //     return(
-                                    //         <ProductCard key={index} data={item} grid={grid}/>
-                                    //     )
-                                    // })
+                                    products?.map((item,index)=>{
+                                        return(
+                                            <ProductCards key={index} data={item} grid={4} />
+                                        )
+                                    })
                               }
                             </div>
                         </div>
