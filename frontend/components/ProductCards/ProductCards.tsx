@@ -16,7 +16,6 @@ interface IProps{
 
 const ProductCards:React.FC<IProps> = (props) => {
     const location = useRouter();
-    console.log(location)
     const {grid,img} = props
     return (
         <div className={`${location.pathname=="/ourstore" ? `gr-${grid}`:"col-2"}`}>

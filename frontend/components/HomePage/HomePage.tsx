@@ -19,19 +19,9 @@ import Speaker from '../../assets/images/speaker.jpg'
 import Laptop from '../../assets/images/laptop.jpg'
 import SpecialProduct from '../SpecialProduct/SpecialProduct';
 import ProductCards from '../ProductCards/ProductCards';
-// import BlogCard from '../../components/Home/BlogCard/BlogCard';
-// import ProductCards from '../../components/Home/ProductCards/ProductCards';
-// import SpecialProduct from '../../components/Home/SpecialProduct/SpecialProduct';
-// import { useDispatch, useSelector } from 'react-redux';
-// import {getAllProducts} from "../../features/products/productsSlice"
+
 const Home = () => {
 
-    // const productsState = useSelector(state=>state.products.products)
-    // const dispatch = useDispatch();
-    // useEffect(()=>{
-    //     dispatch(getAllProducts())
-    // },[])
-    // console.log(productsState)
     const THREE_DAYS_IN_MS = 3 * 24 * 8 * 45 * 1000;
     const ONE_DAYS_IN_MS = 5 * 10 * 48 * 54 * 1000;
     const TWO_DAYS_IN_MS = 2 * 15 * 12 * 43 * 1000;

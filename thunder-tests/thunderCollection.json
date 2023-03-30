@@ -7,16 +7,22 @@
     "folders": []
   },
   {
-<<<<<<< HEAD
     "_id": "416da8d9-fd81-4642-a9a1-237bd6041370",
     "colName": "Products",
-    "created": "2023-03-28T06:49:44.733Z",
-=======
+    "created": "2023-03-28T06:49:44.733Z"
+  },
+  {
     "_id": "c7df78e0-9084-422f-8ba5-a91942e6f7ad",
     "colName": "Insert",
     "created": "2023-03-29T19:32:09.981Z",
->>>>>>> 3c88c98dd48a947967de0043aeb8f3ceb119d722
     "sortNum": 20000,
+    "folders": []
+  },
+  {
+    "_id": "43ed2355-030d-4825-a7c9-56dd04688205",
+    "colName": "Categories",
+    "created": "2023-03-30T05:20:10.200Z",
+    "sortNum": 30000,
     "folders": []
   }
 ]

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{memo, use, useState} from 'react';
 import Link from 'next/link'
 import Image from 'next/image';
 import {BsSearch} from 'react-icons/bs'
@@ -7,10 +7,11 @@ import Wishlist from '../../assets/images/wishlist.svg'
 import User from "../../assets/images/user.svg"
 import Cart from "../../assets/images/cart.svg"
 import Menu from "../../assets/images/menu.svg"
-// import ShowOnLogin, { ShowOnLogout } from "../../components/hiddenLink/hiddendLink"
-// import { useDispatch, useSelector } from 'react-redux';
-// import { logout } from '../../features/auth/authSlice';
+import { useAppDispatch } from '@/redux/hook';
 import { useEffect } from 'react';
+import { getCategories } from '@/redux/features/app/appSilce';
+import { RootState } from '@/redux';
+import { useAppSelector } from '@/redux/hook';
 
 const Header = () => {
     // const dispatch = useDispatch();
@@ -22,6 +23,13 @@ const Header = () => {
     //     window.location.reload();
     //     navigate("/");
     // }
+    const dispatch = useAppDispatch();
+    const categories  = useAppSelector((state:RootState) => state.app.categories)
+    const [isShowDropdown, setIsShowDropdown] = useState<boolean>(false)
+    useEffect(() => {
+      dispatch(getCategories())
+     
+  }, [])
 
     return (
         <>
@@ -115,17 +123,22 @@ const Header = () => {
                     <div className="row">
                         <div className="col-12">
                             <div className="menu-bottom d-flex align-items-center">
-                                <div className='me-5'>
-                                    <div className='title-categories' role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src={Menu} className='img fluid me-1' alt="" />
+                                <div className='dropdown me-5'>
+                                    <div className='title-categories' role="button" onClick={()=>setIsShowDropdown(!isShowDropdown)}>
+                                        <Image src={Menu} className='img fluid me-1' alt="" />
                                         Shop categories
                                     </div>
-                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <Link className="dropdown-item" href="/profile">Laptop</Link>
-                                        <Link className="dropdown-item" href="/profile">Watch</Link>
-                                        <Link className="dropdown-item" href="/profile">TV</Link>
-                                        <Link className="dropdown-item" href="/profile">Phone</Link>
-                                    </div>
+                                    {isShowDropdown &&  <div className="dropdown_list">
+                                        {categories && categories.map((item,index)=>{
+                                            return(
+                                                <Link key={index} className="dropdown_item" href="/mobile" onClick={()=>setIsShowDropdown(!isShowDropdown)}>
+                                                    <Image src={item.icon} width={20} height={20} alt="" className='dropdown_icon'></Image>
+                                                    <span>{item.title}</span>
+                                                </Link>
+                                            )
+                                            })
+                                        }
+                                    </div> }
                                 </div>
                                 <div className='menu-links'>
                                     <div className="d-flex align-items-center gap-15">
@@ -144,4 +157,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default memo(Header);
