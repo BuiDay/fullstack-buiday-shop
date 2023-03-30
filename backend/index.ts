@@ -3,6 +3,7 @@ import dbConnect from './config/dbConnect';
 import { errorHandler } from './middlewares/errorHandler';
 import authRouter from './routes/authRoute';
 import productRouter from './routes/productRoute';
+import insertRouter from './routes/insertRoute';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cookie from 'cookie-parser'
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 
 app.use('/api/user',authRouter);
 app.use('/api/product',productRouter);
+app.use('/api/insert',insertRouter);
 app.use(errorHandler);
 
 // Server setup

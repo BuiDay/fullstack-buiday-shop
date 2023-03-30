@@ -13,17 +13,26 @@ var productSchema = new mongoose.Schema({
         lowercase:true,
     },
     description:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Description"
+    },
+    technicalInfo:{
         type:String,
         required:true,
     },
-    price:{
-        type:Number,
-        required:true,
-    },
-    sold:{
-        type:Number,
-        default:0,
-    },
+    price:
+        {
+            type:String,
+            required:true,
+        }
+    ,
+    discount:
+        {
+            type:String,
+            required:true,
+            default:"0"
+        }
+    ,
     category:{
         type:String,
         required:true,
@@ -36,17 +45,14 @@ var productSchema = new mongoose.Schema({
         type:Number,
         required:true,
     },
-    images:[
-        {
-            public_id:String,
-            url:String
-        }
-    ],
-    color:{
+    images:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Image"
+    },
+    color:[{
         type:String,
         required:true,
-    },
-    tags:String,
+    }],
     ratings:[
         {
             star:Number,
