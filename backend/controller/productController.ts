@@ -67,12 +67,15 @@ export const deleteProduct = asyncHandler(async (req:Request, res:Response):Prom
 export const getProduct = asyncHandler(async (req:Request, res:Response):Promise<void> =>{
     const {id} = req.params;
     try{
+        console.log(req.params)
         validateMongodbId(id);
         const product = await Product.findById(id)
-        .populate("ratings.postedby");
+        .populate("ratings.postedby")
+        .populate("images")
+        .populate("description");
         if(product){
             res.json({
-                code:1,
+                code:-1,
                 status:"success",
                 data:product
             })

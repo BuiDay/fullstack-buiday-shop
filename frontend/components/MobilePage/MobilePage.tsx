@@ -56,7 +56,7 @@ const MobilePage = () => {
 
                             <div className="products-list pb-5 d-flex flex-wrap gap-10">
                               {
-                                    products?.map((item,index)=>{
+                                 products  &&  products?.map((item,index)=>{
                                         return(
                                             <ProductCards key={index} data={item} grid={4} />
                                         )

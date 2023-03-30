@@ -216,12 +216,12 @@ const Home = () => {
                         <div className="col-12">
                             <h3 className='section-heading'>Featured Collection</h3>
                         </div>
-                        <ProductCards img={require('../../assets/images/watch-2.jpg')}/>
+                        {/* <ProductCards img={require('../../assets/images/watch-2.jpg')}/>
                         <ProductCards img={require('../../assets/images/watch-41-alum-silver.jpg')}/>
                         <ProductCards img={require('../../assets/images/watch-ultra.png')}/>
                         <ProductCards img={require('../../assets/images/watch-ultra-2.png')}/>
                         <ProductCards img={require('../../assets/images/samsung_2.jpg')}/>
-                        <ProductCards img={require('../../assets/images/samsung_1.jpg')}/>
+                        <ProductCards img={require('../../assets/images/samsung_1.jpg')}/> */}
                     </div>
                 </div>
             </section>

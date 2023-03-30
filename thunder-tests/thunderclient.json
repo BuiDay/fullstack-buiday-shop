@@ -136,5 +136,19 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "dc0dc5c4-855f-4d38-b1c2-eb9696f7249a",
+    "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
+    "containerId": "",
+    "name": "Get product by id",
+    "url": "http://localhost:8000/api/product/id=6424a50238bdf66bacbc692d",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-03-30T17:14:34.712Z",
+    "modified": "2023-03-30T17:58:42.615Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]

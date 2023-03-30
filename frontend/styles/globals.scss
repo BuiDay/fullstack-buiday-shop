@@ -243,3 +243,76 @@ footer .input-group-text{
 .singleTitle{
   font-size:18px;
 }
+
+
+
+.product-images-slider {
+  .swiper-slide {
+      padding-top: 100%;
+      overflow: hidden;
+      position: relative;
+
+      img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+      }
+  }
+
+  .swiper-button-prev {
+      left: 0;
+      color: #000;
+  }
+
+  .swiper-button-next {
+      right: 0;
+      color: #000;
+  }
+}
+
+.product-images-slider-thumbs {
+   margin-top: 20px;
+  .swiper-slide {
+      cursor: pointer;
+      border: 1px solid #dddbdb;
+
+      &-thumb-active {
+          border-color: #ff0000;
+      }
+  }
+
+  &-wrapper {
+      width: 100%;
+      padding-top: 100%;
+      overflow: hidden;
+      position: relative;
+
+      img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+      }
+  }
+}
+
+
+.technical-content-item{
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.technical-content-item p{
+  flex: 50%;
+}
+
+.technical-content-item div{
+  flex: 50%;
+}
+
+.description-wrapper ul,li{
+  list-style-type:disc;
+  padding: 0px;
+}

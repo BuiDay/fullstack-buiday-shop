@@ -8,9 +8,13 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'cdn2.cellphones.com.vn',
-      },
+      },{
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+      }
     ],
   },
+ 
 }
 // const withSass = require('@zeit/next-sass')
 // module.exports = withSass({

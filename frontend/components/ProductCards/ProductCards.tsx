@@ -29,8 +29,8 @@ const ProductCards:React.FC<IProps> = (props) => {
                     </Link>
                 </div>
                 <div className={`${styles.product_image} mb-3`}>
-                    <Image className='img-fluid' src={data.images.images[0]} width={200} height={200} alt="" />
-                    <Image className='img-fluid' src={data.images.images[3]} width={200} height={200} alt="" />
+                    <Image className='img-fluid' src={data.images.images[0] && data.images.images[0]} width={200} height={200} alt="" />
+                    <Image className='img-fluid' src={data.images.images[3] && data.images.images[3]} width={200} height={200} alt="" />
                 </div>
                 <div className={styles.product_details}>
                     <h6 className='brand'>{data.brand}</h6>
