@@ -90,9 +90,16 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-03-28T06:50:04.742Z",
-    "modified": "2023-03-28T06:50:37.612Z",
+    "modified": "2023-03-31T11:11:04.515Z",
     "headers": [],
-    "params": [],
+    "params": [
+      {
+        "name": "category",
+        "value": "Điện thoại",
+        "isDisabled": true,
+        "isPath": false
+      }
+    ],
     "tests": []
   },
   {

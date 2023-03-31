@@ -24,7 +24,7 @@ const getProductById =  () => new Promise(async(resolve, reject)=>{
     try {
         const res = await axiosConfig({
             method:"get",
-            url:'/api/product/id=6424a50238bdf66bacbc695d',
+            url:'/api/product/id=6426bfb2e9277978a248aa49',
             // params:{id:"6424a50238bdf66bacbc692d"}
         })
         if(res.data.err === -1)

@@ -98,9 +98,13 @@ export const getAllProducts = asyncHandler(async (req:Request, res:Response):Pro
 
         let queryStr = JSON.stringify(queryObj);
             queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match)=>`$${match}`);
+        console.log(JSON.parse(queryStr))
         let query = Product.find(JSON.parse(queryStr)).populate("images");;
-
-        //sorting
+        
+        // const queryObj = {"title":{"$or" : "11"}}
+        // let query = Product.find({ $or: [{ name: new RegExp(keyword, 'i') }, { description: new RegExp(keyword, 'i') }] }).populate("images")
+    
+        // //sorting
         if(req.query.sort){
             // const sortBy = req.query.sort.split(",").json(" ");
             query = query.sort(req.query.sort.toString());
@@ -108,7 +112,7 @@ export const getAllProducts = asyncHandler(async (req:Request, res:Response):Pro
             query =query.sort("-createdAt");
         }
 
-        //limiting the field
+        // //limiting the field
         
         if(req.query.fields){
             // const fields = req.query.fields.toString().split(",").json(" ");

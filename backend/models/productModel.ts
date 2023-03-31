@@ -24,6 +24,7 @@ var productSchema = new mongoose.Schema({
         {
             type:String,
             required:true,
+            default:"0"
         }
     ,
     discount:

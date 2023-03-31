@@ -22,7 +22,7 @@ const ProductCards:React.FC<IProps> = (props) => {
     return (
         // <div className={`${location.pathname=="/ourstore" ? `gr-${grid}`:"col-2"}`}>
         <div className={`gr-${grid}`}>
-            <Link href='/product/123' className={`${styles.product_card} position-relative`}>
+            <Link href='/123' className={`${styles.product_card} position-relative`}>
                 <div className={`${styles.wishlist_icon} position-absolute`}>
                     <Link href="#">
                         <Image src={Wish} alt="" />

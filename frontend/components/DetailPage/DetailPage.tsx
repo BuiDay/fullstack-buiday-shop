@@ -165,7 +165,7 @@ const DetailPage = () => {
                 </div>
             </div>
 
-            <section className='description-wrapper py-5 home-wrapper-2'>
+            <section className='description-wrapper py-5 home_wrapper_2'>
                 <div className="container-xxl">
                     <div className="row">
                         <div className="col-12">

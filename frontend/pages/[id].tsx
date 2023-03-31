@@ -1,6 +1,7 @@
 import Breadcrumb from '@/components/Common/Breadcrumb/Breadcrumb';
 import Meta from '@/components/Common/Meta/Meta';
-import DetailPage from '@/components/DetailPage/DetailPage';
+import Detailage from '@/components/DetailPage/DetailPage';
+import MobilePage from '@/components/MobilePage/MobilePage';
 import productService from '@/redux/features/products/productsService';
 import React, { use, useEffect } from 'react';
 
@@ -11,7 +12,7 @@ const Detail = () => {
         <div>
             <Meta title={"Sản phẩm"} />
             <Breadcrumb title={"Sản phẩm"} />
-            <DetailPage />
+            <Detailage />
         </div>
     );
 };
