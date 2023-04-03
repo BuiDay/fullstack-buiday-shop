@@ -54,6 +54,15 @@ var productSchema = new mongoose.Schema({
         type:String,
         required:true,
     }],
+    display:{
+        type:Number,
+    },
+    ram:{
+        type:Number,
+    },
+    storage:{
+        type:Number,
+    },
     ratings:[
         {
             star:Number,

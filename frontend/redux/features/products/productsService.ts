@@ -16,6 +16,21 @@ const getProducts =  (params:any) => new Promise(async(resolve, reject)=>{
     }
 })
 
+const getMobileProducts =  (params:any) => new Promise(async(resolve, reject)=>{
+    
+    try {
+        const res = await axiosConfig({
+            method:"get",
+            url:'/api/product',
+            params:{category: "Điện thoại",...params}
+        })
+        resolve(res.data)
+        
+    } catch (error) {
+        reject(error)
+    }
+})
+
 
 const getProductById =  (id:string) => new Promise(async(resolve, reject)=>{
     try {
@@ -36,7 +51,7 @@ const getProductById =  (id:string) => new Promise(async(resolve, reject)=>{
 })
 
 const productService = {
-    getProducts,getProductById
+    getProducts,getProductById,getMobileProducts
 }
 
 export default productService

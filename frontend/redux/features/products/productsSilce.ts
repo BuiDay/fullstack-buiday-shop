@@ -7,6 +7,7 @@ const initState:IProducts = {
     isLoading:false,
     isSuccess:false,
     products:[],
+    mobile:[],
     product:{}
 }
 
@@ -17,6 +18,15 @@ export const getAllProducts:any = createAsyncThunk("products/get-all",async(data
        return thunkAPI.rejectWithValue(err)
     }
 })
+
+export const getMobileProducts:any = createAsyncThunk("products/mobile",async(data:any,thunkAPI)  =>{
+    try{
+        return await authService.getMobileProducts(data)
+    }catch(err){
+       return thunkAPI.rejectWithValue(err)
+    }
+})
+
 
 export const getProductById:any = createAsyncThunk("products/get-product",async(data:any,thunkAPI)  =>{
     try{
@@ -42,6 +52,20 @@ export const authSlice = createSlice({
             state.isSuccess = true;
             state.products = action.payload.data
         })
+
+
+        .addCase(getMobileProducts.pending,(state:any,action:any)=>{
+            state.isLoading = true;
+            state.mobile = []
+        })
+        .addCase(getMobileProducts.fulfilled,(state:any,action:any)=>{
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.mobile = action.payload.data
+        })
+
+
+
         .addCase(getProductById.fulfilled,(state:any,action:any)=>{
             state.isLoading = false;
             state.isSuccess = true;

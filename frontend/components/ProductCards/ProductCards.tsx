@@ -36,8 +36,8 @@ const ProductCards:React.FC<IProps> = (props) => {
                     </Link>
                 </div>
                 <div className={`${styles.product_image} mb-3`}>
-                    <Image className='img-fluid' src={data.images.images[0] && data.images.images[0]} width={200} height={200} alt="" />
-                    <Image className='img-fluid' src={data.images.images[3] && data.images.images[3]} width={200} height={200} alt="" />
+                    <Image className='img-fluid' src={data.images.images[0] && data.images.images[0]} width={100} height={100} alt="" />
+                    <Image className='img-fluid' src={data.images.images[3] && data.images.images[3]} width={100} height={100} alt="" />
                 </div>
                 <div className={styles.product_details}>
                     <h6 className='brand'>{data.brand}</h6>
@@ -54,7 +54,7 @@ const ProductCards:React.FC<IProps> = (props) => {
                     <StarRatings
                         rating={Math.floor(data.totalRating)}
                         // edit={false}
-                        starDimension="20px"
+                        starDimension="15px"
                         starRatedColor="#ffd700"
                     />
                     <p className={`${styles.price} mt-2`}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.price)}</p>

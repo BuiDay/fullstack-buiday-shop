@@ -27,7 +27,7 @@ const DetailPage = () => {
                                 backgroundColor: '#fff',
                                 padding: '20px'
                             }}>
-                              {data && <Slider images={data.images.images && data.images.images} /> }  
+                              {data && <Slider images={data.images && data.images.images} /> }  
                             </div>
                          </div>
                         </div>

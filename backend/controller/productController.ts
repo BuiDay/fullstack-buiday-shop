@@ -4,6 +4,7 @@ import { Response, Request } from 'express';
 import asyncHandler from 'express-async-handler';
 import validateMongodbId from '../utils/validateMongodbId';
 import slugify from 'slugify';
+import { match } from 'assert';
 
 interface IUserRequest extends Request {
     user: any
@@ -92,19 +93,24 @@ export const getAllProducts = asyncHandler(async (req:Request, res:Response):Pro
     try{
         //filter
         const queryObj = {...req.query};
-        console.log(queryObj)
         const excludefields = ["page","sort","limit","fields"];
         excludefields.forEach((el)=> delete queryObj[el]);
         let queryStr = JSON.stringify(queryObj);
-            queryStr = queryStr.replace(/\b(gte|gt|lte|lt|in)\b/g, (match)=>`$${match}`);
-            console.log(queryStr)
+        //  ram[lt]=4
+        //  {ram: '$lt:4'}
+        // {"ram":{"$lt":"4"}}
+        queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match)=>`$${match}`);
+        // queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, ' ');
+        console.log(queryStr)
         let query = Product.find(JSON.parse(queryStr)).populate("images");;
         
-        //////
-        if(req.query.Ram){
-        const technicalInfo = req.query.Ram;
-            console.log(technicalInfo)
-        query.find({technicalInfo: {$regex: technicalInfo}});
+        //////ram
+
+        if(req.query.ram){
+                if (Number(req.query.ram) === 4) query.find({ram:{$lt:req.query.ram}})
+                else query.find({ram:{$gt:req.query.ram}})
+                if (Number(req.query.ram) === 5)  query.find({ram:{$lte:6,$gte:4}})
+                else query.find({ram:{$lte:12 ,$gte:8}})
         }
     
         // //sorting

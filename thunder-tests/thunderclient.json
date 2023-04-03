@@ -86,11 +86,11 @@
     "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
     "containerId": "",
     "name": "Get All Products",
-    "url": "http://localhost:8000/api/product?Ram=4 GB",
+    "url": "http://localhost:8000/api/product?ram=6",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-03-28T06:50:04.742Z",
-    "modified": "2023-04-03T18:01:48.080Z",
+    "modified": "2023-04-03T22:15:09.184Z",
     "headers": [],
     "params": [
       {
@@ -124,8 +124,8 @@
         "isPath": false
       },
       {
-        "name": "Ram",
-        "value": "4 GB",
+        "name": "ram",
+        "value": "6",
         "isPath": false
       }
     ],

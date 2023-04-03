@@ -31,6 +31,7 @@ export interface ICategoriesPaypload{
 
 export interface IProducts{
   products?:[],
+  mobile?:[],
   product?:{
     title?:string,
     images?:any,
