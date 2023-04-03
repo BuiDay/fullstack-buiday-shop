@@ -5,20 +5,11 @@ import Slider from '../Common/Slider/Slider';
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
- 
+import {useAppSelector } from '@/redux/hook';
+
 const DetailPage = () => {
-
-    const [data, setData] = useState<any>()
-    const fetch = async () =>{
-        const res:any = await productService.getProductById();
-        setData(res.data)
-    }
-    useEffect(()=>{
-        fetch()
-    },[])
-
-        console.log(data)
-   
+    const data = useAppSelector(state=>state.products.product)
+    console.log(data)
     return (
         <div>
             <div className="main-product-wrapper py-5 home_wrapper_2">
@@ -36,7 +27,7 @@ const DetailPage = () => {
                                 backgroundColor: '#fff',
                                 padding: '20px'
                             }}>
-                              {data && <Slider images={data.images.images} /> }  
+                              {data && <Slider images={data.images.images && data.images.images} /> }  
                             </div>
                          </div>
                         </div>
@@ -48,7 +39,8 @@ const DetailPage = () => {
                                     </h3>
                                 </div>
                                 <div className={`${styles.border_bottom} py-3`}>
-                                    <p className="price">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.price)}</p>
+                                    <p className="price">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.discount)}</p>
+                                    <del className="price">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.price)}</del>
                                     <div className='d-flex gap-10 align-items-center'>
                                         {/* <ReactStars
                                             count={5}

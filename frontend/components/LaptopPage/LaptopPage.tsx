@@ -1,65 +1,45 @@
-import React, { useEffect, useState,memo } from 'react';
+import React, { useEffect, useState } from 'react';
 import SideBar from '../Common/SideBar/SideBar';
-import styles from './MobilePage.module.scss'
+import styles from './LaptopPage.module.scss'
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { RootState } from '@/redux';
 import { getAllProducts } from '@/redux/features/products/productsSilce';
 import ProductCards from '../ProductCards/ProductCards';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-
-interface IQuery{
-    category?:string,
-    brand?:string,
-    sort?:string
-}
 
 const MobilePage = () => { 
     const dispatch = useAppDispatch();
     const products  = useAppSelector((state:RootState) => state.products.products)
-    const router = useRouter()
-   
-    useEffect(()=>{
-        if(!router.query){
-            return
-        }
-        var x = {category:"Điện thoại",...router.query}
-        dispatch(getAllProducts(x))
-    },[router.query])
-
-    const handleFilter = (value:string) =>{
-        if(router.query.brand){
-            router.push({
-                query:{brand:router.query.brand,sort:value}
-            })
-        }else{
-            router.push({
-                query:{sort:value}
-            })
-        }
-    }
+    const [isShowDropdown, setIsShowDropdown] = useState<boolean>(false)
+    useEffect(() => {
+      dispatch(getAllProducts({category:"Laptop"}))
+  }, [])
 
     return (
         <div className={`store-wrapper home_wrapper_2 py-4`}>
                 <div className="container-xxl">
                     <div className="row">
                         <div className="col-3">
-                        <SideBar />                                          
+                           <SideBar />                                           
                         </div>
                         <div className="col-9">
                             <div className="filter-sort-grid mb-4">
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div className="d-flex align-items-center gap-10">
-                                        <p className='mb-0' style={{whiteSpace:"nowrap"}}>Xếp xếp theo:</p>
-                                        <select name="" id="" className='form-control form-select' onChange={(e)=>handleFilter(e.target.value)}>
-                                            <option value="manual">Nổi bật</option>
-                                            <option value="best-selling">Mua nhiều</option>
-                                            <option value="price">Giá: Thấp-Cao</option>
-                                            <option value="-price">Giá: Cao-Thấp</option>
+                                        <p className='mb-0'>Sort by:</p>
+                                        {/* <select name="" id="" className='form-control form-select' onChange={(e)=>handleParam(e.target.value)}> */}
+                                        <select name="" id="" className='form-control form-select'>
+                                            <option value="manual">Featured</option>
+                                            <option value="best-selling">Best selling</option>
+                                            <option value="sort=brand">Alphabetically: A-Z</option>
+                                            <option value="sort=-brand">Alphabetically: Z-A</option>
+                                            <option value="sort=price">Price: Low to High</option>
+                                            <option value="sort=-price">Price: High to Low</option>
+                                            <option value="created-ascending">Date: Old to New</option>
+                                            <option value="created-descending">Date: New to Old</option>
                                         </select>
                                     </div>
                                     <div className="d-flex align-items-center gap-10">
-                                        <p className="total-products">{products?.length} sản phẩm</p>
+                                        <p className="total-products">21 Products</p>
                                         <div className="d-flex gap-10 align-items-center grid">
                                             {/* <img className='img-fluid active' src={Gr4} alt="" onClick={()=>getGrid(4)} />
                                             <img className='img-fluid' src={Gr3} alt="" onClick={()=>getGrid(3)}/>
@@ -87,4 +67,4 @@ const MobilePage = () => {
     );
 };
 
-export default memo(MobilePage);
+export default MobilePage;

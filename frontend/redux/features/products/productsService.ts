@@ -1,17 +1,14 @@
 import axiosConfig from '../../../utils/axiosConfig' 
 
 
-const getProducts =  () => new Promise(async(resolve, reject)=>{
+const getProducts =  (params:any) => new Promise(async(resolve, reject)=>{
+    
     try {
         const res = await axiosConfig({
             method:"get",
             url:'/api/product',
+            params:params
         })
-        console.log(res.data.err)
-        if(res.data.err === -1)
-        {
-            reject(res.data)
-        }
         resolve(res.data)
         
     } catch (error) {
@@ -20,12 +17,12 @@ const getProducts =  () => new Promise(async(resolve, reject)=>{
 })
 
 
-const getProductById =  () => new Promise(async(resolve, reject)=>{
+const getProductById =  (id:string) => new Promise(async(resolve, reject)=>{
     try {
         const res = await axiosConfig({
             method:"get",
-            url:'/api/product/id=6426bfb2e9277978a248aa49',
-            // params:{id:"6424a50238bdf66bacbc692d"}
+            url:'/api/product/get_product',
+            params:{id}
         })
         if(res.data.err === -1)
         {

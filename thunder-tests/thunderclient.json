@@ -86,17 +86,26 @@
     "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
     "containerId": "",
     "name": "Get All Products",
-    "url": "http://localhost:8000/api/product",
+    "url": "http://localhost:8000/api/product?category=Điện thoại&brand=Apple&sort=price",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-03-28T06:50:04.742Z",
-    "modified": "2023-03-31T11:11:04.515Z",
+    "modified": "2023-04-03T10:25:25.320Z",
     "headers": [],
     "params": [
       {
         "name": "category",
         "value": "Điện thoại",
-        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "brand",
+        "value": "Apple",
+        "isPath": false
+      },
+      {
+        "name": "sort",
+        "value": "price",
         "isPath": false
       }
     ],
@@ -149,13 +158,19 @@
     "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
     "containerId": "",
     "name": "Get product by id",
-    "url": "http://localhost:8000/api/product/id=6424a50238bdf66bacbc692d",
+    "url": "http://localhost:8000/api/product/get_product?id=642837ff09debabb5868c5eb",
     "method": "GET",
     "sortNum": 30000,
     "created": "2023-03-30T17:14:34.712Z",
-    "modified": "2023-03-30T17:58:42.615Z",
+    "modified": "2023-04-03T06:09:33.388Z",
     "headers": [],
-    "params": [],
+    "params": [
+      {
+        "name": "id",
+        "value": "642837ff09debabb5868c5eb",
+        "isPath": false
+      }
+    ],
     "tests": []
   }
 ]

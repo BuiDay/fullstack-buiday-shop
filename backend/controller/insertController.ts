@@ -29,6 +29,7 @@ const { ObjectId } = mongoose.Types;
 const fn = async (product:any) =>{
     const newIdImage = new ObjectId()
     const newIdDes = new ObjectId()
+    console.log(product?.price[0])
   
     await Product.create({
         title:product?.title[0] || "null",
@@ -66,13 +67,15 @@ const fn_2 = async (category:any) =>{
 
 export const insertProduct= asyncHandler(async (req:Request, res:Response):Promise<any> =>{
     let promies = []
-    // const arrayMobile = [apple_mobile,oppo_mobile,xiaomi_mobile,asus_mobile,realme_mobile,samsung_mobile,vivo_mobile,nokia_mobile]
     
-    // for (let i of arrayMobile){
-    //     for (let product of i) {
-    //         await promies.push(fn(product))
-    //      }
-    // }
+    const arrayMobile = [apple_mobile,oppo_mobile,xiaomi_mobile,asus_mobile,realme_mobile,samsung_mobile,vivo_mobile,nokia_mobile]
+    // const arrayMobile = [asus_mobile,]
+    
+    for (let i of arrayMobile){
+        for (let product of i) {
+            await promies.push(fn(product))
+         }
+    }
 
     const arrayLaptop = [apple_laptop,hp_laptop]
     

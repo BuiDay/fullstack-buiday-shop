@@ -7,9 +7,9 @@ import React from 'react';
 const products = () => {
     return (
         <div>
-            <Meta title={"Login"} />
+            {/* <Meta title={"Login"} />
             <Breadcrumb title={"Login"} />
-            <MobilePage />
+            <MobilePage /> */}
         </div>
     );
 };

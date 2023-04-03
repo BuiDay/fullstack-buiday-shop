@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './SideBar.module.scss'
+import Link from 'next/link';
 
 const SideBar = () => {
     return (
@@ -8,12 +9,9 @@ const SideBar = () => {
                                 <h3 className={styles.filter_tilte}>Lựa chọn theo tiêu chí</h3>
                                 <div>
                                     <ul>
-                                        {/* <li><Link to="/ourstore" onClick={()=>setParam("")}>All</Link></li>
-                                        <li><Link to="/ourstore?category=Watch" onClick={()=>setParam("category=Watch")}>Watch</Link></li>
-                                        <li><Link to="/ourstore?category=TV" onClick={()=>setParam("category=TV")}>TV</Link></li>
-                                        <li><Link to="/ourstore?category=Camera" onClick={()=>setParam("category=Camera")}>Camera</Link></li>
-                                        <li><Link to="/ourstore?category=Laptop" onClick={()=>setParam("category=Laptop")}>Laptop</Link></li>
-                                        <li><Link to="/ourstore?category=Phone" onClick={()=>setParam("category=Phone")}>Phone</Link></li> */}
+                                        <li><Link href="/mobile">All</Link></li>
+                                        <li><Link href="/mobile?brand=Apple">Apple</Link></li>
+                                        <li><Link href="/mobile?brand=Samsung">Samsung</Link></li>
                                     </ul>
                                 </div>
                             </div>

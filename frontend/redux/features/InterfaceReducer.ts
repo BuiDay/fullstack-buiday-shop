@@ -12,6 +12,7 @@ export interface ICategory{
   title: string,
   icon:string,
   id:string
+  href?:string
 }
 
 export interface ICategories{
@@ -30,6 +31,14 @@ export interface ICategoriesPaypload{
 
 export interface IProducts{
   products?:[],
+  product?:{
+    title?:string,
+    images?:any,
+    technicalInfo?:string,
+    price?:any,
+    description?:any,
+    discount?:any
+  },
   isLoading?:boolean,
   isSuccess?:boolean,
 }

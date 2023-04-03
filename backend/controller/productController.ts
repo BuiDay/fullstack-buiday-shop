@@ -65,10 +65,9 @@ export const deleteProduct = asyncHandler(async (req:Request, res:Response):Prom
 })
 
 export const getProduct = asyncHandler(async (req:Request, res:Response):Promise<void> =>{
-    const {id} = req.params;
+    const {id} = req.query;
     try{
-        console.log(req.params)
-        validateMongodbId(id);
+        // validateMongodbId(id?);
         const product = await Product.findById(id)
         .populate("ratings.postedby")
         .populate("images")
@@ -94,11 +93,9 @@ export const getAllProducts = asyncHandler(async (req:Request, res:Response):Pro
         //filter
         const queryObj = {...req.query};
         const excludefields = ["page","sort","limit","fields"];
-        const query2= excludefields.forEach((el)=> delete queryObj[el]);
-
+        excludefields.forEach((el)=> delete queryObj[el]);
         let queryStr = JSON.stringify(queryObj);
             queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match)=>`$${match}`);
-        console.log(JSON.parse(queryStr))
         let query = Product.find(JSON.parse(queryStr)).populate("images");;
         
         // const queryObj = {"title":{"$or" : "11"}}
@@ -107,6 +104,7 @@ export const getAllProducts = asyncHandler(async (req:Request, res:Response):Pro
         // //sorting
         if(req.query.sort){
             // const sortBy = req.query.sort.split(",").json(" ");
+            console.log(req.query.sort.toString())
             query = query.sort(req.query.sort.toString());
         }else{
             query =query.sort("-createdAt");

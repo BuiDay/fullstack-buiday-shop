@@ -7,7 +7,7 @@ router.post('/',authMiddleware,isAdmin,createProduct);
 router.put("/id=:id",authMiddleware,updateProduct)
 router.put("/wishlist",authMiddleware,addToWishlist)
 router.put("/rating",authMiddleware,rating)
-router.get('/id=:id',getProduct);
+router.get('/get_product',getProduct);
 router.delete('/id=:id',authMiddleware,isAdmin,deleteProduct);
 router.get('/',getAllProducts);
 

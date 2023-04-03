@@ -131,7 +131,7 @@ const Header = () => {
                                     {isShowDropdown &&  <div className="dropdown_list">
                                         {categories && categories.map((item,index)=>{
                                             return(
-                                                <Link key={index} className="dropdown_item" href="/mobile" onClick={()=>setIsShowDropdown(!isShowDropdown)}>
+                                                <Link key={index} className="dropdown_item" href={item.href ? item.href : "#"} onClick={()=>setIsShowDropdown(!isShowDropdown)}>
                                                     <Image src={item.icon} width={20} height={20} alt="" className='dropdown_icon'></Image>
                                                     <span>{item.title}</span>
                                                 </Link>

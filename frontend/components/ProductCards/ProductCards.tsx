@@ -8,6 +8,8 @@ import AddCart from '../../assets/images/add-cart.svg'
 import View from '../../assets/images/view.svg'
 import Wish from '../../assets/images/wish.svg'
 import Image from 'next/image';
+import { useAppDispatch} from '@/redux/hook';
+import { getProductById } from '@/redux/features/products/productsSilce';
 
 interface IProps{
     img?:string;
@@ -17,12 +19,17 @@ interface IProps{
 
 const ProductCards:React.FC<IProps> = (props) => {
     const location = useRouter();
+    const dispatch = useAppDispatch();
     const {grid,img,data} = props
-    console.log(data)
+   
+    const handleFetchDetail = (id:string) =>{
+        dispatch(getProductById(id))
+    }
+
     return (
         // <div className={`${location.pathname=="/ourstore" ? `gr-${grid}`:"col-2"}`}>
         <div className={`gr-${grid}`}>
-            <Link href='/123' className={`${styles.product_card} position-relative`}>
+            <Link href={data.slug} className={`${styles.product_card} position-relative`} onClick={()=>{handleFetchDetail(data._id)}}>
                 <div className={`${styles.wishlist_icon} position-absolute`}>
                     <Link href="#">
                         <Image src={Wish} alt="" />
@@ -50,7 +57,7 @@ const ProductCards:React.FC<IProps> = (props) => {
                         starDimension="20px"
                         starRatedColor="#ffd700"
                     />
-                    <p className={`${styles.price} mt-2`}>{data.price}</p>
+                    <p className={`${styles.price} mt-2`}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.price)}</p>
                 </div>
                 <div className={`${styles.action_bar} position-absolute`}>
                     <div className="d-flex flex-column gap-15">
