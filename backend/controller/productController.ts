@@ -92,19 +92,24 @@ export const getAllProducts = asyncHandler(async (req:Request, res:Response):Pro
     try{
         //filter
         const queryObj = {...req.query};
+        console.log(queryObj)
         const excludefields = ["page","sort","limit","fields"];
         excludefields.forEach((el)=> delete queryObj[el]);
         let queryStr = JSON.stringify(queryObj);
-            queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match)=>`$${match}`);
+            queryStr = queryStr.replace(/\b(gte|gt|lte|lt|in)\b/g, (match)=>`$${match}`);
+            console.log(queryStr)
         let query = Product.find(JSON.parse(queryStr)).populate("images");;
         
-        // const queryObj = {"title":{"$or" : "11"}}
-        // let query = Product.find({ $or: [{ name: new RegExp(keyword, 'i') }, { description: new RegExp(keyword, 'i') }] }).populate("images")
+        //////
+        if(req.query.Ram){
+        const technicalInfo = req.query.Ram;
+            console.log(technicalInfo)
+        query.find({technicalInfo: {$regex: technicalInfo}});
+        }
     
         // //sorting
         if(req.query.sort){
             // const sortBy = req.query.sort.split(",").json(" ");
-            console.log(req.query.sort.toString())
             query = query.sort(req.query.sort.toString());
         }else{
             query =query.sort("-createdAt");

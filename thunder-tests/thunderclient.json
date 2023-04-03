@@ -86,26 +86,46 @@
     "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
     "containerId": "",
     "name": "Get All Products",
-    "url": "http://localhost:8000/api/product?category=Điện thoại&brand=Apple&sort=price",
+    "url": "http://localhost:8000/api/product?Ram=4 GB",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-03-28T06:50:04.742Z",
-    "modified": "2023-04-03T10:25:25.320Z",
+    "modified": "2023-04-03T18:01:48.080Z",
     "headers": [],
     "params": [
       {
         "name": "category",
         "value": "Điện thoại",
+        "isDisabled": true,
         "isPath": false
       },
       {
         "name": "brand",
-        "value": "Apple",
+        "value": "Samsung",
+        "isDisabled": true,
         "isPath": false
       },
       {
         "name": "sort",
         "value": "price",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "price[gt]",
+        "value": "1000000",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "price[lt]",
+        "value": "4000000",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "Ram",
+        "value": "4 GB",
         "isPath": false
       }
     ],

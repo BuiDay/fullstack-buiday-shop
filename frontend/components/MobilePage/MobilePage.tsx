@@ -1,4 +1,4 @@
-import React, { useEffect, useState,memo } from 'react';
+import React, { useEffect, useState} from 'react';
 import SideBar from '../Common/SideBar/SideBar';
 import styles from './MobilePage.module.scss'
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
@@ -6,7 +6,7 @@ import { RootState } from '@/redux';
 import { getAllProducts } from '@/redux/features/products/productsSilce';
 import ProductCards from '../ProductCards/ProductCards';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+
 
 interface IQuery{
     category?:string,
@@ -15,17 +15,19 @@ interface IQuery{
 }
 
 const MobilePage = () => { 
+
     const dispatch = useAppDispatch();
     const products  = useAppSelector((state:RootState) => state.products.products)
     const router = useRouter()
-   
+
     useEffect(()=>{
         if(!router.query){
             return
         }
         var x = {category:"Điện thoại",...router.query}
         dispatch(getAllProducts(x))
-    },[router.query])
+    },[router])
+
 
     const handleFilter = (value:string) =>{
         if(router.query.brand){
@@ -52,7 +54,8 @@ const MobilePage = () => {
                                     <div className="d-flex align-items-center gap-10">
                                         <p className='mb-0' style={{whiteSpace:"nowrap"}}>Xếp xếp theo:</p>
                                         <select name="" id="" className='form-control form-select' onChange={(e)=>handleFilter(e.target.value)}>
-                                            <option value="manual">Nổi bật</option>
+                                            <option value="">Tất cả</option>
+                                            <option value="-totalRating">Nổi bật</option>
                                             <option value="best-selling">Mua nhiều</option>
                                             <option value="price">Giá: Thấp-Cao</option>
                                             <option value="-price">Giá: Cao-Thấp</option>
@@ -87,4 +90,5 @@ const MobilePage = () => {
     );
 };
 
-export default memo(MobilePage);
+
+export default MobilePage;

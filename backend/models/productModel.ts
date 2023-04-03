@@ -22,14 +22,14 @@ var productSchema = new mongoose.Schema({
     },
     price:
         {
-            type:String,
+            type:Number,
             required:true,
             default:"0"
         }
     ,
     discount:
         {
-            type:String,
+            type:Number,
             required:true,
             default:"0"
         }
@@ -65,7 +65,7 @@ var productSchema = new mongoose.Schema({
         }
     ],
     totalRating:{
-        type:String,
+        type:Number,
         default:0
     }
 },{

@@ -52,7 +52,7 @@ const ProductCards:React.FC<IProps> = (props) => {
                     }
                     
                     <StarRatings
-                        rating={Math.floor( data.totalRating.split('/')[0])}
+                        rating={Math.floor(data.totalRating)}
                         // edit={false}
                         starDimension="20px"
                         starRatedColor="#ffd700"

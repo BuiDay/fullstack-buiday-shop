@@ -34,13 +34,13 @@ const fn = async (product:any) =>{
     await Product.create({
         title:product?.title[0] || "null",
         slug:slugify(product?.title[0] || "null"),
-        price:product?.price[0] && product?.price[0].price_through!==null && product?.price[0].price_through.match(/\d/g).join('') || "null",
-        discount:product?.price[0] && product?.price[0].price_show ? product?.price[0].price_show === "Giá Liên Hệ" ? "Giá Liên Hệ" :product?.price[0].price_show.match(/\d/g).join('') : product?.price[0].price_show || "null",
+        price:product?.price[0] && product?.price[0].price_through!==null && Number(product?.price[0].price_through.match(/\d/g).join('')) || "null",
+        discount:product?.price[0] && product?.price[0].price_show ? product?.price[0].price_show === "Giá Liên Hệ" ? NaN :Number(product?.price[0].price_show.match(/\d/g).join('')) : product?.price[0].price_show || "null",
         category:product?.category[0] || "null",
         brand:product?.brand[0] || "null",
         color:product?.colors || "null",
         technicalInfo:product?.technicalInfo[0] || "null",
-        totalRating:product?.totalRating[0] || "null",
+        totalRating:Number(product?.totalRating[0].split('/')[0]) || NaN,
         images:newIdImage || "null",
         description:newIdDes || "null",
         quantity:Math.random() * 100 || "null"

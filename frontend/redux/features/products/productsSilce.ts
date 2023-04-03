@@ -11,7 +11,6 @@ const initState:IProducts = {
 }
 
 export const getAllProducts:any = createAsyncThunk("products/get-all",async(data:any,thunkAPI)  =>{
-    console.log(data)
     try{
         return await authService.getProducts(data)
     }catch(err){
