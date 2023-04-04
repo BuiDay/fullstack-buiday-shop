@@ -39,6 +39,7 @@
     font-size: 20px;
     font-weight: 600;
     color: var(--color-1c1c1b);
+    
 }
 
 .main_product_details p.price{
@@ -64,12 +65,12 @@
     margin-bottom: 0;
 }
 
-.main_product_details .border_bottom .button{
+.main_product_details .button{
     padding: 8px 16px;
     font-size: 12px;
 }
 
-.main_product_details .border_bottom .button:hover.orange_color{
+.main_product_details .button:hover.orange_color{
     background-color: var( --color-232f3e);
     color: white;
 }
@@ -82,4 +83,59 @@
 .main_product_details a{
     font-size: 14px;
     color: var(--color-777777);
+}
+
+.review_inner_wrapper{
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.description_wrapper h4,
+.reviews_wrapper h4{
+    font-size: 26px;
+    color: var(--color-1c1c1b);
+}
+
+.description_wrapper p{
+    font-size: 14px;
+    color: var(--color-777777);
+}
+
+.review_head{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 20px;
+}
+
+.review_head h3{
+    font-size: 18px;
+    color: var(--color-1c1c1b);
+}
+
+.review_head p{
+    font-size: 14px;
+    color:var(--color-777777)
+}
+
+.review_form h4{
+    font-size: 16px;
+    color: var(--color-777777);
+}
+
+.review_form .button{
+    padding: 8px 16px;
+    font-size: 12px;
+}
+
+.review:not(:last-child){
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.review p{
+    font-size: 14px;
+    color:var(--color-777777);
+}
+
+.reviews{
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }

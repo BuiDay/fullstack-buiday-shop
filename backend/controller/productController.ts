@@ -107,11 +107,16 @@ export const getAllProducts = asyncHandler(async (req:Request, res:Response):Pro
         //////ram
 
         if(req.query.ram){
-                if (Number(req.query.ram) === 4) query.find({ram:{$lt:req.query.ram}})
-                else query.find({ram:{$gt:req.query.ram}})
-                if (Number(req.query.ram) === 5)  query.find({ram:{$lte:6,$gte:4}})
+                if (Number(req.query.ram) === 4) {
+                    query.find({ram:{$lt:req.query.ram}})
+                }else if (Number(req.query.ram) === 12) {
+                    query.find({ram:{$gt:req.query.ram}})
+                }else if (Number(req.query.ram) === 5)  
+                    query.find({ram:{$lte:6,$gte:4}})
                 else query.find({ram:{$lte:12 ,$gte:8}})
         }
+
+        /////
     
         // //sorting
         if(req.query.sort){

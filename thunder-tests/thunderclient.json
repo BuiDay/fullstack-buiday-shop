@@ -86,11 +86,11 @@
     "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
     "containerId": "",
     "name": "Get All Products",
-    "url": "http://localhost:8000/api/product?ram=6",
+    "url": "http://localhost:8000/api/product",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-03-28T06:50:04.742Z",
-    "modified": "2023-04-03T22:15:09.184Z",
+    "modified": "2023-04-04T05:45:56.680Z",
     "headers": [],
     "params": [
       {
@@ -125,7 +125,8 @@
       },
       {
         "name": "ram",
-        "value": "6",
+        "value": "",
+        "isDisabled": true,
         "isPath": false
       }
     ],

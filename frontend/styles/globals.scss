@@ -320,3 +320,30 @@ footer .input-group-text{
 .star-container{
   padding: 0 !important;
 }
+
+.detail_technical .technical-content-item:nth-child(2n){
+ background-color: #f2f2f2;
+}
+
+.detail_description h2, .detail_description h3{
+  font-size: 20px;
+}
+
+.detail_description p{
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail_description p > img{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.detail_description p span{
+  margin: 0 auto;
+}
+
+// .detail_description p span img{
+//   width: 60%;
+// }
