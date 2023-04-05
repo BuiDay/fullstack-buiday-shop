@@ -19,12 +19,15 @@
             }
         ],
         "colors": [
-            "Đen",
-            "Xanh"
+            "Xanh",
+            "Đen"
         ],
         "technicalInfo": [
             "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.58 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>IPS LCD</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera chính: 50MP, f/1.8<br>Camera macro: 2 MP, f/2.4 Cảm biến độ sâu 2MP, f/2.4</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>8 MP, f/2.0</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Snapdragon 680</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>4GB + Mở rộng 1GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>64 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>5000 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div> Android 12, FunTouchOS 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>1080 x 2408 pixels</div></li>"
         ],
+        "Ram":5,
+        "Storage":64,
+        "Display":6.58,
         "description": [
             {
                 "features_des": "<ul><li> Bộ vi xử lí mạnh mẽ nói không với giật lag - Qualcomm Snapdragon® 680</li><li> Sạc nhanh tức thì, sử dụng dài lâu - Pin lớn 5000mAh, sạc siêu tốc 18W</li><li> RAM Mở Rộng 2.0 - Thoả sức lưu trữ các ứng dụng yêu thích và vận hành mượt mà</li><li> Màn hình sắc nét FHD+ 90Hz sống động mọi hình ảnh</li></ul>",
@@ -39,6 +42,26 @@
         ],
         "brand": [
             "vivo"
+        ],
+        "review": [
+            {
+                "name": "Nguyễn Đức Đạt",
+                "date": "24/10/2022 07:11",
+                "rating": 5,
+                "comment": "Nhận xét : Ngon , bổ , rẻ , chip Snapdargon mạnh chơi game ko nóng máy xịn"
+            },
+            {
+                "name": "Truong",
+                "date": "22/8/2022 10:43",
+                "rating": 5,
+                "comment": "Nhận xét : Sản phẩm tốt rong tầm giá"
+            },
+            {
+                "name": "Huỳnh vũ minh ngọc",
+                "date": "23/6/2022 08:58",
+                "rating": 5,
+                "comment": "Nhận xét : Sạc siêu chậm"
+            }
         ]
     },
     {
@@ -58,7 +81,7 @@
         ],
         "price": [
             {
-                "price_show": "5.690.000 ₫",
+                "price_show": "5.490.000 ₫",
                 "price_through": "5.990.000 ₫"
             }
         ],
@@ -69,6 +92,9 @@
         "technicalInfo": [
             "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.55 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>IPS LCD</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Sau 50MP,  f/1.8 + 2MP,  f/2.4</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>8MP, f/2.0</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Qualcomm Snapdragon 680</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8GB + Mở rộng 8GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>128 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>5000 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Funtouch OS 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>1612x720 (HD+)</div></li>"
         ],
+        "Ram":8,
+        "Storage":128,
+        "Display":6.55,
         "description": [
             {
                 "features_des": "<ul><li> Màn hình màu sắc rực rỡ, thoả sức lướt web, xem phim 6.55\"\", 1612x720 (HD+), 90Hz </li><li> Vận hành trơn tru và mượt mà - Bộ vi xử lý Snapdragon 680 8 nhân, RAM 8GB + Mở rộng 8GB</li><li> Ghi lại trọn vẹn khoảnh khắc đêm - Cụm camera sắc nét 50MP+2MP với đa dạng chế độ chuyên nghiệp</li><li> Pin khủng 5000mAh, sạc nhanh siêu tốc mọi lúc mọi nơi</li></ul>",
@@ -83,6 +109,14 @@
         ],
         "brand": [
             "vivo"
+        ],
+        "review": [
+            {
+                "name": "Tân",
+                "date": "12/9/2022 16:19",
+                "rating": 5,
+                "comment": "Nhận xét : Chất lượng cao, giá rẻ, phù hợp cho hssv"
+            }
         ]
     },
     {
@@ -111,7 +145,7 @@
         ],
         "price": [
             {
-                "price_show": "5.490.000 ₫",
+                "price_show": "5.590.000 ₫",
                 "price_through": "6.490.000 ₫"
             }
         ],
@@ -122,6 +156,9 @@
         "technicalInfo": [
             "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.44 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera chính: 64MP AF <br> Camera góc siêu rộng: 8MP, f/2.2 <br> Camera siêu cận: 2MP, f/2.4</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>50MP AF, f/2.0</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>MediaTek Helio G96</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>128 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>4050mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 11</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>1080 x 2400 pixels (FullHD+)</div></li>"
         ],
+        "Ram":8,
+        "Storage":128,
+        "Display":6.44,
         "description": [
             {
                 "features_des": "<ul><li> Hiển thị chân thực, sống động - Màn hình 6.44\" AMOLED FullHD</li><li> Hiệu năng mạnh mẽ vượt trội - Chip MediaTek Helio G96, RAM mở rộng đến 12GB, Android 11 mượt mà</li><li> Làm chủ mọi khung hình - Cụm 3 camera sau lên đến 64MP, camera selfie 50MP</li><li> Thiết kế mỏng nhẹ, sang trọng - Mỏng chỉ 7.36mm, nhẹ chỉ 172g, mặt lưng chống bám vân tay</li></ul>",
@@ -136,58 +173,14 @@
         ],
         "brand": [
             "vivo"
-        ]
-    },
-    {
-        "title": [
-            "vivo V25 Pro 8GB 128GB"
         ],
-        "images": [
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/p/ip179999_00.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/e/0/e061bd2ab13b5e2263236cb206248daa.png",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/p/ip179999_00.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/v/i/vivo-v25-pro-xanh-glr-2.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/v/i/vivo-v25-pro-xanh-glr-3.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/v/i/vivo-v25-pro-5g-2.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/v/i/vivo-v25-pro-5g-3.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/9/_/9_61.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/8/_/8_87.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/2/_/2_319.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/_/1_333.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/3/_/3_306.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/4/_/4_263.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/5/_/5_222.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/6/_/6_175.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/7/_/7_117.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/0/10_46.jpg"
-        ],
-        "price": [
+        "review": [
             {
-                "price_show": "11.990.000 ₫",
-                "price_through": "13.990.000 ₫"
+                "name": "Hiếu",
+                "date": "21/11/2022 11:17",
+                "rating": 5,
+                "comment": "Nhận xét : Sản phẩm đẹp, quá họp lý trong tầm giá"
             }
-        ],
-        "colors": [
-            "Đen",
-            "Xanh"
-        ],
-        "technicalInfo": [
-            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.56 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera chính 64MP OIS + Góc Rộng 8MP + Siêu Cận 2MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>32MP AF, f/2.45 </div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>MediaTek Dimensity 1300</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8GB + Mở rộng 8GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>128 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>4830 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>1080 x 2376 pixels (FullHD+)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>120Hz, màn hình AMOLED, Kính cường lực Schott Xensation UP</div></li>"
-        ],
-        "description": [
-            {
-                "features_des": "<ul><li> Thiết kế trẻ trung, mặt lưng đổi màu độc đáo - Đổi màu sắc khi có tia UV chiếu vào</li><li> Dẫn đầu xu hướng nhiếp ảnh mới - Hệ thống ba camera lên đến 64MP, đi kèm chống rung quang học OIS</li><li> Hiệu năng mạnh mẽ, xử lý đa tác vụ - Bộ vi xử lý Dimensity 1300, RAM 8GB + Mở rộng 8GB</li><li> Không gian giải trí cực đỉnh - Màn hình AMOLED có kích thước 6.56 inch, 120Hz</li></ul>",
-                "features_detail": "<p style=\"text-align: justify;\"><a href=\"https://cellphones.com.vn/vivo-v25-pro.html\" title=\"Vivo V25 Pro\" target=\"_blank\"><strong>Vivo V25 Pro</strong></a> nổi bật với mức giá phải chăng, ngoại hình đẹp mắt đã thu hút rất nhiều sự quan tâm từ phía người dùng kể từ thời điểm ra mắt. Chiếc smartphone đi kèm với dung lượng pin lớn 4.830 mAh, tốc độ sạc nhanh chóng với công suất 66W và màn hình với tần số quét đạt đến 120Hz cùng độ sáng ấn tượng 1300 nits.</p> <h2 style=\"text-align: justify;\"><strong>Vivo V25 Pro - Khả năng chụp ảnh ấn tượng</strong></h2> <p style=\"text-align: justify;\">Vivo V25 Pro là phiên bản smartphone thuộc phân khúc tầm trung mới nhất của <a href=\"https://cellphones.com.vn/mobile/vivo/v-series.html\" title=\"Vivo V\" target=\"_blank\"><strong>Vivo V</strong></a> trong năm nay. Chiếc điện thoại sẽ tiếp nối những ưu điểm vượt trội hơn các thế hệ đời trước ở phần thiết kế bắt mắt, ngoại hình mỏng, màn hình sống động. Không dừng lại ở đó, thiết bị còn được cải tiến ở những bộ phận khác như dung lượng pin, camera,... và được cải tiến từ <strong><a href=\"https://cellphones.com.vn/vivo-v25.html\" title=\"Vivo V25\" target=\"_blank\">Vivo V25</a></strong>.</p> <h3 style=\"text-align: justify;\"><strong>Thiết kế&nbsp;Vivo V25 Pro mỏng nhẹ với màu sắc sống động</strong></h3> <p style=\"text-align: justify;\">Vivo V25 Pro được đánh giá là chiếc smartphone có ngoại hình bắt mắt nhất thuộc phân khúc điện thoại tầm trung. Thiết bị cung cấp cho người dùng hai phiên bản màu là đen và xanh dương. Đặc biệt hơn hết, mặt lưng của chiếc smartphone này có thể thay đổi màu sắc khi tiếp xúc với từng điều kiện ánh sáng khác nhau, mang đến ngoại hình rực rỡ cho thiết bị.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/vivo_v/vivo-V25-Pro-1-compressed.jpg\" alt=\"Vivo V25 Pro \" loading=\"lazy\"></p> <p style=\"text-align: justify;\">Smartphone được thiết kế với màn hình cong và mặt lưng nhám mang đến cảm giác cầm nắm thoải mái và chắc chắn. Ngoài ra tổng khối lượng của Vivo V25 Pro cũng rất nhẹ khi chỉ dừng ở mức 190g. Chắc chắn bạn sẽ không gặp phải tình trạng mỏi tay khi sử dụng smartphone này trong thời gian dài.</p> <h3 style=\"text-align: justify;\"><strong>Màn hình&nbsp;Vivo V25 Pro cho khả năng hiển thị hình ảnh sắc nét, chân thực</strong></h3> <p style=\"text-align: justify;\">Dòng Vivo V25 Pro đi kèm với chiếc màn hình có kích thước 6.56 inch, một tấm nền AMOLED phủ ở phía trước và độ phân giải Full HD+. Bên cạnh đó chiếc smartphone còn được tối ưu kích thước hiển thị hình ảnh khi có phần viền màn hình rất mỏng và thiết kế màn hình theo kiểu đục lỗ.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/vivo_v/vivo-V25-Pro-4-compressed.jpg\" alt=\"Vivo V25 Pro \" loading=\"lazy\"></p> <p style=\"text-align: justify;\">Vivo V25 Pro là chiếc smartphone có màn hình đẹp nhất trong phân khúc tầm trung. Ngoài những thông số kể trên, màn hình còn có độ sáng cao, cho phép bạn sử dụng ngoài trời và không ảnh hưởng đến trải nghiệm thị giác. Sản phẩm còn có tần số quét ấn tượng 120Hz và khả năng tự động thay đổi tần số làm tươi phù hợp với từng loại nội dung.</p> <h3 style=\"text-align: justify;\"><strong>Xử lý những tác vụ nặng mượt mà và thời lượng pin ấn tượng</strong></h3> <p style=\"text-align: justify;\">Bộ vi xử lý Mediatek Dimensity 1300 5G được tích hợp trên dòng Vivo V25 Pro này có khả năng xử lý những dòng game với mức đồ họa cao mượt mà. Hơn nữa bộ vi xử lý này còn sở hữu phiên bản RAM là 8GB và bộ nhớ trong 128GB. Người dùng có thể chuyển đổi nhanh chóng giữa những ứng dụng và đa nhiệm cùng lúc nhiều tác vụ.</p> <p style=\"text-align: justify;\">Chiếc smartphone đi kèm với viên pin đạt mức dung lượng 4.830 mAh với khả năng kéo dài thời lượng dùng đến một ngày với những tác vụ nhẹ như đọc báo, lướt mạng xã hội. Con số này sẽ rút ngắn nếu bạn sử dụng để chơi game.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/vivo_v/vivo-V25-Pro-6-compressed.jpg\" alt=\"Vivo V25 Pro \" loading=\"lazy\"></p> <p style=\"text-align: justify;\">Ngoài ra điện thoại còn gây ấn tượng bởi bộ sạc nhanh với công suất ấn tượng đạt 66W. Theo đó smartphone có thể nạp đầy năng lượng từ 0% đến 71% chỉ trong vòng 30 phút.</p> <h3 style=\"text-align: justify;\"><strong>Khả năng chụp ảnh sắc nét, chân thực</strong></h3> <p style=\"text-align: justify;\">Dòng Vivo V25 Pro này được trang bị hệ thống 3 camera ở mặt sau với cảm biến chính đạt 64MP và đi kèm với tính năng chống rung quang học và hỗ trợ chụp ảnh vào ban đêm. Theo đó thiết bị có khả năng bắt được những khoảnh khắc một cách rõ ràng dù đang trong điều kiện thiếu ánh sáng.</p> <p style=\"text-align: justify;\">Ngoài camera chính, smartphone cũng đi kèm với một cảm biến chụp ảnh góc rộng 8MP và một camera macro 2MP. Bên cạnh đó là hàng loạt các tính năng hữu ích khác như HDR, chế độ xóa phông,... Tất cả những thông số này chắc chắn sẽ mang đến cho người dùng những bức ảnh rõ nét và ấn tượng nhất.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/vivo_v/vivo-V25-Pro-5-compressed.jpg\" alt=\"Vivo V25 Pro \" loading=\"lazy\"></p> <p style=\"text-align: justify;\">Ở mặt trước, điện thoại được tích hợp với một chiếc camera selfie với độ phân giải đạt đến 32MP. Bên cạnh đó thiết bị còn được tích hợp thêm tính năng tự động lấy nét, giúp bạn có được những bức ảnh selfie tuyệt vời.</p> <h2><strong>Một số câu hỏi thường gặp</strong></h2> <p>CellphoneS tự hào là hệ thống bán lẻ điện thoại, laptop, thiết bị công nghệ uy tín và chất lượng hiện nay. Các cửa hàng trải dài trên các tỉnh thành phố lớn như Hà Nội, Hồ Chí Minh, Đà Nẵng, Bình Dương, Hải Phòng,… mang đến sự thuận tiện trong việc đi lại và trải nghiệm dịch vụ cho khách hàng. Nếu quý khách có bất kỳ câu hỏi nào thêm về Vivo V25 Pro hãy liên hệ ngay với tư vấn viên của CellphoneS nhé!</p> <h3 style=\"text-align: justify;\"><strong>Vivo V25 Pro khi nào ra mắt?</strong></h3> <p style=\"text-align: justify;\">V25 Pro là dòng smartphone tạo được khá nhiều điểm nhấn với khách hàng dù chỉ thuộc phân khúc giá tầm trung.&nbsp;<strong>Vivo V25 Pro</strong> được ra mắt tại một sự kiện của Vivo vào ngày 17 tháng 8 năm 2022.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/vivo_v/vivo-V25-Pro-2-compressed.jpg\" alt=\"Vivo V25 Pro \" loading=\"lazy\"></p> <h3 style=\"text-align: justify;\"><strong>Vivo V25 Pro giá bao nhiêu?</strong></h3> <p style=\"text-align: justify;\">Mức giá khởi điểm của Vivo V25 Pro dành cho phiên bản cơ bản 8GB RAM và 128GB bộ nhớ trong là ₹35,999, tương đương 10,6 triệu đồng. Vivo V25 Pro sẽ cạnh tranh với những đối thủ cùng phân khúc là OnePlus Nord 2T, Nothing Phone 1,...</p> <h2><strong>Mua ngay Vivo V25 Pro chính hãng tại CellphoneS</strong></h2> <p>Vivo V25 Pro phù hợp với những bạn đặt tiêu chí camera lên hàng đầu khi chọn mua một chiếc smartphone. Hãy nhanh chân ghé ngay đến Hệ thống bán lẻ công nghệ CellphoneS để được mua Vivo V25 Pro chính hãng với giá ưu đãi nhé.</p> <div id=\"gtx-trans\" style=\"position: absolute; left: 13px; top: 119.875px;\"><div class=\"gtx-trans-icon\"></div></div>"
-            }
-        ],
-        "category": [
-            "Điện thoại"
-        ],
-        "totalRating": [
-            "0/5"
-        ],
-        "brand": [
-            "vivo"
         ]
     },
     {
@@ -236,6 +229,9 @@
         "technicalInfo": [
             "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.44 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera chính: 64 MP <br> Camera góc siêu rộng: 2 MP <br> Camera Macro: 2 MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>32 MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>MediaTek Helio G99</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>128 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>4500mAh </div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div> Android 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>1300 nits, Tần số quét 90 Hz, Kính cường lực Schott Xensation UP</div></li>"
         ],
+        "Ram":8,
+        "Storage":128,
+        "Display":6.44,
         "description": [
             {
                 "features_des": "<ul><li> Thiết kế đẳng cấp với mặt lưng thay đổi màu sắc - Cạnh viền vát phẳng thân máy siêu mỏng chỉ 7.79 mm </li><li> Màn hình cao cấp, sắc nét cho trải nghiệm tuyệt vời - Màn hình AMOLED 6.44\"\", tần số quét 90 Hz</li><li> Lưu giữ trọn vẹn khoảng khắc - Hệ thống ba camera lên đến 64MP, hỗ trợ nhiều công nghệ chụp ảnh đa năng</li><li> Hiệu năng ổn định, thao tác mượt mà - Sở hữu con chip MediaTek Helio G99 cùng RAM 8GB</li></ul>",
@@ -250,7 +246,64 @@
         ],
         "brand": [
             "vivo"
-        ]
+        ],
+        "review": []
+    },
+    {
+        "title": [
+            "vivo V25 Pro 8GB 128GB"
+        ],
+        "images": [
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/p/ip179999_00.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/e/0/e061bd2ab13b5e2263236cb206248daa.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/p/ip179999_00.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/v/i/vivo-v25-pro-xanh-glr-2.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/v/i/vivo-v25-pro-xanh-glr-3.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/v/i/vivo-v25-pro-5g-2.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/v/i/vivo-v25-pro-5g-3.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/9/_/9_61.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/8/_/8_87.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/2/_/2_319.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/_/1_333.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/3/_/3_306.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/4/_/4_263.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/5/_/5_222.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/6/_/6_175.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/7/_/7_117.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/0/10_46.jpg"
+        ],
+        "price": [
+            {
+                "price_show": "11.990.000 ₫",
+                "price_through": "13.990.000 ₫"
+            }
+        ],
+        "colors": [
+            "Đen",
+            "Xanh"
+        ],
+        "technicalInfo": [
+            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.56 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera chính 64MP OIS + Góc Rộng 8MP + Siêu Cận 2MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>32MP AF, f/2.45 </div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>MediaTek Dimensity 1300</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8GB + Mở rộng 8GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>128 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>4830 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>1080 x 2376 pixels (FullHD+)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>120Hz, màn hình AMOLED, Kính cường lực Schott Xensation UP</div></li>"
+        ],
+        "Ram":8,
+        "Storage":128,
+        "Display":6.56,
+        "description": [
+            {
+                "features_des": "<ul><li> Thiết kế trẻ trung, mặt lưng đổi màu độc đáo - Đổi màu sắc khi có tia UV chiếu vào</li><li> Dẫn đầu xu hướng nhiếp ảnh mới - Hệ thống ba camera lên đến 64MP, đi kèm chống rung quang học OIS</li><li> Hiệu năng mạnh mẽ, xử lý đa tác vụ - Bộ vi xử lý Dimensity 1300, RAM 8GB + Mở rộng 8GB</li><li> Không gian giải trí cực đỉnh - Màn hình AMOLED có kích thước 6.56 inch, 120Hz</li></ul>",
+                "features_detail": "<p style=\"text-align: justify;\"><a href=\"https://cellphones.com.vn/vivo-v25-pro.html\" title=\"Vivo V25 Pro\" target=\"_blank\"><strong>Vivo V25 Pro</strong></a> nổi bật với mức giá phải chăng, ngoại hình đẹp mắt đã thu hút rất nhiều sự quan tâm từ phía người dùng kể từ thời điểm ra mắt. Chiếc smartphone đi kèm với dung lượng pin lớn 4.830 mAh, tốc độ sạc nhanh chóng với công suất 66W và màn hình với tần số quét đạt đến 120Hz cùng độ sáng ấn tượng 1300 nits.</p> <h2 style=\"text-align: justify;\"><strong>Vivo V25 Pro - Khả năng chụp ảnh ấn tượng</strong></h2> <p style=\"text-align: justify;\">Vivo V25 Pro là phiên bản smartphone thuộc phân khúc tầm trung mới nhất của <a href=\"https://cellphones.com.vn/mobile/vivo/v-series.html\" title=\"Vivo V\" target=\"_blank\"><strong>Vivo V</strong></a> trong năm nay. Chiếc điện thoại sẽ tiếp nối những ưu điểm vượt trội hơn các thế hệ đời trước ở phần thiết kế bắt mắt, ngoại hình mỏng, màn hình sống động. Không dừng lại ở đó, thiết bị còn được cải tiến ở những bộ phận khác như dung lượng pin, camera,... và được cải tiến từ <strong><a href=\"https://cellphones.com.vn/vivo-v25.html\" title=\"Vivo V25\" target=\"_blank\">Vivo V25</a></strong>.</p> <h3 style=\"text-align: justify;\"><strong>Thiết kế&nbsp;Vivo V25 Pro mỏng nhẹ với màu sắc sống động</strong></h3> <p style=\"text-align: justify;\">Vivo V25 Pro được đánh giá là chiếc smartphone có ngoại hình bắt mắt nhất thuộc phân khúc điện thoại tầm trung. Thiết bị cung cấp cho người dùng hai phiên bản màu là đen và xanh dương. Đặc biệt hơn hết, mặt lưng của chiếc smartphone này có thể thay đổi màu sắc khi tiếp xúc với từng điều kiện ánh sáng khác nhau, mang đến ngoại hình rực rỡ cho thiết bị.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/vivo_v/vivo-V25-Pro-1-compressed.jpg\" alt=\"Vivo V25 Pro \" loading=\"lazy\"></p> <p style=\"text-align: justify;\">Smartphone được thiết kế với màn hình cong và mặt lưng nhám mang đến cảm giác cầm nắm thoải mái và chắc chắn. Ngoài ra tổng khối lượng của Vivo V25 Pro cũng rất nhẹ khi chỉ dừng ở mức 190g. Chắc chắn bạn sẽ không gặp phải tình trạng mỏi tay khi sử dụng smartphone này trong thời gian dài.</p> <h3 style=\"text-align: justify;\"><strong>Màn hình&nbsp;Vivo V25 Pro cho khả năng hiển thị hình ảnh sắc nét, chân thực</strong></h3> <p style=\"text-align: justify;\">Dòng Vivo V25 Pro đi kèm với chiếc màn hình có kích thước 6.56 inch, một tấm nền AMOLED phủ ở phía trước và độ phân giải Full HD+. Bên cạnh đó chiếc smartphone còn được tối ưu kích thước hiển thị hình ảnh khi có phần viền màn hình rất mỏng và thiết kế màn hình theo kiểu đục lỗ.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/vivo_v/vivo-V25-Pro-4-compressed.jpg\" alt=\"Vivo V25 Pro \" loading=\"lazy\"></p> <p style=\"text-align: justify;\">Vivo V25 Pro là chiếc smartphone có màn hình đẹp nhất trong phân khúc tầm trung. Ngoài những thông số kể trên, màn hình còn có độ sáng cao, cho phép bạn sử dụng ngoài trời và không ảnh hưởng đến trải nghiệm thị giác. Sản phẩm còn có tần số quét ấn tượng 120Hz và khả năng tự động thay đổi tần số làm tươi phù hợp với từng loại nội dung.</p> <h3 style=\"text-align: justify;\"><strong>Xử lý những tác vụ nặng mượt mà và thời lượng pin ấn tượng</strong></h3> <p style=\"text-align: justify;\">Bộ vi xử lý Mediatek Dimensity 1300 5G được tích hợp trên dòng Vivo V25 Pro này có khả năng xử lý những dòng game với mức đồ họa cao mượt mà. Hơn nữa bộ vi xử lý này còn sở hữu phiên bản RAM là 8GB và bộ nhớ trong 128GB. Người dùng có thể chuyển đổi nhanh chóng giữa những ứng dụng và đa nhiệm cùng lúc nhiều tác vụ.</p> <p style=\"text-align: justify;\">Chiếc smartphone đi kèm với viên pin đạt mức dung lượng 4.830 mAh với khả năng kéo dài thời lượng dùng đến một ngày với những tác vụ nhẹ như đọc báo, lướt mạng xã hội. Con số này sẽ rút ngắn nếu bạn sử dụng để chơi game.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/vivo_v/vivo-V25-Pro-6-compressed.jpg\" alt=\"Vivo V25 Pro \" loading=\"lazy\"></p> <p style=\"text-align: justify;\">Ngoài ra điện thoại còn gây ấn tượng bởi bộ sạc nhanh với công suất ấn tượng đạt 66W. Theo đó smartphone có thể nạp đầy năng lượng từ 0% đến 71% chỉ trong vòng 30 phút.</p> <h3 style=\"text-align: justify;\"><strong>Khả năng chụp ảnh sắc nét, chân thực</strong></h3> <p style=\"text-align: justify;\">Dòng Vivo V25 Pro này được trang bị hệ thống 3 camera ở mặt sau với cảm biến chính đạt 64MP và đi kèm với tính năng chống rung quang học và hỗ trợ chụp ảnh vào ban đêm. Theo đó thiết bị có khả năng bắt được những khoảnh khắc một cách rõ ràng dù đang trong điều kiện thiếu ánh sáng.</p> <p style=\"text-align: justify;\">Ngoài camera chính, smartphone cũng đi kèm với một cảm biến chụp ảnh góc rộng 8MP và một camera macro 2MP. Bên cạnh đó là hàng loạt các tính năng hữu ích khác như HDR, chế độ xóa phông,... Tất cả những thông số này chắc chắn sẽ mang đến cho người dùng những bức ảnh rõ nét và ấn tượng nhất.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/vivo_v/vivo-V25-Pro-5-compressed.jpg\" alt=\"Vivo V25 Pro \" loading=\"lazy\"></p> <p style=\"text-align: justify;\">Ở mặt trước, điện thoại được tích hợp với một chiếc camera selfie với độ phân giải đạt đến 32MP. Bên cạnh đó thiết bị còn được tích hợp thêm tính năng tự động lấy nét, giúp bạn có được những bức ảnh selfie tuyệt vời.</p> <h2><strong>Một số câu hỏi thường gặp</strong></h2> <p>CellphoneS tự hào là hệ thống bán lẻ điện thoại, laptop, thiết bị công nghệ uy tín và chất lượng hiện nay. Các cửa hàng trải dài trên các tỉnh thành phố lớn như Hà Nội, Hồ Chí Minh, Đà Nẵng, Bình Dương, Hải Phòng,… mang đến sự thuận tiện trong việc đi lại và trải nghiệm dịch vụ cho khách hàng. Nếu quý khách có bất kỳ câu hỏi nào thêm về Vivo V25 Pro hãy liên hệ ngay với tư vấn viên của CellphoneS nhé!</p> <h3 style=\"text-align: justify;\"><strong>Vivo V25 Pro khi nào ra mắt?</strong></h3> <p style=\"text-align: justify;\">V25 Pro là dòng smartphone tạo được khá nhiều điểm nhấn với khách hàng dù chỉ thuộc phân khúc giá tầm trung.&nbsp;<strong>Vivo V25 Pro</strong> được ra mắt tại một sự kiện của Vivo vào ngày 17 tháng 8 năm 2022.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/vivo_v/vivo-V25-Pro-2-compressed.jpg\" alt=\"Vivo V25 Pro \" loading=\"lazy\"></p> <h3 style=\"text-align: justify;\"><strong>Vivo V25 Pro giá bao nhiêu?</strong></h3> <p style=\"text-align: justify;\">Mức giá khởi điểm của Vivo V25 Pro dành cho phiên bản cơ bản 8GB RAM và 128GB bộ nhớ trong là ₹35,999, tương đương 10,6 triệu đồng. Vivo V25 Pro sẽ cạnh tranh với những đối thủ cùng phân khúc là OnePlus Nord 2T, Nothing Phone 1,...</p> <h2><strong>Mua ngay Vivo V25 Pro chính hãng tại CellphoneS</strong></h2> <p>Vivo V25 Pro phù hợp với những bạn đặt tiêu chí camera lên hàng đầu khi chọn mua một chiếc smartphone. Hãy nhanh chân ghé ngay đến Hệ thống bán lẻ công nghệ CellphoneS để được mua Vivo V25 Pro chính hãng với giá ưu đãi nhé.</p> <div id=\"gtx-trans\" style=\"position: absolute; left: 13px; top: 119.875px;\"><div class=\"gtx-trans-icon\"></div></div>"
+            }
+        ],
+        "category": [
+            "Điện thoại"
+        ],
+        "totalRating": [
+            "0/5"
+        ],
+        "brand": [
+            "vivo"
+        ],
+        "review": []
     },
     {
         "title": [
@@ -265,7 +318,7 @@
         ],
         "price": [
             {
-                "price_show": "4.290.000 ₫",
+                "price_show": "3.990.000 ₫",
                 "price_through": "4.490.000 ₫"
             }
         ],
@@ -276,6 +329,9 @@
         "technicalInfo": [
             "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.51 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>IPS LCD</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Cảm biến chính 13 MP, khẩu độ f/2.2 <br> Ống kính macro kiêm độ sâu 2 MP, khẩu độ f/2.4, đèn flash LED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>5 MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>MediaTek Helio P35 8 nhân</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>4GB + Mở rộng 1GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>128 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>5.000 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 12 với giao diện FunTouch OS 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>720 x 1600 pixel</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>Độ phủ màu: 72% NTSC <br> Tần số quét: 90Hz <br> Độ sáng tối đa: 530nit</div></li>"
         ],
+        "Ram":5,
+        "Storage":128,
+        "Display":6.51,
         "description": [
             {
                 "features_des": "<ul><li> Cuốn hút từ ánh nhìn đầu tiên - Thiết kế khung viền phẳng sang trọng, màu sắc họa tiết ánh sao</li><li> Hình ảnh sống động đến bất ngờ - Màn hình IPS LCD 6.51 inch, chế độ bảo vệ mắt thông minh</li><li> Hiệu suất ấn tượng với chip MediaTek Helio P35, RAM 4GB + Mở rộng 1GB cho đa nhiệm mượt mà</li><li> Hỗ trợ chụp ảnh đa phong cách - Bộ đôi camera kép Chính 13 MP &amp; phụ 2 MP kèm nhiều tính năng thú vị</li></ul>",
@@ -290,6 +346,14 @@
         ],
         "brand": [
             "vivo"
+        ],
+        "review": [
+            {
+                "name": "Dan Do",
+                "date": "15/3/2023 10:42",
+                "rating": 5,
+                "comment": "Nhận xét : Tôi mua Vivo Y16 tại CellphoneS do bạn Ngân chi nhánh 3/2 tư vấn, sử dụng được 2 tháng rồi thấy rất ưng ý, máy khoẻ."
+            }
         ]
     },
     {
@@ -339,6 +403,9 @@
         "technicalInfo": [
             "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.75 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera góc rộng: 50 MP, f/1.8, PDAF, OIS <br>Camera tele: 12 MP, f/2.0, PDAF, 2x zoom quang học<br>Camera góc siêu rộng: 12 MP, f/2.0</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>32 MP, f/2.5</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>MediaTek Dimensity 9000</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>12 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>256 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>Li-Po 4500 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Funtouch OS 12, Android 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>1080 x 2400 pixels (FullHD+)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>AMOLED, 120Hz</div></li>"
         ],
+        "Ram":12,
+        "Storage":256,
+        "Display":6.75,
         "description": [
             {
                 "features_des": "<ul><li> Màu sắc sống động, góc nhìn rộng bất tận - Màn hình trên 6\", AMOLED, FullHD+, 120Hz</li><li> Hiệu năng mạnh mẽ, ấn tượng với con chip MediaTek Dimensity 9000, RAM 12GB</li><li> Cụm camera Chính 50 MP &amp; Phụ 12 MP, 12 MP chống rung hiệu quả, đa dạng chế độ chụp</li><li> Pin trâu, sạc nhanh không gián đoạn - 4500mAh, hỗ trợ sạc nhanh 80W</li></ul>",
@@ -353,49 +420,63 @@
         ],
         "brand": [
             "vivo"
-        ]
+        ],
+        "review": []
     },
     {
         "title": [
-            "vivo T1X 8GB 128GB"
+            "Vivo X80 Pro"
         ],
         "images": [
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/t/1/t1x_01_2.png",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/t/1/t1x_01_2.png",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/t/1/t1x_2.png",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img1_1.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img4_1.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img5_1.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img3_1.jpg"
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img1_2.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img10.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img1_2.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img19898.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/v/i/vivo-x80-pro-3.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/v/i/vivo-x80-pro-2.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/2/_/2_65_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/_/1_85_7.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/4/_/4_43_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/3/_/3_51_3.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/5/_/5_35_3.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/6/_/6_25_1.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/7/_/7_9_3.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/8/_/8_7_7.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/9/_/9_3_9.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/0/10_6_6.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/1/11_5_4.png"
         ],
         "price": [
             {
-                "price_show": "5.590.000 ₫",
-                "price_through": "5.990.000 ₫"
+                "price_show": "18.990.000 ₫",
+                "price_through": "29.990.000 ₫"
             }
         ],
         "colors": [
-            "Đen",
-            "Xanh"
+            "Đen"
         ],
         "technicalInfo": [
-            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.58 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>IPS LCD</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera chính: 50MP, f/1.8<br>Camera macro: 2 MP, f/2.4 Cảm biến độ sâu2MP, f/2.4</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>8 MP, f/2.0</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Snapdragon 680</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>128 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div> 5000 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 12, FunTouchOS 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>1080 x 2408 pixels</div></li>"
+            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.78 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>50MP+48MP+12MP+8MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>32 MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Snapdragon 8 Gen 1</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>12 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>256 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>Li-Po 4700 mAh, không thể tháo rời pin</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>3440x1440 pixels</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>120Hz <br> HDR10 +</div></li>"
         ],
+        "Ram":12,
+        "Storage":256,
+        "Display":6.78,
         "description": [
             {
-                "features_des": "<ul><li> Bộ vi xử lí mạnh mẽ nói không với giật lag - Qualcomm Snapdragon® 680</li><li> Sạc nhanh tức thì, sử dụng dài lâu - Pin lớn 5000mAh, sạc siêu tốc 18W</li><li> RAM Mở Rộng 2.0 - Thoả sức lưu trữ các ứng dụng yêu thích và vận hành mượt mà</li><li> Hiển thị sống động mọi chi tiết với màn hình sắc nét LCD FHD+ 90Hz</li></ul>",
-                "features_detail": "<p><a href=\"https://cellphones.com.vn/vivo-t1x.html\" title=\"Vivo T1X\" target=\"_blank\"><strong>Vivo T1X</strong></a> sở hữu mặt lưng bóng bẩy đi kèm trọng lượng mỏng nhẹ. Hơn nữa, với độ dày khoảng 8mm, đây chính là phiên bản điện thoại tầm trung sở hữu khá nhiều ưu điểm và tính năng mạnh bạn có thể cân nhắc lựa chọn. Ngoài ra Vivo T1X còn được trang bị viên pin sạc nhanh giúp bạn có thể thoải mái sử dụng trong một ngày dài. Hơn nữa Vivo T1X còn có khá nhiều phiên bản Ram và GB khác nhau giúp bạn thoải mái lựa chọn.&nbsp;</p>"
+                "features_des": "<ul><li> Mở ra khung hình sắc nét, mượt mà - Màn hình 6.78\", AMOLED, WQHD+, 120Hz</li><li> Hiệu năng đỉnh cao, cân mọi tác vụ - Chip Snapdragon 8 Gen 1 siêu mạnh mẽ</li><li> Sáng tạo chuẩn điện ảnh - Camera 50MP, bộ vi xử lý hình ảnh riêng Vivo V1+</li><li> Không lo gián đoạn mọi cuộc vui - Pin 4700mAh, sạc nhanh 80W</li></ul>",
+                "features_detail": "<p style=\"text-align: justify;\">Vivo vừa tổ chức một sự kiện ra mắt lớn vào ngày 25 tháng 4 năm 2022 để trình làng những mẫu điện thoại mới. Điểm nhấn chính của sự kiện không ai khác chính là dòng Vivo X80 Pro hàng đầu mới, được trang bị đến hai bộ vi xử lý khác nhau và sở hữu các thông số kỹ thuật cực kỳ ấn tượng. Vậy sản phẩm có giá bao nhiêu, có gì nổi bật? Cùng tìm hiểu nhé!</p> <h2 style=\"text-align: justify;\"><strong>Đánh giá </strong><strong>Vivo X80 Pro – Hiệu năng mạnh mẽ</strong></h2> <p style=\"text-align: justify;\">Siêu phẩm mới của Vivo mang trong mình hiệu năng mạnh mẽ, với thiết kế ấn tượng, nhiều người sử dụng tìm kiếm thông tin để đặt mua, ngoài ra các tính năng khác được hoàn thiện khiến cho <a href=\"https://cellphones.com.vn/vivo-x80-pro.html\" target=\"_blank\"><strong>Vivo X80 Pro</strong></a> được các tín đồ công nghệ tin dùng. Sau đây là những đánh giá chi tiết về chiếc smartphone này để giúp bạn có được cái nhìn tổng quan nhất về sản phẩm.</p> <h3 style=\"text-align: justify;\"><strong>Thiết kế ấn tượng</strong></h3> <p style=\"text-align: justify;\">Sản phẩm Vivo X80 Pro thuộc dòng sản phẩm Vivo X Series cao cấp có màu sắc tinh tế, toát lên vẻ sang trọng, màn hình bóng loáng, mặt kính cao cấp. Cảm biến nhanh, nhạy khiến các thao tác trở nên nhanh, dễ dàng hơn. Kích thước lớn, đủ để cầm nắm mà không cần lo đến các vấn đề thiết bị của bạn quá lớn hay quá nhỏ, tạo nên sự bất tiện khi sử dụng.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/Vivo_x/Vivo-X80-Pro-6.jpg\" alt=\"Đánh giá Vivo X80 Pro – Hiệu năng mạnh mẽ\" loading=\"lazy\"></p> <p style=\"text-align: justify;\">Điện thoại Vivo X80 Pro có bộ camera chất lượng cao, tạo độ nét, rõ ràng khi chụp hay quay lại những khoảnh khắc đáng nhớ, sẽ không mất hứng khi màu sắc không sống động, hình mờ hay vỡ ảnh. Người dùng thoải mái sáng tạo mọi kiểu dáng, X80 Pro luôn bắt trọn từng khung hình, không cần phải qua nhiều app chỉnh sửa ảnh.<br> Màn hình với màu sắc sống động, rực rỡ lên đến 16 triệu màu, 120Hz, WQHD&nbsp;khiến hình ảnh rõ nét, thỏa thích xem phim, chơi game để trải nghiệm từng đường nét chân thực nhất. Kèm theo cảm ứng vân tay khiến các tác vụ không còn chậm trễ.</p> <h3 style=\"text-align: justify;\"><strong>Hiệu năng mạnh mẽ</strong></h3> <p style=\"text-align: justify;\">Trước khi tung ra thị trường, Vivo X80 Pro đã qua rất nhiều công đoạn, để cải tiến và được hoàn thiện trước ra mắt với công nghệ cao, đây sẽ là đối thủ đáng gờm đối với những chiếc điện thoại cùng phân khúc khác, với hệ điều hành mới nhất Android 12, hiện đại. Bộ nhớ rộng lớn, tạo không gian lưu trữ rộng, người dùng có thể tha hồ tải game, tài liệu, thao tác nhiều trên máy trong một thời gian dài mà không lo bộ nhớ nhanh đầy.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/Vivo_x/Vivo-X80-Pro-3.jpg\" alt=\"Đánh giá Vivo X80 Pro – Hiệu năng mạnh mẽ\" loading=\"lazy\"></p> <p style=\"text-align: justify;\">Bạn có thể thoải chơi game, đọc báo, xem phim, … cả ngày khi có Vivo X80 Pro, thời lượng pin trâu nên khi sử dụng cả ngày dài mà không lo hết pin giữa chừng. Làm mất hứng thú trong các cuộc chiến sinh tồn hay bộ phim, đang xem, còn kèm theo sạc nhanh, giúp pin khi sắp hết sẽ nhanh đầy, để tiếp tục cuộc vui. Máy sử dụng với cảm biến là 50MP sẽ tự động lấy nét khi chụp.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/Vivo_x/Vivo-X80-Pro-4.jpg\" alt=\"camera\" loading=\"lazy\"></p> <h3 style=\"text-align: justify;\"><strong>Âm thanh rõ ràng</strong></h3> <p style=\"text-align: justify;\">Vivo X80 Pro giúp người dùng thư giãn, hay nghỉ ngơi thông qua các hình thức giải trí khác nhau như chơi game, nghe nhạc, … Âm sắc rõ ràng, người dùng như đang đi sâu vào trong từng giai điệu, bản nhạc, nhập vai vào game sinh tồn. Ngoài ra, phần hình ảnh cũng sống động, ấn tượng khiến người dùng không thể rời mắt một giây phút nào.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/Vivo_x/Vivo-X80-Pro-5.jpg\" alt=\"Đánh giá Vivo X80 Pro – Hiệu năng mạnh mẽ\" loading=\"lazy\"></p> <p style=\"text-align: justify;\">Với con chip flagship&nbsp;tân tiến, hiện đại, gây ấn tượng mạnh đến người sử dụng, nhanh nhạy đây chính là ưu điểm nổi bậc về hiệu năng sản phẩm. Bên cạnh đó, sản phẩm với bộ vi xử lý Snapdragon 8 gen 1 khiến điện thoại được đặt hàng nhiều và vẫn chưa hạ nhiệt.</p> <h3 style=\"text-align: justify;\"><strong>Kết nối đơn giản</strong></h3> <p style=\"text-align: justify;\">Bạn không biết <strong>X80 Pro</strong> kết nối được với những gì? Và sản phẩm có kết nối với các thiết bị khác như Wi-Fi, GPS và USB Type-C nhanh chóng mà không gặp trở ngại gì, tha hồ kết nối để tận hưởng những giây phút thư giãn thoải mái, trong thời gian rảnh, hay nghỉ ngơi.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/Vivo_x/Vivo-X80-Pro-2.jpg\" alt=\"Đánh giá Vivo X80 Pro – Hiệu năng mạnh mẽ\" loading=\"lazy\"></p> <h2 style=\"text-align: justify;\"><strong>Điện thoại Vivo X80 Pro giá bao nhiêu?</strong></h2> <p style=\"text-align: justify;\">Điện thoại Vivi X80 Pro sẽ được ra mắt, tung ra thị trường vào tháng 4 tới đây, với giá và 5.699 CNY (khoảng 20.6 triệu đồng), giá cả vô cùng xứng đáng của hiệu năng máy có thể làm được. Nhanh tay đặt hàng tại Vivo X80 Pro để có thể săn đón, bắt kịp xu hướng của giới trẻ.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/Vivo_x/Vivo-X80-Pro-1.jpg\" alt=\"giá bao nhiêu\" loading=\"lazy\"></p> <h2 style=\"text-align: justify;\"><strong>Đến CellphoneS để sở hữu Vivo X80 Pro hàng chính hãng</strong></h2> <p style=\"text-align: justify;\"><strong>Điện thoại Vivo X80 Pro</strong> là một lựa chọn sẽ đem lại những trải nghiệm tuyệt vời, về cả nhiều mặt, bạn vẫn chưa biết nơi nào nhập hàng chính hãng để mua? CellphoneS là một lựa chọn tốt, khi dịch vụ chăm sóc khách hàng tận tình, hàng chính hãng, giá lại tôt, kèm theo nhiều ưu đãi khi đến, bạn còn có thể đặt hàng online qua các thiết bị di động hay máy tính.</p>"
             }
         ],
         "category": [
             "Điện thoại"
         ],
         "totalRating": [
-            "4.5/5"
+            "0/5"
         ],
         "brand": [
-            "vivo"
-        ]
+            "Vivo"
+        ],
+        "review": []
     },
     {
         "title": [
@@ -425,6 +506,9 @@
         "technicalInfo": [
             "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.44 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Chính 64 MP &amp; Phụ 8 MP, 2 MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>50 MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div> MediaTek Dimensity 900 5G</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8GB + Mở rộng 8GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>128 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>4.500 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>Tần số quét 90 Hz, Độ sáng tối đa: 1300 nits, Mặt kính cảm ứng: Kính cường lực Schott Xensation UP</div></li>"
         ],
+        "Ram":8,
+        "Storage":128,
+        "Display":6.44,
         "description": [
             {
                 "features_des": "<ul><li> Thiết kế tinh tế đầy sang trọng - Kính phủ đều hai mặt, 2 viền mỏng cùng màu sắc hết sức trẻ trung và hiện đại</li><li> Thoả sức chụp ảnh selfie chất lượng cao - Camera chính độ phân giải 64 MP đi kèm nhiều tính năng cao cấp</li><li> Tái hiện hình ảnh rực rỡ, ấn tượng - Tấm nền AMOLED với kích thước 6.44 inch, tần số quét 90 Hz</li><li> Thoải mái chiến game với chip hiệu năng cao - MediaTek Dimensity 900 5G, RAM 8GB + mở rộng 8GB</li></ul>",
@@ -439,57 +523,66 @@
         ],
         "brand": [
             "vivo"
-        ]
+        ],
+        "review": []
     },
     {
         "title": [
-            "Vivo X80 Pro"
+            "vivo T1X 8GB 128GB"
         ],
         "images": [
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img1_2.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img10.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img1_2.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img19898.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/v/i/vivo-x80-pro-3.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/v/i/vivo-x80-pro-2.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/2/_/2_65_2.png",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/_/1_85_7.png",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/4/_/4_43_2.png",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/3/_/3_51_3.png",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/5/_/5_35_3.png",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/6/_/6_25_1.png",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/7/_/7_9_3.png",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/8/_/8_7_7.png",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/9/_/9_3_9.png",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/0/10_6_6.png",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/1/11_5_4.png"
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/t/1/t1x_01_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/t/1/t1x_01_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/t/1/t1x_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img1_1.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img4_1.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img5_1.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/a/gallery-pc-img3_1.jpg"
         ],
         "price": [
             {
-                "price_show": "19.990.000 ₫",
-                "price_through": "29.990.000 ₫"
+                "price_show": "5.390.000 ₫",
+                "price_through": "5.990.000 ₫"
             }
         ],
         "colors": [
-            "Đen"
+            "Đen",
+            "Xanh"
         ],
         "technicalInfo": [
-            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.78 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>50MP+48MP+12MP+8MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>32 MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Snapdragon 8 Gen 1</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>12 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>256 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>Li-Po 4700 mAh, không thể tháo rời pin</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>3440x1440 pixels</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>120Hz <br> HDR10 +</div></li>"
+            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.58 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>IPS LCD</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera chính: 50MP, f/1.8<br>Camera macro: 2 MP, f/2.4 Cảm biến độ sâu2MP, f/2.4</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>8 MP, f/2.0</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Snapdragon 680</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>128 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div> 5000 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 12, FunTouchOS 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>1080 x 2408 pixels</div></li>"
         ],
+        "Ram":8,
+        "Storage":128,
+        "Display":6.58,
         "description": [
             {
-                "features_des": "<ul><li> Mở ra khung hình sắc nét, mượt mà - Màn hình 6.78\", AMOLED, WQHD+, 120Hz</li><li> Hiệu năng đỉnh cao, cân mọi tác vụ - Chip Snapdragon 8 Gen 1 siêu mạnh mẽ</li><li> Sáng tạo chuẩn điện ảnh - Camera 50MP, bộ vi xử lý hình ảnh riêng Vivo V1+</li><li> Không lo gián đoạn mọi cuộc vui - Pin 4700mAh, sạc nhanh 80W</li></ul>",
-                "features_detail": "<p style=\"text-align: justify;\">Vivo vừa tổ chức một sự kiện ra mắt lớn vào ngày 25 tháng 4 năm 2022 để trình làng những mẫu điện thoại mới. Điểm nhấn chính của sự kiện không ai khác chính là dòng Vivo X80 Pro hàng đầu mới, được trang bị đến hai bộ vi xử lý khác nhau và sở hữu các thông số kỹ thuật cực kỳ ấn tượng. Vậy sản phẩm có giá bao nhiêu, có gì nổi bật? Cùng tìm hiểu nhé!</p> <h2 style=\"text-align: justify;\"><strong>Đánh giá </strong><strong>Vivo X80 Pro – Hiệu năng mạnh mẽ</strong></h2> <p style=\"text-align: justify;\">Siêu phẩm mới của Vivo mang trong mình hiệu năng mạnh mẽ, với thiết kế ấn tượng, nhiều người sử dụng tìm kiếm thông tin để đặt mua, ngoài ra các tính năng khác được hoàn thiện khiến cho <a href=\"https://cellphones.com.vn/vivo-x80-pro.html\" target=\"_blank\"><strong>Vivo X80 Pro</strong></a> được các tín đồ công nghệ tin dùng. Sau đây là những đánh giá chi tiết về chiếc smartphone này để giúp bạn có được cái nhìn tổng quan nhất về sản phẩm.</p> <h3 style=\"text-align: justify;\"><strong>Thiết kế ấn tượng</strong></h3> <p style=\"text-align: justify;\">Sản phẩm Vivo X80 Pro thuộc dòng sản phẩm Vivo X Series cao cấp có màu sắc tinh tế, toát lên vẻ sang trọng, màn hình bóng loáng, mặt kính cao cấp. Cảm biến nhanh, nhạy khiến các thao tác trở nên nhanh, dễ dàng hơn. Kích thước lớn, đủ để cầm nắm mà không cần lo đến các vấn đề thiết bị của bạn quá lớn hay quá nhỏ, tạo nên sự bất tiện khi sử dụng.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/Vivo_x/Vivo-X80-Pro-6.jpg\" alt=\"Đánh giá Vivo X80 Pro – Hiệu năng mạnh mẽ\" loading=\"lazy\"></p> <p style=\"text-align: justify;\">Điện thoại Vivo X80 Pro có bộ camera chất lượng cao, tạo độ nét, rõ ràng khi chụp hay quay lại những khoảnh khắc đáng nhớ, sẽ không mất hứng khi màu sắc không sống động, hình mờ hay vỡ ảnh. Người dùng thoải mái sáng tạo mọi kiểu dáng, X80 Pro luôn bắt trọn từng khung hình, không cần phải qua nhiều app chỉnh sửa ảnh.<br> Màn hình với màu sắc sống động, rực rỡ lên đến 16 triệu màu, 120Hz, WQHD&nbsp;khiến hình ảnh rõ nét, thỏa thích xem phim, chơi game để trải nghiệm từng đường nét chân thực nhất. Kèm theo cảm ứng vân tay khiến các tác vụ không còn chậm trễ.</p> <h3 style=\"text-align: justify;\"><strong>Hiệu năng mạnh mẽ</strong></h3> <p style=\"text-align: justify;\">Trước khi tung ra thị trường, Vivo X80 Pro đã qua rất nhiều công đoạn, để cải tiến và được hoàn thiện trước ra mắt với công nghệ cao, đây sẽ là đối thủ đáng gờm đối với những chiếc điện thoại cùng phân khúc khác, với hệ điều hành mới nhất Android 12, hiện đại. Bộ nhớ rộng lớn, tạo không gian lưu trữ rộng, người dùng có thể tha hồ tải game, tài liệu, thao tác nhiều trên máy trong một thời gian dài mà không lo bộ nhớ nhanh đầy.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/Vivo_x/Vivo-X80-Pro-3.jpg\" alt=\"Đánh giá Vivo X80 Pro – Hiệu năng mạnh mẽ\" loading=\"lazy\"></p> <p style=\"text-align: justify;\">Bạn có thể thoải chơi game, đọc báo, xem phim, … cả ngày khi có Vivo X80 Pro, thời lượng pin trâu nên khi sử dụng cả ngày dài mà không lo hết pin giữa chừng. Làm mất hứng thú trong các cuộc chiến sinh tồn hay bộ phim, đang xem, còn kèm theo sạc nhanh, giúp pin khi sắp hết sẽ nhanh đầy, để tiếp tục cuộc vui. Máy sử dụng với cảm biến là 50MP sẽ tự động lấy nét khi chụp.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/Vivo_x/Vivo-X80-Pro-4.jpg\" alt=\"camera\" loading=\"lazy\"></p> <h3 style=\"text-align: justify;\"><strong>Âm thanh rõ ràng</strong></h3> <p style=\"text-align: justify;\">Vivo X80 Pro giúp người dùng thư giãn, hay nghỉ ngơi thông qua các hình thức giải trí khác nhau như chơi game, nghe nhạc, … Âm sắc rõ ràng, người dùng như đang đi sâu vào trong từng giai điệu, bản nhạc, nhập vai vào game sinh tồn. Ngoài ra, phần hình ảnh cũng sống động, ấn tượng khiến người dùng không thể rời mắt một giây phút nào.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/Vivo_x/Vivo-X80-Pro-5.jpg\" alt=\"Đánh giá Vivo X80 Pro – Hiệu năng mạnh mẽ\" loading=\"lazy\"></p> <p style=\"text-align: justify;\">Với con chip flagship&nbsp;tân tiến, hiện đại, gây ấn tượng mạnh đến người sử dụng, nhanh nhạy đây chính là ưu điểm nổi bậc về hiệu năng sản phẩm. Bên cạnh đó, sản phẩm với bộ vi xử lý Snapdragon 8 gen 1 khiến điện thoại được đặt hàng nhiều và vẫn chưa hạ nhiệt.</p> <h3 style=\"text-align: justify;\"><strong>Kết nối đơn giản</strong></h3> <p style=\"text-align: justify;\">Bạn không biết <strong>X80 Pro</strong> kết nối được với những gì? Và sản phẩm có kết nối với các thiết bị khác như Wi-Fi, GPS và USB Type-C nhanh chóng mà không gặp trở ngại gì, tha hồ kết nối để tận hưởng những giây phút thư giãn thoải mái, trong thời gian rảnh, hay nghỉ ngơi.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/Vivo_x/Vivo-X80-Pro-2.jpg\" alt=\"Đánh giá Vivo X80 Pro – Hiệu năng mạnh mẽ\" loading=\"lazy\"></p> <h2 style=\"text-align: justify;\"><strong>Điện thoại Vivo X80 Pro giá bao nhiêu?</strong></h2> <p style=\"text-align: justify;\">Điện thoại Vivi X80 Pro sẽ được ra mắt, tung ra thị trường vào tháng 4 tới đây, với giá và 5.699 CNY (khoảng 20.6 triệu đồng), giá cả vô cùng xứng đáng của hiệu năng máy có thể làm được. Nhanh tay đặt hàng tại Vivo X80 Pro để có thể săn đón, bắt kịp xu hướng của giới trẻ.</p> <p style=\"text-align: justify;\"><img src=\"https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Phone/Vivo/Vivo_x/Vivo-X80-Pro-1.jpg\" alt=\"giá bao nhiêu\" loading=\"lazy\"></p> <h2 style=\"text-align: justify;\"><strong>Đến CellphoneS để sở hữu Vivo X80 Pro hàng chính hãng</strong></h2> <p style=\"text-align: justify;\"><strong>Điện thoại Vivo X80 Pro</strong> là một lựa chọn sẽ đem lại những trải nghiệm tuyệt vời, về cả nhiều mặt, bạn vẫn chưa biết nơi nào nhập hàng chính hãng để mua? CellphoneS là một lựa chọn tốt, khi dịch vụ chăm sóc khách hàng tận tình, hàng chính hãng, giá lại tôt, kèm theo nhiều ưu đãi khi đến, bạn còn có thể đặt hàng online qua các thiết bị di động hay máy tính.</p>"
+                "features_des": "<ul><li> Bộ vi xử lí mạnh mẽ nói không với giật lag - Qualcomm Snapdragon® 680</li><li> Sạc nhanh tức thì, sử dụng dài lâu - Pin lớn 5000mAh, sạc siêu tốc 18W</li><li> RAM Mở Rộng 2.0 - Thoả sức lưu trữ các ứng dụng yêu thích và vận hành mượt mà</li><li> Hiển thị sống động mọi chi tiết với màn hình sắc nét LCD FHD+ 90Hz</li></ul>",
+                "features_detail": "<p><a href=\"https://cellphones.com.vn/vivo-t1x.html\" title=\"Vivo T1X\" target=\"_blank\"><strong>Vivo T1X</strong></a> sở hữu mặt lưng bóng bẩy đi kèm trọng lượng mỏng nhẹ. Hơn nữa, với độ dày khoảng 8mm, đây chính là phiên bản điện thoại tầm trung sở hữu khá nhiều ưu điểm và tính năng mạnh bạn có thể cân nhắc lựa chọn. Ngoài ra Vivo T1X còn được trang bị viên pin sạc nhanh giúp bạn có thể thoải mái sử dụng trong một ngày dài. Hơn nữa Vivo T1X còn có khá nhiều phiên bản Ram và GB khác nhau giúp bạn thoải mái lựa chọn.&nbsp;</p>"
             }
         ],
         "category": [
             "Điện thoại"
         ],
         "totalRating": [
-            "0/5"
+            "4.5/5"
         ],
         "brand": [
-            "Vivo"
+            "vivo"
+        ],
+        "review": [
+            {
+                "name": "Thanh",
+                "date": "20/1/2023 20:56",
+                "rating": 4,
+                "comment": "Nhận xét : Vivo t1x co nguyên seal không shop"
+            },
+            {
+                "name": "Phuong",
+                "date": "12/1/2023 16:24",
+                "rating": 5,
+                "comment": "Nhận xét : camera đẹp, hiệu năng tốt, máy ngon trong tầm giá"
+            }
         ]
     },
     {
@@ -516,6 +609,9 @@
         "technicalInfo": [
             "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.58 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>IPS LCD</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera chính: 50MP,  f/1.8  <br> Camera Xoá Phôn: 2MP, f/2.4<br> Camera Siêu Cận: 2MP, f/2.4</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>16MP,  f/2.0 </div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Qualcomm Snapdragon 680 6nm</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8GB + Mở rộng 8GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>128 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>5000 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>1080 x 2408 pixels</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>Tần số quét 90Hz, độ sáng tối đa 500nits, 96% NTSC, Chế độ Bảo Vệ Mắt </div></li>"
         ],
+        "Ram":8,
+        "Storage":128,
+        "Display":6.58,
         "description": [
             {
                 "features_des": "<ul><li> Trải nghiệm thị giác tuyệt vời - Màn hình rực rỡ 6.58”, độ phân giải FHD+ (2408x1080)</li><li> Thiết kế phong cách, phối màu thời thượng - Khung viền phẳng 2.5D với các góc bo tròn đối xứng</li><li> Hiệu suất mạnh mẽ đến không ngờ - Chip Snapdragon 680 6nm cùng RAM Mở Rộng 3.0</li><li> Nhiếp ảnh thông minh hơn - Camera chính lên đến 50MP, hỗ trợ chụp đêm và chụp chân dung cực đỉnh</li></ul>",
@@ -530,6 +626,20 @@
         ],
         "brand": [
             "vivo"
+        ],
+        "review": [
+            {
+                "name": "Dan Do",
+                "date": "15/3/2023 10:49",
+                "rating": 5,
+                "comment": "Nhận xét : Tôi mua Vivo Y35 cho mẹ sử dụng, camera chụp ổn, cấu hình khoẻ đủ cho mẹ tôi xem phim gọi video call."
+            },
+            {
+                "name": "Lê Vy",
+                "date": "15/3/2023 10:48",
+                "rating": 5,
+                "comment": "Nhận xét : Vivo Y35 sử dụng bền, sạc pin nhanh. Nhất định sẽ ủng hộ lại sốp lần nữa"
+            }
         ]
     },
     {
@@ -561,7 +671,7 @@
         ],
         "price": [
             {
-                "price_show": "3.290.000 ₫",
+                "price_show": "2.990.000 ₫",
                 "price_through": "3.490.000 ₫"
             }
         ],
@@ -572,6 +682,9 @@
         "technicalInfo": [
             "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.51 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>IPS LCD</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>8 MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>5MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div> MediaTek Helio P35 8 nhân </div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>3 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>32 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>Li-Po 5000 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>720 x 1600 pixel</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>Tần số quét 60 Hz</div></li>"
         ],
+        "Ram":3,
+        "Storage":32,
+        "Display":6.51,
         "description": [
             {
                 "features_des": "<ul><li> Thiết kế hiện đại với màn hình 6.5 inch HD Plus</li><li> Camera với tính năng làm đẹp khuôn mặt</li><li> RAM 3GB cùng bộ nhớ trong 32GB đáp ứng mọi nhu cầu giải trí cơ bản</li><li> Pin 5000 mAh cho bạn khả năng sử dụng điện thoại cả ngày mà không sợ hết pin</li></ul>",
@@ -586,6 +699,14 @@
         ],
         "brand": [
             "vivo"
+        ],
+        "review": [
+            {
+                "name": "Đại hãn",
+                "date": "8/10/2022 11:48",
+                "rating": 4,
+                "comment": "Nhận xét : Máy sài chạy hơi chậm , cấu hình cũng ổn , nhưng chơi game hay sử dụng các ứng dụng nặng máy là thua"
+            }
         ]
     },
     {
@@ -605,12 +726,12 @@
         ],
         "price": [
             {
-                "price_show": "2.790.000 ₫",
-                "price_through": null
+                "price_show": "2.490.000 ₫",
+                "price_through": "2.790.000 ₫"
             }
         ],
         "colors": [
-            "Đen/Xám",
+            "Đen Xám",
             "Xanh tím"
         ],
         "technicalInfo": [
@@ -630,7 +751,8 @@
         ],
         "brand": [
             "vivo"
-        ]
+        ],
+        "review": []
     },
     {
         "title": [
@@ -643,7 +765,7 @@
         ],
         "price": [
             {
-                "price_show": "4.990.000 ₫",
+                "price_show": "4.890.000 ₫",
                 "price_through": "5.290.000 ₫"
             }
         ],
@@ -654,6 +776,9 @@
         "technicalInfo": [
             "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.55 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>IPS LCD</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Sau 50MP,  f/1.8 + 2MP,  f/2.4</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>8MP, f/2.0</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Qualcomm Snapdragon 680</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>4 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>128 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>5000 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Funtouch OS 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>1612x720 (HD+)</div></li>"
         ],
+        "Ram":4,
+        "Storage":128,
+        "Display":6.55,
         "description": [
             {
                 "features_des": "<ul><li> Màn hình màu sắc rực rỡ, thoả sức lướt web, xem phim 6.55\"\", 1612x720 (HD+), 90Hz </li><li> Vận hành trơn tru và mượt mà - Bộ vi xử lý Snapdragon 680 8 nhân, RAM 4GB</li><li> Ghi lại trọn vẹn khoảnh khắc đêm - Cụm camera sắc nét 50MP+2MP với đa dạng chế độ chuyên nghiệp</li><li> Pin khủng 5000mAh, sạc nhanh siêu tốc mọi lúc mọi nơi</li></ul>",
@@ -668,182 +793,8 @@
         ],
         "brand": [
             "vivo"
-        ]
-    },
-    {
-        "title": [
-            "vivo X90 Pro"
         ],
-        "images": [
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/f/g/fgty0000778i-_1.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/f/g/fgty0000778i-_1__1.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/f/g/fgty0000778i-_2__1.jpg"
-        ],
-        "price": [
-            {
-                "price_show": "Giá Liên Hệ",
-                "price_through": null
-            }
-        ],
-        "colors": [],
-        "technicalInfo": [
-            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.78 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera góc rộng: 50.3MP, f/1.8, 23mm, Dual Pixel PDAF, Laser AF, OIS <br>Tele kính viễn vọng: 50MP, f/1.6, 50mm, 0.7µm, AF, 2x optical zoom, OIS <br> Camera góc siêu rộng: 12MP, f/2.0, 108˚ 16mm, AF</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>Camera góc rộng: 32MP, f/2.5, 24mm, 1/2.8\", 0.8µm</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Mediatek Dimensity 9200 (4 nm)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>256 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>4870 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 13</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>AMOLED, 1 tỷ màu, 120Hz, HDR10+, 1300 nit</div></li>"
-        ],
-        "description": [
-            {
-                "features_des": null,
-                "features_detail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\" width=\"10\" height=\"10\"><path d=\"M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z\"></path></svg>"
-            }
-        ],
-        "category": [
-            "Điện thoại"
-        ],
-        "totalRating": [
-            "0/5"
-        ],
-        "brand": [
-            "Tin đồn - Mới ra"
-        ]
-    },
-    {
-        "title": [
-            "iQOO 11"
-        ],
-        "images": [
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo_1_.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo_2_.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo_3_.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo.jpg"
-        ],
-        "price": [
-            {
-                "price_show": "Giá Liên Hệ",
-                "price_through": null
-            }
-        ],
-        "colors": [],
-        "technicalInfo": [
-            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.78 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera góc rộng: 50MP, f/1.9, 1 / 1.57 \", 1.0µm, PDAF, OIS <br> Camera tele: 12MP, f/2.0, 47 mm, 1 / 2.9\", PDAF, zoom quang 2x <br> Camera góc cực rộng; 13 MP, f/2.2 , 16mm, 120˚</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>Camera góc rộng: 16MP, f/2.5</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Qualcomm SM8550 Snapdragon 8 thế hệ 2 (4 nm)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>128 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>5000 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 13</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>1440 x 3120 pixels</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>Tần số quét 144Hz, HDR, 1500 nits </div></li>"
-        ],
-        "description": [
-            {
-                "features_des": null,
-                "features_detail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\" width=\"10\" height=\"10\"><path d=\"M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z\"></path></svg>"
-            }
-        ],
-        "category": [
-            "Điện thoại"
-        ],
-        "totalRating": [
-            "0/5"
-        ],
-        "brand": [
-            "Tin đồn - Mới ra"
-        ]
-    },
-    {
-        "title": [
-            "vivo Y22"
-        ],
-        "images": [
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/c/f/cff.png"
-        ],
-        "price": [
-            {
-                "price_show": "Giá Liên Hệ",
-                "price_through": null
-            }
-        ],
-        "colors": [],
-        "technicalInfo": [
-            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.44 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>IPS LCD</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>8 MP </div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>4 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>64 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div> 5.000 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>720 x 1600 pixel</div></li>"
-        ],
-        "description": [
-            {
-                "features_des": null,
-                "features_detail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\" width=\"10\" height=\"10\"><path d=\"M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z\"></path></svg>"
-            }
-        ],
-        "category": [
-            "Điện thoại"
-        ],
-        "totalRating": [
-            "0/5"
-        ],
-        "brand": [
-            "Tin đồn - Mới ra"
-        ]
-    },
-    {
-        "title": [
-            "iQOO 11 Pro"
-        ],
-        "images": [
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo_1__1.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo_2__1.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo_3__1.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo_1.jpg"
-        ],
-        "price": [
-            {
-                "price_show": "Giá Liên Hệ",
-                "price_through": null
-            }
-        ],
-        "colors": [],
-        "technicalInfo": [
-            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera góc rộng: 50MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Snapdragon 8 Gen 2</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>Tần số quét 144Hz</div></li>"
-        ],
-        "description": [
-            {
-                "features_des": null,
-                "features_detail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\" width=\"10\" height=\"10\"><path d=\"M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z\"></path></svg>"
-            }
-        ],
-        "category": [
-            "Điện thoại"
-        ],
-        "totalRating": [
-            "0/5"
-        ],
-        "brand": [
-            "Tin đồn - Mới ra"
-        ]
-    },
-    {
-        "title": [
-            "vivo X Note"
-        ],
-        "images": [
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/7/17_2_66.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/8/18_2_69.jpg",
-            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/9/19_2_64.jpg"
-        ],
-        "price": [
-            {
-                "price_show": "Giá Liên Hệ",
-                "price_through": null
-            }
-        ],
-        "colors": [],
-        "technicalInfo": [
-            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>7.0 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>50 MP, f/1.6, (Rộng), 1/1.31\", 1.2µm, PDAF, Laser AF, OIS <br>8 MP, f/3.4, 125mm, PDAF, OIS, 5x zoom quang học<br>12 MP, f/2.0, 47mm (telephoto), 1/2.93\", 1.2µm, PDAF, 2x zoom quang học<br>48 MP, f/2.2, 14mm, 114˚ (Siêu rộng), 1/2.0\", 0.8µm</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>16 MP, f/2.5, (Rộng)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Qualcomm SM8450 Snapdragon 8 Gen 1 (4 nm)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>256 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>Li-Po 5000 mAh (Không thể tháo rời)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>Nano-SIM</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 12  <br> Origin OS Ocean</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>1440 x 3080 pixels</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>LTPO AMOLED <br> 120Hz <br> HDR10+</div></li>"
-        ],
-        "description": [
-            {
-                "features_des": null,
-                "features_detail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\" width=\"10\" height=\"10\"><path d=\"M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z\"></path></svg>"
-            }
-        ],
-        "category": [
-            "Điện thoại"
-        ],
-        "totalRating": [
-            "0/5"
-        ],
-        "brand": [
-            "vivo"
-        ]
+        "review": []
     },
     {
         "title": [
@@ -867,6 +818,9 @@
         "technicalInfo": [
             "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.56 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera chính: 48 MP, f/1.6  <br> Camera góc cực rộng: 8 MP, f/2.2 <br> Camera độ sâu: 13 MP, f/2.46 <br> Camera tele: 8 MP, f/3.4</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>32MP, f/2.45</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Snapdragon 765G</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>256 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>4315mAh </div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Funtouch OS 10.5</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>1080 x 2376 pixels (FullHD+)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>Tần số quét 90Hz <br> Kính cường lực Schott Xensation UP</div></li>"
         ],
+        "Ram":8,
+        "Storage":256,
+        "Display":6.56,
         "description": [
             {
                 "features_des": "<ul><li> Thiết kế X-Class khẳng định sự khác biệt - Màn hình cong 3D, các góc bo tròn R3 đi kèm màu sắc thời thượng</li><li> Đỉnh cao nhiếp ảnh - Camera 48 MP, hệ thống camera Gimbal chống rung hiệu quả, lấy nét cực chuẩn</li><li> Màn hình mượt mà, ấn tượng thị giác - 6.56 inch, 90Hz, độ sáng tối đa 1300</li><li> Hiệu suất mạnh mẽ - Chip xử lý Snapdragon 765G, RAM 8 GB và hỗ trợ mạng 5G</li></ul>",
@@ -881,6 +835,223 @@
         ],
         "brand": [
             "vivo"
-        ]
+        ],
+        "review": []
+    },
+    {
+        "title": [
+            "vivo X90 Pro"
+        ],
+        "images": [
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/f/g/fgty0000778i-_1.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/f/g/fgty0000778i-_1__1.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/f/g/fgty0000778i-_2__1.jpg"
+        ],
+        "price": [
+            {
+                "price_show": "0",
+                "price_through": "0"
+            }
+        ],
+        "colors": [],
+        "technicalInfo": [
+            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.78 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera góc rộng: 50.3MP, f/1.8, 23mm, Dual Pixel PDAF, Laser AF, OIS <br>Tele kính viễn vọng: 50MP, f/1.6, 50mm, 0.7µm, AF, 2x optical zoom, OIS <br> Camera góc siêu rộng: 12MP, f/2.0, 108˚ 16mm, AF</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>Camera góc rộng: 32MP, f/2.5, 24mm, 1/2.8\", 0.8µm</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Mediatek Dimensity 9200 (4 nm)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>256 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>4870 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 13</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>AMOLED, 1 tỷ màu, 120Hz, HDR10+, 1300 nit</div></li>"
+        ],
+        "Ram":8,
+        "Storage":256,
+        "Display":6.78,
+        "description": [
+            {
+                "features_des": null,
+                "features_detail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\" width=\"10\" height=\"10\"><path d=\"M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z\"></path></svg>"
+            }
+        ],
+        "category": [
+            "Điện thoại"
+        ],
+        "totalRating": [
+            "0/5"
+        ],
+        "brand": [
+            "vivo"
+        ],
+        "review": []
+    },
+    {
+        "title": [
+            "vivo Y02s 3GB 64GB"
+        ],
+        "images": [
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/v/i/vivo-y02s-thumb-1-2-600x600_3.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/v/i/vivo-y02s-thumb-1-2-600x600_3.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/0/10052879-dien-thoai-vivo-y02s-3gb-32gb-xanh-1_3.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/2/0/20_1_1_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/2/1/21_1_2_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/9/19_2_1_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/_/1_159_2_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/2/_/2_137_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/5/_/5_104_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/8/_/8_48_3.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/6/_/6_85_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/0/10_23_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/1/11_17_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/2/12_11_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/3/13_10_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/9/_/9_33_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/4/14_12_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/6/16_6_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/7/17_5_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/8/18_3_1_2.png",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/1/5/15_7_2.png"
+        ],
+        "price": [
+            {
+                "price_show": "3.190.000 ₫",
+                "price_through": "3.390.000 ₫"
+            }
+        ],
+        "colors": [
+            "Xanh",
+            "Đen"
+        ],
+        "technicalInfo": [
+            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.51 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>IPS LCD</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>8 MP, f/2.0 </div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>5MP, f/2.2\t\t</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div> MediaTek Helio P35 8 nhân </div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>3 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>64 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>Li-Po 5000 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>720 x 1600 pixel</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>Tần số quét 60 Hz</div></li>"
+        ],
+        "Ram":3,
+        "Storage":64,
+        "Display":6.51,
+        "description": [
+            {
+                "features_des": "<ul><li> Thiết kế hiện đại với màn hình 6.5 inch HD Plus</li><li> Camera với tính năng làm đẹp khuôn mặt</li><li> RAM 3GB cùng bộ nhớ trong 32GB đáp ứng mọi nhu cầu giải trí cơ bản</li><li> Pin 5000 mAh cho bạn khả năng sử dụng điện thoại cả ngày mà không sợ hết pin</li></ul>",
+                "features_detail": "null"
+            }
+        ],
+        "category": [
+            "Điện thoại"
+        ],
+        "totalRating": [
+            "0/5"
+        ],
+        "brand": [
+            "vivo"
+        ],
+        "review": []
+    },
+    {
+        "title": [
+            "iQOO 11"
+        ],
+        "images": [
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo_1_.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo_2_.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo_3_.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo.jpg"
+        ],
+        "price": [
+            {
+                "price_show": "0",
+                "price_through": "0"
+            }
+        ],
+        "colors": [],
+        "technicalInfo": [
+            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.78 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera góc rộng: 50MP, f/1.9, 1 / 1.57 \", 1.0µm, PDAF, OIS <br> Camera tele: 12MP, f/2.0, 47 mm, 1 / 2.9\", PDAF, zoom quang 2x <br> Camera góc cực rộng; 13 MP, f/2.2 , 16mm, 120˚</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>Camera góc rộng: 16MP, f/2.5</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Qualcomm SM8550 Snapdragon 8 thế hệ 2 (4 nm)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>8 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>128 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div>5000 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Thẻ SIM</p> <div>2 SIM (Nano-SIM)</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 13</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>1440 x 3120 pixels</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>Tần số quét 144Hz, HDR, 1500 nits </div></li>"
+        ],
+        "Ram":8,
+        "Storage":128,
+        "Display":6.78,
+        "description": [
+            {
+                "features_des": null,
+                "features_detail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\" width=\"10\" height=\"10\"><path d=\"M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z\"></path></svg>"
+            }
+        ],
+        "category": [
+            "Điện thoại"
+        ],
+        "totalRating": [
+            "0/5"
+        ],
+        "brand": [
+            "vivo"
+        ],
+        "review": []
+    },
+    {
+        "title": [
+            "vivo Y22"
+        ],
+        "images": [
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/c/f/cff.png"
+        ],
+        "price": [
+            {
+                "price_show": "0",
+                "price_through": "0"
+            }
+        ],
+        "colors": [],
+        "technicalInfo": [
+            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Kích thước màn hình</p> <div>6.44 inches</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>IPS LCD</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera trước</p> <div>8 MP </div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Dung lượng RAM</p> <div>4 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Bộ nhớ trong</p> <div>64 GB</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Pin</p> <div> 5.000 mAh</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Hệ điều hành</p> <div>Android 12</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Độ phân giải màn hình</p> <div>720 x 1600 pixel</div></li>"
+        ],
+        "Ram":4,
+        "Storage":64,
+        "Display":6.44,
+        "description": [
+            {
+                "features_des": null,
+                "features_detail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\" width=\"10\" height=\"10\"><path d=\"M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z\"></path></svg>"
+            }
+        ],
+        "category": [
+            "Điện thoại"
+        ],
+        "totalRating": [
+            "0/5"
+        ],
+        "brand": [
+            "vivo"
+        ],
+        "review": []
+    },
+    {
+        "title": [
+            "iQOO 11 Pro"
+        ],
+        "images": [
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo_1__1.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo_2__1.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo_3__1.jpg",
+            "https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/i/o/ioo_1.jpg"
+        ],
+        "price": [
+            {
+                "price_show": "0",
+                "price_through": "0"
+            }
+        ],
+        "colors": [],
+        "technicalInfo": [
+            "<li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Công nghệ màn hình</p> <div>AMOLED</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Camera sau</p> <div>Camera góc rộng: 50MP</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Chipset</p> <div>Snapdragon 8 Gen 2</div></li><li class=\"technical-content-item is-flex is-align-items-center is-justify-content-space-between p-2\"><p>Tính năng màn hình</p> <div>Tần số quét 144Hz</div></li>"
+        ],
+         "Ram":8,
+        "Storage":256,
+        "Display":6.78,
+        "description": [
+            {
+                "features_des": null,
+                "features_detail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\" width=\"10\" height=\"10\"><path d=\"M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z\"></path></svg>"
+            }
+        ],
+        "category": [
+            "Điện thoại"
+        ],
+        "totalRating": [
+            "0/5"
+        ],
+        "brand": [
+            "vivo"
+        ],
+        "review": []
     }
 ]

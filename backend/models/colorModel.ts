@@ -7,7 +7,10 @@ var colorSchema = new mongoose.Schema(
         required:true,
         unique:true,
         index:true,
-        }
+    },
+    code:{
+        type:String,
+    },
     },{
         timestamps:true
     }  

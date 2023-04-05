@@ -4,7 +4,8 @@ import { errorHandler } from './middlewares/errorHandler';
 import authRouter from './routes/authRoute';
 import productRouter from './routes/productRoute';
 import insertRouter from './routes/insertRoute';
-import insertCategory from './routes/categoryRoute';
+import categoryRouter from './routes/categoryRoute';
+import colorRouter from './routes/colorRoute';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cookie from 'cookie-parser'
@@ -25,7 +26,8 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use('/api/user',authRouter);
 app.use('/api/product',productRouter);
 app.use('/api/insert',insertRouter);
-app.use('/api/category',insertCategory);
+app.use('/api/category',categoryRouter);
+app.use('/api/color',colorRouter);
 app.use(errorHandler);
 
 // Server setup

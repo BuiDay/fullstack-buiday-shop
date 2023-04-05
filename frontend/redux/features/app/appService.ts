@@ -13,8 +13,21 @@ export const apiGetCategories = () => new Promise(async (resolve, reject) => {
     }
 })
 
+export const apiGetColors = () => new Promise(async (resolve, reject) => {
+    try {
+        const response = await axiosConfig({
+            method: 'get',
+            url: '/api/color',
+        })
+        resolve(response.data)
+
+    } catch (error) {
+        reject(error)
+    }
+})
+
 const appService = {
-    apiGetCategories
+    apiGetCategories,apiGetColors
 }
 
 export default appService

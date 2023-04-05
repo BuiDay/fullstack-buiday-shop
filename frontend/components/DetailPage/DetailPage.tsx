@@ -1,6 +1,5 @@
-import React, { use, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import styles from './DetailPage.module.scss'
-import productService from '@/redux/features/products/productsService';
 import Slider from '../Common/Slider/Slider';
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -12,8 +11,9 @@ import StarRatings from 'react-star-ratings';
 
 const DetailPage = () => {
     const data = useAppSelector(state=>state.products.product)
-    console.log(data)
     const [isShowDes, setIsShowDes] = useState(false)
+    const [isNewRating, setIsNewRating] = useState<number>()
+    console.log(isNewRating)
     return (
         <div>
             <div className="main-product-wrapper py-5 home_wrapper_2">
@@ -51,18 +51,11 @@ const DetailPage = () => {
                                     </div>
                                     <div className='d-flex gap-10 align-items-center'>
                                         <StarRatings
-                                            rating={5}
-                                            // edit={false}
+                                            rating={data?.totalRating && data?.totalRating}
                                             starDimension="15px"
                                             starRatedColor="#ffd700"
                                         />
-                                        {/* <ReactStars
-                                            count={5}
-                                            size={24}
-                                            value={4}
-                                            edit={false}
-                                            color2={'#ffd700'} /> */}
-                                        <p className='mb-0 t-review mt-2'>(2 Reviews)</p>
+                                        <p className='mb-0 t-review mt-2'>{`${data?.ratings ? data?.ratings?.length : 0} Đánh giá`}</p>
                                     </div>
                                     <a href="#review" className='t-review'>Write a Review</a>
                                 </div>
@@ -196,21 +189,20 @@ const DetailPage = () => {
                             <div className={styles.review_inner_wrapper}>
                                 <div className={`${styles.review_head} d-flex justify-content-between align-items-end`}>
                                     <div>
-                                        <h3>Customer Reviews</h3>
+                                        <h3>Khách hàng đánh giá</h3>
                                         <div className='d-flex gap-10 align-items-center'>
-                                        {/* <ReactStars
-                                            count={5}
-                                            size={24}
-                                            value={4}
-                                            edit={false}
-                                            color2={'#ffd700'} /> */}
-                                            <p className='mb-0 mt-1'>Based on 2 Reviews</p>
+                                        <StarRatings
+                                            rating={data?.totalRating && data?.totalRating}
+                                            starDimension="15px"
+                                            starRatedColor="#ffd700"
+                                        />
+                                            <p className='mb-0 mt-2'>{`${data?.ratings ? data?.ratings?.length : 0} Đánh giá`}</p>
                                         </div>
                                     </div>
                                     {/* {
                                         orderedProduct && ( */}
                                         <div className="">
-                                            <a className='text-dark text-decoration-underline' href="">Write a Review</a>
+                                            <a className='text-dark text-decoration-underline' href="">Viết đánh giá</a>
                                         </div>
                                         {/* )
                                     } */}
@@ -221,13 +213,13 @@ const DetailPage = () => {
                                             <h4>Write a review</h4>
                                             <form action="" className='d-flex flex-column gap-20'>
                                                 <div>
-                                                    {/* <ReactStars
-                                                        count={5}
-                                                        size={24}
-                                                        edit={true}
-                                                        color2={'#ffd700'}
-                                                        onChange={(e)=>setStar(e)}
-                                                    /> */}
+                                                <StarRatings
+                                                    rating= {isNewRating}
+                                                    starDimension="15px"
+                                                    starRatedColor="#ffd700"
+                                                    starHoverColor = '#ffd700'
+                                                    changeRating = {(e)=>setIsNewRating(e)}
+                                                />
                                                 </div>
                                                 <div>
                                                     <textarea name="" id="" cols={30} rows={4} placeholder='Comments' className='w-100 form-control'></textarea>
@@ -242,59 +234,28 @@ const DetailPage = () => {
                                
 
                                 <div className={styles.reviews}>
-                                   {/* {
-                                    productState?.ratings && productState?.ratings?.map((item,index)=>{
-                                        return(
-                                            <div className="review py-3">
-                                            <div className="d-flex gap-10 align-items-center">
-                                             <h6 className='mb-0'>{item.postedby?.firstName}</h6>
-                                             <ReactStars
-                                                 count={5}
-                                                 size={24}
-                                                 value={item.star}
-                                                 edit={false}
-                                                 color2={'#ffd700'} />
+                                    {data?.ratings && data?.ratings.map((item:any,index)=>{
+                                        return(<>
+                                        <div className={`${styles.review} py-3`}>
+                                         <div className="d-flex gap-10 align-items-center" key={index}>
+                                            <div className='w-100 d-flex align-items-center justify-content-between'>
+                                                <h6 className='mb-0'>{item.name}</h6>
+                                                <p>{item.date}</p>
                                             </div>
-                                            <p className='mt-2'>
-                                             {item.comment}
-                                            </p>
-                                         </div>
-                                        
+                                        </div>
+                                        <StarRatings
+                                            rating={item.rating}
+                                            starDimension="15px"
+                                            starRatedColor="#ffd700"
+                                            />
+                                        <p className='mt-2'>
+                                            {item.comment}
+                                        </p>
+                                        </div>
+                                        </>
                                         )
-                                    })
-                                   } */}
+                                    })}
                                             
-                                            
-                                    <div className={`${styles.review} py-3`}>
-                                       <div className="d-flex gap-10 align-items-center">
-                                        <h6 className='mb-0'>Admin</h6>
-                                        {/* <ReactStars
-                                            count={5}
-                                            size={24}
-                                            value={4}
-                                            edit={false}
-                                            color2={'#ffd700'} /> */}
-                                       </div>
-                                       <p className='mt-2'>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit est id dolorum? Ipsam ex cupiditate deleniti magnam blanditiis, iste eligendi error, voluptates explicabo illum architecto vitae. Explicabo facilis harum tenetur dolore, esse, commodi placeat, laboriosam unde aliquid laborum sequi assumenda quisquam! Saepe tenetur maiores dolore, odit reprehenderit sed accusamus neque debitis modi voluptatum soluta consectetur, aliquid quibusdam, incidunt iste obcaecati adipisci quo eius maxime! Architecto dicta dolorem placeat libero voluptates consequuntur excepturi dolore possimus eum! Harum veniam aspernatur dolore explicabo!
-                                       </p>
-                                    </div>
-
-                                    <div className={`${styles.review} py-3`}>
-                                       <div className="d-flex gap-10 align-items-center">
-                                        <h6 className='mb-0'>Admin</h6>
-                                        {/* <ReactStars
-                                            count={5}
-                                            size={24}
-                                            value={4}
-                                            edit={false}
-                                            color2={'#ffd700'} /> */}
-                                       </div>
-                                       <p className='mt-2'>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit est id dolorum? Ipsam ex cupiditate deleniti magnam blanditiis, iste eligendi error, voluptates explicabo illum architecto vitae. Explicabo facilis harum tenetur dolore, esse, commodi placeat
-                                       </p>
-                                    </div>
-                                    
                                 </div>
                             </div>
                         </div>

@@ -8,13 +8,13 @@ import slugify from 'slugify';
 
 
 import apple_mobile from '../data/mobile/apple-mobile.json'
-import oppo_mobile from '../data/mobile/oppo-mobile.json'
-import xiaomi_mobile from '../data/mobile/xiaomi-mobile.json'
+import oppo_mobile from '../data/mobile/oppo_mobile.json'
+import xiaomi_mobile from '../data/mobile/xiaomi_mobile.json'
 import asus_mobile from '../data/mobile/asus_mobile.json'
 import nokia_mobile from '../data/mobile/nokia_mobile.json'
 import realme_mobile from '../data/mobile/realme_mobile.json'
-import samsung_mobile from '../data/mobile/samsung-mobile.json'
-import vivo_mobile from '../data/mobile/vivo-mobile.json'
+import samsung_mobile from '../data/mobile/samsung_mobile.json'
+import vivo_mobile from '../data/mobile/vivo_mobile.json'
 
 
 import apple_laptop from '../data/Laptop/apple_laptop.json'
@@ -33,8 +33,8 @@ const fn = async (product:any) =>{
     await Product.create({
         title:product?.title[0] || "null",
         slug:slugify(product?.title[0] || "null"),
-        price:product?.price[0] && product?.price[0].price_through!==null && Number(product?.price[0].price_through.match(/\d/g).join('')) || "null",
-        discount:product?.price[0] && product?.price[0].price_show ? product?.price[0].price_show === "Giá Liên Hệ" ? NaN :Number(product?.price[0].price_show.match(/\d/g).join('')) : product?.price[0].price_show || "null",
+        price:product?.price[0].price_through && Number(product?.price[0].price_through.match(/\d/g).join('')) || 0,
+        discount:product?.price[0].price_show &&  Number(product?.price[0].price_show.match(/\d/g).join('')) || 0,
         category:product?.category[0] || "null",
         brand:product?.brand[0] || "null",
         color:product?.colors || "null",
@@ -45,7 +45,8 @@ const fn = async (product:any) =>{
         totalRating:Number(product?.totalRating[0].split('/')[0]),
         images:newIdImage || "null",
         description:newIdDes || "null",
-        quantity:Math.random() * 100 || "null"
+        quantity:Math.floor(Math.random() * 100) || "0",
+        ratings:product?.review || []
     })
 
     await Description.create({
@@ -71,7 +72,7 @@ export const insertProduct= asyncHandler(async (req:Request, res:Response):Promi
     let promies = []
     
     // const arrayMobile = [apple_mobile,oppo_mobile,xiaomi_mobile,asus_mobile,realme_mobile,samsung_mobile,vivo_mobile,nokia_mobile]
-    const arrayMobile = [samsung_mobile,]
+    const arrayMobile = [apple_mobile,oppo_mobile,xiaomi_mobile,asus_mobile,realme_mobile,samsung_mobile,vivo_mobile,nokia_mobile]
     
     for (let i of arrayMobile){
         for (let product of i) {

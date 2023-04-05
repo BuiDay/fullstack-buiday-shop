@@ -15,8 +15,14 @@ export interface ICategory{
   href?:string
 }
 
-export interface ICategories{
+export interface IColor{
+  title: string,
+  code:string
+}
+
+export interface IApp{
   categories?:ICategory[],
+  colors?:IColor[]
 }
 
 export interface ICategoriesPaypload{
@@ -27,6 +33,12 @@ export interface ICategoriesPaypload{
 //////////////////////////////////////
 
 
+export interface Irating{
+  name?:string,
+  date?:string,
+  comment?:string,
+  rating?:string,
+}
 
 
 export interface IProducts{
@@ -38,7 +50,9 @@ export interface IProducts{
     technicalInfo?:string,
     price?:any,
     description?:any,
-    discount?:any
+    discount?:any,
+    ratings?:Irating[],
+    totalRating?:number,
   },
   isLoading?:boolean,
   isSuccess?:boolean,

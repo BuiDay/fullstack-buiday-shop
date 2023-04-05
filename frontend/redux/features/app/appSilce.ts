@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk, createAction, PayloadAction } from "@reduxjs/toolkit"
-import {ICategories, ICategoriesPaypload } from "../InterfaceReducer";
+import {IApp, ICategoriesPaypload, IColor } from "../InterfaceReducer";
 import appService from './appService'
 
 
-const initState:ICategories = {
-    status: '',
+const initState:IApp = {
     categories: [],
+    colors:[]
 }
 
 export const getCategories:any = createAsyncThunk("app/get-categories",async(data,thunkAPI)=>{
@@ -16,16 +16,26 @@ export const getCategories:any = createAsyncThunk("app/get-categories",async(dat
     }
 })
 
+export const getColors:any = createAsyncThunk("app/get-colors",async(data,thunkAPI)=>{
+    try{
+        return await appService.apiGetColors()
+    }catch(err){
+       return thunkAPI.rejectWithValue(err)
+    }
+})
+
+
 export const appSlice = createSlice({
     name:"app",
     initialState:initState,
     reducers:{},
     extraReducers:(builder) =>{
         builder
-        .addCase(getCategories.fulfilled,(state:ICategories,action:PayloadAction<ICategoriesPaypload>)=>{
-            state.status = action.payload.status;
+        .addCase(getCategories.fulfilled,(state:IApp,action:PayloadAction<ICategoriesPaypload>)=>{
             state.categories = action.payload.data;
-            state.code = action.payload.code
+        })
+        .addCase(getColors.fulfilled,(state:IApp,action:PayloadAction<ICategoriesPaypload>)=>{
+            state.colors = action.payload.data;
         })
     },
 })

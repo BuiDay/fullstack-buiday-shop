@@ -7,8 +7,7 @@ import {getMobileProducts } from '@/redux/features/products/productsSilce';
 import ProductCards from '../ProductCards/ProductCards';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { object } from 'yup';
-import { Value } from 'sass';
+import Color from '../Common/Color/Color';
 
 
 interface IQuery {
@@ -174,16 +173,7 @@ const MobilePage = () => {
                                     </div>
                                     <h5 className="sub-title">Màu sắc</h5>
                                     <div>
-                                        <ul className="colors ps-0">
-                                            <li style={{ background: "yellow" }}></li>
-                                            <li style={{ background: "blue" }}></li>
-                                            <li style={{ background: "green" }}></li>
-                                            <li style={{ background: "gray" }}></li>
-                                            <li style={{ background: "purple" }}></li>
-                                            <li style={{ background: "black" }}></li>
-                                            <li style={{ background: "cyan" }}></li>
-                                            <li></li>
-                                        </ul>
+                                        <Color />
                                     </div>
                                 </div>
                             </div>
