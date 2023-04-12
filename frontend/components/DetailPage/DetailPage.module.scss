@@ -139,3 +139,9 @@
 .reviews{
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+.activeColor{
+    background-color: var(--color-febd69);
+    color: white;
+    border: none !important;
+}

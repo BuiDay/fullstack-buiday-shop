@@ -1,5 +1,5 @@
 .product_card{
-    padding: 15px;
+    padding: 25px 15px;
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
@@ -9,7 +9,15 @@
 }
 
 .product_card:hover .action_bar{
-   right: 23px;
+   right: 8px;
+}
+
+.product_card .product_details{
+    min-height: 140px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .product_card .product_details h6{
@@ -37,13 +45,14 @@
 }
 
 .action_bar{
-    top:11%;
+    top:9%;
     right: -23px;
     transition: all 0.4s ease;
 }
 
 .wishlist_icon {
-    right: 24px;
+    right: 10px;
+    top:3px;
 }
 
 .product_card .product_image{
@@ -67,4 +76,19 @@
 
 .product_card:hover .product_image > img:last-child{
     display: block;
+}
+
+
+.discount_percent{
+    background-image: url(../../assets//images/dis.svg);
+    background-repeat: no-repeat;
+    height: 31px;
+    width: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 14px;
+    text-align: center;
+    line-height: 25px;
+    color: white;
 }

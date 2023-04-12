@@ -86,17 +86,16 @@
     "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
     "containerId": "",
     "name": "Get All Products",
-    "url": "http://localhost:8000/api/product",
+    "url": "http://localhost:8000/api/product?category=Máy tính bảng",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-03-28T06:50:04.742Z",
-    "modified": "2023-04-04T05:45:56.680Z",
+    "modified": "2023-04-12T15:38:47.411Z",
     "headers": [],
     "params": [
       {
         "name": "category",
-        "value": "Điện thoại",
-        "isDisabled": true,
+        "value": "Máy tính bảng",
         "isPath": false
       },
       {
@@ -126,6 +125,18 @@
       {
         "name": "ram",
         "value": "",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "page",
+        "value": "1",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "display",
+        "value": "5",
         "isDisabled": true,
         "isPath": false
       }
@@ -179,16 +190,22 @@
     "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
     "containerId": "",
     "name": "Get product by id",
-    "url": "http://localhost:8000/api/product/get_product?id=642837ff09debabb5868c5eb",
+    "url": "http://localhost:8000/api/product/get_product?slug=xiaomi-pad-5",
     "method": "GET",
     "sortNum": 30000,
     "created": "2023-03-30T17:14:34.712Z",
-    "modified": "2023-04-03T06:09:33.388Z",
+    "modified": "2023-04-12T16:51:59.461Z",
     "headers": [],
     "params": [
       {
         "name": "id",
-        "value": "642837ff09debabb5868c5eb",
+        "value": "6436d81bc1c433dcb748bb42",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "slug",
+        "value": "xiaomi-pad-5",
         "isPath": false
       }
     ],

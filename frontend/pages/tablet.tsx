@@ -1,30 +1,30 @@
 import Breadcrumb from '@/components/Common/Breadcrumb/Breadcrumb';
 import Meta from '@/components/Common/Meta/Meta';
-import MobilePage from '@/components/MobilePage/MobilePage';
 import React,{useEffect} from 'react';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { RootState } from '@/redux';
-import {getMobileProducts } from '@/redux/features/products/productsSilce';
+import {getTabletProducts } from '@/redux/features/products/productsSilce';
 import { useRouter } from 'next/router';
+import TabletPage from '@/components/TabletPage/TabletPage';
 
-const mobile = ({query}:any) => {
+const tablet = ({query}:any) => {
 
     const router = useRouter()
     const dispatch = useAppDispatch();
-    const products:any = useAppSelector((state: RootState) => state.products.mobile)
+    const products:any = useAppSelector((state: RootState) => state.products.tablet)
 
     useEffect(() => {
         if(query)
-            dispatch(getMobileProducts(query))
+            dispatch(getTabletProducts(query))
         else
-            dispatch(getMobileProducts(router.query))
+            dispatch(getTabletProducts(router.query))
     },[router.query])
 
     return (
         <div>
-            <Meta title={"Điện thoại"} />
-            <Breadcrumb title={"Điện thoại"} />
-            <MobilePage data={products} />
+            <Meta title={"Máy tính bảng"} />
+            <Breadcrumb title={"Máy tính bảng"} />
+            <TabletPage data={products} />
         </div>
     );
 };
@@ -33,4 +33,4 @@ export async function getServerSideProps(context:any) {
     return { props: { query } }
   }
   
-export default mobile;
+export default tablet;

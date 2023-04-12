@@ -8,8 +8,9 @@
 }
 
 .colors li{
-    width: 20px;
-    height: 20px;
-    background-color: red;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
+    list-style: none;
+    border: 1px solid #aeaaaa;
 }

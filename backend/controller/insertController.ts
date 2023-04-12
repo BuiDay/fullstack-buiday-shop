@@ -1,6 +1,7 @@
 import Product from '../models/productModel'
 import Image from '../models/imageModel'
 import Category from '../models/categoryModel';
+import Technical from '../models/technicalInfoModel';
 import Description from '../models/descriptionModel'
 import { Response, Request } from 'express';
 import asyncHandler from 'express-async-handler';
@@ -17,8 +18,16 @@ import samsung_mobile from '../data/mobile/samsung_mobile.json'
 import vivo_mobile from '../data/mobile/vivo_mobile.json'
 
 
-import apple_laptop from '../data/Laptop/apple_laptop.json'
-import hp_laptop from '../data/Laptop/hp_laptop.json'
+import apple_tablet from '../data/Tablet/apple_tablet.json'
+import book_tablet from '../data/Tablet/book_tablet.json'
+import xiaomi_tablet from '../data/Tablet/xiaomi_tablet.json'
+import nokia_tablet from '../data/Tablet/nokia_tablet.json'
+import samsung_tablet from '../data/Tablet/samsung_tablet.json'
+import lenovo_tablet from '../data/Tablet/lenovo_tablet.json'
+import oppo_table from '../data/Tablet/oppo_tablet.json'
+
+// import apple_laptop from '../data/Laptop/apple_laptop.json'
+// import hp_laptop from '../data/Laptop/hp_laptop.json'
 
 
 import Cate from '../data/categories.json'
@@ -29,7 +38,8 @@ const { ObjectId } = mongoose.Types;
 const fn = async (product:any) =>{
     const newIdImage = new ObjectId()
     const newIdDes = new ObjectId()
-  
+    const newIdTechnical = new ObjectId()
+
     await Product.create({
         title:product?.title[0] || "null",
         slug:slugify(product?.title[0] || "null"),
@@ -38,7 +48,7 @@ const fn = async (product:any) =>{
         category:product?.category[0] || "null",
         brand:product?.brand[0] || "null",
         color:product?.colors || "null",
-        technicalInfo:product?.technicalInfo[0] || "null",
+        technicalInfo:newIdTechnical,
         ram:product?.Ram,
         storage:product?.Storage,
         display:product?.Display,
@@ -47,6 +57,11 @@ const fn = async (product:any) =>{
         description:newIdDes || "null",
         quantity:Math.floor(Math.random() * 100) || "0",
         ratings:product?.review || []
+    })
+
+    await Technical.create({
+        _id:newIdTechnical,
+        technicalInfo:product?.technicalInfo[0] || "null",
     })
 
     await Description.create({
@@ -72,7 +87,7 @@ export const insertProduct= asyncHandler(async (req:Request, res:Response):Promi
     let promies = []
     
     // const arrayMobile = [apple_mobile,oppo_mobile,xiaomi_mobile,asus_mobile,realme_mobile,samsung_mobile,vivo_mobile,nokia_mobile]
-    const arrayMobile = [apple_mobile,oppo_mobile,xiaomi_mobile,asus_mobile,realme_mobile,samsung_mobile,vivo_mobile,nokia_mobile]
+    const arrayMobile = [apple_mobile, oppo_mobile,xiaomi_mobile,asus_mobile,realme_mobile,samsung_mobile,vivo_mobile,nokia_mobile]
     
     for (let i of arrayMobile){
         for (let product of i) {
@@ -88,6 +103,14 @@ export const insertProduct= asyncHandler(async (req:Request, res:Response):Promi
     //      }
     // }
 
+
+    const arrayTablet = [book_tablet,apple_tablet,xiaomi_tablet,nokia_tablet,samsung_tablet,lenovo_tablet,oppo_table]
+    
+    for (let i of arrayTablet){
+        for (let product of i) {
+            await promies.push(fn(product))
+         }
+    }
 
     await Promise.all(promies)
     return res.json("Done")

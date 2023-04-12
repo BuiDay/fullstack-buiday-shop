@@ -43,16 +43,18 @@ export interface Irating{
 
 export interface IProducts{
   products?:[],
-  mobile?:[],
+  mobile?:{},
+  tablet?:{},
   product?:{
     title?:string,
     images?:any,
-    technicalInfo?:string,
+    technicalInfo?:any,
     price?:any,
     description?:any,
     discount?:any,
     ratings?:Irating[],
     totalRating?:number,
+    color?:[]
   },
   isLoading?:boolean,
   isSuccess?:boolean,

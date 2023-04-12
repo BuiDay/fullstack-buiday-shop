@@ -1,0 +1,25 @@
+.active{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:var(--color-febd69);
+    color: white;
+    border-radius: 5px;
+}
+
+.notActive{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-232f3e);
+    color: white;
+    border-radius: 5px;
+}
+
+.notActive svg path{
+    stroke: white;
+}

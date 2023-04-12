@@ -17,8 +17,8 @@ var productSchema = new mongoose.Schema({
         ref:"Description"
     },
     technicalInfo:{
-        type:String,
-        required:true,
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Technical"
     },
     price:
         {

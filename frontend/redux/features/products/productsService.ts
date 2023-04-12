@@ -22,7 +22,22 @@ const getMobileProducts =  (params:any) => new Promise(async(resolve, reject)=>{
         const res = await axiosConfig({
             method:"get",
             url:'/api/product',
-            params:{category: "Điện thoại",...params}
+            params:{category: "Điện thoại",limit:20,...params}
+        })
+        resolve(res.data)
+        
+    } catch (error) {
+        reject(error)
+    }
+})
+
+const getTabletProducts =  (params:any) => new Promise(async(resolve, reject)=>{
+    
+    try {
+        const res = await axiosConfig({
+            method:"get",
+            url:'/api/product',
+            params:{category: "Máy tính bảng",limit:20,...params}
         })
         resolve(res.data)
         
@@ -37,7 +52,7 @@ const getProductById =  (id:string) => new Promise(async(resolve, reject)=>{
         const res = await axiosConfig({
             method:"get",
             url:'/api/product/get_product',
-            params:{id}
+            params:id
         })
         if(res.data.err === -1)
         {
@@ -51,7 +66,7 @@ const getProductById =  (id:string) => new Promise(async(resolve, reject)=>{
 })
 
 const productService = {
-    getProducts,getProductById,getMobileProducts
+    getProducts,getProductById,getMobileProducts,getTabletProducts
 }
 
 export default productService

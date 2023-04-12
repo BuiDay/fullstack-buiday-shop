@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import SideBar from '../Common/SideBar/SideBar';
-import styles from './MobilePage.module.scss'
+import styles from './TabletPage.module.scss'
 
 import ProductCards from '../ProductCards/ProductCards';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import Color from '../Common/Color/Color';
 import Image from 'next/image';
 import Pagination from '../Common/Pagination/Pagination';
@@ -20,7 +18,7 @@ interface IProps{
     data?:any,
 }
 
-const MobilePage:React.FC<IProps> = ({data}) => {
+const TabletPage:React.FC<IProps> = ({data}) => {
     const products = data.data
     const router = useRouter()
     
@@ -261,7 +259,7 @@ const MobilePage:React.FC<IProps> = ({data}) => {
                                     )
                                 })
                             }
-                            <Pagination data={products} total={data.total}/>
+                            <Pagination data={products} total={data.total} />
                         </div>
                     </div>
                 </div>
@@ -271,4 +269,4 @@ const MobilePage:React.FC<IProps> = ({data}) => {
 };
 
 
-export default MobilePage;
+export default TabletPage;

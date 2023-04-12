@@ -331,13 +331,19 @@ footer .input-group-text{
 
 .detail_description p{
   font-size: 16px;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
 }
 
 .detail_description p > img{
   width: 60%;
   margin: 0 auto;
+  display: block;
+}
+
+.detail_description p > span > img{
+  width: 60%;
+  margin: 0 auto;
+  display: block;
 }
 
 .detail_description p span{

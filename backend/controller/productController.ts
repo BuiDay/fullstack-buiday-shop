@@ -66,13 +66,24 @@ export const deleteProduct = asyncHandler(async (req:Request, res:Response):Prom
 })
 
 export const getProduct = asyncHandler(async (req:Request, res:Response):Promise<void> =>{
-    const {id} = req.query;
+    const {id,slug} = req.query;
+    let product
     try{
         // validateMongodbId(id?);
-        const product = await Product.findById(id)
-        .populate("ratings.postedby")
-        .populate("images")
-        .populate("description");
+        if(id){
+             product = await Product.findById(id)
+            .populate("ratings.postedby")
+            .populate("images")
+            .populate("description")
+            .populate("technicalInfo");
+        }else if(slug){
+            product = await Product.findOne({slug})
+            .populate("ratings.postedby")
+            .populate("images")
+            .populate("description")
+            .populate("technicalInfo");
+        }
+
         if(product){
             res.json({
                 code:-1,
@@ -100,8 +111,8 @@ export const getAllProducts = asyncHandler(async (req:Request, res:Response):Pro
         //  {ram: '$lt:4'}
         // {"ram":{"$lt":"4"}}
         queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match)=>`$${match}`);
+
         // queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, ' ');
-        console.log(queryStr)
         let query = Product.find(JSON.parse(queryStr)).populate("images");;
         
         //////ram
@@ -114,6 +125,14 @@ export const getAllProducts = asyncHandler(async (req:Request, res:Response):Pro
                 }else if (Number(req.query.ram) === 5)  
                     query.find({ram:{$lte:6,$gte:4}})
                 else query.find({ram:{$lte:12 ,$gte:8}})
+        }
+
+        if(req.query.display){
+            if (Number(req.query.display) === 5) {
+                query.find({display:{$lte:6}})
+            }else{
+                query.find({display:{$gte:6}})
+            }
         }
 
         /////
@@ -136,6 +155,9 @@ export const getAllProducts = asyncHandler(async (req:Request, res:Response):Pro
             query =query.select("-__v");
         }
 
+        //total
+        const total = await query.clone().count()
+
         //pagination
         const page:any = req.query.page;
         const limit:any = req.query.limit;
@@ -151,6 +173,8 @@ export const getAllProducts = asyncHandler(async (req:Request, res:Response):Pro
             res.json({
                 code:1,
                 status:"success",
+                page:page,
+                total,
                 data:allProduct
             })
         }
@@ -245,7 +269,6 @@ export const rating = asyncHandler(async (req:Request, res:Response):Promise<voi
                 }
             )
             let ratingProduct = await setRating();
-            console.log(rating)
             res.json({
                 status:"success",
                 code:1,
