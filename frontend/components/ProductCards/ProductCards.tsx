@@ -21,7 +21,7 @@ interface IProps{
 const ProductCards:React.FC<IProps> = (props) => {
     const {grid,img,data} = props
    
- 
+ console.log(data)
     const handlePrice = (price:number,discount:number) =>{
         if(price !==0 && discount !==0)
         return <>
@@ -35,7 +35,11 @@ const ProductCards:React.FC<IProps> = (props) => {
         }
         else
             return<>
+            <div className='d-flex align-items-center gap-2'>
+                <div className='px-1 text-danger' style={{background:"#feecf0",fontSize:"14px",textAlign:"center",borderRadius:"5px"}}>Hàng sắp về</div>
                 <p className={`${styles.price} text-danger`}>Giá liên hệ</p>
+            </div>
+                
             </> 
     }
 

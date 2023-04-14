@@ -9,7 +9,9 @@ const initState:IProducts = {
     products:[],
     mobile:{},
     tablet:{},
-    product:{}
+    laptop:{},
+    product:{},
+    watch:{}
 }
 
 export const getAllProducts:any = createAsyncThunk("products/get-all",async(data:any,thunkAPI)  =>{
@@ -31,6 +33,22 @@ export const getMobileProducts:any = createAsyncThunk("products/mobile",async(da
 export const getTabletProducts:any = createAsyncThunk("products/tablet",async(data:any,thunkAPI)  =>{
     try{
         return await authService.getTabletProducts(data)
+    }catch(err){
+       return thunkAPI.rejectWithValue(err)
+    }
+})
+
+export const getLaptopProducts:any = createAsyncThunk("products/laptop",async(data:any,thunkAPI)  =>{
+    try{
+        return await authService.getLaptopProducts(data)
+    }catch(err){
+       return thunkAPI.rejectWithValue(err)
+    }
+})
+
+export const getWatchProducts:any = createAsyncThunk("products/watch",async(data:any,thunkAPI)  =>{
+    try{
+        return await authService.getWatchProducts(data)
     }catch(err){
        return thunkAPI.rejectWithValue(err)
     }
@@ -81,6 +99,27 @@ export const authSlice = createSlice({
             state.isSuccess = true;
             state.tablet = action.payload
         })
+
+        .addCase(getLaptopProducts.pending,(state:any,action:any)=>{
+            state.isLoading = true;
+            state.laptop = {}
+        })
+        .addCase(getLaptopProducts.fulfilled,(state:any,action:any)=>{
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.laptop = action.payload
+        })
+
+        .addCase(getWatchProducts.pending,(state:any,action:any)=>{
+            state.isLoading = true;
+            state.watch = {}
+        })
+        .addCase(getWatchProducts.fulfilled,(state:any,action:any)=>{
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.watch = action.payload
+        })
+
 
         .addCase(getProductById.pending,(state:any,action:any)=>{
             state.isLoading = true;

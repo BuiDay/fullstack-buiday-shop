@@ -63,6 +63,18 @@ var productSchema = new mongoose.Schema({
     storage:{
         type:Number,
     },
+    cpu:{
+        type:String,
+    },
+    gpu:{
+        type:String,
+    },
+    resolution:{
+        type:String,
+    },
+    material:{
+        type:String,
+    },
     ratings:[
         {
             rating:Number,

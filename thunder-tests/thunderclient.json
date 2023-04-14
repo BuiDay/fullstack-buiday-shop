@@ -86,16 +86,16 @@
     "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
     "containerId": "",
     "name": "Get All Products",
-    "url": "http://localhost:8000/api/product?category=Máy tính bảng",
+    "url": "http://localhost:8000/api/product?category=Đồng hồ thông minh",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-03-28T06:50:04.742Z",
-    "modified": "2023-04-12T15:38:47.411Z",
+    "modified": "2023-04-13T07:05:14.550Z",
     "headers": [],
     "params": [
       {
         "name": "category",
-        "value": "Máy tính bảng",
+        "value": "Đồng hồ thông minh",
         "isPath": false
       },
       {
@@ -130,7 +130,7 @@
       },
       {
         "name": "page",
-        "value": "1",
+        "value": "9",
         "isDisabled": true,
         "isPath": false
       },

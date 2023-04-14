@@ -45,6 +45,8 @@ export interface IProducts{
   products?:[],
   mobile?:{},
   tablet?:{},
+  laptop?:{},
+  watch?:{},
   product?:{
     title?:string,
     images?:any,

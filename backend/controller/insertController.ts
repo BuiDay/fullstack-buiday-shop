@@ -26,9 +26,12 @@ import samsung_tablet from '../data/Tablet/samsung_tablet.json'
 import lenovo_tablet from '../data/Tablet/lenovo_tablet.json'
 import oppo_table from '../data/Tablet/oppo_tablet.json'
 
-// import apple_laptop from '../data/Laptop/apple_laptop.json'
-// import hp_laptop from '../data/Laptop/hp_laptop.json'
+import apple_laptop from '../data/Laptop/apple_laptop.json'
+import hp_laptop from '../data/Laptop/hp_laptop.json'
 
+import apple_watch from '../data/watch/apple_watch.json'
+import samsung_watch from '../data/watch/samsung_watch.json'
+import xiaomi_watch from '../data/watch/xiaomi_watch.json'
 
 import Cate from '../data/categories.json'
 import mongoose from 'mongoose';
@@ -49,14 +52,18 @@ const fn = async (product:any) =>{
         brand:product?.brand[0] || "null",
         color:product?.colors || "null",
         technicalInfo:newIdTechnical,
-        ram:product?.Ram,
-        storage:product?.Storage,
-        display:product?.Display,
+        ram:product?.Ram | product?.ram,
+        storage:product?.Storage | product?.storage,
+        display:product?.Display | product?.display,
         totalRating:Number(product?.totalRating[0].split('/')[0]),
         images:newIdImage || "null",
         description:newIdDes || "null",
         quantity:Math.floor(Math.random() * 100) || "0",
-        ratings:product?.review || []
+        ratings:product?.review || [],
+        cpu:product?.cpu,
+        gpu:product?.gpu,
+        resolution:product?.resolution,
+        material:product?.material,
     })
 
     await Technical.create({
@@ -95,13 +102,13 @@ export const insertProduct= asyncHandler(async (req:Request, res:Response):Promi
          }
     }
 
-    // const arrayLaptop = [apple_laptop,hp_laptop]
+    const arrayLaptop = [apple_laptop,hp_laptop]
     
-    // for (let i of arrayLaptop){
-    //     for (let product of i) {
-    //         await promies.push(fn(product))
-    //      }
-    // }
+    for (let i of arrayLaptop){
+        for (let product of i) {
+            await promies.push(fn(product))
+         }
+    }
 
 
     const arrayTablet = [book_tablet,apple_tablet,xiaomi_tablet,nokia_tablet,samsung_tablet,lenovo_tablet,oppo_table]
@@ -111,6 +118,15 @@ export const insertProduct= asyncHandler(async (req:Request, res:Response):Promi
             await promies.push(fn(product))
          }
     }
+
+    const arrayWatch = [apple_watch,samsung_watch,xiaomi_watch]
+    
+    for (let i of arrayWatch){
+        for (let product of i) {
+            await promies.push(fn(product))
+         }
+    }
+
 
     await Promise.all(promies)
     return res.json("Done")

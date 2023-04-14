@@ -20,7 +20,7 @@ const PageNumber:React.FC<IProps> = ({ text, currentPage, icon, setCurrentPage, 
             setCurrentPage(Number(text))
             Router.push({
                 pathname: location?.pathname,
-                query: {page:text}
+                query: {...Router.query,page:text}
             });
         }
     }
