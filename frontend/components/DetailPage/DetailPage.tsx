@@ -55,7 +55,7 @@ const DetailPage = ({data}:any) => {
                                     backgroundColor: '#fff',
                                     padding: '20px'
                                 }}>
-                                    {data && <Slider images={data.images && data.images.images} />}
+                                    {data && <Slider images={data.images && data.images.images} slidesPerView={5} navigate={true} width={500} height={500}/>}
                                 </div>
                             </div>
                         </div>

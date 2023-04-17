@@ -7,11 +7,13 @@ import { RootState } from '@/redux';
 import {getMobileProducts } from '@/redux/features/products/productsSilce';
 import { useRouter } from 'next/router';
 
+
+
 const mobile = ({query}:any) => {
 
     const router = useRouter()
     const dispatch = useAppDispatch();
-    const products:any = useAppSelector((state: RootState) => state.products.mobile)
+    const {mobile, isLoading} = useAppSelector((state: RootState) => state.products)
 
     useEffect(() => {
         if(query)
@@ -24,7 +26,7 @@ const mobile = ({query}:any) => {
         <div>
             <Meta title={"Điện thoại"} />
             <Breadcrumb title={"Điện thoại"} />
-            <MobilePage data={products} />
+            <MobilePage data={mobile} isLoading={isLoading} />
         </div>
     );
 };

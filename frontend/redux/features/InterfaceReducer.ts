@@ -1,11 +1,22 @@
 export interface IAuth{
     isLoggedIn?: boolean,
     token?:string,
-    msg?:string,
     isError?:boolean,
     isLoading?:boolean,
     isSuccess?:boolean,
-    _persist?:object
+    _persist?:object,
+    status?:string,
+}
+
+export interface IAuthPayload{
+  data?:{
+    email?:string,
+    firstName?:string,
+    lastName?:string,
+    mobile?:string,
+    token?:string,
+  },
+  status?:string,
 }
 //////////////////////////////////////
 export interface ICategory{
@@ -42,10 +53,30 @@ export interface Irating{
 
 
 export interface IProducts{
-  products?:[],
-  mobile?:{},
-  tablet?:{},
-  laptop?:{},
+  products?:{
+    data?:[],
+    code?:number
+    status?:string,
+    total?:number,
+  },
+  mobile?:{
+    data?:[],
+    code?:number
+    status?:string,
+    total?:number,
+  },
+  tablet?:{
+    data?:[],
+    code?:number
+    status?:string,
+    total?:number,
+  },
+  laptop?:{
+    data?:[],
+    code?:number
+    status?:string,
+    total?:number,
+  },
   watch?:{},
   product?:{
     title?:string,
@@ -79,7 +110,7 @@ export interface IAuthRegister{
 }
 
 export interface IAuthLogin{
-  phone?:string,
+  email?:string,
   password?:string
 }
 

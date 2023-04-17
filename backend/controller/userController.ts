@@ -58,6 +58,7 @@ export const loginUser = asyncHandler(async(req:Request, res:Response):Promise<v
         if(!isPassword){
             res.status(401).json({
                 err:-1,
+                data:"1",
                 status:"Password was wrong"
             })
         }

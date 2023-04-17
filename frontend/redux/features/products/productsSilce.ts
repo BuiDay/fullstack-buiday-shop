@@ -6,7 +6,7 @@ import authService from "./productsService";
 const initState:IProducts = {
     isLoading:false,
     isSuccess:false,
-    products:[],
+    products:{},
     mobile:{},
     tablet:{},
     laptop:{},
@@ -72,17 +72,17 @@ export const authSlice = createSlice({
         builder
         .addCase(getAllProducts.pending,(state:any,action:any)=>{
             state.isLoading = true;
-            state.products = []
+            state.products = {}
         })
         .addCase(getAllProducts.fulfilled,(state:any,action:any)=>{
             state.isLoading = false;
             state.isSuccess = true;
-            state.products = action.payload.data
+            state.products = action.payload
         })
 
         .addCase(getMobileProducts.pending,(state:any,action:any)=>{
             state.isLoading = true;
-            state.mobile = []
+            state.mobile = {}
         })
         .addCase(getMobileProducts.fulfilled,(state:any,action:any)=>{
             state.isLoading = false;

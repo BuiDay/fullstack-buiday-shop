@@ -6,11 +6,12 @@ import authReducer from '../features/auth/authSilce'
 import appReducer from '../features/app/appSilce'
 import productsReducer from '../features/products/productsSilce'
 import { RootState } from '../index'
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
 
 
 const commonConfig = {
     storage,
-    // stateReconciler: autoMergeLevel2
+    stateReconciler: autoMergeLevel2
 }
 
 const authConfig = {

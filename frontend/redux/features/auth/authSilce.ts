@@ -1,12 +1,11 @@
 import { createSlice, createAsyncThunk, createAction, PayloadAction, Reducer, AsyncThunkAction } from "@reduxjs/toolkit"
-import { IAuth} from "../InterfaceReducer";
+import { IAuth, IAuthPayload} from "../InterfaceReducer";
 import authService from "./authService";
 import { IAuthRegister,IAuthLogin } from '../InterfaceReducer'
 
 const initState:IAuth = {
     isLoggedIn : false,
     token:"",
-    msg:"",
     isError:false,
     isLoading:false,
     isSuccess:false,
@@ -44,39 +43,40 @@ export const authSlice = createSlice({
         builder
         .addCase(register.pending,(state:IAuth)=>{
             state.isLoading = true;
-            
         })
         .addCase(register.fulfilled,(state:IAuth,action:PayloadAction<IAuth>)=>{
             state.isLoading = false;
             state.isSuccess = true;
             state.isLoggedIn = false;
-            state.msg = action.payload.msg ;
+            state.status = action.payload.status ;
         })
         .addCase(register.rejected,(state:IAuth,action:PayloadAction<IAuth>)=>{
             state.isLoading = false;
             state.isSuccess = false;
             state.isLoggedIn = false;
             state.isError = true;
-            state.msg = action.payload.msg;
+            state.status = action.payload.status;
         })
 
         .addCase(login.pending,(state:IAuth)=>{
             state.isLoading = true;
         })
-        .addCase(login.rejected,(state:IAuth,action:PayloadAction<IAuth>)=>{
+        .addCase(login.rejected,(state:IAuth,action:PayloadAction<IAuthPayload>)=>{
             state.isError = true;
             state.isLoading = false;
             state.isSuccess = false;
             state.isLoggedIn = false;
-            state.msg = action.payload.msg ;
+            state.status = action.payload.status ;
             state.token = undefined;
         })
-        .addCase(login.fulfilled,(state:IAuth,action:PayloadAction<IAuth>)=>{
+        .addCase(login.fulfilled,(state:IAuth,action:PayloadAction<IAuthPayload>)=>{
+            console.log(action.payload)
+            state.isError = false;
             state.isLoading = false;
             state.isSuccess = true;
             state.isLoggedIn = true;
-            state.msg = action.payload.msg ;
-            state.token = action.payload.token;
+            state.status = action.payload.status ;
+            state.token = action.payload.data?.token
         })
       
         .addCase(logout.fulfilled,(state:IAuth)=>{

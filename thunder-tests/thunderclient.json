@@ -27,12 +27,12 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-03-25T14:45:50.670Z",
-    "modified": "2023-03-28T04:54:21.800Z",
+    "modified": "2023-04-14T18:14:14.065Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\":\"buiday@gmail.com\",\n  \"password\":\"1234\"\n}",
+      "raw": "{\n  \"email\":\"buiday@gmail.com\",\n  \"password\":\"12345\"\n}",
       "form": []
     },
     "tests": []
@@ -86,16 +86,17 @@
     "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
     "containerId": "",
     "name": "Get All Products",
-    "url": "http://localhost:8000/api/product?category=Đồng hồ thông minh",
+    "url": "http://localhost:8000/api/product?limit=20",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-03-28T06:50:04.742Z",
-    "modified": "2023-04-13T07:05:14.550Z",
+    "modified": "2023-04-14T10:11:59.283Z",
     "headers": [],
     "params": [
       {
         "name": "category",
-        "value": "Đồng hồ thông minh",
+        "value": "Laptop",
+        "isDisabled": true,
         "isPath": false
       },
       {
@@ -106,7 +107,7 @@
       },
       {
         "name": "sort",
-        "value": "price",
+        "value": "-totalRating",
         "isDisabled": true,
         "isPath": false
       },
@@ -138,6 +139,11 @@
         "name": "display",
         "value": "5",
         "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "limit",
+        "value": "20",
         "isPath": false
       }
     ],

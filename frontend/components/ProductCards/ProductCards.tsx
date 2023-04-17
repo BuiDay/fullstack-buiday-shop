@@ -21,7 +21,6 @@ interface IProps{
 const ProductCards:React.FC<IProps> = (props) => {
     const {grid,img,data} = props
    
- console.log(data)
     const handlePrice = (price:number,discount:number) =>{
         if(price !==0 && discount !==0)
         return <>

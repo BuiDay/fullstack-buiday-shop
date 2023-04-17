@@ -42,7 +42,7 @@ const ExpiredNotice = () => {
           className="countdown-link"
         >
             <div className="d-flex gap-1 align-items-center ">
-                <span className='days'>{days} days</span>
+                <span className='days'>{days} ngày</span>
                 <DateTimeDisplay value={hours} isDanger={false} />
                 <p>:</p>
                 <DateTimeDisplay value={minutes} isDanger={false} />

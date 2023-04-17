@@ -12,6 +12,8 @@ import { useEffect } from 'react';
 import { getCategories } from '@/redux/features/app/appSilce';
 import { RootState } from '@/redux';
 import { useAppSelector } from '@/redux/hook';
+import  { ShowOnLogin,ShowOnLogout } from '../hiddenLink/hiddendLink';
+import { logout } from '@/redux/features/auth/authSilce';
 
 const Header = () => {
     // const dispatch = useDispatch();
@@ -66,39 +68,39 @@ const Header = () => {
                                 </div>
                             </div>
                             <div className="col-5">
-                                <div className="header-top-upper d-flex align-items-center justify-between-content">
+                                <div className="header-top-upper d-flex align-items-center justify-content-between">
                                     <div>
                                         <Link href='/compare-products' className='d-flex align-items-center gap-10 text-white compare-products'>
                                             <Image src={Compare} alt='Compare Icon'/>
-                                            <p>Compare Products</p>
+                                            <p>So sánh</p>
                                         </Link>
                                     </div>
                                     <div>
                                         <Link href='/wishlist' className='d-flex align-items-center gap-10 text-white wishlist'>
                                             <Image src={Wishlist} alt="Wishlist Icon"/>
-                                            <p>Wishlist Products</p>
+                                            <p>Yêu thích</p>
                                         </Link>
                                     </div>
-                                    {/* <ShowOnLogout> */}
+                                    <ShowOnLogout>
                                         <div>
                                             <Link href='/login' className='d-flex align-items-center gap-10 text-white user'>
                                                 <Image src={User} alt="User Icon" />
-                                                <p>Log in my account</p>
+                                                <p>Đăng nhập</p>
                                             </Link>
                                         </div>
-                                    {/* </ShowOnLogout> */}
+                                    </ShowOnLogout>
                                     {/* <ShowOnLogin>
                                         <div className='d-flex align-items-center gap-10 text-white me-3'>
                                             <img src={User} alt="" />
                                             <div className=''>
-                                                <div className='' role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <p>Hi,</p>
-                                                    <p className='displayName'>{(user?.data?.firstName + " "+user?.data?.lastName) }</p>
-                                                </div>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <Link class="dropdown-item" to="/profile">View Profile</Link>
-                                                    <Link class="dropdown-item" to="/history">History</Link>
-                                                    <Link class="dropdown-item" onClick={()=>{dispatch(logout()); log() }}>Sign out</Link>
+                                                <div className=''>
+                                                    <p>Hi,</p> */}
+                                                    {/* <p className='displayName'>{(user?.data?.firstName + " "+user?.data?.lastName) }</p> */}
+                                                {/* </div>
+                                                <div >
+                                                    <Link className="dropdown-item" href="/profile">View Profile</Link>
+                                                    <Link className="dropdown-item" href="/history">History</Link>
+                                                    <Link className="dropdown-item" href="/" onClick={()=>{dispatch(logout())}}>Sign out</Link>
                                                 </div>
                                             </div>
                                         </div>

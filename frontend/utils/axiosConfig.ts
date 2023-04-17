@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 const instance = axios.create({
     baseURL: "http://localhost:8000"
@@ -13,5 +13,11 @@ instance.interceptors.request.use(function(config:any){
 },function(err){
     return Promise.reject(err);
 })
+
+instance.interceptors.response.use(response => {
+    return Promise.resolve(response)
+ }, error => {
+   return Promise.reject(error.response.data)
+ });
 
 export default instance

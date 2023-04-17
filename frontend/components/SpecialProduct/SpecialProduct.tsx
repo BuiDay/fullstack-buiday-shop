@@ -4,46 +4,60 @@ import StarRatings from 'react-star-ratings';
 import Link from 'next/link';
 import CountdownTimer from '../Common/Countdown/CountdownTimer';
 import Image from 'next/image';
+import Slider from '../Common/Slider/Slider';
 
 interface IProps{
     timer?:number,
+    data?:any,
 }
 
-const SpecialProduct:React.FC<IProps> = (props) => {
+const SpecialProduct:React.FC<IProps> = ({timer,data}) => {
     return (
-        <div className='col-4'>
-            <div className={`${styles.special_product_card}`}>
-                <div className="d-flex justify-content-between">
+        <div className=''>
+            <div className={`${styles.special_product_card}`} style={{minHeight:"350px",height:"100%"}}>
+                <div className="d-flex">
                     <div>
-                        <Image className='img-fluid' src={require('../../assets/images/watch.jpg')} alt="" />
-                        <div className={`${styles.other_product} d-flex justify-content-between gap-15`}>
-                            <div><Image className='img-fluid' src={require('../../assets/images/watch-ultra-2.png')} alt="" /></div>
-                            <div><Image className='img-fluid' src={require('../../assets/images/watch-ultra.png')} alt="" /></div>
-                        </div>
+                            <div style={{
+
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                            }}>
+                                <div style={{
+                                    borderRadius: "10px",
+                                    maxWidth: '200px',
+                                    width: "100%",
+                                    backgroundColor: '#fff',
+                                    padding: '0px 10px'
+                                }}>
+                                    {data && <Slider images={data.images && data.images.images} slidesPerView={2} navigate={false} width={200} height={180}/>}
+                                </div>
+                            </div>
                     </div>
                     <div className={`${styles.special_product_content}`}>
-                        <h5 className={styles.brand}>Sony</h5>
-                        <h6 className={styles.title}>Lorem ipsum dolor sit amet consectetur</h6>
+                        <h5 className={styles.brand}>{data?.brand}</h5>
+                        <h6 className={styles.title}>{data?.title}</h6>
                         <StarRatings
-                            rating={2.5}
+                            rating={Math.floor(data.totalRating)}
                             // edit={false}
-                            starDimension="20px"
+                            starDimension="15px"
                             starRatedColor="#ffd700"
                         />
                         <p className="price mt-2">
-                            <span className="text-danger">$100</span> &nbsp;
+                            <span style={{fontSize:"18px"}} className="text-danger">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.discount)}</span>
+                            <del style={{fontSize:"14px"}} className="text-drak ms-2">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.price)}</del>
                             {/* <strike>$200</strike> */}
                         </p>
-                        <div className={`${styles.discount_till} d-flex align-items-center gap-2`}>
-                            <CountdownTimer targetDate={props.timer} />
+                        <div className={`${styles.discount_till} d-flex align-items-center gap-2 mt-2`}>
+                            <CountdownTimer targetDate={timer} />
                         </div>
                         <div className='prod-count mt-3'>
-                            <p>Products: 5</p>
+                            <p>Sản phẩm còn lại: 5</p>
                             <div className='progress mt-3'>
-                                <div className={`${styles.progress_bar} w-75`} role="progressbar" aria-valuenow={"75"} aria-valuemin={"0"} aria-valuemax={"100"}></div>
+                                <div className={`${styles.progress_bar} w-75`} role="progressbar" aria-valuenow={75} aria-valuemin={0} aria-valuemax={100}></div>
                             </div>
                         </div>
-                        <Link href="#" className='button py-2 px-3 mt-3'>Option</Link>
+                        <Link href="#" className='button py-2 px-3 mt-3'>Mua ngay</Link>
                     </div>
                 </div>
             </div>

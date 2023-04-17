@@ -7,9 +7,13 @@ import Image from 'next/image';
 
 interface IProps{
     images:[]
+    slidesPerView?:number,
+    navigate?:boolean,
+    width?:number,
+    height?:number,
 }
 
-const Slider:React.FC<IProps> = ({images}) => {
+const Slider:React.FC<IProps> = ({images,slidesPerView,navigate,width,height}) => {
     
     const [activeThumb, setActiveThumb] = useState<any>(null)
     const handle = (e:any) =>{
@@ -20,7 +24,7 @@ const Slider:React.FC<IProps> = ({images}) => {
              <Swiper
             loop={true}
             spaceBetween={10}
-            navigation={true}
+            navigation={navigate}
             modules={[Navigation, Thumbs]}
             grabCursor={true}
             thumbs={{ swiper: activeThumb && !activeThumb.destroyed ? activeThumb : null }}
@@ -29,7 +33,7 @@ const Slider:React.FC<IProps> = ({images}) => {
             {
                images && images.map((item, index) => (
                     <SwiperSlide key={index}>                    
-                        <Image src={item} alt="product images" className='border' width={500} height={500} />
+                        <Image src={item} alt="product images" className='border' width={width} height={height} />
                     </SwiperSlide>
                 ))
             }
@@ -40,7 +44,7 @@ const Slider:React.FC<IProps> = ({images}) => {
             onSwiper={(e)=>{handle((e))}}
             loop={true}
             spaceBetween={10}
-            slidesPerView={5}
+            slidesPerView={slidesPerView}
             modules={[Navigation, Thumbs]}
             className='product-images-slider-thumbs'
         >

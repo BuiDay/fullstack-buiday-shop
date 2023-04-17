@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Color from '../Common/Color/Color';
 import Image from 'next/image';
 import Pagination from '../Common/Pagination/Pagination';
+import Loading from '../Common/Loading/Loading';
 
 
 interface IQuery {
@@ -18,9 +19,10 @@ interface IQuery {
 
 interface IProps{
     data?:any,
+    isLoading?:boolean
 }
 
-const MobilePage:React.FC<IProps> = ({data}) => {
+const MobilePage:React.FC<IProps> = ({data,isLoading}) => {
     const products = data.data
     const router = useRouter()
     
@@ -253,7 +255,8 @@ const MobilePage:React.FC<IProps> = ({data}) => {
                             </div>
                         </div>
 
-                        <div className="products-list pb-5 d-flex flex-wrap gap-10">
+                        <div className="products-list pb-5 d-flex flex-wrap gap-10 justify-content-center">
+                            {isLoading && <Loading />}
                             {
                                 products && products?.map((item:any, index:any) => {
                                     return (
