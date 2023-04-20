@@ -2,18 +2,20 @@ import React, { useEffect, useState } from 'react';
 import styles from './CompareProductsPage.module.scss'
 import Image from 'next/image';
 import productService from '@/redux/features/products/productsService';
-
+import {AiFillDelete} from 'react-icons/ai'
+import { useAppDispatch, useAppSelector } from '@/redux/hook';
+import { apiCompareProducts } from '@/redux/features/app/appSilce';
 interface IProps {
     id: string
 }
 
 const ItemCompare: React.FC<IProps> = ({ id }) => {
-
+    const dispatch = useAppDispatch();
     const [product, setProduct] = useState<any>();
-
+    const {compare_products} = useAppSelector(state => state.app)
     useEffect(() => {
         handleGetProduct(id)
-    }, [])
+    }, [compare_products])
 
     const handleGetProduct = async (id: string) => {
         const res: { code?: number, data?: any } = await productService.getProductById({ id }) || ""
@@ -22,13 +24,16 @@ const ItemCompare: React.FC<IProps> = ({ id }) => {
         }
     }
 
-    console.log(product)
+    const handleDelete = (id:string) =>{
+        dispatch(apiCompareProducts(id))
+    }
 
     return (
         <div className="col-3">
             {
                 product &&
                 <div className={`${styles.compare_products_card}`}>
+                    <div className={`${styles.compare_products_delete}`} onClick={()=>handleDelete(product?._id)}><AiFillDelete/></div>
                     <div className={`${styles.product_card_image} text-center mb-3`}>
                         <Image src={product.images.images[0] && product.images.images[0]} width={100} height={100} alt="" />
                     </div>

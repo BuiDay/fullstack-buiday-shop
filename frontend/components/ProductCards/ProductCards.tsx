@@ -10,6 +10,8 @@ import { apiCompareProducts } from '@/redux/features/app/appSilce';
 import { Tooltip } from 'react-tooltip'
 import {BsHeart,BsHeartFill} from 'react-icons/bs'
 import ModalConfirm from '../Common/ModalConfirm/ModalConfirm';
+import userService from '@/redux/features/user/userService';
+import { getUser } from '@/redux/features/user/userSilce';
 
 interface IProps {
     img?: string;
@@ -22,7 +24,9 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
     const dispatch = useAppDispatch();
     const {compare_products} = useAppSelector(state => state.app)
     const {isLoggedIn} = useAppSelector(state=>state.auth)
+    const {wishlist} = useAppSelector(state=>state.user)
     const [isShowModalConfirm, setIsShowModalConfirm] = useState(false)
+    
     const handlePrice = (price: number, discount: number) => {
         if (price !== 0 && discount !== 0)
             return <>
@@ -56,9 +60,12 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
         // }
     }
 
-    const handleWishList = (id:string) =>{
+    const handleAddWishList = async (id:string) =>{
         if(isLoggedIn){
-
+            const res:{code?:number} = await userService.apiAddToWishlist({proId:id}) || ""
+            if(res.code === 1){
+                dispatch(getUser())
+            }
         }else{
             setIsShowModalConfirm(true)
         }
@@ -67,16 +74,17 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
     return (
         // <div className={`${location.pathname=="/ourstore" ? `gr-${grid}`:"col-2"}`}>
         <>
-         <div className={`gr-${grid}`}>
+         <div className={`gr-${grid} position-relative`}>
             <div className={`${styles.product_item}`}>
-                <div className={`${styles.action_bar} position-absolute`}>
+                <div className={`${styles.action_bar}`}>
                     <div className="d-flex flex-column gap-10">
                         <div className={`${styles.wishlist_icon} position-absolute`}>
                             <div data-tooltip-id="wishs-tooltip"
-                                data-tooltip-content="Yêu thích"
-                                onClick={()=>handleWishList(data?._id)}>
-                                {/* <BsHeartFill color='red'/> */}
-                                <BsHeart color="black"/>
+                                data-tooltip-content={wishlist && wishlist.includes(data?._id)? "Hủy yêu thích":"Yêu thích"}
+                                onClick={()=>handleAddWishList(data?._id)}>
+                                    {
+                                        wishlist && wishlist.includes(data?._id) ? <BsHeartFill color='red'/> : <BsHeart color="black"/>
+                                    }                                
                                 <Tooltip id="wishs-tooltip" />
                             </div>
                         </div>

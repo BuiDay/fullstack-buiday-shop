@@ -4,6 +4,7 @@ import { IAuthRegister, IUser } from '../InterfaceReducer'
 
 const initState:IUser = {
     currentData:{},
+    wishlist:[]
 }
 
 export const getUser:any = createAsyncThunk("user/get-user",async(data:IAuthRegister,thunkAPI)  =>{
@@ -15,7 +16,7 @@ export const getUser:any = createAsyncThunk("user/get-user",async(data:IAuthRegi
 })
 
 export const authSlice = createSlice({
-    name:"auth",
+    name:"user",
     initialState:initState,
     reducers:{},
     extraReducers:(builder) =>{
@@ -23,6 +24,7 @@ export const authSlice = createSlice({
 
         .addCase(getUser.fulfilled,(state:any,action:PayloadAction<any>)=>{
             state.currentData = action.payload ;
+            state.wishlist = action.payload.wishlist
         })
     },
 })

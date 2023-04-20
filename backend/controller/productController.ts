@@ -189,6 +189,12 @@ export const addToWishlist = asyncHandler(async (req:Request, res:Response):Prom
     const {id} = req2.user;
     const {proId} = req.body; 
     try {
+        if(!proId){
+            res.json({
+                status:"error miss proId",
+                code:-1,
+            })
+        }
         const user1 =await User.findById(id);
         const alreadyAddList = user1.wishlist.find((id:string)=>id.toString() === proId);
         if(alreadyAddList){
@@ -204,7 +210,7 @@ export const addToWishlist = asyncHandler(async (req:Request, res:Response):Prom
             res.json({
                 status:"success",
                 code:1,
-                data:user,
+                data:user
             })
         }else{
             let user = await User.findByIdAndUpdate(
@@ -219,7 +225,7 @@ export const addToWishlist = asyncHandler(async (req:Request, res:Response):Prom
             res.json({
                 status:"success",
                 code:1,
-                data:user,
+                data:user
             })
         }
     } catch (error) {

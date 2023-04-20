@@ -244,7 +244,7 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
                         {
                             mobile?.data && mobile?.data.map((item,index)=>{
                                 return(
-                                    <SwiperSlide key={index}><ProductCards key={index} data={item} grid={4}/></SwiperSlide>
+                                    <SwiperSlide key={index}><ProductCards key={index} data={item} grid={5}/></SwiperSlide>
                                 )
                             })
                         }
@@ -276,7 +276,7 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
                         {
                             laptop?.data && laptop?.data.map((item,index)=>{
                                 return(
-                                    <SwiperSlide key={index}><ProductCards key={index} data={item} grid={4}/></SwiperSlide>
+                                    <SwiperSlide key={index}><ProductCards key={index} data={item} grid={5}/></SwiperSlide>
                                 )
                             })
                         }
@@ -395,7 +395,7 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
                         {
                             tablet?.data && tablet?.data.map((item,index)=>{
                                 return(
-                                    <SwiperSlide key={index}><ProductCards key={index} data={item} grid={4}/></SwiperSlide>
+                                    <SwiperSlide key={index}><ProductCards key={index} data={item} grid={5}/></SwiperSlide>
                                 )
                             })
                         }

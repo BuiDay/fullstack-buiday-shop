@@ -255,8 +255,8 @@ const MobilePage:React.FC<IProps> = ({data,isLoading}) => {
                             </div>
                         </div>
 
-                        <div className="products-list pb-5 d-flex flex-wrap gap-10 justify-content-center">
-                            {isLoading && <Loading />}
+                        <div className="products-list pb-5 d-flex flex-wrap gap-10">
+                            {isLoading && <div className='d-flex w-100 justify-content-center'> <Loading /></div>}
                             {
                                 products && products?.map((item:any, index:any) => {
                                     return (

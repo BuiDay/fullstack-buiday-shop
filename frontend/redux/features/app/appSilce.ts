@@ -6,7 +6,8 @@ import appService from './appService'
 const initState:IApp = {
     categories: [],
     colors:[],
-    compare_products:[]
+    compare_products:[],
+    isLoading:false
 
 }
 
@@ -47,6 +48,9 @@ export const appSlice = createSlice({
         .addCase(getColors.fulfilled,(state:IApp,action:PayloadAction<ICategoriesPaypload>)=>{
             state.colors = action.payload.data;
         })
+        .addCase(apiCompareProducts.pending,(state:IApp,action:PayloadAction<ICategoriesPaypload>)=>{
+            state.isLoading = true;
+        })
         .addCase(apiCompareProducts.fulfilled,(state:IApp,action:PayloadAction<any>)=>{
             let array:string[] = [...state.compare_products];
             if(array.includes(action.payload)){
@@ -57,6 +61,7 @@ export const appSlice = createSlice({
                 array.push(action.payload)
             }
             state.compare_products = array;
+            state.isLoading = false
         })
     },
 })

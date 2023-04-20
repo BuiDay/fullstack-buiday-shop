@@ -13,8 +13,33 @@ const getUser =  () => new Promise(async(resolve, reject)=>{
     }
 })
 
+const apiAddToWishlist =  (data:{proId:string}) => new Promise(async(resolve, reject)=>{
+    try {
+        const res = await axiosConfig({
+            method:"put",
+            url:`/api/product/wishlist`,
+            data
+        })
+        resolve(res.data)
+    } catch (error) {
+        reject(error)
+    }
+})
+
+const apiGetWishlist =  () => new Promise(async(resolve, reject)=>{
+    try {
+        const res = await axiosConfig({
+            method:"get",
+            url:`/api/product/wishlist`,
+        })
+        resolve(res.data)
+    } catch (error) {
+        reject(error)
+    }
+})
+
 const userService = {
-    getUser
+    getUser,apiAddToWishlist,apiGetWishlist
 }
 
 export default userService

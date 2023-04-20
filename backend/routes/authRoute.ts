@@ -16,4 +16,5 @@ router.put(`/update-user`,authMiddleware ,updateUser);
 router.post("/forgot-password",forgotPassword);
 router.post("/reset-password/:token",resetPassword);
 
+
 export = router

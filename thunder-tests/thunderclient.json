@@ -27,12 +27,12 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-03-25T14:45:50.670Z",
-    "modified": "2023-04-18T08:02:04.584Z",
+    "modified": "2023-04-20T13:21:54.902Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\":\"buiday@gmail.com\",\n  \"password\":\"1234\"\n}",
+      "raw": "{\n  \"email\":\"buivanduynhat@gmail.com\",\n  \"password\":\"123\"\n}",
       "form": []
     },
     "tests": []
@@ -274,6 +274,49 @@
       "raw": "{\n  \"password\":\"12345\"\n}",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "13f20810-e8cb-4df0-849f-0193d707479b",
+    "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
+    "containerId": "",
+    "name": "add wishlist",
+    "url": "http://localhost:8000/api/product/wishlist",
+    "method": "PUT",
+    "sortNum": 40000,
+    "created": "2023-04-20T13:21:12.498Z",
+    "modified": "2023-04-20T13:25:15.083Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZDk0ZjZlMjYwNjhhMWQwOWM5MWFjZCIsImlhdCI6MTY4MTk5NjkxNCwiZXhwIjoxNjgyMDgzMzE0fQ.BfRWU3mnwfwsUPFVwOjUMT5sooOFyXl8vRVhjmNLmNs"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"proId\":\"63d911e4f3ba9d5988e3a536\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "1a539730-b86c-4de2-9b2c-9f3747b174bb",
+    "colId": "aef689c0-3185-421a-ad8a-a1de49a651f5",
+    "containerId": "",
+    "name": "get wishlist",
+    "url": "http://localhost:8000/api/user/wishlist",
+    "method": "GET",
+    "sortNum": 90000,
+    "created": "2023-04-20T13:37:07.632Z",
+    "modified": "2023-04-20T13:37:41.111Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZDk0ZjZlMjYwNjhhMWQwOWM5MWFjZCIsImlhdCI6MTY4MTk5NjkxNCwiZXhwIjoxNjgyMDgzMzE0fQ.BfRWU3mnwfwsUPFVwOjUMT5sooOFyXl8vRVhjmNLmNs"
+      }
+    ],
+    "params": [],
     "tests": []
   }
 ]

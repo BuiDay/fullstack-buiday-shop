@@ -6,7 +6,6 @@ const instance = axios.create({
 
 instance.interceptors.request.use(function(config:any){
     let token = window.localStorage.getItem('persist:auth') && JSON.parse(window.localStorage.getItem('persist:auth')  || 'Default Value')?.token?.slice(1, -1) 
-    console.log(token)
     config.headers = {
         authorization: token ? `Bearer ${token}` : null
     }

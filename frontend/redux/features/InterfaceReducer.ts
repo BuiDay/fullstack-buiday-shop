@@ -35,7 +35,8 @@ export interface IColor{
 export interface IApp{
   categories?:ICategory[],
   colors?:IColor[],
-  compare_products?:any
+  compare_products?:any,
+  isLoading?:boolean,
 }
 
 export interface ICategoriesPaypload{
@@ -162,7 +163,8 @@ export interface IUser{
     cart?:[],
     isBlock?:boolean,
     wishlist?:[],
-  }
+  },
+  wishlist?:string[]
 }
 
 export interface IUserPayload{

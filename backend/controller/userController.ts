@@ -257,7 +257,6 @@ export const updateUser = asyncHandler(async (req:Request, res:Response):Promise
     }
 })
 
-
 export const forgotPassword = asyncHandler(async (req:Request, res:Response):Promise<void>=>{
     const {email} = req.body;
     const user = await User.findOne({email});
@@ -286,7 +285,6 @@ export const forgotPassword = asyncHandler(async (req:Request, res:Response):Pro
         throw new Error(err.toString())
     }
 })
-
 
 export const resetPassword = asyncHandler(async(req:Request, res:Response):Promise<void>=>{
     const {password} = req.body;
@@ -319,4 +317,6 @@ export const resetPassword = asyncHandler(async(req:Request, res:Response):Promi
         }
     )
 })
+
+
 

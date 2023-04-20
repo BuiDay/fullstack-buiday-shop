@@ -27,16 +27,19 @@ const Header:React.FC<IProps> = () => {
     // const {cartTotalAmount,totalQuantity} = useSelector(state=>state.cart)
     // const navigate = useNavigate();
 
-    // const log = () =>{
-    //     window.location.reload();
-    //     navigate("/");
-    // }
+    const handleLogout = () =>{
+        dispatch(logout())
+        setTimeout(()=>{
+            window.location.reload();
+        },500)
+        
+    }
+
     const dispatch = useAppDispatch();
     const categories  = useAppSelector((state:RootState) => state.app.categories)
     const [isShowDropdown, setIsShowDropdown] = useState<boolean>(false)
     useEffect(() => {
       dispatch(getCategories())
-     
   }, [])
 
   useEffect(() => {
@@ -112,7 +115,7 @@ const Header:React.FC<IProps> = () => {
                                             <div className={styles.dropdown_content}>
                                                 <Link className="dropdown_item" href="/profile">View Profile</Link>
                                                 <Link className="dropdown_item" href="/history">History</Link>
-                                                <Link className="dropdown_item" href="/" onClick={()=>{dispatch(logout())}}>Sign out</Link>
+                                                <Link className="dropdown_item" href="" onClick={()=>{handleLogout()}}>Sign out</Link>
                                             </div>
                                         </div>
                                     </div>
