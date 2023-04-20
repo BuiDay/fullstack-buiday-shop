@@ -21,9 +21,16 @@ const authConfig = {
     whitelist:['isLoggedIn','token']
 }
 
+const appConfig = {
+    ...commonConfig,
+    key:'app',
+    whitelist:['compare_products']
+}
+
+
 const rootReducer = combineReducers({
     auth:persistReducer<any, any>(authConfig,authReducer),
-    app:appReducer,
+    app:persistReducer<any, any>(appConfig,appReducer),
     products:productsReducer,
     user:userReducer
 })

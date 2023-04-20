@@ -196,22 +196,22 @@
     "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
     "containerId": "",
     "name": "Get product by id",
-    "url": "http://localhost:8000/api/product/get_product?slug=xiaomi-pad-5",
+    "url": "http://localhost:8000/api/product/get_product?id=6437a991377aa180453a2293",
     "method": "GET",
     "sortNum": 30000,
     "created": "2023-03-30T17:14:34.712Z",
-    "modified": "2023-04-12T16:51:59.461Z",
+    "modified": "2023-04-20T05:57:40.552Z",
     "headers": [],
     "params": [
       {
         "name": "id",
-        "value": "6436d81bc1c433dcb748bb42",
-        "isDisabled": true,
+        "value": "6437a991377aa180453a2293",
         "isPath": false
       },
       {
         "name": "slug",
         "value": "xiaomi-pad-5",
+        "isDisabled": true,
         "isPath": false
       }
     ],
@@ -253,6 +253,25 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"email\":\"buivanduynhat@gmail.com\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "b1e777ff-89e7-4b80-b2ac-17e1ad3c1aca",
+    "colId": "aef689c0-3185-421a-ad8a-a1de49a651f5",
+    "containerId": "",
+    "name": "reset password",
+    "url": "http://localhost:8000/api/user/reset-password/dc18506b49196d0f640de865700d17900ebd6a06894e9b04fe05a12a4e44703d",
+    "method": "POST",
+    "sortNum": 80000,
+    "created": "2023-04-20T04:39:40.561Z",
+    "modified": "2023-04-20T04:41:13.291Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"password\":\"12345\"\n}",
       "form": []
     },
     "tests": []

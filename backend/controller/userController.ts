@@ -9,6 +9,7 @@ import validateMongodbId from '../utils/validateMongodbId';
 import { IGetUserAuthInfoRequest } from '../middlewares/authMiddleware';
 import crypto from 'crypto'
 import sendEmail from './emailController';
+import { json } from 'body-parser';
 
 interface IUserRequest extends Request {
     user: any
@@ -268,7 +269,7 @@ export const forgotPassword = asyncHandler(async (req:Request, res:Response):Pro
         user.passwordResetToken = crypto.createHash("SHA256").update(token).digest("hex")
         user.passwordResetExpires = Date.now() + 30*60*1000;
         await user.save();
-        const resetURL = `Hi, please follow this link to reset your password. This link <a href='http://localhost:3000/comfirm-password/${token}'>Click me </a>`
+        const resetURL = `Hi, please follow this link to reset your password. This link <a href='http://localhost:3000/reset-password/${token}'>Click me </a>`
         const data ={
             to:email,
             text:"hey you",
@@ -284,5 +285,38 @@ export const forgotPassword = asyncHandler(async (req:Request, res:Response):Pro
         if(err)
         throw new Error(err.toString())
     }
+})
+
+
+export const resetPassword = asyncHandler(async(req:Request, res:Response):Promise<void>=>{
+    const {password} = req.body;
+    const {token} = req.params;
+    console.log(password,token)
+    const hashToken = crypto.createHash("SHA256").update(token).digest("hex");
+    const user = await User.findOne({
+        passwordResetToken:hashToken,
+        passwordResetExpires:{$gt:Date.now()}
+    })
+    if(!user){
+        res.json({
+            status:"token expired, please try again later",
+            code:'-1'
+        })
+    }
+    if(password){
+        const salt = await bcrypt.genSalt(10);
+        const newPassword = await bcrypt.hash(req.body.password, salt);
+        user.password = newPassword;
+        user.passwordResetToken = undefined;
+        user.passwordResetExpires = undefined;
+        user.passwordChangedAt = Date.now();
+    }
+    await user.save();
+    res.json(
+        {
+            status:"success",
+            code:'1'
+        }
+    )
 })
 

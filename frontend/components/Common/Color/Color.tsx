@@ -16,7 +16,7 @@ const Color = () => {
         <div>
             <ul className={`${styles.colors} ps-0`}>
                 {
-                    colors && colors.map((item,index)=>{
+                    colors && colors.map((item:any,index:number)=>{
                         return(
                             <li key={index} style={{background:`${item.code}`}} data-tooltip-id="my-tooltip"
                             data-tooltip-content={item.title}></li>

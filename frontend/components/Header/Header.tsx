@@ -121,8 +121,10 @@ const Header:React.FC<IProps> = () => {
                                         <Link href='/cart' className='d-flex align-items-center gap-10 text-white'>
                                             <Image src={Cart} alt="Cart Icon" />
                                             <div className='d-flex flex-column'>
-                                                {/* <span className='badge bg-white text-dark'>{totalQuantity ? totalQuantity : "0"}</span>
-                                                <p>{cartTotalAmount ? cartTotalAmount :"0"}$</p> */}
+                                                {/* <span className='badge bg-white text-dark'>{totalQuantity ? totalQuantity : "0"}</span> */}
+                                                {/* <p>{cartTotalAmount ? cartTotalAmount :"0"}$</p> */}
+                                                <span className='badge bg-white text-dark'>3</span>
+                                                <p>100</p>
                                             </div>
                                         </Link>
                                     </div>
@@ -143,9 +145,9 @@ const Header:React.FC<IProps> = () => {
                                         Shop categories
                                     </div>
                                     {isShowDropdown &&  <div className="dropdown_list">
-                                        {categories && categories.map((item,index)=>{
+                                        {categories && categories.map((item:any,index:number)=>{
                                             return(
-                                                <Link key={index} className="dropdown_item" href={item.href ? item.href : "#"} onClick={()=>setIsShowDropdown(!isShowDropdown)}>
+                                                <Link key={index} className="dropdown_item" href={item.href ? `/${item.href}` : "#"} onClick={()=>setIsShowDropdown(!isShowDropdown)}>
                                                     <Image src={item.icon} width={20} height={20} alt="" className='dropdown_icon'></Image>
                                                     <span>{item.title}</span>
                                                 </Link>

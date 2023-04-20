@@ -6,8 +6,8 @@ import React from 'react';
 const forgotPassword = () => {
     return (
         <>
-            <Meta title={"Forgot Password"} />
-            <Breadcrumb title={"Forgot Password"} />
+            <Meta title={"Quên mật khẩu"} />
+            <Breadcrumb title={"Quên mật khẩu"} />
             <ForgotPassword />
         </>
     );

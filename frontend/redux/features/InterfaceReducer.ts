@@ -34,7 +34,8 @@ export interface IColor{
 
 export interface IApp{
   categories?:ICategory[],
-  colors?:IColor[]
+  colors?:IColor[],
+  compare_products?:any
 }
 
 export interface ICategoriesPaypload{
@@ -116,6 +117,15 @@ export interface IAuthRegister{
 export interface IAuthLogin{
   email?:string,
   password?:string
+}
+
+export interface IForgotPassword{
+  email?:string,
+}
+
+export interface IResetPassword{
+  token?:string,
+  values?:any
 }
 
 export interface IPost{

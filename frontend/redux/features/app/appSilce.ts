@@ -5,7 +5,9 @@ import appService from './appService'
 
 const initState:IApp = {
     categories: [],
-    colors:[]
+    colors:[],
+    compare_products:[]
+
 }
 
 export const getCategories:any = createAsyncThunk("app/get-categories",async(data,thunkAPI)=>{
@@ -24,6 +26,14 @@ export const getColors:any = createAsyncThunk("app/get-colors",async(data,thunkA
     }
 })
 
+export const apiCompareProducts:any = createAsyncThunk("app/compare_products",async(data:string,thunkAPI)=>{
+    try{
+        return data
+    }catch(err){
+       return thunkAPI.rejectWithValue(err)
+    }
+})
+
 
 export const appSlice = createSlice({
     name:"app",
@@ -36,6 +46,17 @@ export const appSlice = createSlice({
         })
         .addCase(getColors.fulfilled,(state:IApp,action:PayloadAction<ICategoriesPaypload>)=>{
             state.colors = action.payload.data;
+        })
+        .addCase(apiCompareProducts.fulfilled,(state:IApp,action:PayloadAction<any>)=>{
+            let array:string[] = [...state.compare_products];
+            if(array.includes(action.payload)){
+                array = array.filter(function(item) {
+                    return item !== action.payload
+                })
+            }else{
+                array.push(action.payload)
+            }
+            state.compare_products = array;
         })
     },
 })

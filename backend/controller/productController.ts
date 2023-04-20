@@ -86,7 +86,7 @@ export const getProduct = asyncHandler(async (req:Request, res:Response):Promise
 
         if(product){
             res.json({
-                code:-1,
+                code:1,
                 status:"success",
                 data:product
             })

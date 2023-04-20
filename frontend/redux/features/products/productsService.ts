@@ -77,7 +77,7 @@ const getWatchProducts =  (params:any) => new Promise(async(resolve, reject)=>{
 })
 
 
-const getProductById =  (id:string) => new Promise(async(resolve, reject)=>{
+const getProductById =  (id:any) => new Promise(async(resolve, reject)=>{
     try {
         const res = await axiosConfig({
             method:"get",

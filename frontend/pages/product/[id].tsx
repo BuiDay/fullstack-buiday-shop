@@ -1,4 +1,5 @@
 import Breadcrumb from '@/components/Common/Breadcrumb/Breadcrumb';
+import Loading from '@/components/Common/Loading/Loading';
 import Meta from '@/components/Common/Meta/Meta';
 import Detailage from '@/components/DetailPage/DetailPage';
 import { getProductById } from '@/redux/features/products/productsSilce';
@@ -7,8 +8,7 @@ import React, { useEffect } from 'react';
 
 const Detail = ({query}:any) => {
     const dispatch = useAppDispatch();
-    const data = useAppSelector(state => state.products.product)
-    console.log(query.id)
+    const {product,isLoading} = useAppSelector(state => state.products)
     useEffect(()=>{
         dispatch(getProductById({slug:query.id}))
     },[query])
@@ -17,7 +17,14 @@ const Detail = ({query}:any) => {
         <div>
             <Meta title={"Sản phẩm"} />
             <Breadcrumb title={"Sản phẩm"} />
-            <Detailage data={data}/>
+           
+            {
+                isLoading ?  
+                <div className='d-flex justify-content-center align-items-center' style={{height:"500px"}}>
+                <Loading/>
+                </div>: 
+                <Detailage data={product}/>
+            }
         </div>
     );
 };
