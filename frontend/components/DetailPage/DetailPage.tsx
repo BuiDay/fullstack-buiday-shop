@@ -92,7 +92,7 @@ const DetailPage = ({data}:any) => {
                                                 {
                                                     data?.color && data?.color.map((item:string,index:number)=>{
                                                         return(
-                                                            <div className={`${isColor?.includes(item) ? styles.activeColor: ""} py-1 px-2`} style={{border:"1px solid rgba(0, 0, 0, 0.25)",borderRadius:"8px",cursor:"pointer"}} onClick={()=>handleColor(item)}>{item}</div>
+                                                            <div key={index} className={`${isColor?.includes(item) ? styles.activeColor: ""} py-1 px-2`} style={{border:"1px solid rgba(0, 0, 0, 0.25)",borderRadius:"8px",cursor:"pointer"}} onClick={()=>handleColor(item)}>{item}</div>
                                                         )
                                                     })
                                                 }

@@ -7,7 +7,7 @@ import {getTabletProducts } from '@/redux/features/products/productsSilce';
 import { useRouter } from 'next/router';
 import TabletPage from '@/components/TabletPage/TabletPage';
 
-const tablet = ({query}:any) => {
+const Tablet = ({query}:any) => {
 
     const router = useRouter()
     const dispatch = useAppDispatch();
@@ -33,4 +33,4 @@ export async function getServerSideProps(context:any) {
     return { props: { query } }
   }
   
-export default tablet;
+export default Tablet;

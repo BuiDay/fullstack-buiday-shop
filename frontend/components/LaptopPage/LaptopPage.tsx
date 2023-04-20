@@ -28,7 +28,7 @@ const LaptopPage:React.FC<IProps> = ({data}) => {
         if(value !== "All"){
             router.push(
                 {
-                    pathname:"/mobile",
+                    pathname:"/laptop",
                     query:{
                         ...router.query,
                         page:1,
@@ -39,7 +39,7 @@ const LaptopPage:React.FC<IProps> = ({data}) => {
         }else
         router.push(
             {
-                pathname:"/mobile",
+                pathname:"/laptop",
                 query:{}
             }
         )

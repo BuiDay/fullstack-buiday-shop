@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Link from 'next/link';
 import styles from './Register.module.scss'
+import authService from '@/redux/features/auth/authService';
+import { IAuthRegister } from '@/redux/features/InterfaceReducer';
+import Swal from 'sweetalert2'
+import { useRouter } from 'next/router';
 
+
+interface IResponseRegister{
+    code?:string,status?:string
+}
 const Register = () => {
+    const router = useRouter();
+    const [isError, setIsError] = useState<string>("")
     const formik = useFormik({
         initialValues: {
           firstName:'',
@@ -23,9 +33,31 @@ const Register = () => {
             passwordConfirmation: Yup.string().oneOf([Yup.ref('password'), ""], 'Passwords must match')
             }),
         onSubmit: values => {
-            // dispatch(registerUser(values))
+            handleRegister(values)
         },
       });
+
+    const handleRegister = async (values:IAuthRegister) =>{
+        setIsError("")
+        try{
+            const res:IResponseRegister = await authService.apiRegister(values) || {};
+            if(res.code === "1"){
+                Swal.fire({
+                    title: 'Bạn đã đăng kí thành công',
+                    icon: 'success',
+                  }).then(() => {
+                    router.push("/login")
+                  })
+            }
+            if(res.code === "-2"){
+                setIsError("Số điện thoại đã được đăng kí")
+            }
+        }catch(err){
+            setIsError("Tài khoản đăng kí đã tồn tại")
+        }
+
+    }
+
     return (
         <div className="forgot-password-wrapper py-5 home-wrapper-2">
         <div className="row">
@@ -117,10 +149,10 @@ const Register = () => {
                         <div className='mt-3'>
                             <input 
                                 type="password" 
-                                name='comfirmPassword' 
+                                name='passwordConfirmation' 
                                 placeholder='Comfirm Password' 
                                 className={`${styles.form_control} form-control`} 
-                                onChange={formik.handleChange} 
+                                onChange={formik.handleChange("passwordConfirmation")} 
                                 value={formik.values.passwordConfirmation}
                                 />
                         </div>
@@ -131,6 +163,9 @@ const Register = () => {
                             ) : null
                         }
                         </div>
+                        <span className="error">
+                            {isError}
+                        </span>
                         <div className="mt-3 d-flex flex-column justify-content-center gap-15 align-items-center">
                             <button type='submit' className={`${styles.button} button border-0`}>Create</button>
                             <Link href='/login' className='forgot'>Cancel</Link>

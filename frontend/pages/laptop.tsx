@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 
-const mobile = ({query}:any) => {
+const Mobile = ({query}:any) => {
     const router = useRouter()
     const dispatch = useAppDispatch();
     const products:any = useAppSelector((state: RootState) => state.products.laptop)
@@ -31,4 +31,4 @@ export async function getServerSideProps(context:any) {
     const query = context.query
     return { props: { query } }
   }
-export default mobile;
+export default Mobile;

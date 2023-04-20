@@ -7,7 +7,7 @@ import {getWatchProducts } from '@/redux/features/products/productsSilce';
 import { useRouter } from 'next/router';
 import TabletPage from '@/components/TabletPage/TabletPage';
 
-const watch = ({query}:any) => {
+const Watch = ({query}:any) => {
 
     const router = useRouter()
     const dispatch = useAppDispatch();
@@ -33,4 +33,4 @@ export async function getServerSideProps(context:any) {
     return { props: { query } }
   }
   
-export default watch;
+export default Watch;

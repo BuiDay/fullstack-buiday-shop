@@ -4,16 +4,16 @@
     "colId": "aef689c0-3185-421a-ad8a-a1de49a651f5",
     "containerId": "",
     "name": "Register",
-    "url": "http://localhost:3000/api/user/register",
+    "url": "http://localhost:8000/api/user/register",
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-03-25T13:58:17.819Z",
-    "modified": "2023-03-25T14:43:24.540Z",
+    "modified": "2023-04-18T17:57:52.808Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"firstName\":\"Xuan\",\n  \"lastName\":\"Quynh\",\n  \"email\":\"thuyquynh@gmail.com\",\n  \"mobile\":\"0944804785\",\n  \"password\":\"12345\"\n}",
+      "raw": "{\n  \"firstName\":\"Xuasn\",\n  \"lastName\":\"Quysnh\",\n  \"email\":\"thuyquysctsnh@gmail.com\",\n  \"mobile\":\"0944808185\",\n  \"password\":\"12345\"\n}",
       "form": []
     },
     "tests": []
@@ -27,12 +27,12 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-03-25T14:45:50.670Z",
-    "modified": "2023-04-14T18:14:14.065Z",
+    "modified": "2023-04-18T08:02:04.584Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\":\"buiday@gmail.com\",\n  \"password\":\"12345\"\n}",
+      "raw": "{\n  \"email\":\"buiday@gmail.com\",\n  \"password\":\"1234\"\n}",
       "form": []
     },
     "tests": []
@@ -67,15 +67,15 @@
     "colId": "aef689c0-3185-421a-ad8a-a1de49a651f5",
     "containerId": "",
     "name": "Get user by id",
-    "url": "http://localhost:8000/api/user/id=63d9500277de6452617aa4fd",
+    "url": "http://localhost:8000/api/user",
     "method": "GET",
     "sortNum": 60000,
     "created": "2023-03-28T05:55:10.215Z",
-    "modified": "2023-03-28T06:18:29.675Z",
+    "modified": "2023-04-18T08:51:28.641Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZDk1MDAyNzdkZTY0NTI2MTdhYTRmZCIsImlhdCI6MTY3OTk4NDE0OCwiZXhwIjoxNjgwMDcwNTQ4fQ.bdpomuRXoTz901FmKBKSTSHEN80zfkPBtNPjihZHU7g"
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZDk1MDAyNzdkZTY0NTI2MTdhYTRmZCIsImlhdCI6MTY4MTgwNzg4MSwiZXhwIjoxNjgxODk0MjgxfQ.UIqvSRj9AFtGhcvGsPQB6O7v9abDXPqvcHlK8eZklLg"
       }
     ],
     "params": [],
@@ -229,6 +229,32 @@
     "modified": "2023-04-05T14:07:26.206Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "ec1960e3-a7d4-4780-83e7-e0d818f86ca5",
+    "colId": "aef689c0-3185-421a-ad8a-a1de49a651f5",
+    "containerId": "",
+    "name": "forgot password",
+    "url": "http://localhost:8000/api/user/forgot-password",
+    "method": "POST",
+    "sortNum": 70000,
+    "created": "2023-04-18T18:46:14.314Z",
+    "modified": "2023-04-18T18:47:45.218Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "email",
+        "value": "buivanduynhat@gmail.com",
+        "isDisabled": true,
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\":\"buivanduynhat@gmail.com\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]

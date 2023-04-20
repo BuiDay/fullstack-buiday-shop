@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 
 
 
-const mobile = ({query}:any) => {
+const Mobile = ({query}:any) => {
 
     const router = useRouter()
     const dispatch = useAppDispatch();
@@ -35,4 +35,4 @@ export async function getServerSideProps(context:any) {
     return { props: { query } }
   }
   
-export default mobile;
+export default Mobile;

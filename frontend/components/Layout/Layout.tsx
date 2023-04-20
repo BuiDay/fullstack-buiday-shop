@@ -7,9 +7,11 @@ type Props = {
 }
 
 const Layout = ({children}:Props) => {
+    const getIsLogin= localStorage.getItem("persist:auth")
+        ? JSON.parse(localStorage.getItem("persist:auth")||"")?.isLoggedIn  : null
     return (
         <>
-            <Header />
+            <Header isLoggedIn={getIsLogin}/>
             <main>{children}</main>
             <Footer />
         </>

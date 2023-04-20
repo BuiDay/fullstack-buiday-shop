@@ -13,7 +13,7 @@ export const errorHandler = (err: Error, req:Request, res:Response, next:NextFun
     res.status(statusCode);
     res.json({
         status:"error",
-        code:"-1",
+        code: "-1",
         message: err?.message,
         stack:err?.stack,
     })

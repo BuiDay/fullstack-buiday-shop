@@ -12,12 +12,18 @@ import { useEffect } from 'react';
 import { getCategories } from '@/redux/features/app/appSilce';
 import { RootState } from '@/redux';
 import { useAppSelector } from '@/redux/hook';
-import  { ShowOnLogin,ShowOnLogout } from '../hiddenLink/hiddendLink';
+import  ShowOnLogin,{ShowOnLogout } from '../hiddenLink/hiddendLink';
 import { logout } from '@/redux/features/auth/authSilce';
+import { getUser } from '@/redux/features/user/userSilce';
+import styles from './Header.module.scss'
 
-const Header = () => {
-    // const dispatch = useDispatch();
-    // const {user} = useSelector(state=>state.auth)
+interface IProps{
+    isLoggedIn?:boolean
+}
+
+const Header:React.FC<IProps> = () => {
+    const {isLoading,status,isError,isLoggedIn} = useAppSelector(state=>state.auth)
+    const {currentData} = useAppSelector(state=>state.user)
     // const {cartTotalAmount,totalQuantity} = useSelector(state=>state.cart)
     // const navigate = useNavigate();
 
@@ -32,6 +38,12 @@ const Header = () => {
       dispatch(getCategories())
      
   }, [])
+
+  useEffect(() => {
+    setTimeout(() => {
+      isLoggedIn && dispatch(getUser())
+    }, 1000)
+  }, [isLoggedIn])
 
     return (
         <>
@@ -68,7 +80,7 @@ const Header = () => {
                                 </div>
                             </div>
                             <div className="col-5">
-                                <div className="header-top-upper d-flex align-items-center justify-content-between">
+                                <div className="header-top-upper d-flex align-items-center justify-content-end gap-3">
                                     <div>
                                         <Link href='/compare-products' className='d-flex align-items-center gap-10 text-white compare-products'>
                                             <Image src={Compare} alt='Compare Icon'/>
@@ -81,30 +93,30 @@ const Header = () => {
                                             <p>Yêu thích</p>
                                         </Link>
                                     </div>
-                                    <ShowOnLogout>
-                                        <div>
-                                            <Link href='/login' className='d-flex align-items-center gap-10 text-white user'>
-                                                <Image src={User} alt="User Icon" />
-                                                <p>Đăng nhập</p>
-                                            </Link>
-                                        </div>
+                                    <ShowOnLogout isLoggedIn={isLoggedIn}>
+                                    <div>
+                                        <Link href='/login' className='d-flex align-items-center gap-10 text-white user'>
+                                            <Image src={User} alt="User Icon" />
+                                            <p>Đăng nhập</p>
+                                        </Link>
+                                    </div>                                       
                                     </ShowOnLogout>
-                                    {/* <ShowOnLogin>
-                                        <div className='d-flex align-items-center gap-10 text-white me-3'>
-                                            <img src={User} alt="" />
-                                            <div className=''>
-                                                <div className=''>
-                                                    <p>Hi,</p> */}
-                                                    {/* <p className='displayName'>{(user?.data?.firstName + " "+user?.data?.lastName) }</p> */}
-                                                {/* </div>
-                                                <div >
-                                                    <Link className="dropdown-item" href="/profile">View Profile</Link>
-                                                    <Link className="dropdown-item" href="/history">History</Link>
-                                                    <Link className="dropdown-item" href="/" onClick={()=>{dispatch(logout())}}>Sign out</Link>
-                                                </div>
+                                    <ShowOnLogin isLoggedIn={isLoggedIn}>
+                                    <div className='d-flex align-items-center gap-10 text-white me-3'>
+                                        <Image src={User} alt="" width={40} height={40} />
+                                        <div className='dropdown'>
+                                            <div className={styles.dropdown_btn}>
+                                                <p>Xin chào,</p>
+                                                <p className='displayName'>{(currentData?.lastName + " "+currentData?.firstName) }</p>
+                                            </div>
+                                            <div className={styles.dropdown_content}>
+                                                <Link className="dropdown_item" href="/profile">View Profile</Link>
+                                                <Link className="dropdown_item" href="/history">History</Link>
+                                                <Link className="dropdown_item" href="/" onClick={()=>{dispatch(logout())}}>Sign out</Link>
                                             </div>
                                         </div>
-                                    </ShowOnLogin> */}
+                                    </div>
+                                    </ShowOnLogin>
                                     <div>
                                         <Link href='/cart' className='d-flex align-items-center gap-10 text-white'>
                                             <Image src={Cart} alt="Cart Icon" />

@@ -6,6 +6,9 @@ import { generateRefreshToken } from '../config/refreshToken';
 import generateToken from '../config/jwtToken';
 import { IUserModel } from './interface';
 import validateMongodbId from '../utils/validateMongodbId';
+import { IGetUserAuthInfoRequest } from '../middlewares/authMiddleware';
+import crypto from 'crypto'
+import sendEmail from './emailController';
 
 interface IUserRequest extends Request {
     user: any
@@ -14,26 +17,34 @@ interface IUserRequest extends Request {
 
 export const createUser = asyncHandler(async (req:Request, res:Response):Promise<void> =>{
     const getEmail = req.body.email;
-    console.log(getEmail)
     try {
         const findUser:IUserModel[] = await User.find({email: getEmail});
+
             //hash password
         const salt:string = await bcrypt.genSalt(10);
         const newPassword:string = await bcrypt.hash(req.body.password, salt);
 
-        const {lastName, firstName, email, password, mobile} = req.body;
+        const {lastName, firstName, email, mobile} = req.body;
         if(findUser.length <= 0){
-            const newUser = User.create({
-                lastName,
-                firstName,
-                email,
-                password:newPassword,
-                mobile
-            })
-            res.status(200).json({
-                err:"1",
-                status:"success"             
+            try {
+                const newUser = await User.create({
+                    lastName,
+                    firstName,
+                    email,
+                    password:newPassword,
+                    mobile
+                })
+    
+                res.status(200).json({
+                    code:"1",
+                    status:"success"             
+                });
+        } catch (error) {
+            res.status(201).json({
+                code:"-2",
+                status:"Mobile already exists"             
             });
+        }
         }else{
             throw new Error("User already exists");
         }
@@ -191,10 +202,11 @@ export const getAllUser = asyncHandler( async (req:Request, res:Response):Promis
 })
 
 export const getUserById = asyncHandler(async (req:Request, res:Response):Promise<void>=>{
+    let req2 = req as IGetUserAuthInfoRequest
     try{
-        const getId:string = req.params.id;
-        validateMongodbId(getId);
-        const getUser = await User.findById(getId)
+        const { id } = req2.user 
+        validateMongodbId(id);
+        const getUser = await User.findById(id)
         if(getUser){
             res.json(getUser);
         }
@@ -241,6 +253,36 @@ export const updateUser = asyncHandler(async (req:Request, res:Response):Promise
     }catch(err)
     {
         throw new Error("Error Update")
+    }
+})
+
+
+export const forgotPassword = asyncHandler(async (req:Request, res:Response):Promise<void>=>{
+    const {email} = req.body;
+    const user = await User.findOne({email});
+    if(!user){
+        throw new Error("User not found with email")
+    }
+    try{
+        const token = crypto.randomBytes(32).toString("hex");
+        user.passwordResetToken = crypto.createHash("SHA256").update(token).digest("hex")
+        user.passwordResetExpires = Date.now() + 30*60*1000;
+        await user.save();
+        const resetURL = `Hi, please follow this link to reset your password. This link <a href='http://localhost:3000/comfirm-password/${token}'>Click me </a>`
+        const data ={
+            to:email,
+            text:"hey you",
+            subject:"Forgot password Link",
+            html:resetURL,
+        }
+        sendEmail(data);
+        res.json({
+            status:"success",
+            code:"1"
+        })
+    }catch(err){
+        if(err)
+        throw new Error(err.toString())
     }
 })
 

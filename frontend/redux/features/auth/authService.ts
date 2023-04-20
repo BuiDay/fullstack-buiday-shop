@@ -1,11 +1,13 @@
 import axiosConfig from '../../../utils/axiosConfig' 
 import axios from 'axios'
 import { IAuthRegister,IAuthLogin } from '../InterfaceReducer'
+
+
 const apiRegister =  (data:IAuthRegister) => new Promise(async(resolve, reject)=>{
     try {
         const res = await axiosConfig({
             method:"post",
-            url:'/api/v1/auth/register',
+            url:'/api/user/register',
             data:data
         })
         resolve(res.data)
@@ -21,10 +23,6 @@ const apiLogin =  (data:IAuthLogin) => new Promise(async(resolve, reject)=>{
             url:'/api/user/login',
             data:data
         })
-        // if(res.data.err === -1)
-        // {
-        //     reject(res.data)
-        // }
         resolve(res.data)
     } catch (error) {
         reject(error)

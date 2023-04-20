@@ -1,6 +1,7 @@
 export interface IAuth{
     isLoggedIn?: boolean,
     token?:string,
+    idUser?:string,
     isError?:boolean,
     isLoading?:boolean,
     isSuccess?:boolean,
@@ -104,10 +105,13 @@ export interface IProductsPaypload{
 ////////////////////////////////////////
 
 export interface IAuthRegister{
-  name?:string,
-  phone?:string,
-  password?:string
+  "firstName"?:string,
+  "lastName"?:string,
+  "email"?:string,
+  "mobile"?:string,
+  "password"?:string,
 }
+
 
 export interface IAuthLogin{
   email?:string,
@@ -140,14 +144,15 @@ export interface IAppPayload{
 
 export interface IUser{
   currentData:{
-    id?:string,
-    name?:string,
-    phone?:string,
-    zalo?:string,
-    fbUrl?:string,
-    avatar?:string,
+    firstName?:string,
+    lastName?:string,
+    email?:string,
+    mobile?:string,
+    role?:string,
+    cart?:[],
+    isBlock?:boolean,
+    wishlist?:[],
   }
-  error?:string,
 }
 
 export interface IUserPayload{

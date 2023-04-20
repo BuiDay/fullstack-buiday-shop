@@ -244,7 +244,7 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
                         {
                             mobile?.data && mobile?.data.map((item,index)=>{
                                 return(
-                                    <SwiperSlide><ProductCards key={index} data={item} grid={4}/></SwiperSlide>
+                                    <SwiperSlide key={index}><ProductCards key={index} data={item} grid={4}/></SwiperSlide>
                                 )
                             })
                         }
@@ -276,7 +276,7 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
                         {
                             laptop?.data && laptop?.data.map((item,index)=>{
                                 return(
-                                    <SwiperSlide><ProductCards key={index} data={item} grid={4}/></SwiperSlide>
+                                    <SwiperSlide key={index}><ProductCards key={index} data={item} grid={4}/></SwiperSlide>
                                 )
                             })
                         }
@@ -363,7 +363,7 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
                                 const NOW_IN_MS = new Date().getTime();
                                 const timer = NOW_IN_MS + THREE_DAYS_IN_MS
                                 return(
-                                    <SwiperSlide><SpecialProduct timer={timer} data={item}/></SwiperSlide>
+                                    <SwiperSlide key={index}><SpecialProduct timer={timer} data={item}/></SwiperSlide>
                                 )
                             })
                         }
@@ -395,7 +395,7 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
                         {
                             tablet?.data && tablet?.data.map((item,index)=>{
                                 return(
-                                    <SwiperSlide><ProductCards key={index} data={item} grid={4}/></SwiperSlide>
+                                    <SwiperSlide key={index}><ProductCards key={index} data={item} grid={4}/></SwiperSlide>
                                 )
                             })
                         }

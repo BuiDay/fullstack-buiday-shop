@@ -23,10 +23,10 @@ const WatchPage:React.FC<IProps> = ({data}) => {
     const router = useRouter()
     
     const handleSort = (value:string | number,title:string) =>{
-        if(value !== "All"){
+        if(value !== "all"){
             router.push(
                 {
-                    pathname:"/mobile",
+                    pathname:"/watch",
                     query:{
                         ...router.query,
                         page:1,
@@ -37,7 +37,7 @@ const WatchPage:React.FC<IProps> = ({data}) => {
         }else
         router.push(
             {
-                pathname:"/mobile",
+                pathname:"/watch",
                 query:{}
             }
         )
@@ -54,7 +54,7 @@ const WatchPage:React.FC<IProps> = ({data}) => {
                                 <div>
                                     <ul className={styles.sidebar_brands}>
                                         <li>
-                                            <div onClick={()=>handleSort("All","All")}>Tất cả</div>
+                                            <div onClick={()=>handleSort("all","all")}>Tất cả</div>
                                         </li>
                                         <li>
                                             <div onClick={()=>handleSort("Apple","brand")}>
