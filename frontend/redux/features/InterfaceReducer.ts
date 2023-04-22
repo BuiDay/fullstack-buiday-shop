@@ -153,10 +153,15 @@ export interface IAppPayload{
   response:object[]
 }
 
+export interface ICart{
+  id?:string,
+  count?:number,
+  color?:string
+}
+
 export interface IUser{
   currentData:{
-    firstName?:string,
-    lastName?:string,
+    name?:string,
     email?:string,
     mobile?:string,
     role?:string,
@@ -164,7 +169,8 @@ export interface IUser{
     isBlock?:boolean,
     wishlist?:[],
   },
-  wishlist?:string[]
+  wishlist?:string[],
+  carts?:ICart[],
 }
 
 export interface IUserPayload{

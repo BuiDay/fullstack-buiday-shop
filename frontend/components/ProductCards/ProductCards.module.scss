@@ -50,6 +50,21 @@
     line-height: 20px;
 }
 
+.wishlist_icon {
+    right: 0px;
+    top:-30px;
+    transition: all 0.4s ease;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px;
+}
+
+.wishlist_icon:hover{
+    background-color: var(--color-febd69);
+}
+
 .active{
     background-color: var(--color-febd69);
 }
@@ -97,10 +112,6 @@
 }
 
 
-.wishlist_icon {
-    right: 5px;
-    top:-30px;
-}
 
 .product_card .product_image{
     height: 180px;

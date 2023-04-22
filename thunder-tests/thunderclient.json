@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-03-25T13:58:17.819Z",
-    "modified": "2023-04-18T17:57:52.808Z",
+    "modified": "2023-04-21T05:14:50.738Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"firstName\":\"Xuasn\",\n  \"lastName\":\"Quysnh\",\n  \"email\":\"thuyquysctsnh@gmail.com\",\n  \"mobile\":\"0944808185\",\n  \"password\":\"12345\"\n}",
+      "raw": "{\n  \"name\":\"Nhat Bui\", \n  \"email\":\"buivanduynhat@gmail.com\",\n  \"mobile\":\"09338047875\",\n  \"password\":\"12345\"\n}",
       "form": []
     },
     "tests": []
@@ -27,12 +27,12 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-03-25T14:45:50.670Z",
-    "modified": "2023-04-20T13:21:54.902Z",
+    "modified": "2023-04-21T05:25:07.183Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\":\"buivanduynhat@gmail.com\",\n  \"password\":\"123\"\n}",
+      "raw": "{\n  \"email\":\"buivanduynhat@gmail.com\",\n  \"password\":\"12345\"\n}",
       "form": []
     },
     "tests": []
@@ -71,11 +71,11 @@
     "method": "GET",
     "sortNum": 60000,
     "created": "2023-03-28T05:55:10.215Z",
-    "modified": "2023-04-18T08:51:28.641Z",
+    "modified": "2023-04-21T06:23:57.241Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZDk1MDAyNzdkZTY0NTI2MTdhYTRmZCIsImlhdCI6MTY4MTgwNzg4MSwiZXhwIjoxNjgxODk0MjgxfQ.UIqvSRj9AFtGhcvGsPQB6O7v9abDXPqvcHlK8eZklLg"
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDIxYmU3ZjljNTc5YWMwNWNhN2I1ZCIsImlhdCI6MTY4MjA1ODIyNSwiZXhwIjoxNjgyMTQ0NjI1fQ.7_R92BzgrsL2MGajt0giOZV226Cm6XL7ogv_pgLUmW0"
       }
     ],
     "params": [],
@@ -317,6 +317,30 @@
       }
     ],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "82b9745b-a275-4ffb-b211-fd64b6b1d3e7",
+    "colId": "aef689c0-3185-421a-ad8a-a1de49a651f5",
+    "containerId": "",
+    "name": "Add cart",
+    "url": "http://localhost:8000/api/user/cart",
+    "method": "POST",
+    "sortNum": 100000,
+    "created": "2023-04-21T04:21:34.399Z",
+    "modified": "2023-04-21T09:44:59.240Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDIxYmU3ZjljNTc5YWMwNWNhN2I1ZCIsImlhdCI6MTY4MjA2ODI5NiwiZXhwIjoxNjgyMTU0Njk2fQ.sCidPk0MGkLwCQLLfA0UNr9zj4m4-ZlJBYYw3pfWQmA"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"cart\":[\n    {\n     \"id\":\"6437a991377aa180453a229a\",\n    \"count\":1,\n    \"color\":\"\"\n    },\n    {\n     \"id\":\"6437a991377aa180453a227c\",\n    \"count\":1,\n    \"color\":\"\"\n    }\n  ]\n}",
+      "form": []
+    },
     "tests": []
   }
 ]

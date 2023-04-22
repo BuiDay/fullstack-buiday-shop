@@ -1,5 +1,7 @@
 import { Response, Request } from 'express';
 import {User} from '../models/userModel';
+import Cart from '../models/cartModel'
+import Product from '../models/productModel';
 import bcrypt from 'bcrypt';
 import asyncHandler from 'express-async-handler'
 import { generateRefreshToken } from '../config/refreshToken';
@@ -10,6 +12,8 @@ import { IGetUserAuthInfoRequest } from '../middlewares/authMiddleware';
 import crypto from 'crypto'
 import sendEmail from './emailController';
 import { json } from 'body-parser';
+import mongoose from 'mongoose';
+const { ObjectId } = mongoose.Types;
 
 interface IUserRequest extends Request {
     user: any
@@ -25,12 +29,11 @@ export const createUser = asyncHandler(async (req:Request, res:Response):Promise
         const salt:string = await bcrypt.genSalt(10);
         const newPassword:string = await bcrypt.hash(req.body.password, salt);
 
-        const {lastName, firstName, email, mobile} = req.body;
         if(findUser.length <= 0){
+            const {name, email, mobile} = req.body;
             try {
                 const newUser = await User.create({
-                    lastName,
-                    firstName,
+                    name,
                     email,
                     password:newPassword,
                     mobile
@@ -207,7 +210,7 @@ export const getUserById = asyncHandler(async (req:Request, res:Response):Promis
     try{
         const { id } = req2.user 
         validateMongodbId(id);
-        const getUser = await User.findById(id)
+        const getUser = await User.findById(id).populate('cartId')
         if(getUser){
             res.json(getUser);
         }
@@ -318,5 +321,72 @@ export const resetPassword = asyncHandler(async(req:Request, res:Response):Promi
     )
 })
 
+export const addCart = asyncHandler(async(req:Request, res:Response):Promise<void>=>{
+
+    interface IProduct{
+            product:string,
+            count:number,
+            color:string,
+            price:number,
+    }
+    const newCartId = new ObjectId()
+    const req2 = req as IUserRequest
+    const {cart} = req.body;
+    const {id} = req2.user;
+    validateMongodbId(id);
+    try {
+     let products:IProduct[] = [];
+     const user = await User.findById(id);
+     const alreadyExistCart = await Cart.findOne({orderby:user.id});
+
+     if(alreadyExistCart){
+        await Cart.findByIdAndDelete(alreadyExistCart.id)
+     }
+ 
+     for(let i = 0; i < cart.length; i++){
+         let object:IProduct = {
+            product:"",
+            count:0,
+            color:"",
+            price:0,
+         };
+         object.product = cart[i].id;
+         object.count = cart[i].count;
+         object.color = cart[i].color;
+         let getPrice = await Product.findById(cart[i].id).select("price").select("discount").exec();
+         if(getPrice.discount !==0 )
+            object.price = Number(getPrice.discount)
+        else {
+            object.price = Number(getPrice.price)
+        }
+         products.push(object)
+     }
+
+    let cartTotal:number = 0;
+     
+    for(let i = 0; i < products.length; i++){
+        cartTotal = cartTotal +  products[i].price * products[i].count;
+    }
+
+    let newCart = await new Cart({
+        _id:newCartId,
+        products,
+        cartTotal,
+        orderby:user?.id
+    }).save();
+    await User.findByIdAndUpdate({
+        _id:user.id
+    },{
+        cartId:newCartId
+    })
+    res.json({
+        status:"success",
+        code:1,
+        data:newCart
+    })
+    } catch (error) {
+        if(error)
+        throw new Error(error.toString())
+ }})
 
 

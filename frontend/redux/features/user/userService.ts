@@ -38,8 +38,23 @@ const apiGetWishlist =  () => new Promise(async(resolve, reject)=>{
     }
 })
 
+const apiAddCart =  (data:any) => new Promise(async(resolve, reject)=>{
+    try {
+        const res = await axiosConfig({
+            method:"post",
+            url:`api/user/cart`,
+            data:{
+                cart:data
+            }
+        })
+        resolve(res.data)
+    } catch (error) {
+        reject(error)
+    }
+})
+
 const userService = {
-    getUser,apiAddToWishlist,apiGetWishlist
+    getUser,apiAddToWishlist,apiGetWishlist,apiAddCart
 }
 
 export default userService

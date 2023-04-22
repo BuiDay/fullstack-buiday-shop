@@ -110,12 +110,12 @@ const Header:React.FC<IProps> = () => {
                                         <div className='dropdown'>
                                             <div className={styles.dropdown_btn}>
                                                 <p>Xin chào,</p>
-                                                <p className='displayName'>{(currentData?.lastName + " "+currentData?.firstName) }</p>
+                                                <p className='displayName'>{(currentData?.name) }</p>
                                             </div>
                                             <div className={styles.dropdown_content}>
-                                                <Link className="dropdown_item" href="/profile">View Profile</Link>
+                                                {/* <Link className="dropdown_item" href="/profile">View Profile</Link>
                                                 <Link className="dropdown_item" href="/history">History</Link>
-                                                <Link className="dropdown_item" href="" onClick={()=>{handleLogout()}}>Sign out</Link>
+                                                <Link className="dropdown_item" href="" onClick={()=>{handleLogout()}}>Sign out</Link> */}
                                             </div>
                                         </div>
                                     </div>

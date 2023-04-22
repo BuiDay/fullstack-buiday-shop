@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styles from './ProductCards.module.scss'
 import StarRatings from 'react-star-ratings';
 import Link from "next/link"
@@ -11,7 +11,8 @@ import { Tooltip } from 'react-tooltip'
 import {BsHeart,BsHeartFill} from 'react-icons/bs'
 import ModalConfirm from '../Common/ModalConfirm/ModalConfirm';
 import userService from '@/redux/features/user/userService';
-import { getUser } from '@/redux/features/user/userSilce';
+import { addCart, getUser } from '@/redux/features/user/userSilce';
+import { ICart } from '@/redux/features/InterfaceReducer';
 
 interface IProps {
     img?: string;
@@ -24,7 +25,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
     const dispatch = useAppDispatch();
     const {compare_products} = useAppSelector(state => state.app)
     const {isLoggedIn} = useAppSelector(state=>state.auth)
-    const {wishlist} = useAppSelector(state=>state.user)
+    const {wishlist,carts} = useAppSelector(state=>state.user)
     const [isShowModalConfirm, setIsShowModalConfirm] = useState(false)
     
     const handlePrice = (price: number, discount: number) => {
@@ -71,6 +72,30 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
         }
     }
 
+    const handleAddCart = async(id: string) => {
+        const param={
+            id,
+            count:1,
+            color:""
+        }
+        if(isLoggedIn){
+            dispatch(addCart(param))
+        }else{
+            setIsShowModalConfirm(true)
+        }
+    }
+    
+    // useEffect(()=>{
+    //     if(carts)
+    //     handleFetchAddCart(carts)
+    // },[carts])
+
+    const handleFetchAddCart = useMemo( async () =>{
+        const res = await userService.apiAddCart(carts)
+        console.log(res)
+    },[carts]) 
+
+    console.log(carts)
     return (
         // <div className={`${location.pathname=="/ourstore" ? `gr-${grid}`:"col-2"}`}>
         <>
@@ -96,6 +121,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
                             <Tooltip id="compare-tooltip" />
                         </div>
                         <div className={styles.action_bar_item} 
+                            onClick={()=>handleAddCart(data?._id)}
                             data-tooltip-id="addcard-tooltip"
                             data-tooltip-content="Thêm vào giỏ hàng">
                             <Image src={AddCart} alt="" />
@@ -157,7 +183,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
                 setIsShowModalConfirm={setIsShowModalConfirm} 
                 // postEdit = {postEdit} 
                 // handle = {handleDelete}
-                title = 'Bạn phải đăng nhập ?'    
+                title = 'Bạn cần phải đăng nhập ?'    
             />}
         </>
        

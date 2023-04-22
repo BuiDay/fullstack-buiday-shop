@@ -2,6 +2,7 @@ import React from 'react';
 // import { IEditPost } from '../../pages/system/ManagePost';
 // import Button from '../Button/Button';
 import styles from './ModalComfirm.module.scss'
+import Button from '../Button/Button';
 
 interface IProps{
     setIsShowModalConfirm?:any,
@@ -24,12 +25,12 @@ const ModalConfirm:React.FC<IProps> = ({setIsShowModalConfirm,title,handle}) => 
                 onClick={(e) => {
                     e.stopPropagation()
                 }}
-                className='bg-white rounded-md relative p-5'
+                className='bg-white rounded-4 relative p-4'
             >
-                <h1 className='text-center text-lg'>{title}</h1>
-                <div className='flex justify-center gap-5 mt-10'>
-                    {/* <Button text="Có" bgColor='bg-secondary2' textColor="text-white" onClick={()=>handle()}></Button>
-                    <Button text="Không" bgColor='bg-green-500' textColor="text-white" onClick={()=>handelShow()}></Button> */}
+                <h1 className='text-center fs-2 fw-normal'>{title}</h1>
+                <div className='d-flex justify-content-center gap-2 mt-3'>
+                    <Button btnId="btn_1" text="Đăng nhập" bgColor='#febd69' textColor="#fff" px='px-3' py='py-2' fontSize="18px" link='/login'></Button>
+                    <Button btnId="btn_2" text="Không" bgColor='#232f3e' textColor="#fff" px='px-3' fontSize="18px" onClick={()=>handelShow()}></Button>
                 </div>
             </div>
         </div>

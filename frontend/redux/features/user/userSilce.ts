@@ -1,15 +1,25 @@
 import { createSlice, createAsyncThunk, createAction, PayloadAction, Reducer, AsyncThunkAction } from "@reduxjs/toolkit"
 import authService from "./userService";
-import { IAuthRegister, IUser } from '../InterfaceReducer'
+import { IAuthRegister, ICart, IUser } from '../InterfaceReducer'
+import userService from "./userService";
 
 const initState:IUser = {
     currentData:{},
-    wishlist:[]
+    wishlist:[],
+    carts:[],
 }
 
 export const getUser:any = createAsyncThunk("user/get-user",async(data:IAuthRegister,thunkAPI)  =>{
     try{
         return await authService.getUser()
+    }catch(err){
+       return thunkAPI.rejectWithValue(err)
+    }
+})
+
+export const addCart:any = createAsyncThunk("user/add-cart",async(data:ICart,thunkAPI)  =>{
+    try{
+        return data
     }catch(err){
        return thunkAPI.rejectWithValue(err)
     }
@@ -21,10 +31,14 @@ export const authSlice = createSlice({
     reducers:{},
     extraReducers:(builder) =>{
         builder
-
         .addCase(getUser.fulfilled,(state:any,action:PayloadAction<any>)=>{
             state.currentData = action.payload ;
             state.wishlist = action.payload.wishlist
+        })
+
+        .addCase(addCart.fulfilled,(state:IUser,action:PayloadAction<any>)=>{
+            let tempArray = [...state.carts || [], action.payload]
+            state.carts=tempArray;
         })
     },
 })

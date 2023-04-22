@@ -1,11 +1,7 @@
 import mongoose,{Model,model,Schema} from 'mongoose'
 
 var userSchema = new Schema({
-    firstName:{
-        type:String,
-        required:true,
-    },
-    lastName:{
+    name:{
         type:String,
         required:true,
     },
@@ -27,11 +23,10 @@ var userSchema = new Schema({
         type:String,
         default:"user"
     },
-    cart:{
-        type:Array,
-        default:[]
+    cartId: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Cart",
     },
-
     isBlock:{
         type:Boolean,
         default:false,
