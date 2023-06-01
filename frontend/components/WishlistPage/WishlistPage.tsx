@@ -1,20 +1,24 @@
-import React from 'react';
-import { useAppSelector } from '@/redux/hook';
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import Loading from '../Common/Loading/Loading';
 import ItemWishlist from './ItemWishlist';
+import { getUser } from '@/redux/features/user/userSilce';
 
 interface IProps {
     wishlistId?: string[]
 }
 
 const WishlistPage: React.FC<IProps> = ({ wishlistId }) => {
-  
+    const dispatch = useAppDispatch();
+    // useEffect(()=>{
+    //     dispatch(getUser())
+    // },[wishlistId])
+    console.log(wishlistId)
     return (
         <>
             <div className="compare-products-wrapper home_wrapper_2 py-5">
                 <div className="container-xxl">
                     <div className="row">
-
                         {
                             <>   {
                                 wishlistId && wishlistId.length > 0 ? wishlistId.map((item, index) => {

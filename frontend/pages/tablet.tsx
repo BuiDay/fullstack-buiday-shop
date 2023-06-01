@@ -2,7 +2,7 @@ import Breadcrumb from '@/components/Common/Breadcrumb/Breadcrumb';
 import Meta from '@/components/Common/Meta/Meta';
 import React,{useEffect} from 'react';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
-import { RootState } from '@/redux';
+import { RootState } from '@/redux/store';
 import {getTabletProducts } from '@/redux/features/products/productsSilce';
 import { useRouter } from 'next/router';
 import TabletPage from '@/components/TabletPage/TabletPage';

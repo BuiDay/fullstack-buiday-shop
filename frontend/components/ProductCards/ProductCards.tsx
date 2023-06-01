@@ -55,7 +55,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
     }
 
     const handleCompareProducts = (id: string) => {
-        // console.log(compare_products.length)
+        console.log(compare_products.length)
         // if(compare_products.length < 5){
             dispatch(apiCompareProducts(id))
         // }
@@ -72,30 +72,30 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
         }
     }
 
-    const handleAddCart = async(id: string) => {
-        const param={
-            id,
-            count:1,
-            color:""
-        }
-        if(isLoggedIn){
-            dispatch(addCart(param))
-        }else{
-            setIsShowModalConfirm(true)
-        }
-    }
+    // const handleAddCart = async(id: string) => {
+    //     const param={
+    //         id,
+    //         count:1,
+    //         color:""
+    //     }
+    //     if(isLoggedIn){
+    //         dispatch(addCart(param))
+    //     }else{
+    //         setIsShowModalConfirm(true)
+    //     }
+    // }
     
     // useEffect(()=>{
     //     if(carts)
     //     handleFetchAddCart(carts)
     // },[carts])
 
-    const handleFetchAddCart = useMemo( async () =>{
-        const res = await userService.apiAddCart(carts)
-        console.log(res)
-    },[carts]) 
+    // const handleFetchAddCart = useMemo( async () =>{
+    //     const res = await userService.apiAddCart(carts)
+    //     console.log(res)
+    // },[carts]) 
 
-    console.log(carts)
+    // console.log(carts)
     return (
         // <div className={`${location.pathname=="/ourstore" ? `gr-${grid}`:"col-2"}`}>
         <>
@@ -121,7 +121,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
                             <Tooltip id="compare-tooltip" />
                         </div>
                         <div className={styles.action_bar_item} 
-                            onClick={()=>handleAddCart(data?._id)}
+                        
                             data-tooltip-id="addcard-tooltip"
                             data-tooltip-content="Thêm vào giỏ hàng">
                             <Image src={AddCart} alt="" />

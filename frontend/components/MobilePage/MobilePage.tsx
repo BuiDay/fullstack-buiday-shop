@@ -23,7 +23,7 @@ interface IProps{
 }
 
 const MobilePage:React.FC<IProps> = ({data,isLoading}) => {
-    const products = data.data
+    const products = data?.data
     const router = useRouter()
     
     const handleSort = (value:string | number,title:string) =>{
@@ -264,7 +264,7 @@ const MobilePage:React.FC<IProps> = ({data,isLoading}) => {
                                     )
                                 })
                             }
-                            <Pagination data={products} total={data.total}/>
+                            <Pagination data={products} total={data?.total}/>
                         </div>
                     </div>
                 </div>

@@ -11,6 +11,7 @@ export interface IAuth{
 
 export interface IAuthPayload{
   data?:{
+    status?:string
     email?:string,
     firstName?:string,
     lastName?:string,
@@ -33,7 +34,7 @@ export interface IColor{
 }
 
 export interface IApp{
-  categories?:ICategory[],
+  categories?:Array<ICategory>,
   colors?:IColor[],
   compare_products?:any,
   isLoading?:boolean,
@@ -45,8 +46,6 @@ export interface ICategoriesPaypload{
   data?:[]
 }
 //////////////////////////////////////
-
-
 export interface Irating{
   name?:string,
   date?:string,
@@ -161,13 +160,17 @@ export interface ICart{
 
 export interface IUser{
   currentData:{
-    name?:string,
-    email?:string,
-    mobile?:string,
-    role?:string,
-    cart?:[],
-    isBlock?:boolean,
-    wishlist?:[],
+    status?:string,
+    code?:1
+    data?:{
+      name?:string,
+      email?:string,
+      mobile?:string,
+      role?:string,
+      cart?:[],
+      isBlock?:boolean,
+      wishlist?:[],
+    }
   },
   wishlist?:string[],
   carts?:ICart[],

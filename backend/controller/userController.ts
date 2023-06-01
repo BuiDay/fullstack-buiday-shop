@@ -212,7 +212,13 @@ export const getUserById = asyncHandler(async (req:Request, res:Response):Promis
         validateMongodbId(id);
         const getUser = await User.findById(id).populate('cartId')
         if(getUser){
-            res.json(getUser);
+            res.json(
+                {
+                    status:"success",
+                    code:1,
+                    data:getUser
+                }
+            );
         }
     }catch(err){
         throw new Error("Not found")

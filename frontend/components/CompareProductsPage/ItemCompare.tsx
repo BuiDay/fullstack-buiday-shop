@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styles from './CompareProductsPage.module.scss'
 import Image from 'next/image';
 import productService from '@/redux/features/products/productsService';
@@ -17,13 +17,15 @@ const ItemCompare: React.FC<IProps> = ({ id }) => {
         handleGetProduct(id)
     }, [compare_products])
 
-    const handleGetProduct = async (id: string) => {
+    console.log(1)
+
+    const handleGetProduct = useCallback(async (id: string) =>{
         const res: { code?: number, data?: any } = await productService.getProductById({ id }) || ""
         if (res.code === 1) {
             setProduct(res.data)
         }
-    }
-
+    },[]) 
+    
     const handleDelete = (id:string) =>{
         dispatch(apiCompareProducts(id))
     }

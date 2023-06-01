@@ -38,7 +38,7 @@ const Cart:React.FC<IProps> = ({carts}) => {
                                     {
                                         carts.map((item,index)=>{
                                             return(
-                                                <tr className={styles.cart_data}>
+                                                <tr key={index} className={styles.cart_data}>
                                                 <td></td>
                                                 <td className='py-3'>
                                                     <p>asfdsaf</p>

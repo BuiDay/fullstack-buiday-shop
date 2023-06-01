@@ -4,7 +4,10 @@ import { IAuthRegister, ICart, IUser } from '../InterfaceReducer'
 import userService from "./userService";
 
 const initState:IUser = {
-    currentData:{},
+    currentData:{
+        status:"",
+        data:{},
+    },
     wishlist:[],
     carts:[],
 }
@@ -31,9 +34,15 @@ export const authSlice = createSlice({
     reducers:{},
     extraReducers:(builder) =>{
         builder
+        .addCase(getUser.rejected,(state:any,action:PayloadAction<any>)=>{
+            state.currentData.data = {} ;
+            state.currentData.code = action.payload.code
+            state.wishlist = []
+        })
+
         .addCase(getUser.fulfilled,(state:any,action:PayloadAction<any>)=>{
-            state.currentData = action.payload ;
-            state.wishlist = action.payload.wishlist
+            state.currentData.data = action.payload.data     ;
+            state.wishlist = action.payload.data.wishlist
         })
 
         .addCase(addCart.fulfilled,(state:IUser,action:PayloadAction<any>)=>{

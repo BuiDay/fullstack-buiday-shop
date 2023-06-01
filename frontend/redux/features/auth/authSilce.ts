@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk, createAction, PayloadAction, Reducer, As
 import { IAuth, IAuthPayload} from "../InterfaceReducer";
 import authService from "./authService";
 import { IAuthRegister,IAuthLogin } from '../InterfaceReducer'
+import { useAppSelector } from "@/redux/hook";
 
 const initState:IAuth = {
     isLoggedIn : false,
@@ -9,6 +10,7 @@ const initState:IAuth = {
     isError:false,
     isLoading:false,
     isSuccess:false,
+    status:""
 }
 
 export const login:any = createAsyncThunk("auth/login",async(data:IAuthLogin,thunkAPI)  =>{
@@ -37,12 +39,12 @@ export const authSlice = createSlice({
         .addCase(login.pending,(state:IAuth)=>{
             state.isLoading = true;
         })
-        .addCase(login.rejected,(state:IAuth,action:PayloadAction<IAuthPayload>)=>{
+        .addCase(login.rejected,(state:IAuth,action:PayloadAction<any>)=>{
             state.isError = true;
             state.isLoading = false;
             state.isSuccess = false;
             state.isLoggedIn = false;
-            state.status = action.payload.status ;
+            state.status = action.payload.data.status;
             state.token = undefined;
         })
         .addCase(login.fulfilled,(state:IAuth,action:PayloadAction<IAuthPayload>)=>{
@@ -63,6 +65,5 @@ export const authSlice = createSlice({
         })
     },
 })
-
 
 export default authSlice.reducer;

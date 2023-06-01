@@ -271,8 +271,8 @@ const DetailPage = ({data}:any) => {
 
                                 <div className={styles.reviews}>
                                     {data?.ratings && data?.ratings.map((item: any, index:number) => {
-                                        return (<>
-                                            <div className={`${styles.review} py-3`}>
+                                        return (
+                                            <div key={index} className={`${styles.review} py-3`}>
                                                 <div className="d-flex gap-10 align-items-center" key={index}>
                                                     <div className='w-100 d-flex align-items-center justify-content-between'>
                                                         <h6 className='mb-0'>{item.name}</h6>
@@ -288,7 +288,6 @@ const DetailPage = ({data}:any) => {
                                                     {item.comment}
                                                 </p>
                                             </div>
-                                        </>
                                         )
                                     })}
 

@@ -3,7 +3,7 @@ import Meta from '@/components/Common/Meta/Meta';
 import LoginPage from '@/components/Login/Login';
 import React, { useEffect, useState } from 'react';
 import {useAppSelector } from "@/redux/hook";
-import { RootState } from '@/redux';
+import { RootState } from '@/redux/store';
 import { useRouter } from 'next/router';
 
 const Login = () => {

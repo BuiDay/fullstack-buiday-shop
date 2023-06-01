@@ -1,7 +1,7 @@
 import Breadcrumb from '@/components/Common/Breadcrumb/Breadcrumb';
 import Meta from '@/components/Common/Meta/Meta';
 import LaptopPage from '@/components/LaptopPage/LaptopPage';
-import { RootState } from '@/redux';
+import { RootState } from '@/redux/store';
 import { getLaptopProducts } from '@/redux/features/products/productsSilce';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { useRouter } from 'next/router';

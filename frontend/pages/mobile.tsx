@@ -3,7 +3,7 @@ import Meta from '@/components/Common/Meta/Meta';
 import MobilePage from '@/components/MobilePage/MobilePage';
 import React,{useEffect} from 'react';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
-import { RootState } from '@/redux';
+import { RootState } from '@/redux/store';
 import {getMobileProducts } from '@/redux/features/products/productsSilce';
 import { useRouter } from 'next/router';
 
@@ -13,8 +13,7 @@ const Mobile = ({query}:any) => {
 
     const router = useRouter()
     const dispatch = useAppDispatch();
-    const {mobile, isLoading} = useAppSelector((state: RootState) => state.products)
-
+    const {mobile, isLoading} = useAppSelector((state) => state.products || {})
     useEffect(() => {
         if(query)
             dispatch(getMobileProducts(query))
