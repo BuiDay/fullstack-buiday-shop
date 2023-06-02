@@ -41,7 +41,7 @@ interface IProps{
 
 const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
     
-    return (
+    return (    
         <>
             <section className='home-wrapper-1 py-5'>
                 <div className="container-xxl">
@@ -359,11 +359,11 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
                         >
                         {
                             products?.data && products?.data.map((item,index)=>{
-                                const THREE_DAYS_IN_MS =Math.floor(Math.random()*200000000);
-                                const NOW_IN_MS = new Date().getTime();
-                                const timer = NOW_IN_MS + THREE_DAYS_IN_MS
+                                // const THREE_DAYS_IN_MS =Math.floor(Math.random()*200000000);
+                                // const NOW_IN_MS = new Date().getTime();
+                                // const timer = NOW_IN_MS + THREE_DAYS_IN_MS
                                 return(
-                                    <SwiperSlide key={index}><SpecialProduct timer={timer} data={item}/></SwiperSlide>
+                                    <SwiperSlide key={index}><SpecialProduct data={item}/></SwiperSlide>
                                 )
                             })
                         }

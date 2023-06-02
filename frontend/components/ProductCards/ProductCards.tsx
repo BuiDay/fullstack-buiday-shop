@@ -24,7 +24,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
 
     const dispatch = useAppDispatch();
     const {compare_products} = useAppSelector(state => state.app)
-    const {isLoggedIn} = useAppSelector(state=>state.auth)
+    // const {isLoggedIn} = useAppSelector(state=>state.auth)
     const {wishlist,carts} = useAppSelector(state=>state.user)
     const [isShowModalConfirm, setIsShowModalConfirm] = useState(false)
     
@@ -61,16 +61,16 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
         // }
     }
 
-    const handleAddWishList = async (id:string) =>{
-        if(isLoggedIn){
-            const res:{code?:number} = await userService.apiAddToWishlist({proId:id}) || ""
-            if(res.code === 1){
-                dispatch(getUser())
-            }
-        }else{
-            setIsShowModalConfirm(true)
-        }
-    }
+    // const handleAddWishList = async (id:string) =>{
+    //     if(isLoggedIn){
+    //         const res:{code?:number} = await userService.apiAddToWishlist({proId:id}) || ""
+    //         if(res.code === 1){
+    //             dispatch(getUser())
+    //         }
+    //     }else{
+    //         setIsShowModalConfirm(true)
+    //     }
+    // }
 
     // const handleAddCart = async(id: string) => {
     //     const param={
@@ -104,14 +104,14 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
                 <div className={`${styles.action_bar}`}>
                     <div className="d-flex flex-column gap-10">
                         <div className={`${styles.wishlist_icon} position-absolute`}>
-                            <div data-tooltip-id="wishs-tooltip"
+                            {/* <div data-tooltip-id="wishs-tooltip"
                                 data-tooltip-content={wishlist && wishlist.includes(data?._id)? "Hủy yêu thích":"Yêu thích"}
                                 onClick={()=>handleAddWishList(data?._id)}>
                                     {
                                         wishlist && wishlist.includes(data?._id) ? <BsHeartFill color='red'/> : <BsHeart color="black"/>
                                     }                                
                                 <Tooltip id="wishs-tooltip" />
-                            </div>
+                            </div> */}
                         </div>
                         <div className={`${styles.action_bar_item} ${compare_products && compare_products.includes(data?._id) ? styles.active : ""}`} 
                              onClick={() => handleCompareProducts(data?._id)} 
@@ -137,8 +137,8 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
                 }
                 <Link href={`/product/${data.slug}`} className={`${styles.product_card} position-relative`}>
                     <div className={`${styles.product_image} mb-3`}>
-                        <Image className='img-fluid' src={data.images.images[0] && data.images.images[0]} width={100} height={100} alt="" />
-                        <Image className='img-fluid' src={data.images.images[3] && data.images.images[3]} width={100} height={100} alt="" />
+                        <Image className='img-fluid' src={data.images.images[0] && data.images.images[0]} width={500} height={500} alt="" />
+                        <Image className='img-fluid' src={data.images.images[3] && data.images.images[3]} width={500} height={500} alt="" />
                     </div>
                     <div className={styles.product_details}>
                         <h6 className='brand'>{data.brand}</h6>
