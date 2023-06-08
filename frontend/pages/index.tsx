@@ -7,8 +7,8 @@ import { GetServerSideProps } from "next";
 import { setLaptopProduct, setMobilesProduct, setProducts, setTabletProduct } from "@/redux/features/products/productsSilce";
 import productService from "@/redux/features/products/productsService";
 
-const Home: NextPage = () => {
 
+const Home: NextPage = ({props}:any) => {
   const {mobile,laptop,tablet,products}= useAppSelector((state: RootState) => state.products)
   return (
     <>
@@ -20,15 +20,14 @@ const Home: NextPage = () => {
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async ({ req, res, ...etc }) => { 
   try {
-    const resMobile = await productService.getMobileProducts({limit:20,sort:"-totalRating"})
-    const resLaptop = await productService.getLaptopProducts({limit:20,sort:"-totalRating"})
-    const resTablet= await productService.getTabletProducts({limit:20,sort:"-totalRating"})
-    const resProducts= await productService.getProducts({limit:20,sort:""})
-    if(resMobile)
-        store.dispatch(setMobilesProduct(resMobile))
-        store.dispatch(setLaptopProduct(resLaptop))
-        store.dispatch(setTabletProduct(resTablet))
-        store.dispatch(setProducts(resProducts))
+    const resMobile = await productService.getMobileProducts({limit:15,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
+    const resLaptop = await productService.getLaptopProducts({limit:15,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
+    const resTablet= await productService.getTabletProducts({limit:15,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
+    const resProducts= await productService.getProducts({limit:10,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
+        store.dispatch(setMobilesProduct(resMobile));
+        store.dispatch(setLaptopProduct(resLaptop));
+        store.dispatch(setTabletProduct(resTablet));
+        store.dispatch(setProducts(resProducts));
     return {
       props: {
       }

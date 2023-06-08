@@ -112,6 +112,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
                                     }                                
                                 <Tooltip id="wishs-tooltip" />
                             </div> */}
+                            <BsHeart color="black"/>
                         </div>
                         <div className={`${styles.action_bar_item} ${compare_products && compare_products.includes(data?._id) ? styles.active : ""}`} 
                              onClick={() => handleCompareProducts(data?._id)} 
@@ -138,7 +139,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
                 <Link href={`/product/${data.slug}`} className={`${styles.product_card} position-relative`}>
                     <div className={`${styles.product_image} mb-3`}>
                         <Image className='img-fluid' src={data.images.images[0] && data.images.images[0]} width={500} height={500} alt="" />
-                        <Image className='img-fluid' src={data.images.images[3] && data.images.images[3]} width={500} height={500} alt="" />
+                        <Image className='img-fluid' src={data.images.images[3] ? data.images.images[3] ? data.images.images[2] : data.images.images[2] : data.images.images[0] } width={500} height={500} alt="" />
                     </div>
                     <div className={styles.product_details}>
                         <h6 className='brand'>{data.brand}</h6>

@@ -1,4 +1,4 @@
-import React, { memo, use, useState } from "react";
+import React, {useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BsSearch } from "react-icons/bs";
@@ -9,13 +9,15 @@ import Cart from "../../assets/images/cart.svg";
 import Menu from "../../assets/images/menu.svg";
 import { useAppDispatch } from "@/redux/hook";
 import { useEffect } from "react";
-import { getCategories } from "@/redux/features/app/appSilce";
-import { RootState } from "@/redux/store";
+import { RootState, wrapper } from "@/redux/store";
 import { useAppSelector } from "@/redux/hook";
 import ShowOnLogin, { ShowOnLogout } from "../hiddenLink/hiddendLink";
 import { logout } from "@/redux/features/auth/authSilce";
 import { getUser } from "@/redux/features/user/userSilce";
 import styles from "./Header.module.scss";
+import { GetServerSideProps } from "next";
+import appService from "@/redux/features/app/appService";
+import { getCategories } from "@/redux/features/app/appSilce";
 
 
 interface IProps {
@@ -38,9 +40,6 @@ const Header: React.FC<IProps> = () => {
   const dispatch = useAppDispatch();
   const categories = useAppSelector((state) => state.app.categories || []);
   const [isShowDropdown, setIsShowDropdown] = useState<boolean>(false);
-  useEffect(() => {
-    dispatch(getCategories());
-  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -217,4 +216,22 @@ const Header: React.FC<IProps> = () => {
   );
 };
 
-export default memo(Header);
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async ({ req, res, ...etc }) => { 
+  try {
+    const resCategories = await appService.apiGetCategories();
+    if(resCategories)
+      store.dispatch(getCategories(resCategories));
+    return {
+      props: {
+      }
+    };
+  } catch (error) {
+    res.statusCode = 404;
+    return {
+      props: {
+      }
+    };
+  }
+});
+
+export default Header;

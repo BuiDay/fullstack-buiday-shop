@@ -1,9 +1,10 @@
+import axiosToken from '@/utils/axiosToken'
 import axiosConfig from '../../../utils/axiosConfig' 
-import axios from 'axios'
+// import axios from 'axios'
 
 const getUser =  () => new Promise(async(resolve, reject)=>{
     try {
-        const res = await axiosConfig({
+        const res = await axiosToken({
             method:"get",
             url:`/api/user`,
         })
@@ -15,7 +16,7 @@ const getUser =  () => new Promise(async(resolve, reject)=>{
 
 const apiAddToWishlist =  (data:{proId:string}) => new Promise(async(resolve, reject)=>{
     try {
-        const res = await axiosConfig({
+        const res = await axiosToken({
             method:"put",
             url:`/api/product/wishlist`,
             data
@@ -28,7 +29,7 @@ const apiAddToWishlist =  (data:{proId:string}) => new Promise(async(resolve, re
 
 const apiGetWishlist =  () => new Promise(async(resolve, reject)=>{
     try {
-        const res = await axiosConfig({
+        const res = await axiosToken({
             method:"get",
             url:`/api/product/wishlist`,
         })
@@ -40,7 +41,7 @@ const apiGetWishlist =  () => new Promise(async(resolve, reject)=>{
 
 const apiAddCart =  (data:any) => new Promise(async(resolve, reject)=>{
     try {
-        const res = await axiosConfig({
+        const res = await axiosToken({
             method:"post",
             url:`api/user/cart`,
             data:{

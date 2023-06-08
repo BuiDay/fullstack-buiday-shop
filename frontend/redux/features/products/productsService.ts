@@ -16,7 +16,7 @@ const getProducts =  (params:any) => new Promise(async(resolve, reject)=>{
     }
 })
 
-const getMobileProducts =  (params:any) => new Promise(async(resolve, reject)=>{
+const getMobileProducts =  (params?:any) => new Promise(async(resolve, reject)=>{
     
     try {
         const res = await axiosConfig({

@@ -86,17 +86,16 @@
     "colId": "416da8d9-fd81-4642-a9a1-237bd6041370",
     "containerId": "",
     "name": "Get All Products",
-    "url": "http://localhost:8000/api/product?limit=20",
+    "url": "http://localhost:8000/api/product?category=Điện thoại&sort=-totalRating&limit=20",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-03-28T06:50:04.742Z",
-    "modified": "2023-04-14T10:11:59.283Z",
+    "modified": "2023-06-08T03:32:04.410Z",
     "headers": [],
     "params": [
       {
         "name": "category",
-        "value": "Laptop",
-        "isDisabled": true,
+        "value": "Điện thoại",
         "isPath": false
       },
       {
@@ -108,7 +107,6 @@
       {
         "name": "sort",
         "value": "-totalRating",
-        "isDisabled": true,
         "isPath": false
       },
       {
@@ -144,6 +142,12 @@
       {
         "name": "limit",
         "value": "20",
+        "isPath": false
+      },
+      {
+        "name": "fields",
+        "value": "images,title",
+        "isDisabled": true,
         "isPath": false
       }
     ],
@@ -200,8 +204,13 @@
     "method": "GET",
     "sortNum": 30000,
     "created": "2023-03-30T17:14:34.712Z",
-    "modified": "2023-04-20T05:57:40.552Z",
-    "headers": [],
+    "modified": "2023-06-07T14:19:31.314Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDIxYmU3ZjljNTc5YWMwNWNhN2I1ZCIsImlhdCI6MTY4NjE0NzU2NSwiZXhwIjoxNjg2MjMzOTY1fQ.8cuQrapCHRnNuwvM1YS7Ek_Hc7-ivrid7SKWKkL7-Uo"
+      }
+    ],
     "params": [
       {
         "name": "id",

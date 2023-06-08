@@ -25,7 +25,6 @@ interface IProps{
 const MobilePage:React.FC<IProps> = ({data,isLoading}) => {
     const products = data?.data
     const router = useRouter()
-    
     const handleSort = (value:string | number,title:string) =>{
         if(value !== "All"){
             router.push(
