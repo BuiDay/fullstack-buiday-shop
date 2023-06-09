@@ -5,7 +5,7 @@ import {useAppSelector } from '@/redux/hook';
 import React, { useEffect } from 'react';
 
 const CompareProducts = () => {
-    const listId = useAppSelector(state => state.app.compare_products)
+    const listId = useAppSelector(state => state.app.compare_products.id)
     return (
         <div>
             <Meta title={"So sánh sản phẩm"} />

@@ -4,7 +4,8 @@ import Image from 'next/image';
 import productService from '@/redux/features/products/productsService';
 import {AiFillDelete} from 'react-icons/ai'
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
-import { apiCompareProducts } from '@/redux/features/app/appSilce';
+import { getCompareProducts } from '@/redux/features/app/appSilce';
+
 interface IProps {
     id: string
 }
@@ -13,11 +14,10 @@ const ItemCompare: React.FC<IProps> = ({ id }) => {
     const dispatch = useAppDispatch();
     const [product, setProduct] = useState<any>();
     const {compare_products} = useAppSelector(state => state.app)
+
     useEffect(() => {
         handleGetProduct(id)
     }, [compare_products])
-
-    console.log(1)
 
     const handleGetProduct = useCallback(async (id: string) =>{
         const res: { code?: number, data?: any } = await productService.getProductById({ id }) || ""
@@ -27,7 +27,7 @@ const ItemCompare: React.FC<IProps> = ({ id }) => {
     },[]) 
     
     const handleDelete = (id:string) =>{
-        dispatch(apiCompareProducts(id))
+        dispatch(getCompareProducts(id))
     }
 
     return (

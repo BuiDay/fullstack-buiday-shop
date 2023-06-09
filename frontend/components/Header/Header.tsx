@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BsSearch } from "react-icons/bs";
@@ -13,11 +13,10 @@ import { RootState, wrapper } from "@/redux/store";
 import { useAppSelector } from "@/redux/hook";
 import ShowOnLogin, { ShowOnLogout } from "../hiddenLink/hiddendLink";
 import { logout } from "@/redux/features/auth/authSilce";
-import { getUser } from "@/redux/features/user/userSilce";
 import styles from "./Header.module.scss";
-import { GetServerSideProps } from "next";
 import appService from "@/redux/features/app/appService";
 import { getCategories } from "@/redux/features/app/appSilce";
+
 
 
 interface IProps {
@@ -27,8 +26,23 @@ interface IProps {
 const Header: React.FC<IProps> = () => {
   const { isLoading, status, isError, isLoggedIn } = useAppSelector((state) => state?.auth || {});
   const { currentData } = useAppSelector((state) => state.user || {});
-  // const {cartTotalAmount,totalQuantity} = useSelector(state=>state.cart)
-  // const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const categories = useAppSelector((state:RootState) => state.app.categories || []);
+  const [isShowDropdown, setIsShowDropdown] = useState<boolean>(false);
+  const { wishlist, carts } = useAppSelector(state => state.user)
+  const handleCategories = async () => {
+    try {
+      const resCategories = await appService.apiGetCategories();
+      if (resCategories)
+        dispatch(getCategories(resCategories));
+    } catch (error) {
+      console.log(error)
+    };
+  }
+
+  useEffect(()=>{
+    handleCategories();
+  },[])
 
   const handleLogout = () => {
     dispatch(logout());
@@ -37,15 +51,12 @@ const Header: React.FC<IProps> = () => {
     }, 500);
   };
 
-  const dispatch = useAppDispatch();
-  const categories = useAppSelector((state) => state.app.categories || []);
-  const [isShowDropdown, setIsShowDropdown] = useState<boolean>(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      isLoggedIn && dispatch(getUser());
-    }, 1000);
-  }, [isLoggedIn]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     isLoggedIn && dispatch(getUser());
+  //   }, 1000);
+  // }, [isLoggedIn]);
 
   // useEffect(() => {
   //   if(Object.keys(currentData).length === 0)
@@ -149,7 +160,7 @@ const Header: React.FC<IProps> = () => {
                       <div className="d-flex flex-column">
                         {/* <span className='badge bg-white text-dark'>{totalQuantity ? totalQuantity : "0"}</span> */}
                         {/* <p>{cartTotalAmount ? cartTotalAmount :"0"}$</p> */}
-                        <span className="badge bg-white text-dark">3</span>
+                        <span className="badge bg-white text-dark">{carts.productsTotal && carts.productsTotal}</span>
                         <p>100</p>
                       </div>
                     </Link>
@@ -216,22 +227,22 @@ const Header: React.FC<IProps> = () => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async ({ req, res, ...etc }) => { 
-  try {
-    const resCategories = await appService.apiGetCategories();
-    if(resCategories)
-      store.dispatch(getCategories(resCategories));
-    return {
-      props: {
-      }
-    };
-  } catch (error) {
-    res.statusCode = 404;
-    return {
-      props: {
-      }
-    };
-  }
-});
+// export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async ({ req, res, ...etc }) => { 
+//   try {
+//     const resCategories = await appService.apiGetCategories();
+//     if(resCategories)
+//       store.dispatch(getCategories(resCategories));
+//     return {
+//       props: {
+//       }
+//     };
+//   } catch (error) {
+//     res.statusCode = 404;
+//     return {
+//       props: {
+//       }
+//     };
+//   }
+// });
 
 export default Header;

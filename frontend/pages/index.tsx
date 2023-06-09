@@ -20,10 +20,10 @@ const Home: NextPage = ({props}:any) => {
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async ({ req, res, ...etc }) => { 
   try {
-    const resMobile = await productService.getMobileProducts({limit:15,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
-    const resLaptop = await productService.getLaptopProducts({limit:15,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
-    const resTablet= await productService.getTabletProducts({limit:15,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
-    const resProducts= await productService.getProducts({limit:10,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
+    const resMobile = await productService.getMobileProducts({limit:14,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
+    const resLaptop = await productService.getLaptopProducts({limit:14,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
+    const resTablet= await productService.getTabletProducts({limit:14,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
+    const resProducts= await productService.getProducts({limit:9,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
         store.dispatch(setMobilesProduct(resMobile));
         store.dispatch(setLaptopProduct(resLaptop));
         store.dispatch(setTabletProduct(resTablet));

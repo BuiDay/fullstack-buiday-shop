@@ -1,14 +1,14 @@
 import { createSlice, createAsyncThunk, createAction, PayloadAction } from "@reduxjs/toolkit"
-import {IApp, ICategoriesPaypload, IColor } from "../InterfaceReducer";
+import { IApp, ICategoriesPaypload, IColor } from "../InterfaceReducer";
 import appService from './appService'
 import { HYDRATE } from "next-redux-wrapper";
 
 
-const initState:IApp = {
+const initState: IApp = {
     categories: [],
-    colors:[],
-    compare_products:[],
-    isLoading:false
+    colors: [],
+    compare_products: {},
+    isLoading: false
 
 }
 
@@ -38,25 +38,41 @@ const initState:IApp = {
 
 
 export const appSlice = createSlice({
-    name:"app",
-    initialState:initState,
-    reducers:{
-        getCategories:(state, action)=> {
-            console.log(action)
-            state.categories = action.payload;
+    name: "app",
+    initialState: initState,
+    reducers: {
+        getCategories: (state, action) => {
+            state.categories = action.payload.data;
+        },
+        getColors: (state, action) => {
+            state.colors = action.payload.data;
+        },
+        getCompareProducts: (state, action) => {
+            let array: string[] = [...state?.compare_products?.id || []];
+            if (array.includes(action.payload)) {
+                array = array.filter(function (item) {
+                    return item !== action.payload
+                })
+            } else {
+                array.push(action.payload)
+            }
+            state.compare_products={
+                id:array,
+                total:array.length
+            }
         },
     },
     extraReducers: {
         [HYDRATE]: (state, action) => {
-          return {
-            ...state,
-            ...action.payload.products,
-          };
+            return {
+                ...state,
+                ...action.payload.products,
+            };
         },
-       
+
     }
 })
-export const { getCategories } = appSlice.actions;
+export const { getCategories, getColors, getCompareProducts } = appSlice.actions;
 
 export default appSlice.reducer;
 

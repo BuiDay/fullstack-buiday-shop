@@ -257,11 +257,11 @@ const MobilePage:React.FC<IProps> = ({data,isLoading}) => {
                         <div className="products-list pb-5 d-flex flex-wrap gap-10">
                             {isLoading && <div className='d-flex w-100 justify-content-center'> <Loading /></div>}
                             {
-                                products && products?.map((item:any, index:any) => {
+                               products && products.length > 0 ? products?.map((item:any, index:any) => {
                                     return (
                                         <ProductCards key={index} data={item} grid={4} />
                                     )
-                                })
+                                }) : <h4 className=''>Không có sản phẩm nào </h4>
                             }
                             <Pagination data={products} total={data?.total}/>
                         </div>

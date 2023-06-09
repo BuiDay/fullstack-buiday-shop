@@ -33,10 +33,14 @@ export interface IColor{
   code:string
 }
 
+
 export interface IApp{
   categories?:Array<ICategory>,
   colors?:IColor[],
-  compare_products?:any,
+  compare_products?:{
+    id?:string[],
+    total?:number,
+  }
   isLoading?:boolean,
 }
 
@@ -147,6 +151,10 @@ export interface IPostPayload{
   }
 }
 
+export interface ILoading{
+ isLoading?:boolean
+}
+
 export interface IAppPayload{
   msg?:string,
   response:object[]
@@ -173,7 +181,10 @@ export interface IUser{
     }
   },
   wishlist?:string[],
-  carts?:ICart[],
+  carts:{
+    carts:ICart[],
+    productsTotal?:number,        
+  },
 }
 
 export interface IUserPayload{

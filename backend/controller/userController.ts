@@ -377,6 +377,7 @@ export const addCart = asyncHandler(async(req:Request, res:Response):Promise<voi
     let newCart = await new Cart({
         _id:newCartId,
         products,
+        productsTotal:products.length,
         cartTotal,
         orderby:user?.id
     }).save();

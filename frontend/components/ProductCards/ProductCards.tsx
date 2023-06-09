@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import styles from './ProductCards.module.scss'
 import StarRatings from 'react-star-ratings';
 import Link from "next/link"
@@ -6,13 +6,14 @@ import Prodcompare from '../../assets/images/prodcompare.svg'
 import AddCart from '../../assets/images/add-cart.svg'
 import Image from 'next/image';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
-import { apiCompareProducts } from '@/redux/features/app/appSilce';
 import { Tooltip } from 'react-tooltip'
-import {BsHeart,BsHeartFill} from 'react-icons/bs'
+import { BsHeart, BsHeartFill } from 'react-icons/bs'
 import ModalConfirm from '../Common/ModalConfirm/ModalConfirm';
 import userService from '@/redux/features/user/userService';
-import { addCart, getUser } from '@/redux/features/user/userSilce';
 import { ICart } from '@/redux/features/InterfaceReducer';
+import { getCompareProducts } from '@/redux/features/app/appSilce';
+import { RootState } from '@/redux/store';
+import { getAddCard } from '@/redux/features/user/userSilce';
 
 interface IProps {
     img?: string;
@@ -23,11 +24,11 @@ interface IProps {
 const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
 
     const dispatch = useAppDispatch();
-    const {compare_products} = useAppSelector(state => state.app)
-    // const {isLoggedIn} = useAppSelector(state=>state.auth)
-    const {wishlist,carts} = useAppSelector(state=>state.user)
-    const [isShowModalConfirm, setIsShowModalConfirm] = useState(false)
-    
+    const { compare_products } = useAppSelector((state:RootState) => state.app)
+    const {isLoggedIn} = useAppSelector(state=>state.auth)
+    const { wishlist, carts } = useAppSelector(state => state.user)
+    const [isShowModalConfirm, setIsShowModalConfirm] = useState<boolean>(false)
+  
     const handlePrice = (price: number, discount: number) => {
         if (price !== 0 && discount !== 0)
             return <>
@@ -53,141 +54,126 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
         const percent = 100 - Math.floor((discount / price) * 100)
         return percent
     }
-
     const handleCompareProducts = (id: string) => {
-        console.log(compare_products.length)
-        // if(compare_products.length < 5){
-            dispatch(apiCompareProducts(id))
+        // console.log(compare_products.total)
+        // if (compare_products.total < 4) {
+           dispatch(getCompareProducts(id))
         // }
     }
 
-    // const handleAddWishList = async (id:string) =>{
-    //     if(isLoggedIn){
-    //         const res:{code?:number} = await userService.apiAddToWishlist({proId:id}) || ""
-    //         if(res.code === 1){
-    //             dispatch(getUser())
-    //         }
-    //     }else{
-    //         setIsShowModalConfirm(true)
-    //     }
-    // }
+    const handleAddWishList = async (id:string) =>{
+        if(isLoggedIn){
+            const res:{code?:number} = await userService.apiAddToWishlist({proId:id}) || ""
+            if(res.code === 1){
+                // dispatch(getUser())
+            }
+        }else{
+            setIsShowModalConfirm(true)
+        }
+    }
 
-    // const handleAddCart = async(id: string) => {
-    //     const param={
-    //         id,
-    //         count:1,
-    //         color:""
-    //     }
-    //     if(isLoggedIn){
-    //         dispatch(addCart(param))
-    //     }else{
-    //         setIsShowModalConfirm(true)
-    //     }
-    // }
-    
-    // useEffect(()=>{
-    //     if(carts)
-    //     handleFetchAddCart(carts)
-    // },[carts])
-
-    // const handleFetchAddCart = useMemo( async () =>{
-    //     const res = await userService.apiAddCart(carts)
-    //     console.log(res)
-    // },[carts]) 
-
-    // console.log(carts)
+    const handleActiveAddCart = (id:string):boolean =>{
+        const productsId = carts.carts.map(item=>{
+            return item.id;
+        })
+        console.log(productsId)
+        if(productsId.includes(id))
+            return true;
+        else
+            return false
+    }
     return (
         // <div className={`${location.pathname=="/ourstore" ? `gr-${grid}`:"col-2"}`}>
         <>
-         <div className={`gr-${grid} position-relative`}>
-            <div className={`${styles.product_item}`}>
-                <div className={`${styles.action_bar}`}>
-                    <div className="d-flex flex-column gap-10">
-                        <div className={`${styles.wishlist_icon} position-absolute`}>
-                            {/* <div data-tooltip-id="wishs-tooltip"
+            <div className={`gr-${grid} position-relative`}>
+                <div className={`${styles.product_item}`}>
+                    <div className={`${styles.action_bar}`}>
+                        <div className="d-flex flex-column gap-10">
+                            <div className={`${styles.wishlist_icon} position-absolute`}>
+                                <div data-tooltip-id="wishs-tooltip"
                                 data-tooltip-content={wishlist && wishlist.includes(data?._id)? "Hủy yêu thích":"Yêu thích"}
                                 onClick={()=>handleAddWishList(data?._id)}>
                                     {
                                         wishlist && wishlist.includes(data?._id) ? <BsHeartFill color='red'/> : <BsHeart color="black"/>
                                     }                                
                                 <Tooltip id="wishs-tooltip" />
-                            </div> */}
-                            <BsHeart color="black"/>
-                        </div>
-                        <div className={`${styles.action_bar_item} ${compare_products && compare_products.includes(data?._id) ? styles.active : ""}`} 
-                             onClick={() => handleCompareProducts(data?._id)} 
-                             data-tooltip-id="compare-tooltip"
-                             data-tooltip-content={compare_products && compare_products.includes(data?._id) ? "Hủy so sánh" : "So sánh"}>
-                            <Image src={Prodcompare} alt="" />
-                            <Tooltip id="compare-tooltip" />
-                        </div>
-                        <div className={styles.action_bar_item} 
-                        
-                            data-tooltip-id="addcard-tooltip"
-                            data-tooltip-content="Thêm vào giỏ hàng">
-                            <Image src={AddCart} alt="" />
-                            <Tooltip id="addcard-tooltip" />
+                            </div>
+                            </div>
+                            <div className={`${styles.action_bar_item} ${compare_products.id && compare_products.id.includes(data?._id) ? styles.active : ""}`}
+                                onClick={() => handleCompareProducts(data?._id)}
+                                data-tooltip-id="compare-tooltip"
+                                data-tooltip-content={compare_products.id && compare_products.id.includes(data?._id) ? "Hủy so sánh" : "So sánh"}>
+                                <Image src={Prodcompare} alt="" />
+                                <Tooltip id="compare-tooltip" />
+                            </div>
+                            <button className={`${styles.action_bar_item} ${handleActiveAddCart(data?._id)?styles.active:""}`}
+                                disabled={handleActiveAddCart(data?._id)}
+                                onClick={()=>dispatch(getAddCard({id:data?._id,count:1}))}
+                                data-tooltip-id="addcard-tooltip"
+                                data-tooltip-content="Thêm vào giỏ hàng">
+                                <Image src={AddCart} alt="" />
+                                <Tooltip id="addcard-tooltip" />
+                            </button>
                         </div>
                     </div>
-                </div>
-                {
-                    data?.price !== 0 &&
-                    <div className={styles.discount_percent}>
-                        Giảm {handleDisPercent(data?.price, data?.discount)}%
-                    </div>
-                }
-                <Link href={`/product/${data.slug}`} className={`${styles.product_card} position-relative`}>
-                    <div className={`${styles.product_image} mb-3`}>
-                        <Image className='img-fluid' src={data.images.images[0] && data.images.images[0]} width={500} height={500} alt="" />
-                        <Image className='img-fluid' src={data.images.images[3] ? data.images.images[3] ? data.images.images[2] : data.images.images[2] : data.images.images[0] } width={500} height={500} alt="" />
-                    </div>
-                    <div className={styles.product_details}>
-                        <h6 className='brand'>{data.brand}</h6>
-                        <h5 className={styles.product_title}>
-                            {data.title}
-                        </h5>
-                        {
-                            grid === 12 ?
-                                (<p className='description'>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque id earum, quae ipsam minima deleniti.
-                                </p>) : ""
-                        }
-                        <div className='d-flex gap-2 align-items-center'>
-                            <div className='' style={{ fontSize: "12px", background: "#e9ecef", padding: "2px 5px", borderRadius: "7px", color: "black" }}>
-                                {data.ram} GB
-                            </div>
-                            <div style={{ fontSize: "12px", background: "#e9ecef", padding: "2px 5px", borderRadius: "7px", color: "black" }}>
-                                {data.display} inch
-                            </div>
-                            <div style={{ fontSize: "12px", background: "#e9ecef", padding: "2px 5px", borderRadius: "7px", color: "black" }}>
-                                {data.storage} GB
-                            </div>
+                    {
+                        data?.price !== 0 &&
+                        <div className={styles.discount_percent}>
+                            Giảm {handleDisPercent(data?.price, data?.discount)}%
                         </div>
-
-                        <StarRatings
-                            rating={Math.floor(data.totalRating)}
-                            // edit={false}
-                            starDimension="15px"
-                            starRatedColor="#ffd700"
-                        />
-                        <div className='d-flex gap-2 align-items-end'>
+                    }
+                    <Link href={`/product/${data.slug}`} className={`${styles.product_card} position-relative`}>
+                        <div className={`${styles.product_image} mb-3`}>
+                            <Image className='img-fluid' src={data.images.images[0] && data.images.images[0]} width={500} height={500} alt="" />
+                            <Image className='img-fluid' src={data.images.images[3] ? data.images.images[3] ? data.images.images[2] : data.images.images[2] : data.images.images[0]} width={500} height={500} alt="" />
+                        </div>
+                        <div className={styles.product_details}>
+                            <h6 className='brand'>{data.brand}</h6>
+                            <h5 className={styles.product_title}>
+                                {data.title}
+                            </h5>
                             {
-                                handlePrice(data?.price, data?.discount)
+                                grid === 12 ?
+                                    (<p className='description'>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque id earum, quae ipsam minima deleniti.
+                                    </p>) : ""
                             }
+                            <div className='d-flex gap-2 align-items-center'>
+                                <div className='' style={{ fontSize: "12px", background: "#e9ecef", padding: "2px 5px", borderRadius: "7px", color: "black" }}>
+                                    {data.ram} GB
+                                </div>
+                                <div style={{ fontSize: "12px", background: "#e9ecef", padding: "2px 5px", borderRadius: "7px", color: "black" }}>
+                                    {data.display} inch
+                                </div>
+                                <div style={{ fontSize: "12px", background: "#e9ecef", padding: "2px 5px", borderRadius: "7px", color: "black" }}>
+                                    {data.storage} GB
+                                </div>
+                            </div>
+
+                            <StarRatings
+                                rating={Math.floor(data.totalRating)}
+                                // edit={false}
+                                starDimension="15px"
+                                starRatedColor="#ffd700"
+                            />
+                            <div className='d-flex gap-2 align-items-end'>
+                                {
+                                    handlePrice(data?.price, data?.discount)
+                                }
+                            </div>
                         </div>
-                    </div>
-                </Link>
+                    </Link>
+                </div>
+
             </div>
-           
-        </div>
-         {isShowModalConfirm && <ModalConfirm
-                setIsShowModalConfirm={setIsShowModalConfirm} 
+            {isShowModalConfirm && <ModalConfirm
+                setIsShowModalConfirm={setIsShowModalConfirm}
                 // postEdit = {postEdit} 
                 // handle = {handleDelete}
-                title = 'Bạn cần phải đăng nhập ?'    
+                title='Bạn cần phải đăng nhập ?'
             />}
         </>
-       
+
     );
 };
 

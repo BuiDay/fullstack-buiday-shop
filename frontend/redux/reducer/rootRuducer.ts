@@ -4,16 +4,15 @@ import authReducer from '../features/auth/authSilce'
 import appReducer from '../features/app/appSilce'
 import productsReducer from '../features/products/productsSilce'
 import userReducer from '../features/user/userSilce'
+import loadingReducer from '../features/loading/loadingSilce'
 
 import storage from 'redux-persist/lib/storage'
-import {WebStorage, persistReducer} from "redux-persist"
+import {persistReducer} from "redux-persist"
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
-
 
 const commonConfig = {
     storage,
     stateReconciler: autoMergeLevel2,
-
 }
 
 const authConfig = {
@@ -35,7 +34,8 @@ const rootReducer= combineReducers({
     // auth:authReducer,
     // app:appReducer,
     products:productsReducer,
-    user:userReducer
+    user:userReducer,
+    isLoading:loadingReducer
 })
 
 export default rootReducer
