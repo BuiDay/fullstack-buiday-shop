@@ -10,7 +10,8 @@ import { AiOutlineHeart } from 'react-icons/ai'
 import StarRatings from 'react-star-ratings';
 
 const DetailPage = ({data}:any) => {
-    
+    const { wishlist, carts } = useAppSelector(state => state.user)
+    console.log(carts)
     const [isShowDes, setIsShowDes] = useState(false)
     const [isNewRating, setIsNewRating] = useState<number>()
     const [isColor, setIsColor] = useState<string>()
@@ -132,13 +133,13 @@ const DetailPage = ({data}:any) => {
                                     <div>
                                         <a href="">
                                             <TbGitCompare className='fs-5 me-2' />
-                                            Add to Compare
+                                            Thêm vào so sánh
                                         </a>
                                     </div>
                                     <div>
                                         <a href="">
                                             <AiOutlineHeart className='fs-5 me-2' />
-                                            Add to Wishlist
+                                            Thêm vào yêu thích
                                         </a>
                                     </div>
                                 </div>

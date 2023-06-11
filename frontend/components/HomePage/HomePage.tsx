@@ -18,11 +18,14 @@ import Headphone from '../../assets/images/headphone.jpg'
 import Speaker from '../../assets/images/speaker.jpg'
 import Laptop from '../../assets/images/laptop.jpg'
 import SpecialProduct from '../SpecialProduct/SpecialProduct';
-import ProductCards from '../ProductCards/ProductCards';
+// import ProductCards from '../ProductCards/ProductCards';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation,Autoplay,FreeMode } from "swiper";
+import dynamic from 'next/dynamic';
+
+const ProductCards = dynamic(() => import('../ProductCards/ProductCards'))
 
 interface IProps{
     mobile?:{
@@ -40,7 +43,7 @@ interface IProps{
 }
 
 const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
-    
+
     return (    
         <>
             <section className='home-wrapper-1 py-5'>

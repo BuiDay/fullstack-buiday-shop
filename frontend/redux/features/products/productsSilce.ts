@@ -81,6 +81,9 @@ export const authSlice = createSlice({
         setProducts:(state, action)=> {
           state.products = action.payload;
         },
+        setProduct:(state, action)=> {
+          state.product = action.payload.data;
+        },
     },
     extraReducers: {
         [HYDRATE]: (state, action) => {
@@ -94,7 +97,7 @@ export const authSlice = createSlice({
 })
 export default authSlice.reducer;
 
-export const { setMobilesProduct,setLaptopProduct,setTabletProduct,setProducts } = authSlice.actions;
+export const { setMobilesProduct,setLaptopProduct,setTabletProduct,setProducts,setProduct } = authSlice.actions;
 
 
 // extraReducers:(builder) =>{

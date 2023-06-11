@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { memo, use, useCallback, useEffect, useMemo, useState } from 'react';
 import styles from './ProductCards.module.scss'
 import StarRatings from 'react-star-ratings';
 import Link from "next/link"
@@ -10,7 +10,6 @@ import { Tooltip } from 'react-tooltip'
 import { BsHeart, BsHeartFill } from 'react-icons/bs'
 import ModalConfirm from '../Common/ModalConfirm/ModalConfirm';
 import userService from '@/redux/features/user/userService';
-import { ICart } from '@/redux/features/InterfaceReducer';
 import { getCompareProducts } from '@/redux/features/app/appSilce';
 import { RootState } from '@/redux/store';
 import { getAddCard } from '@/redux/features/user/userSilce';
@@ -22,12 +21,13 @@ interface IProps {
 }
 
 const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
-
+    
     const dispatch = useAppDispatch();
     const { compare_products } = useAppSelector((state:RootState) => state.app)
     const {isLoggedIn} = useAppSelector(state=>state.auth)
     const { wishlist, carts } = useAppSelector(state => state.user)
     const [isShowModalConfirm, setIsShowModalConfirm] = useState<boolean>(false)
+    const [flag, setFlag] = useState<boolean>(false)
   
     const handlePrice = (price: number, discount: number) => {
         if (price !== 0 && discount !== 0)
@@ -73,15 +73,23 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
     }
 
     const handleActiveAddCart = (id:string):boolean =>{
-        const productsId = carts.carts.map(item=>{
+        const productsId = carts.ProductsCarts.map(item=>{
             return item.id;
         })
-        console.log(productsId)
         if(productsId.includes(id))
             return true;
         else
             return false
     }
+
+    const handleApiCart = async()=>{
+        if(flag==true)
+            console.log(carts)
+        setFlag(false)
+    }
+
+   useEffect(()=>{handleApiCart()},[flag])
+
     return (
         // <div className={`${location.pathname=="/ourstore" ? `gr-${grid}`:"col-2"}`}>
         <>
@@ -108,7 +116,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
                             </div>
                             <button className={`${styles.action_bar_item} ${handleActiveAddCart(data?._id)?styles.active:""}`}
                                 disabled={handleActiveAddCart(data?._id)}
-                                onClick={()=>dispatch(getAddCard({id:data?._id,count:1}))}
+                                onClick={()=>{dispatch(getAddCard({id:data?._id,count:1}));setFlag(true)}}
                                 data-tooltip-id="addcard-tooltip"
                                 data-tooltip-content="Thêm vào giỏ hàng">
                                 <Image src={AddCart} alt="" />
@@ -177,4 +185,4 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
     );
 };
 
-export default ProductCards;
+export default (ProductCards);

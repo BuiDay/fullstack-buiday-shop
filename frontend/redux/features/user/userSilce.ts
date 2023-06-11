@@ -12,7 +12,7 @@ const initState:IUser = {
     },
     wishlist:[],
     carts:{
-        carts:[],
+        ProductsCarts:[],
         productsTotal:0,     
     },
 }
@@ -44,21 +44,22 @@ export const authSlice = createSlice({
                 color:action.payload.color || "",
                 count:action.payload.count,
             }
-            let arr = [...state.carts.carts]
+            let arr = [...state.carts.ProductsCarts]
             arr.push(cart)
             state.carts = {
-                carts: arr,
+                ProductsCarts: arr,
                 productsTotal: count + 1
             }
         },
     },
-    extraReducers: {
-        [HYDRATE]: (state, action) => {
-          return {
-            ...state,
-            ...action.payload.user
-          };
-        },
+    extraReducers: (builder) => {
+        builder
+          .addCase(HYDRATE, (state, action: any) => {
+            return {
+                ...state,
+                ...action.payload.products,
+            }
+          });
        
     }
 })

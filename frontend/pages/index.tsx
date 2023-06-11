@@ -10,6 +10,7 @@ import productService from "@/redux/features/products/productsService";
 
 const Home: NextPage = ({props}:any) => {
   const {mobile,laptop,tablet,products}= useAppSelector((state: RootState) => state.products)
+  console.log(mobile)
   return (
     <>
       <Meta title={"Trang chủ"} />
@@ -20,10 +21,10 @@ const Home: NextPage = ({props}:any) => {
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async ({ req, res, ...etc }) => { 
   try {
-    const resMobile = await productService.getMobileProducts({limit:14,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
-    const resLaptop = await productService.getLaptopProducts({limit:14,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
-    const resTablet= await productService.getTabletProducts({limit:14,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
-    const resProducts= await productService.getProducts({limit:9,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage"]});
+    const resMobile = await productService.getMobileProducts({limit:20,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage","slug"]});
+    const resLaptop = await productService.getLaptopProducts({limit:20,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage","slug"]});
+    const resTablet= await productService.getTabletProducts({limit:14,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage","slug"]});
+    const resProducts= await productService.getProducts({limit:9,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage","slug"]});
         store.dispatch(setMobilesProduct(resMobile));
         store.dispatch(setLaptopProduct(resLaptop));
         store.dispatch(setTabletProduct(resTablet));
