@@ -335,11 +335,13 @@ export const addCart = asyncHandler(async(req:Request, res:Response):Promise<voi
             color:string,
             price:number,
     }
+
     const newCartId = new ObjectId()
     const req2 = req as IUserRequest
     const {cart} = req.body;
     const {id} = req2.user;
     validateMongodbId(id);
+    
     try {
      let products:IProduct[] = [];
      const user = await User.findById(id);

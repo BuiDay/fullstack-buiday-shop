@@ -50,6 +50,16 @@
     cursor: pointer;
 }
 
+.icon_del:hover{
+    background-color: var(--color-febd69);
+    transition:all 0.2s;
+}
+
+.icon_del:hover svg{
+    color: black ;
+    transition:all 0.2s;
+}
+
 .icon_del svg{
     color: white ;
 }

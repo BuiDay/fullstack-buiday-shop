@@ -29,7 +29,6 @@ const ItemCompare: React.FC<IProps> = ({ id }) => {
     const handleDelete = (id:string) =>{
         dispatch(getCompareProducts(id))
     }
-    console.log(product)
 
     return (
         <div className="col-3">

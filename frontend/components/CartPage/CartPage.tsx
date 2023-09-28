@@ -36,17 +36,17 @@ const Cart:React.FC<IProps> = ({carts}) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* {
-                                        ProductsCarts.map((item,index)=>{
+                                    {
+                                        ProductsCarts && ProductsCarts.map((item,index)=>{
                                             return(
                                                 <CartItem listCarts={item} key={item.id} />
                                             )
                                         })
-                                    } */}
+                                    }
                                 </tbody>
                             </table>
                         </div>
-                        <div className="col-12 py-4">
+                        <div className="col-12 py-5 ">
                             <div className=''>
                                 <Link href="/ourstore" className='button border-0'>Continue to shopping</Link>
                             </div>

@@ -18,6 +18,7 @@ import appService from "@/redux/features/app/appService";
 import { getCategories } from "@/redux/features/app/appSilce";
 import { getUser } from "@/redux/features/user/userSilce";
 import { useRouter } from "next/router";
+import userService from "@/redux/features/user/userService";
 
 interface IProps {
   isLoggedIn?: boolean;
@@ -33,7 +34,6 @@ const Header: React.FC<IProps> = () => {
   const router = useRouter();
   const categories = useAppSelector((state: RootState) => state.app.categories || []);
   const [isShowDropdown, setIsShowDropdown] = useState<boolean>(false);
-  console.log(categories)
   const { wishlist, carts } = useAppSelector(state => state.user)
 
   const handleCategories = async () => {
@@ -45,6 +45,16 @@ const Header: React.FC<IProps> = () => {
       console.log(error)
     };
   }
+
+  // useEffect(()=>{
+  //   const handleCartApi = async () =>{
+  //     if(carts.ProductsCarts.length > 0){
+  //      const res = await userService.apiAddCart(carts)
+  //      console.log(res)
+  //     }
+  //   }
+   
+  // },[carts])
 
   useEffect(() => {
     handleCategories();
@@ -181,18 +191,17 @@ const Header: React.FC<IProps> = () => {
                       </div>
                     </div>
                   </ShowOnLogin>
-                  <div>
+                  <div className="position-relative">
                     <Link
                       href="/cart"
                       className="d-flex align-items-center gap-10 text-white"
                     >
                       <Image src={Cart} alt="Cart Icon" />
-                      <div className="d-flex flex-column">
-                        {/* <span className='badge bg-white text-dark'>{totalQuantity ? totalQuantity : "0"}</span> */}
-                        {/* <p>{cartTotalAmount ? cartTotalAmount :"0"}$</p> */}
-                        <span className="badge bg-white text-dark">{carts.productsTotal && carts.productsTotal}</span>
-                        <p>100</p>
-                      </div>
+                      <div className="badge bg-white text-dark position-absolute bottom-50 start-50">{carts.productsTotal && carts.productsTotal}</div>
+                      {/* <div className="">
+                        <span className='badge bg-white text-dark'>{totalQuantity ? totalQuantity : "0"}</span>
+                        <p>{cartTotalAmount ? cartTotalAmount :"0"}$</p>
+                      </div> */}
                     </Link>
                   </div>
                 </div>

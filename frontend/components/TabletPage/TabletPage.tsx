@@ -14,33 +14,33 @@ interface IQuery {
     sort?: string
 }
 
-interface IProps{
-    data?:any,
+interface IProps {
+    data?: any,
 }
 
-const TabletPage:React.FC<IProps> = ({data}) => {
+const TabletPage: React.FC<IProps> = ({ data }) => {
     const products = data.data
     const router = useRouter()
-    
-    const handleSort = (value:string | number,title:string) =>{
-        if(value !== "All"){
+
+    const handleSort = (value: string | number, title: string) => {
+        if (value !== "All") {
             router.push(
                 {
-                    pathname:"/mobile",
-                    query:{
+                    pathname: "/tablet",
+                    query: {
                         ...router.query,
-                        page:1,
-                        [title]:value,
+                        page: 1,
+                        [title]: value,
                     }
                 }
             )
-        }else
-        router.push(
-            {
-                pathname:"/mobile",
-                query:{}
-            }
-        )
+        } else
+            router.push(
+                {
+                    pathname: "/tablet",
+                    query: {}
+                }
+            )
     }
 
     return (
@@ -54,46 +54,36 @@ const TabletPage:React.FC<IProps> = ({data}) => {
                                 <div>
                                     <ul className={styles.sidebar_brands}>
                                         <li>
-                                            <div onClick={()=>handleSort("All","All")}>Tất cả</div>
+                                            <div onClick={() => handleSort("All", "All")}>Tất cả</div>
                                         </li>
                                         <li>
-                                            <div onClick={()=>handleSort("Apple","brand")}>
-                                                <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_71_.png"></Image>
+                                            <div onClick={() => handleSort("iPad", "brand")}>
+                                                <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/insecure/rs:fill:0:50/q:30/plain/https://cellphones.com.vn/media/tmp/catalog/product/i/p/ipad-logo-newww.png"></Image>
                                             </div>
                                         </li>
                                         <li>
-                                            <div onClick={()=>handleSort("Samsung","brand")}>
-                                            <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_72_.png"></Image>
+                                            <div onClick={() => handleSort("Samsung", "brand")}>
+                                                <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/insecure/rs:fill:0:50/q:30/plain/https://cellphones.com.vn/media/tmp/catalog/product/f/r/frame_60.png"></Image>
                                             </div>
                                         </li>
                                         <li>
-                                            <div onClick={()=>handleSort("Xiaomi","brand")}>
-                                            <Image alt='' width={60} height={25} src="	https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_73_.png"></Image>
+                                            <div onClick={() => handleSort("Xiaomi", "brand")}>
+                                                <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/insecure/rs:fill:0:50/q:30/plain/https://cellphones.com.vn/media/tmp/catalog/product/f/r/frame_61.png"></Image>
                                             </div>
                                         </li>
                                         <li>
-                                            <div onClick={()=>handleSort("OPPO","brand")}>
-                                            <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_74_.png"></Image>
+                                            <div onClick={() => handleSort("Lenovo", "brand")}>
+                                                <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/insecure/rs:fill:0:50/q:30/plain/https://cellphones.com.vn/media/wysiwyg/Icon/brand_logo/Lenovo.png"></Image>
                                             </div>
                                         </li>
                                         <li>
-                                            <div onClick={()=>handleSort("ASUS","brand")}>
-                                            <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_77_.png"></Image>
+                                            <div onClick={() => handleSort("OPPO", "brand")}>
+                                                <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/insecure/rs:fill:0:50/q:30/plain/https://cellphones.com.vn/media/tmp/catalog/product/f/r/frame_62.png"></Image>
                                             </div>
                                         </li>
                                         <li>
-                                            <div onClick={()=>handleSort("realme","brand")}>
-                                            <Image alt='' width={60} height={25} src="	https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_76_.png"></Image>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div onClick={()=>handleSort("Nokia","brand")}>
-                                            <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_75_.png"></Image>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div onClick={()=>handleSort("vivo","brand")}>
-                                            <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_67_.png"></Image>
+                                            <div onClick={() => handleSort("Máy đọc sách", "brand")}>
+                                                <span>Máy đọc sách</span>
                                             </div>
                                         </li>
                                     </ul>
@@ -106,16 +96,16 @@ const TabletPage:React.FC<IProps> = ({data}) => {
                                     <div>
                                         <ul className={styles.sidebar_brands}>
                                             <li>
-                                                <div onClick={()=>handleSort(4,"ram")}>Dưới 4Gb</div>
+                                                <div onClick={() => handleSort(4, "ram")}>Dưới 4Gb</div>
                                             </li>
                                             <li>
-                                                <div onClick={()=>handleSort(5,"ram")}>4Gb-6Gb</div>
+                                                <div onClick={() => handleSort(5, "ram")}>4Gb-6Gb</div>
                                             </li>
                                             <li>
-                                                <div onClick={()=>handleSort(6,"ram")}>8Gb-12Gb</div>
+                                                <div onClick={() => handleSort(6, "ram")}>8Gb-12Gb</div>
                                             </li>
                                             <li>
-                                                <div onClick={()=>handleSort(12,"ram")}>Trên 12Gb</div>
+                                                <div onClick={() => handleSort(12, "ram")}>Trên 12Gb</div>
                                             </li>
                                         </ul>
                                     </div>
@@ -123,27 +113,13 @@ const TabletPage:React.FC<IProps> = ({data}) => {
                                     <div>
                                         <ul className={styles.sidebar_brands}>
                                             <li>
-                                                <div onClick={()=>handleSort(5,"display")}>Dưới 6 inch</div>
+                                                <div onClick={() => handleSort(5, "display")}>Khoảng 7 inch - 8 inch</div>
                                             </li>
                                             <li>
-                                                <div onClick={()=>handleSort(7,"display")}>Trên 6 inch</div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h5 className={styles.sub_title}>Tần số quét</h5>
-                                    <div>
-                                        <ul className={styles.sidebar_brands}>
-                                            <li>
-                                                <div onClick={()=>handleSort(60,"display")}>60Hz</div>
+                                                <div onClick={() => handleSort(7, "display")}>Khoảng 10 inch - 11 inch</div>
                                             </li>
                                             <li>
-                                                <div>90Hz</div>
-                                            </li>
-                                            <li>
-                                                <div>120Hz</div>
-                                            </li>
-                                            <li>
-                                                <div>Trên 140Hz</div>
+                                                <div onClick={() => handleSort(7, "display")}>Trên 12 inch</div>
                                             </li>
                                         </ul>
                                     </div>
@@ -230,7 +206,7 @@ const TabletPage:React.FC<IProps> = ({data}) => {
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="d-flex align-items-center gap-10">
                                     <p className='mb-0' style={{ whiteSpace: "nowrap" }}>Xếp xếp theo:</p>
-                                    <select name="" id="" className='form-control form-select' onChange={(e)=>handleSort(e.target.value,"sort")}>
+                                    <select name="" id="" className='form-control form-select' onChange={(e) => handleSort(e.target.value, "sort")}>
                                         <option value="All">Mặc định</option>
                                         <option value="-totalRating">Nổi bật</option>
                                         <option value="best-selling">Mua nhiều</option>
@@ -253,13 +229,19 @@ const TabletPage:React.FC<IProps> = ({data}) => {
 
                         <div className="products-list pb-5 d-flex flex-wrap gap-10">
                             {
-                                products && products?.map((item:any, index:any) => {
-                                    return (
-                                        <ProductCards key={index} data={item} grid={4} />
-                                    )
-                                })
+                                products?.length > 0 ? <>
+                                {
+                                    products && products?.map((item: any, index: any) => {
+                                        return (
+                                            <ProductCards key={index} data={item} grid={4} />
+                                        )
+                                    })
+                                }
+                                <Pagination data={products} total={data.total} />
+                            </> : <div className='w-100 mt-5'>
+                                <h3 className='text-center'>Không tìm thấy sản phẩm</h3>
+                            </div> 
                             }
-                            <Pagination data={products} total={data.total} />
                         </div>
                     </div>
                 </div>
