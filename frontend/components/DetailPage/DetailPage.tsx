@@ -11,7 +11,6 @@ import StarRatings from 'react-star-ratings';
 
 const DetailPage = ({data}:any) => {
     const { wishlist, carts } = useAppSelector(state => state.user)
-    console.log(carts)
     const [isShowDes, setIsShowDes] = useState(false)
     const [isNewRating, setIsNewRating] = useState<number>()
     const [isColor, setIsColor] = useState<string>()
@@ -56,7 +55,7 @@ const DetailPage = ({data}:any) => {
                                     backgroundColor: '#fff',
                                     padding: '20px'
                                 }}>
-                                    {data && <Slider images={data.images && data.images.images} slidesPerView={5} navigate={true} width={500} height={500}/>}
+                                    {data && <Slider images={data.images && data.images} slidesPerView={5} navigate={true} width={500} height={500}/>}
                                 </div>
                             </div>
                         </div>

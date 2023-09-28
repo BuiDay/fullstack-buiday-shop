@@ -29,6 +29,7 @@ const ItemCompare: React.FC<IProps> = ({ id }) => {
     const handleDelete = (id:string) =>{
         dispatch(getCompareProducts(id))
     }
+    console.log(product)
 
     return (
         <div className="col-3">
@@ -37,7 +38,7 @@ const ItemCompare: React.FC<IProps> = ({ id }) => {
                 <div className={`${styles.compare_products_card}`}>
                     <div className={`${styles.compare_products_delete}`} onClick={()=>handleDelete(product?._id)}><AiFillDelete/></div>
                     <div className={`${styles.product_card_image} text-center mb-3`}>
-                        <Image src={product.images.images[0] && product.images.images[0]} width={100} height={100} alt="" />
+                        <Image src={product?.images[0] && product?.images[0]} width={100} height={100} alt="" />
                     </div>
                     <div className={styles.compare_product_details}>
                         <h5 className={`${styles.compare_product_details_title}`}>

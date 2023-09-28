@@ -12,7 +12,7 @@ const Cart = () => {
         <div>
             <Meta title={"Giỏ hàng"} />
             <Breadcrumb title={"Giỏ hàng"} />
-            <CartPage carts={carts}/>
+            {/* <CartPage carts={carts}/> */}
         </div>
     );
 };

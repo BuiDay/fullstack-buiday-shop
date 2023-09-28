@@ -10,7 +10,6 @@ import productService from "@/redux/features/products/productsService";
 
 const Home: NextPage = ({props}:any) => {
   const {mobile,laptop,tablet,products}= useAppSelector((state: RootState) => state.products)
-  console.log(mobile)
   return (
     <>
       <Meta title={"Trang chủ"} />

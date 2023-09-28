@@ -1,0 +1,23 @@
+{
+    "_id": "641e4aec-be79-4a04-b4e5-c6749e4dd4ac",
+    "colName": "colors",
+    "created": "2023-04-05T14:07:04.282Z",
+    "sortNum": 40000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "f47f2a3d-22b7-4d57-a06d-314642039d7a",
+            "colId": "641e4aec-be79-4a04-b4e5-c6749e4dd4ac",
+            "containerId": "",
+            "name": "Get all colors",
+            "url": "http://localhost:8000/api/color",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-04-05T14:07:19.776Z",
+            "modified": "2023-04-05T14:07:26.206Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

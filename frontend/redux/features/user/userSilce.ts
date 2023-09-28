@@ -17,21 +17,15 @@ const initState:IUser = {
     },
 }
 
-// export const getUser:any = createAsyncThunk("user/get-user",async(data:IAuthRegister,thunkAPI)  =>{
-//     try{
-//         return await authService.getUser()
-//     }catch(err){
-//        return thunkAPI.rejectWithValue(err)
-//     }
-// })
+export const getUser:any = createAsyncThunk("user/get-user",async(data:IAuthRegister,thunkAPI)  =>{
+    try{
+        return await authService.getUser()
+    }catch(err){
+       return thunkAPI.rejectWithValue(err)
+    }
+})
 
-// export const addCart:any = createAsyncThunk("user/add-cart",async(data:ICart,thunkAPI)  =>{
-//     try{
-//         return data
-//     }catch(err){
-//        return thunkAPI.rejectWithValue(err)
-//     }
-// })
+
 
 export const authSlice = createSlice({
     name:"user",
@@ -54,13 +48,18 @@ export const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-          .addCase(HYDRATE, (state, action: any) => {
-            return {
-                ...state,
-                ...action.payload.products,
-            }
-          });
-       
+            .addCase(HYDRATE, (state, action: any) => {
+                return {
+                    ...state,
+                    ...action.payload.products,
+            }})
+            .addCase(getUser.fulfilled, (state:any, action: any)=>{
+                 state.currentData = action.payload
+            })
+            .addCase(getUser.rejected, (state:any, action: any)=>{
+                state.currentData.status = action.payload.data.status,
+                state.currentData.data = undefined
+           })
     }
 })
 

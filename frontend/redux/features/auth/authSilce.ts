@@ -3,6 +3,7 @@ import { IAuth, IAuthPayload} from "../InterfaceReducer";
 import authService from "./authService";
 import { IAuthRegister,IAuthLogin } from '../InterfaceReducer'
 import { useAppSelector } from "@/redux/hook";
+import { HYDRATE } from "next-redux-wrapper";
 
 const initState:IAuth = {
     isLoggedIn : false,
@@ -35,7 +36,11 @@ export const authSlice = createSlice({
     reducers:{},
     extraReducers:(builder) =>{
         builder
-
+        .addCase(HYDRATE, (state, action: any) => {
+            return {
+                ...state,
+                ...action.payload.products,
+            }})
         .addCase(login.pending,(state:IAuth)=>{
             state.isLoading = true;
         })
@@ -55,7 +60,6 @@ export const authSlice = createSlice({
             state.status = action.payload.status ;
             state.token = action.payload.data?.token
         })
-      
         .addCase(logout.fulfilled,(state:IAuth)=>{
             state.isLoading = false;
             state.isSuccess = false;

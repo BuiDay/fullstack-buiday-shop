@@ -12,7 +12,7 @@ import Link from 'next/link';
 import StarRatings from 'react-star-ratings';
 import userService from '@/redux/features/user/userService';
 import { getUser } from '@/redux/features/user/userSilce';
-import { apiCompareProducts } from '@/redux/features/app/appSilce';
+// import { apiCompareProducts } from '@/redux/features/app/appSilce';
 
 interface IProps {
     id: string
@@ -64,12 +64,12 @@ const ItemWishlist: React.FC<IProps> = ({ id }) => {
         return percent
     }
 
-    const handleCompareProducts = (id: string) => {
-        // console.log(compare_products.length)
-        // if(compare_products.length < 5){ 
-        dispatch(apiCompareProducts(id))
-        // }
-    }
+    // const handleCompareProducts = (id: string) => {
+    //     // console.log(compare_products.length)
+    //     // if(compare_products.length < 5){ 
+    //     dispatch(apiCompareProducts(id))
+    //     // }
+    // }
 
     return (
         <>
@@ -89,7 +89,7 @@ const ItemWishlist: React.FC<IProps> = ({ id }) => {
                                         </div>
                                     </div>
                                     <div className={`${styles.action_bar_item} ${compare_products && compare_products.includes(product?._id) ? styles.active : ""}`}
-                                        onClick={() => handleCompareProducts(product?._id)}
+                                        // onClick={() => handleCompareProducts(product?._id)}
                                         data-tooltip-id="compare-tooltip"
                                         data-tooltip-content={compare_products && compare_products.includes(product?._id) ? "Hủy so sánh" : "So sánh"}>
                                         <Image src={Prodcompare} alt="" />

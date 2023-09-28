@@ -12,6 +12,7 @@ interface IProps{
 }
 
 const SpecialProduct:React.FC<IProps> = ({timer,data}) => {
+    console.log(data)
     return (
         <div className=''>
             <div className={`${styles.special_product_card}`} style={{minHeight:"350px",height:"100%"}}>
@@ -30,7 +31,7 @@ const SpecialProduct:React.FC<IProps> = ({timer,data}) => {
                                     backgroundColor: '#fff',
                                     padding: '0px 10px'
                                 }}>
-                                    {data && <Slider images={data.images && data.images.images} slidesPerView={2} navigate={false} width={200} height={180}/>}
+                                    {data && <Slider images={data.images && data.images} slidesPerView={2} navigate={false} width={200} height={180}/>}
                                 </div>
                             </div>
                     </div>

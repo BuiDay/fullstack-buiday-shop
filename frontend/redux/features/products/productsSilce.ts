@@ -11,7 +11,12 @@ const initState:IProducts = {
     tablet:{},
     laptop:{},
     product:{},
-    watch:{}
+    watch:{},
+    tivi:{},
+    searchProducts:{},
+    audio:{},
+    speakers:{},
+    headphones:{}
 }
 
 // export const getAllProducts:any = createAsyncThunk("products/get-all",async(data:any,thunkAPI)  =>{
@@ -78,11 +83,29 @@ export const authSlice = createSlice({
         setTabletProduct:(state, action)=> {
           state.tablet = action.payload;
         },
+        setWatchProduct:(state, action)=> {
+          state.watch = action.payload;
+        },
         setProducts:(state, action)=> {
           state.products = action.payload;
         },
         setProduct:(state, action)=> {
           state.product = action.payload.data;
+        },
+        setTivi:(state, action)=> {
+          state.tivi = action.payload;
+        },
+        setAudio:(state, action)=> {
+          state.audio = action.payload;
+        },
+        setSpeakers:(state, action)=> {
+          state.speakers = action.payload;
+        },
+        setHeadphones:(state, action)=> {
+          state.headphones = action.payload;
+        },
+        setSearchProducts:(state, action)=> {
+          state.searchProducts = action.payload;
         },
     },
     extraReducers: {
@@ -97,7 +120,7 @@ export const authSlice = createSlice({
 })
 export default authSlice.reducer;
 
-export const { setMobilesProduct,setLaptopProduct,setTabletProduct,setProducts,setProduct } = authSlice.actions;
+export const { setMobilesProduct,setLaptopProduct,setTabletProduct,setProducts,setProduct,setWatchProduct,setTivi,setSearchProducts,setAudio,setSpeakers,setHeadphones } = authSlice.actions;
 
 
 // extraReducers:(builder) =>{

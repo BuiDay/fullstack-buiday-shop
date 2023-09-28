@@ -13,7 +13,7 @@ const WishlistPage: React.FC<IProps> = ({ wishlistId }) => {
     // useEffect(()=>{
     //     dispatch(getUser())
     // },[wishlistId])
-    console.log(wishlistId)
+
     return (
         <>
             <div className="compare-products-wrapper home_wrapper_2 py-5">

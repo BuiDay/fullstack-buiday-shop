@@ -46,10 +46,15 @@ var productSchema = new mongoose.Schema({
         type:Number,
         required:true,
     },
-    images:{
+    imagesId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Image"
     },
+    images:[
+        {
+            type:String,
+        }
+    ],
     color:[{
         type:String,
         required:true,

@@ -1,198 +1,248 @@
-import React from "react";
-import styles from "./SideBar.module.scss";
-import Link from "next/link";
+import React, { useState } from "react";
+import Link from 'next/link';
+import Color from '../Color/Color';
+import Image from 'next/image';
+import styles from './SideBar.module.scss'
+import { useRouter } from 'next/router';
 
 const SideBar = () => {
-  return (
-    <div className="">
-      <div className={`${styles.filter_card} mb-3`}>
-        <h3 className={styles.filter_tilte}>Lựa chọn theo tiêu chí</h3>
-        <div>
-          <ul>
-            <li>
-              <Link href="/mobile">All</Link>
-            </li>
-            <li>
-              <Link href="/mobile?brand=Apple">Apple</Link>
-            </li>
-            <li>
-              <Link href="/mobile?brand=Samsung">Samsung</Link>
-            </li>
-            <li>
-              <Link href="/mobile?brand=Xiaomi">Xiaomi</Link>
-            </li>
-            <li>
-              <Link href="/mobile?brand=ASUS">Asus</Link>
-            </li>
-            <li>
-              <Link href="/mobile?brand=realme">Realme</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className={`${styles.filter_card} mb-3`}>
-        <h3 className={styles.filter_tilte}>Filter By</h3>
-        <div>
-          <h5 className={styles.sub_title}>Ram</h5>
-          <div>
-            <ul>
-              <li>
-                <Link href="/ourstore?brand=Apple">Dưới 4Gb</Link>
-              </li>
-              <li>
-                <Link href="/ourstore?brand=Dell">4Gb - 6Gb</Link>
-              </li>
-              <li>
-                <Link href="/ourstore?brand=Samsung">8Gb - 12Gb</Link>
-              </li>
-              <li>
-                <Link href="/ourstore?brand=Hp">Trên 12Gb</Link>
-              </li>
-            </ul>
-          </div>
-          <h5 className={styles.sub_title}>Tần số quét</h5>
-          <div>
-            <ul>
-              <li>
-                <Link href="/ourstore?brand=Apple">60Hz</Link>
-              </li>
-              <li>
-                <Link href="/ourstore?brand=Dell">90Hz</Link>
-              </li>
-              <li>
-                <Link href="/ourstore?brand=Samsung">120Hz</Link>
-              </li>
-              <li>
-                <Link href="/ourstore?brand=Hp">Trên 140Hz</Link>
-              </li>
-            </ul>
-          </div>
-          <h5 className={styles.sub_title}>Bộ nhớ trong</h5>
-          <ul>
-            <li>
-              <Link href="/ourstore?brand=Apple">Dưới 32Gb</Link>
-            </li>
-            <li>
-              <Link href="/ourstore?brand=Dell">32Gb-64Gb</Link>
-            </li>
-            <li>
-              <Link href="/ourstore?brand=Samsung">128Gb-256Gb</Link>
-            </li>
-            <li>
-              <Link href="/ourstore?brand=Hp">Trên 512Gb</Link>
-            </li>
-          </ul>
+    const router = useRouter()
+    const [persent1, setPersent1] = useState()
+    const [persent2, setPersent2] = useState()
+    const handleSort = (value: string | number, title: string) => {
+        if (value !== "All") {
+            router.push(
+                {
+                    pathname: "/mobile",
+                    query: {
+                        ...router.query,
+                        page: 1,
+                        [title]: value,
+                    }
+                }
+            )
+        } else
+            router.push(
+                {
+                    pathname: "/mobile",
+                    query: {}
+                }
+            )
+    }
 
-          <h5 className={styles.sub_title}>Availablity</h5>
-          <div>
-            <div className={`${styles.form_check} d-flex align-items-center`}>
-              <input
-                type="checkbox"
-                className={`${styles.form_check_input} form-check-input`}
-              />
-              <label className={`${styles.form_check_label} form-check-label`}>
-                In stock (1)
-              </label>
+    return (
+        <>
+            <div className={`${styles.filter_card} mb-3`}>
+                <h3 className={styles.filter_tilte}>Lựa chọn theo tiêu chí</h3>
+                <div>
+                    <ul className={styles.sidebar_brands}>
+                        <li>
+                            <div onClick={() => handleSort("All", "All")}>Tất cả</div>
+                        </li>
+                        <li>
+                            <div onClick={() => handleSort("Apple", "brand")}>
+                                <Image
+                                    alt=""
+                                    width={60}
+                                    height={25}
+                                    src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_71_.png"
+                                ></Image>
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={() => handleSort("Samsung", "brand")}>
+                                <Image
+                                    alt=""
+                                    width={60}
+                                    height={25}
+                                    src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_72_.png"
+                                ></Image>
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={() => handleSort("Xiaomi", "brand")}>
+                                <Image
+                                    alt=""
+                                    width={60}
+                                    height={25}
+                                    src="	https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_73_.png"
+                                ></Image>
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={() => handleSort("OPPO", "brand")}>
+                                <Image
+                                    alt=""
+                                    width={60}
+                                    height={25}
+                                    src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_74_.png"
+                                ></Image>
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={() => handleSort("ASUS", "brand")}>
+                                <Image
+                                    alt=""
+                                    width={60}
+                                    height={25}
+                                    src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_77_.png"
+                                ></Image>
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={() => handleSort("realme", "brand")}>
+                                <Image
+                                    alt=""
+                                    width={60}
+                                    height={25}
+                                    src="	https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_76_.png"
+                                ></Image>
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={() => handleSort("Nokia", "brand")}>
+                                <Image
+                                    alt=""
+                                    width={60}
+                                    height={25}
+                                    src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_75_.png"
+                                ></Image>
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={() => handleSort("vivo", "brand")}>
+                                <Image
+                                    alt=""
+                                    width={60}
+                                    height={25}
+                                    src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_67_.png"
+                                ></Image>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div className="form-check d-flex align-items-center">
-              <input
-                type="checkbox"
-                className={`${styles.form_check_input} form-check-input`}
-              />
-              <label className={`${styles.form_check_label} form-check-label`}>
-                Out of stock (0)
-              </label>
-            </div>
-          </div>
-          <h5 className={styles.sub_title}>Price</h5>
-          <div className="d-flex align-items-center gap-10">
-            <div className="form-floating">
-              <label htmlFor="form-floating-input">From</label>
-              <input
-                type="email"
-                className="form-control"
-                id="form-floating-input"
-              />
-            </div>
-            <div className="form-floating">
-              <label htmlFor="form-floating-input1">To</label>
-              <input
-                type="email"
-                className="form-control"
-                id="form-floating-input1"
-              />
-            </div>
-          </div>
-          <h5 className="sub-title">Màu sắc</h5>
-          <div>
-            <ul className="colors ps-0">
-              <li style={{ background: "yellow" }}></li>
-              <li style={{ background: "blue" }}></li>
-              <li style={{ background: "green" }}></li>
-              <li style={{ background: "gray" }}></li>
-              <li style={{ background: "purple" }}></li>
-              <li style={{ background: "black" }}></li>
-              <li style={{ background: "cyan" }}></li>
-              <li></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div className="filter-card mb-3">
-        <h3 className="filter-tilte">Product Tags</h3>
-        <div>
-          <div className="product-tags d-flex flex-wrap align-items-center gap-10">
-            <span className="badge bg-light text-secondary rounded-3 p-2">
-              Headphone
-            </span>
-            <span className="badge bg-light text-secondary rounded-3 p-2">
-              Laptop
-            </span>
-            <span className="badge bg-light text-secondary rounded-3 p-2">
-              Wire
-            </span>
-          </div>
-        </div>
-      </div>
-      {/* <div className="filter-card mb-3">
-                                <h3 className="filter-tilte">Random Product</h3>
-                                <div>
-                                    <div className="random-products mb-3 d-flex">
-                                        <div className="random-products-left">
-                                            <img className='img-fluid' src={require("../../assets/images/watch.jpg")} alt="" />
-                                        </div>
-                                        <div className="random-products-right d-flex flex-column justify-content-center">
-                                            <h5>Lorem ipsum dolor sit amet</h5>
-                                            <StarRatings
-                                                rating={2.5}
-                                                edit={false}
-                                                starDimension="14px"
-                                                starRatedColor="#ffd700"
-                                            />
-                                            <b className='mt-1'>$ 300</b>
-                                        </div>
-                                        
-                                    </div>
+            <div className={`${styles.filter_card} mb-3`}>
+                <h3 className={styles.filter_tilte}>Filter By</h3>
+                <div>
+                    <h5 className={styles.sub_title}>Ram</h5>
+                    <div>
+                        <ul className={styles.sidebar_brands}>
+                            <li>
+                                <div onClick={() => handleSort(4, "ram")}>Dưới 4Gb</div>
+                            </li>
+                            <li>
+                                <div onClick={() => handleSort(5, "ram")}>4Gb-6Gb</div>
+                            </li>
+                            <li>
+                                <div onClick={() => handleSort(6, "ram")}>8Gb-12Gb</div>
+                            </li>
+                            <li>
+                                <div onClick={() => handleSort(12, "ram")}>Trên 12Gb</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <h5 className={styles.sub_title}>Kích thước màn hình</h5>
+                    <div>
+                        <ul className={styles.sidebar_brands}>
+                            <li>
+                                <div onClick={() => handleSort(5, "display")}>Dưới 6 inch</div>
+                            </li>
+                            <li>
+                                <div onClick={() => handleSort(7, "display")}>Trên 6 inch</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <h5 className={styles.sub_title}>Bộ nhớ trong</h5>
+                    <ul className={styles.sidebar_brands}>
+                        <li>
+                            <div>Dưới 32Gb</div>
+                        </li>
+                        <li>
+                            <div>32Gb-64Gb</div>
+                        </li>
+                        <li>
+                            <div>128Gb-256Gb</div>
+                        </li>
+                        <li>
+                            <div>Trên 512Gb</div>
+                        </li>
+                    </ul>
 
-                                    <div className="random-products mb-2 pb-2 d-flex">
-                                        <div className="random-products-left">
-                                            <img className='img-fluid' src={require("../../assets/images/watch.jpg")} alt="" />
-                                        </div>
-                                        <div className="random-products-right d-flex flex-column justify-content-center">
-                                            <h5>Lorem ipsum dolor sit amet</h5>
-                                            <StarRatings
-                                                rating={2.5}
-                                                edit={false}
-                                                starDimension="16px"
-                                                starRatedColor="#ffd700"
-                                            />
-                                            <b className='mt-1'>$ 300</b>
-                                        </div>
-                                    </div>
-                                </div>       
-                            </div>    */}
-    </div>
-  );
+                    <h5 className={styles.sub_title}>Mặt hàng</h5>
+                    <div>
+                        <div className={`${styles.form_check} d-flex align-items-center`}>
+                            <input
+                                type="checkbox"
+                                className={`${styles.form_check_input} form-check-input`}
+                            />
+                            <label className={`${styles.form_check_label} form-check-label`}>
+                                Có sẵn
+                            </label>
+                        </div>
+                        <div className="form-check d-flex align-items-center">
+                            <input
+                                type="checkbox"
+                                className={`${styles.form_check_input} form-check-input`}
+                            />
+                            <label className={`${styles.form_check_label} form-check-label`}>
+                                Chưa có sẵn
+                            </label>
+                        </div>
+                    </div>
+                    <h5 className={styles.sub_title}>Giá</h5>
+                    <div className="d-flex align-items-center gap-10">
+                        <div className="form-floating">
+                            <input
+                                max='100'
+                                min='0'
+                                step='1'
+                                type="range"
+                                value={persent1}
+                                className='w-full appearance-none pointer-events-none absolute top-0 bottom-0'
+                                // onChange={(e) => {
+                                //     setPersent1(+e.target.value)
+                                //     activedEl && setActivedEl('')
+                                // }}
+                            />
+                            <input
+                                max='100'
+                                min='0'
+                                step='1'
+                                type="range"
+                                value={persent2}
+                                className='w-full appearance-none pointer-events-none absolute top-0 bottom-0'
+                                // onChange={(e) => {
+                                //     setPersent2(+e.target.value)
+                                //     activedEl && setActivedEl('')
+                                // }}
+                            />
+                        </div>
+                    </div>
+                    <h5 className={styles.sub_title}>Màu sắc</h5>
+                    <div>
+                        <Color />
+                    </div>
+                </div>
+            </div>
+            <div className="filter-card mb-3">
+                <h3 className="filter-tilte">Product Tags</h3>
+                <div>
+                    <div className="product-tags d-flex flex-wrap align-items-center gap-10">
+                        <span className="badge bg-light text-secondary rounded-3 p-2">
+                            Headphone
+                        </span>
+                        <span className="badge bg-light text-secondary rounded-3 p-2">
+                            Laptop
+                        </span>
+                        <span className="badge bg-light text-secondary rounded-3 p-2">
+                            Wire
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default SideBar;

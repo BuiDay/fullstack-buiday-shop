@@ -59,6 +59,10 @@ export interface Irating{
 
 
 export interface IProducts{
+  searchProducts?:{},
+  audio?:{},
+  speakers?:{},
+  headphones?:{},
   products?:{
     data?:[],
     code?:number
@@ -84,6 +88,7 @@ export interface IProducts{
     total?:number,
   },
   watch?:{},
+  tivi?:{},
   product?:{
     title?:string,
     images?:any,

@@ -25,7 +25,7 @@ body{
 a{
   text-decoration: none !important;
   display: inline-block;
-  color:black;
+  color:black !important;
 }
 
 h1,h2,p {
@@ -136,7 +136,7 @@ ul,li{
 }
 
 .header-top-upper{
-  background-color: var(--color-131921);
+  background-color: var(--color-232f3e);
 }
 
 .header-top-upper .input-group-text{
@@ -150,20 +150,30 @@ ul,li{
 }
 
 .header-bottom{
-  background-color: var(--color-232f3e);
+  background-color: var(--color-febd69);
 }
 
 .header-bottom .menu-links a, 
 .title-categories{
-  color: white;
+  color: var(--color-232f3e);
   font-size: 14px;
   line-height: 18px;
   font-weight: 400;
   letter-spacing: 0.3;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .dropdown{
   position: relative;
+}
+
+.categories:hover > .list-brands{
+  height: max-content;
+}
+
+.list-brands{
+  height: 0px;
+  overflow: hidden;
 }
 
 .dropdown_list{
@@ -173,18 +183,18 @@ ul,li{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   top:45px;
   left:0;
-  max-width: 300px;
+  max-width: 280px;
   min-width: 180px;
 }
 
 .dropdown_icon{
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .header-bottom .dropdown_item{
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding:10px 5px;
   margin-bottom: 3px;
   width: 100%;
   color: #131921;
@@ -353,3 +363,4 @@ footer .input-group-text{
 // .detail_description p span img{
 //   width: 60%;
 // }
+

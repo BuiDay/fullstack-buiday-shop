@@ -76,6 +76,79 @@ const getWatchProducts =  (params:any) => new Promise(async(resolve, reject)=>{
     }
 })
 
+const getTiviProducts =  (params:any) => new Promise(async(resolve, reject)=>{
+    
+    try {
+        const res = await axiosConfig({
+            method:"get",
+            url:'/api/product',
+            params:{category: "Tivi",limit:20,...params}
+        })
+        resolve(res.data)
+        
+    } catch (error) {
+        reject(error)
+    }
+})
+
+const getAudioProducts =  (params:any) => new Promise(async(resolve, reject)=>{
+    
+    try {
+        const res = await axiosConfig({
+            method:"get",
+            url:'/api/product',
+            params:{category: ["Tai nghe","Loa"],limit:20,...params}
+        })
+        resolve(res.data)
+        
+    } catch (error) {
+        reject(error)
+    }
+})
+
+const getSpeakersProducts =  (params:any) => new Promise(async(resolve, reject)=>{
+    
+    try {
+        const res = await axiosConfig({
+            method:"get",
+            url:'/api/product',
+            params:{category: ["Loa"],limit:20,...params}
+        })
+        resolve(res.data)
+        
+    } catch (error) {
+        reject(error)
+    }
+})
+
+const getHeadphonesProducts =  (params:any) => new Promise(async(resolve, reject)=>{
+    
+    try {
+        const res = await axiosConfig({
+            method:"get",
+            url:'/api/product',
+            params:{category: ["Tai nghe"],limit:20,...params}
+        })
+        resolve(res.data)
+        
+    } catch (error) {
+        reject(error)
+    }
+})
+
+const getSearchProducts =  (params:any) => new Promise(async(resolve, reject)=>{
+    try {
+        const res = await axiosConfig({
+            method:"get",
+            url:'/api/product/search-product',
+            params:{limit:20,...params}
+        })
+        resolve(res.data)
+    } catch (error) {
+        reject(error)
+    }
+})
+
 
 const getProductById =  (id:any) => new Promise(async(resolve, reject)=>{
     try {
@@ -96,7 +169,7 @@ const getProductById =  (id:any) => new Promise(async(resolve, reject)=>{
 })
 
 const productService = {
-    getProducts,getProductById,getMobileProducts,getTabletProducts,getLaptopProducts,getWatchProducts
+    getProducts,getProductById,getMobileProducts,getTabletProducts,getLaptopProducts,getSpeakersProducts,getHeadphonesProducts,getWatchProducts, getTiviProducts, getSearchProducts, getAudioProducts
 }
 
 export default productService

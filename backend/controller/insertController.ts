@@ -28,20 +28,54 @@ import oppo_table from '../data/Tablet/oppo_tablet.json'
 
 import apple_laptop from '../data/Laptop/apple_laptop.json'
 import hp_laptop from '../data/Laptop/hp_laptop.json'
+import acer_laptop from '../data/Laptop/acer_laptop.json'
+import asus_laptop from '../data/Laptop/asus_laptop.json'
+import dell_laptop from '../data/Laptop/dell_laptop.json'
+import lenovo_laptop from '../data/Laptop/lenovo_laptop.json'
 
 import apple_watch from '../data/watch/apple_watch.json'
 import samsung_watch from '../data/watch/samsung_watch.json'
+import amazfit_watch from '../data/watch/amazfit_watch.json'
+import coros_watch from '../data/watch/coros_watch.json'
+import garmin_watch from '../data/watch/garmin_watch.json'
 import xiaomi_watch from '../data/watch/xiaomi_watch.json'
 
+import apple_headphone from '../data/headphone/apple_headphone.json'
+import jbl_headphone from '../data/headphone/jbl_headphone.json'
+import lg_headphone from '../data/headphone/lg_headphone.json'
+import samsung_headphone from '../data/headphone/samsung_headphone.json'
+import sony_headphone from '../data/headphone/sony_headphone.json'
+import soundpeats_headphone from '../data/headphone/soundpeats_headphone.json'
+import xiaomi_headphone from '../data/headphone/xiaomi_headphone.json'
+
+import bose_speaker from '../data/speaker/bose_speaker.json'
+import harman_speaker from '../data/speaker/harman_speaker.json'
+import jbl_speaker from '../data/speaker/jbl_speaker.json'
+import lg_speaker from '../data/speaker/lg_speaker.json'
+import marshall_speaker from '../data/speaker/marshall_speaker.json'
+import sony_speaker from '../data/speaker/sony_speaker.json'
+
+import samsung_tivi from '../data/tivi/samsung_tivi.json'
+import toshiba_tivi from '../data/tivi/toshiba_tivi.json'
+import xiaomi_tivi from '../data/tivi/xiaomi_tivi.json'
+
 import Cate from '../data/categories.json'
+
 import mongoose from 'mongoose';
 const { ObjectId } = mongoose.Types;
 
-;
 const fn = async (product:any) =>{
     const newIdImage = new ObjectId()
     const newIdDes = new ObjectId()
     const newIdTechnical = new ObjectId()
+
+    const handleImages = (item:[string])=>{
+        var arrTemp = [];
+        for(let i=0; i < 4; i++){
+            arrTemp.push(item[i])
+        }
+        return arrTemp
+    }
 
     await Product.create({
         title:product?.title[0] || "null",
@@ -56,7 +90,8 @@ const fn = async (product:any) =>{
         storage:product?.Storage | product?.storage,
         display:product?.Display | product?.display,
         totalRating:Number(product?.totalRating[0].split('/')[0]),
-        images:newIdImage || "null",
+        imagesId:newIdImage || "null",
+        images:handleImages(product?.images),
         description:newIdDes || "null",
         quantity:Math.floor(Math.random() * 100) || "0",
         ratings:product?.review || [],
@@ -64,17 +99,18 @@ const fn = async (product:any) =>{
         gpu:product?.gpu,
         resolution:product?.resolution,
         material:product?.material,
+        
     })
 
     await Technical.create({
         _id:newIdTechnical,
-        technicalInfo:product?.technicalInfo[0] || "null",
+        technicalInfo:product?.technicalInfo[0] || ""
     })
 
     await Description.create({
         _id:newIdDes,
-        features_description:product?.description[0].features_des && product?.description[0].features_des || "null",
-        detail_description:product?.description[0].features_detail &&  product?.description[0].features_detail || "null"
+        features_description:product?.description[0].features_des && product?.description[0].features_des || "",
+        detail_description:product?.description[0].features_detail &&  product?.description[0].features_detail || ""
     })
 
     await Image.create({
@@ -93,40 +129,68 @@ const fn_2 = async (category:any) =>{
 export const insertProduct= asyncHandler(async (req:Request, res:Response):Promise<any> =>{
     let promies = []
     
-    // const arrayMobile = [apple_mobile,oppo_mobile,xiaomi_mobile,asus_mobile,realme_mobile,samsung_mobile,vivo_mobile,nokia_mobile]
-    const arrayMobile = [apple_mobile, oppo_mobile,xiaomi_mobile,asus_mobile,realme_mobile,samsung_mobile,vivo_mobile,nokia_mobile]
+
+    // const arrayMobile = [apple_mobile, oppo_mobile,xiaomi_mobile,asus_mobile,realme_mobile,samsung_mobile,vivo_mobile,nokia_mobile]
     
-    for (let i of arrayMobile){
+    // for (let i of arrayMobile){
+    //     for (let product of i) {
+    //         await promies.push(fn(product))
+    //      }
+    // }
+
+    // const arrayLaptop = [apple_laptop,hp_laptop,acer_laptop,asus_laptop,dell_laptop,lenovo_laptop]
+    
+    // for (let i of arrayLaptop){
+    //     for (let product of i) {
+    //         await promies.push(fn(product))
+    //      }
+    // }
+
+    // const arrayTablet = [book_tablet,apple_tablet,xiaomi_tablet,nokia_tablet,samsung_tablet,lenovo_tablet,oppo_table]
+    
+    // for (let i of arrayTablet){
+    //     for (let product of i) {
+    //         await promies.push(fn(product))
+    //      }
+    // }
+
+    // const arrayWatch = [apple_watch,samsung_watch,xiaomi_watch,amazfit_watch,coros_watch, garmin_watch]
+    
+    // for (let i of arrayWatch){
+    //     for (let product of i) {
+    //         await promies.push(fn(product))
+    //      }
+    // }
+
+    // const arrayHeadphone = [apple_headphone,jbl_headphone,lg_headphone,samsung_headphone,sony_headphone,soundpeats_headphone,xiaomi_headphone]
+    
+    // for (let i of arrayHeadphone){
+    //     for (let product of i) {
+    //         await promies.push(fn(product))
+    //      }
+    // }
+
+
+
+//   const arraySpeaker = [bose_speaker,harman_speaker,jbl_speaker,lg_speaker,marshall_speaker,sony_speaker]
+    
+//     for (let i of arraySpeaker){
+//         for (let product of i) {
+//             await promies.push(fn(product))
+//          }
+//     }
+
+
+
+
+
+  const arrayTivi= [ samsung_tivi,toshiba_tivi,xiaomi_tivi]
+    
+    for (let i of arrayTivi){
         for (let product of i) {
             await promies.push(fn(product))
          }
     }
-
-    const arrayLaptop = [apple_laptop,hp_laptop]
-    
-    for (let i of arrayLaptop){
-        for (let product of i) {
-            await promies.push(fn(product))
-         }
-    }
-
-
-    const arrayTablet = [book_tablet,apple_tablet,xiaomi_tablet,nokia_tablet,samsung_tablet,lenovo_tablet,oppo_table]
-    
-    for (let i of arrayTablet){
-        for (let product of i) {
-            await promies.push(fn(product))
-         }
-    }
-
-    const arrayWatch = [apple_watch,samsung_watch,xiaomi_watch]
-    
-    for (let i of arrayWatch){
-        for (let product of i) {
-            await promies.push(fn(product))
-         }
-    }
-
 
     await Promise.all(promies)
     return res.json("Done")

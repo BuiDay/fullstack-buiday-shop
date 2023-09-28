@@ -36,13 +36,13 @@ const Cart:React.FC<IProps> = ({carts}) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {
+                                    {/* {
                                         ProductsCarts.map((item,index)=>{
                                             return(
-                                                <CartItem />
+                                                <CartItem listCarts={item} key={item.id} />
                                             )
                                         })
-                                    }
+                                    } */}
                                 </tbody>
                             </table>
                         </div>

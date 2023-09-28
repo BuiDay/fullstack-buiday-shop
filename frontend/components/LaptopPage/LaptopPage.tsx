@@ -59,43 +59,33 @@ const LaptopPage:React.FC<IProps> = ({data}) => {
                                             <div onClick={()=>handleSort("All","All")}>Tất cả</div>
                                         </li>
                                         <li>
-                                            <div onClick={()=>handleSort("Apple","brand")}>
-                                                <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_71_.png"></Image>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div onClick={()=>handleSort("Samsung","brand")}>
-                                            <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_72_.png"></Image>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div onClick={()=>handleSort("Xiaomi","brand")}>
-                                            <Image alt='' width={60} height={25} src="	https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_73_.png"></Image>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div onClick={()=>handleSort("OPPO","brand")}>
-                                            <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_74_.png"></Image>
+                                            <div onClick={()=>handleSort("Mac","brand")}>
+                                                <Image alt='' width={60} height={25} src="https://cellphones.com.vn/media/wysiwyg/Icon/brand_logo/macbook.png"></Image>
                                             </div>
                                         </li>
                                         <li>
                                             <div onClick={()=>handleSort("ASUS","brand")}>
-                                            <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_77_.png"></Image>
+                                            <Image alt='' width={60} height={30} src="https://cellphones.com.vn/media/wysiwyg/Icon/brand_logo/Asus.png"></Image>
                                             </div>
                                         </li>
                                         <li>
-                                            <div onClick={()=>handleSort("realme","brand")}>
-                                            <Image alt='' width={60} height={25} src="	https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_76_.png"></Image>
+                                            <div onClick={()=>handleSort("Lenovo","brand")}>
+                                            <Image alt='' width={60} height={25} src="https://cellphones.com.vn/media/wysiwyg/Icon/brand_logo/Lenovo.png"></Image>
                                             </div>
                                         </li>
                                         <li>
-                                            <div onClick={()=>handleSort("Nokia","brand")}>
-                                            <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_75_.png"></Image>
+                                            <div onClick={()=>handleSort("HP","brand")}>
+                                            <Image alt='' width={60} height={25} src="https://cellphones.com.vn/media/wysiwyg/Icon/brand_logo/HP.png"></Image>
                                             </div>
                                         </li>
                                         <li>
-                                            <div onClick={()=>handleSort("vivo","brand")}>
-                                            <Image alt='' width={60} height={25} src="https://cdn2.cellphones.com.vn/x50,webp,q30/media/tmp/catalog/product/t/_/t_i_xu_ng_67_.png"></Image>
+                                            <div onClick={()=>handleSort("Acer","brand")}>
+                                            <Image alt='' width={60} height={25} src="https://cellphones.com.vn/media/wysiwyg/Icon/brand_logo/acer.png"></Image>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div onClick={()=>handleSort("Dell","brand")}>
+                                            <Image alt='' width={60} height={25} src="https://cellphones.com.vn/media/wysiwyg/Icon/brand_logo/Dell.png"></Image>
                                             </div>
                                         </li>
                                     </ul>
@@ -108,16 +98,16 @@ const LaptopPage:React.FC<IProps> = ({data}) => {
                                     <div>
                                         <ul className={styles.sidebar_brands}>
                                             <li>
-                                                <div onClick={()=>handleSort(4,"ram")}>Dưới 4Gb</div>
+                                                <div onClick={()=>handleSort(4,"ram")}>4GB</div>
                                             </li>
                                             <li>
-                                                <div onClick={()=>handleSort(5,"ram")}>4Gb-6Gb</div>
+                                                <div onClick={()=>handleSort(5,"ram")}>8GB</div>
                                             </li>
                                             <li>
-                                                <div onClick={()=>handleSort(6,"ram")}>8Gb-12Gb</div>
+                                                <div onClick={()=>handleSort(6,"ram")}>16GB</div>
                                             </li>
                                             <li>
-                                                <div onClick={()=>handleSort(12,"ram")}>Trên 12Gb</div>
+                                                <div onClick={()=>handleSort(12,"ram")}>32GB</div>
                                             </li>
                                         </ul>
                                     </div>
@@ -125,43 +115,69 @@ const LaptopPage:React.FC<IProps> = ({data}) => {
                                     <div>
                                         <ul className={styles.sidebar_brands}>
                                             <li>
-                                                <div onClick={()=>handleSort(5,"display")}>Dưới 6 inch</div>
+                                                <div onClick={()=>handleSort(5,"display")}>Khoảng 13 inch</div>
                                             </li>
                                             <li>
-                                                <div onClick={()=>handleSort(7,"display")}>Trên 6 inch</div>
+                                                <div onClick={()=>handleSort(7,"display")}>Khoảng 14 inch</div>
+                                            </li>
+                                            <li>
+                                                <div onClick={()=>handleSort(7,"display")}>Trên 15 inch</div>
                                             </li>
                                         </ul>
                                     </div>
-                                    <h5 className={styles.sub_title}>Tần số quét</h5>
+                                    <h5 className={styles.sub_title}>Card đồ họa</h5>
                                     <div>
                                         <ul className={styles.sidebar_brands}>
                                             <li>
-                                                <div onClick={()=>handleSort(60,"display")}>60Hz</div>
+                                                <div onClick={()=>handleSort(60,"display")}>Onboard</div>
                                             </li>
                                             <li>
-                                                <div>90Hz</div>
+                                                <div>NVIDIA Geforce Series</div>
                                             </li>
                                             <li>
-                                                <div>120Hz</div>
-                                            </li>
-                                            <li>
-                                                <div>Trên 140Hz</div>
+                                                <div>AMD Readon Series</div>
                                             </li>
                                         </ul>
                                     </div>
-                                    <h5 className={styles.sub_title}>Bộ nhớ trong</h5>
+                                    <h5 className={styles.sub_title}>CPU</h5>
+                                    <div>
+                                        <ul className={styles.sidebar_brands}>
+                                            <li>
+                                                <div onClick={()=>handleSort(60,"display")}>Intel Core i3</div>
+                                            </li>
+                                            <li>
+                                                <div>Intel Core i5</div>
+                                            </li>
+                                            <li>
+                                                <div>Intel Core i7</div>
+                                            </li>
+                                            <li>
+                                                <div>Intel Core i9</div>
+                                            </li>
+                                            <li>
+                                                <div>AMD Ryzen 3</div>
+                                            </li>
+                                            <li>
+                                                <div>AMD Ryzen 5</div>
+                                            </li>
+                                            <li>
+                                                <div>AMD Ryzen 7</div>
+                                            </li>
+                                            <li>
+                                                <div>Intel Celeron / Pentinum</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h5 className={styles.sub_title}>Ổ cứng</h5>
                                     <ul className={styles.sidebar_brands}>
                                         <li>
-                                            <div >Dưới 32Gb</div>
+                                            <div >256GB</div>
                                         </li>
                                         <li>
-                                            <div>32Gb-64Gb</div>
+                                            <div>512GB</div>
                                         </li>
                                         <li>
-                                            <div >128Gb-256Gb</div>
-                                        </li>
-                                        <li>
-                                            <div >Trên 512Gb</div>
+                                            <div >1TB</div>
                                         </li>
                                     </ul>
 

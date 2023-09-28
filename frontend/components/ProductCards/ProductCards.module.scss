@@ -5,12 +5,25 @@
     overflow: hidden;
     box-shadow: 0 0 10px #0000001a;
     min-height: 405px;
-    min-width: 230px;
+    min-width: 227px;
     width: 100%;
+    height: 100%;
+}
+
+.product_hover{
+    height: 100%;
+    padding: 2px;
+    border-radius: 12px;
+}
+
+.product_hover:hover{
+    background-color: red;
+    transition: all 0.9s ease;
 }
 
 .product_item{
     position: relative;
+    height: 100%;
 }
 
 .discount_percent{
@@ -20,7 +33,7 @@
     width: 80px;
     z-index: 99;
     position: absolute;
-    top: 0px;
+    top: -4px;
     left: -4px;
     font-size: 14px;
     text-align: center;
@@ -86,7 +99,6 @@
 
 .product_card .product_details{
     min-height: 158px;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -129,16 +141,16 @@
     width: 100%;
 }
 
-.product_card .product_image > img:last-child{
-    display: none;
-}
+// .product_card .product_image > img:last-child{
+//     display: none;
+// }
 
-.product_card:hover .product_image > img:first-child{
-    display: none;
-}
+// .product_card:hover .product_image > img:first-child{
+//     display: none;
+// }
 
-.product_card:hover .product_image > img:last-child{
-    display: block;
-}
+// .product_card:hover .product_image > img:last-child{
+//     display: block;
+// }
 
 

@@ -1,34 +1,37 @@
 import Breadcrumb from '@/components/Common/Breadcrumb/Breadcrumb';
 import Meta from '@/components/Common/Meta/Meta';
 import LaptopPage from '@/components/LaptopPage/LaptopPage';
-import { RootState } from '@/redux/store';
-import { getLaptopProducts } from '@/redux/features/products/productsSilce';
+import { RootState, wrapper } from '@/redux/store';
+import { setLaptopProduct } from '@/redux/features/products/productsSilce';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
+import { GetServerSideProps } from 'next';
+import productService from '@/redux/features/products/productsService';
 
 const Mobile = ({query}:any) => {
-    const router = useRouter()
-    const dispatch = useAppDispatch();
-    const products:any = useAppSelector((state: RootState) => state.products.laptop)
-
-    useEffect(() => {
-        if(query)
-            dispatch(getLaptopProducts(query))
-        else
-            dispatch(getLaptopProducts(router.query))
-    },[router.query])
-
+    const {laptop} = useAppSelector((state: RootState) => state.products || {})
     return (
         <div>
-            <Meta title={"Điện thoại"} />
-            <Breadcrumb title={"Điện thoại"} />
-            <LaptopPage data={products}/>
+            <Meta title={"Laptop"} />
+            <Breadcrumb title={`Laptop / ${query.brand ? query.brand : "Tất cả" }`} />
+            <LaptopPage data={laptop}/>
         </div>
     );
 };
-export async function getServerSideProps(context:any) {
-    const query = context.query
-    return { props: { query } }
-  }
+
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async ({ req, res, ...etc }) => {
+    const query = etc.query 
+    if (query) {
+      const resLatop = await productService.getLaptopProducts(query);
+      if (resLatop) {
+        store.dispatch(setLaptopProduct(resLatop));
+      }
+    }
+    return {
+      props: {
+        query
+      }
+    };
+  });
 export default Mobile;

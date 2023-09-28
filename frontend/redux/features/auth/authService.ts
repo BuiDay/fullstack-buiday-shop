@@ -43,7 +43,6 @@ const apiForgotPassword =  (data:IForgotPassword) => new Promise(async(resolve, 
 })
 
 const apiResetPassword =  (data:IResetPassword) => new Promise(async(resolve, reject)=>{
-    console.log(data)
     try {
         const res = await axiosConfig({
             method:"post",

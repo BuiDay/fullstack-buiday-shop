@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BsSearch } from "react-icons/bs";
@@ -9,27 +9,33 @@ import Cart from "../../assets/images/cart.svg";
 import Menu from "../../assets/images/menu.svg";
 import { useAppDispatch } from "@/redux/hook";
 import { useEffect } from "react";
-import { RootState, wrapper } from "@/redux/store";
+import { RootState } from "@/redux/store";
 import { useAppSelector } from "@/redux/hook";
 import ShowOnLogin, { ShowOnLogout } from "../hiddenLink/hiddendLink";
 import { logout } from "@/redux/features/auth/authSilce";
 import styles from "./Header.module.scss";
 import appService from "@/redux/features/app/appService";
 import { getCategories } from "@/redux/features/app/appSilce";
-
-
+import { getUser } from "@/redux/features/user/userSilce";
+import { useRouter } from "next/router";
 
 interface IProps {
   isLoggedIn?: boolean;
 }
 
 const Header: React.FC<IProps> = () => {
-  const { isLoading, status, isError, isLoggedIn } = useAppSelector((state) => state?.auth || {});
+  const [keyword, setKeyword] = useState("")
+  const { isLoggedIn } = useAppSelector((state) => state?.auth || {});
+  const dropdownCateRef = useRef<any>(null);
   const { currentData } = useAppSelector((state) => state.user || {});
+
   const dispatch = useAppDispatch();
-  const categories = useAppSelector((state:RootState) => state.app.categories || []);
+  const router = useRouter();
+  const categories = useAppSelector((state: RootState) => state.app.categories || []);
   const [isShowDropdown, setIsShowDropdown] = useState<boolean>(false);
+  console.log(categories)
   const { wishlist, carts } = useAppSelector(state => state.user)
+
   const handleCategories = async () => {
     try {
       const resCategories = await appService.apiGetCategories();
@@ -40,30 +46,53 @@ const Header: React.FC<IProps> = () => {
     };
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     handleCategories();
-  },[])
+  }, [])
 
   const handleLogout = () => {
     dispatch(logout());
-    setTimeout(() => {
-      window.location.reload();
-    }, 500);
   };
 
+  useEffect(() => {
+    const handleClick = (event: Event | any) => {
+      if (event?.target?.id !== "title-categories") {
+        if (dropdownCateRef.current && !dropdownCateRef?.current.contains(event.target)) {
+          setIsShowDropdown(false)
+        }
+      }
+    }
+    document.addEventListener('click', (e) => handleClick(e));
+    return document.removeEventListener('click', (e) => handleClick(e));
+  }, [])
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     isLoggedIn && dispatch(getUser());
-  //   }, 1000);
-  // }, [isLoggedIn]);
 
-  // useEffect(() => {
-  //   if(Object.keys(currentData).length === 0)
-  //   setTimeout(() => {
-  //       dispatch(logout());
-  //     }, 3000);
-  // }, []);
+  const handleSearch = () => {
+    if (keyword) {
+      router.push(
+        {
+          pathname: "/search",
+          query: {
+            page: 1,
+            result: keyword,
+          }
+        }
+      )
+    }
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      isLoggedIn && dispatch(getUser());
+    }, 1000);
+  }, [isLoggedIn]);
+
+  useEffect(() => {
+    if (currentData.status === "error")
+      setTimeout(() => {
+        dispatch(logout());
+      }, 3000);
+  }, []);
 
   return (
     <>
@@ -98,8 +127,9 @@ const Header: React.FC<IProps> = () => {
                     type="text"
                     className="form-control"
                     placeholder="Search product here..."
+                    onChange={(e) => setKeyword(e.target.value)}
                   />
-                  <span className="input-group-text py-3">
+                  <span className="input-group-text py-3" style={{ cursor: "pointer" }} onClick={handleSearch} >
                     <BsSearch className="fs-6" />
                   </span>
                 </div>
@@ -144,9 +174,9 @@ const Header: React.FC<IProps> = () => {
                           <p className="displayName">{currentData?.data?.name}</p>
                         </div>
                         <div className={styles.dropdown_content}>
-                          {/* <Link className="dropdown_item" href="/profile">View Profile</Link>
-                                                <Link className="dropdown_item" href="/history">History</Link>
-                                                <Link className="dropdown_item" href="" onClick={()=>{handleLogout()}}>Sign out</Link> */}
+                          <Link className="dropdown_item" href="/profile">View Profile</Link>
+                          <Link className="dropdown_item" href="/history">History</Link>
+                          <Link className="dropdown_item" href="" onClick={() => { handleLogout() }}>Sign out</Link>
                         </div>
                       </div>
                     </div>
@@ -171,78 +201,72 @@ const Header: React.FC<IProps> = () => {
           </div>
         </div>
       </header>
-      <header className="header-bottom py-3">
+      <header className="header-bottom">
         <div className="container-xxl">
           <div className="row">
             <div className="col-12">
-              <div className="menu-bottom d-flex align-items-center">
-                <div className="dropdown me-5">
-                  <div
-                    className="title-categories"
-                    role="button"
-                    onClick={() => setIsShowDropdown(!isShowDropdown)}
-                  >
-                    <Image src={Menu} className="img fluid me-1" alt="" />
-                    Shop categories
-                  </div>
-                  {isShowDropdown && (
-                    <div className="dropdown_list">
-                      {categories &&
-                        categories?.map((item: any, index: number) => {
-                          return (
+              <div className="menu-bottom d-flex align-items-center justify-content-between">
+                <div className="menu-links">
+                  <div className="d-flex align-items-center gap-20">
+                    <Link href="/">Trang chủ</Link>
+                    {categories &&
+                      categories?.map((item: any, index: number) => {
+                        return (
+                          <div  key={index} className="dropdown categories">
                             <Link
-                              key={index}
                               className="dropdown_item"
                               href={item.href ? `/${item.href}` : "#"}
                               onClick={() => setIsShowDropdown(!isShowDropdown)}
                             >
                               <Image
                                 src={item.icon}
-                                width={20}
-                                height={20}
+                                width={25}
+                                height={25}
                                 alt=""
-                                className="dropdown_icon"
+                                className="dropdown_icon img fluid"
                               ></Image>
                               <span>{item.title}</span>
                             </Link>
-                          );
-                        })}
+                            <div className="dropdown_list list-brands" style={{borderRadius:"5px"}}>
+                              <p className="px-2 py-1 fw-bold" style={{fontSize:"14px"}}>Chọn theo hãng</p>
+                                {
+                                  item?.brands?.map((brand: { title: string, href: string }, index: number) => <>
+                                    <Link className="dropdown_item" style={{padding:"5px",paddingLeft:"15px"}} href={brand.href}>{brand.title}</Link>
+                                  </>
+                                  )
+                                }
+                            </div>
+                          </div>
+                        );
+                      })}
+                  </div>
+                </div>
+                <div className="dropdown">
+                  <div
+                    className="title-categories"
+                    id="title-categories"
+                    role="button"
+                    onClick={() => setIsShowDropdown(!isShowDropdown)}
+                    ref={dropdownCateRef}
+                  >
+                    <Image src={Menu} className="img fluid me-1" alt="" />
+                    Shop
+                  </div>
+                  {isShowDropdown && (
+                    <div className="dropdown_list">
+                      <Link className="dropdown_item" href="product">Our Store</Link>
+                      <Link className="dropdown_item" href="blogs">Blogs</Link>
+                      <Link className="dropdown_item" href="contact">Contact</Link>
                     </div>
                   )}
-                </div>
-                <div className="menu-links">
-                  <div className="d-flex align-items-center gap-15">
-                    <Link href="/">Home</Link>
-                    <Link href="product">Our Store</Link>
-                    <Link href="blogs">Blogs</Link>
-                    <Link href="contact">Contact</Link>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </header>
+      </header >
     </>
   );
 };
-
-// export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async ({ req, res, ...etc }) => { 
-//   try {
-//     const resCategories = await appService.apiGetCategories();
-//     if(resCategories)
-//       store.dispatch(getCategories(resCategories));
-//     return {
-//       props: {
-//       }
-//     };
-//   } catch (error) {
-//     res.statusCode = 404;
-//     return {
-//       props: {
-//       }
-//     };
-//   }
-// });
 
 export default Header;

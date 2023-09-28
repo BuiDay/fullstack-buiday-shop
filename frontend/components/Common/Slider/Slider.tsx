@@ -33,7 +33,10 @@ const Slider:React.FC<IProps> = ({images,slidesPerView,navigate,width,height}) =
             {
                images && images.map((item, index) => (
                     <SwiperSlide key={index}>                    
-                        <Image src={item} alt="product images" className='border' width={width} height={height} />
+                    {
+                        item &&   <Image src={item} alt="product images" className='border' width={width} height={height} />
+                    }
+                      
                     </SwiperSlide>
                 ))
             }

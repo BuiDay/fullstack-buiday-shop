@@ -4,7 +4,6 @@ import {configureStore ,ThunkAction,Action} from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
 
 export const store = configureStore({
-    // reducer: rootReducer,
     reducer:rootReducer,
     middleware: [thunk]
 })

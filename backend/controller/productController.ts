@@ -1,257 +1,308 @@
 import Product from '../models/productModel'
-import {User} from "../models/userModel"
+import { User } from "../models/userModel"
 import { Response, Request } from 'express';
 import asyncHandler from 'express-async-handler';
 import validateMongodbId from '../utils/validateMongodbId';
 import slugify from 'slugify';
-import { match } from 'assert';
 
 interface IUserRequest extends Request {
     user: any
 }
 
-export const createProduct = asyncHandler(async (req:Request, res:Response):Promise<void> =>{
-   try{
-    if(req.body.title){
-        req.body.slug = slugify(req.body.title)
-    }
-    const newProduct = await Product.create(req.body);
-    res.json({
-        code:1,
-        status:"success",
-        data:newProduct,
-    })
-   }catch(err){
-    if(err)
-    throw new Error(err.toString())
-   }
-})
-
-export const updateProduct = asyncHandler(async (req:Request, res:Response):Promise<void> =>{
-    const {id} = req.params;
-    try{
-    validateMongodbId(id);
-     if(req.body.title){
-         req.body.slug = slugify(req.body.title);
-     }
-     const newProduct = await Product.findByIdAndUpdate(id,req.body,{new:true});
-     res.json({
-         code:1,
-         status:"success",
-         data:newProduct,
-     })
-    }catch(err){
-        if(err)
+export const createProduct = asyncHandler(async (req: Request, res: Response): Promise<void> => {
+    try {
+        if (req.body.title) {
+            req.body.slug = slugify(req.body.title)
+        }
+        const newProduct = await Product.create(req.body);
+        res.json({
+            code: 1,
+            status: "success",
+            data: newProduct,
+        })
+    } catch (err) {
+        if (err)
             throw new Error(err.toString())
     }
- })
+})
 
-export const deleteProduct = asyncHandler(async (req:Request, res:Response):Promise<void> =>{
-    const {id} = req.params;
-    try{
-    validateMongodbId(id);
+export const updateProduct = asyncHandler(async (req: Request, res: Response): Promise<void> => {
+    const { id } = req.params;
+    try {
+        validateMongodbId(id);
+        if (req.body.title) {
+            req.body.slug = slugify(req.body.title);
+        }
+        const newProduct = await Product.findByIdAndUpdate(id, req.body, { new: true });
+        res.json({
+            code: 1,
+            status: "success",
+            data: newProduct,
+        })
+    } catch (err) {
+        if (err)
+            throw new Error(err.toString())
+    }
+})
+
+export const deleteProduct = asyncHandler(async (req: Request, res: Response): Promise<void> => {
+    const { id } = req.params;
+    try {
+        validateMongodbId(id);
         const newProduct = await Product.findByIdAndDelete(id);
-        if(newProduct){
+        if (newProduct) {
             res.json({
-                code:1,
-                status:"success",
+                code: 1,
+                status: "success",
             })
-        }else{
+        } else {
             throw new Error("Not found");
         }
-    }catch(err){
-        if(err)
+    } catch (err) {
+        if (err)
             throw new Error(err.toString())
     }
 })
 
-export const getProduct = asyncHandler(async (req:Request, res:Response):Promise<void> =>{
-    const {id,slug} = req.query;
+export const getProduct = asyncHandler(async (req: Request, res: Response): Promise<void> => {
+    const { id, slug } = req.query;
     let product
-    try{
+    try {
         // validateMongodbId(id?);
-        if(id){
-             product = await Product.findById(id)
-            .populate("ratings.postedby")
-            .populate("images")
-            .populate("description")
-            .populate("technicalInfo");
-        }else if(slug){
-            product = await Product.findOne({slug})
-            .populate("ratings.postedby")
-            .populate("images")
-            .populate("description")
-            .populate("technicalInfo");
+        if (id) {
+            product = await Product.findById(id)
+                .populate("ratings.postedby")
+                .populate("images")
+                .populate("description")
+                .populate("technicalInfo");
+        } else if (slug) {
+            product = await Product.findOne({ slug })
+                .populate("ratings.postedby")
+                .populate("images")
+                .populate("description")
+                .populate("technicalInfo");
         }
 
-        if(product){
+        if (product) {
             res.json({
-                code:1,
-                status:"success",
-                data:product
+                code: 1,
+                status: "success",
+                data: product
             })
         }
-        else{
+        else {
             throw new Error("Not found");
         }
-    }catch(err){
-        if(err)
+    } catch (err) {
+        if (err)
             throw new Error(err.toString())
     }
 })
 
-export const getAllProducts = asyncHandler(async (req:Request, res:Response):Promise<void>=>{
-    try{
+export const getAllProducts = asyncHandler(async (req: Request, res: Response): Promise<void> => {
+    try {
         //filter
-        const queryObj = {...req.query};
-        const excludefields = ["page","sort","limit","fields"];
-        excludefields.forEach((el)=> delete queryObj[el]);
+        const queryObj = { ...req.query };
+        const excludefields = ["page", "sort", "limit", "fields"];
+        excludefields.forEach((el) => delete queryObj[el]);
         let queryStr = JSON.stringify(queryObj);
         //  ram[lt]=4
         //  {ram: '$lt:4'}
         // {"ram":{"$lt":"4"}}
-        queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match)=>`$${match}`);
+        queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
 
         // queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, ' ');
-        let query = Product.find(JSON.parse(queryStr)).populate("images");;
-        
-        //////ram
+        let query = Product.find(JSON.parse(queryStr)).populate("images");
 
-        if(req.query.ram){
-                if (Number(req.query.ram) === 4) {
-                    query.find({ram:{$lt:req.query.ram}})
-                }else if (Number(req.query.ram) === 12) {
-                    query.find({ram:{$gt:req.query.ram}})
-                }else if (Number(req.query.ram) === 5)  
-                    query.find({ram:{$lte:6,$gte:4}})
-                else query.find({ram:{$lte:12 ,$gte:8}})
+        //////ram
+        if (req.query.ram) {
+            if (Number(req.query.ram) === 4) {
+                query.find({ ram: { $lt: req.query.ram } })
+            } else if (Number(req.query.ram) === 12) {
+                query.find({ ram: { $gt: req.query.ram } })
+            } else if (Number(req.query.ram) === 5)
+                query.find({ ram: { $lte: 6, $gte: 4 } })
+            else query.find({ ram: { $lte: 12, $gte: 8 } })
         }
 
-        if(req.query.display){
+        if (req.query.display) {
             if (Number(req.query.display) === 5) {
-                query.find({display:{$lte:6}})
-            }else{
-                query.find({display:{$gte:6}})
+                query.find({ display: { $lte: 6 } })
+            } else {
+                query.find({ display: { $gte: 6 } })
             }
         }
 
-        /////
-    
+        //refresh rate
+        // if (req.query.refreshRate) {
+        //     console.log(query.find)
+        // }
+
+
         // //sorting
-        if(req.query.sort){
+        if (req.query.sort) {
             // const sortBy = req.query.sort.split(",").json(" ");
             query = query.sort(req.query.sort.toString());
-        }else{
-            query =query.sort("-createdAt");
+        } else {
+            query = query.sort("-createdAt");
         }
 
+
+
         // //limiting the field
-        
-        if(req.query.fields){
+        if (req.query.fields) {
             // const fields = req.query.fields.toString().split(",").json(" ");
             const fields = req.query.fields.toString().split(",");
             query = query.select(fields);
-        }else{
-            query =query.select("-__v");
+        } else {
+            query = query.select("-__v");
         }
 
         //total
         const total = await query.clone().count()
 
         //pagination
-        const page:any = req.query.page;
-        const limit:any = req.query.limit;
-        const skip = (page -1) * limit;
+        const page: any = req.query.page;
+        const limit: any = req.query.limit;
+        const skip = (page - 1) * limit;
         query = query.skip(skip).limit(limit)
-        if(req.query.page){
+        if (req.query.page) {
             const productCount = await Product.countDocuments();
-            if(skip >= productCount)
-                throw new Error("This page does not exists");        
+            if (skip >= productCount)
+                throw new Error("This page does not exists");
         }
+
         const allProduct = await query;
-        if(allProduct){
+        if (allProduct) {
             res.json({
-                code:1,
-                status:"success",
-                page:page,
+                code: 1,
+                status: "success",
+                page: page,
                 total,
-                data:allProduct
+                data: allProduct
             })
         }
-    }catch(err){
-        if(err)
+    } catch (err) {
+        if (err)
             throw new Error(err.toString())
     }
 })
 
-export const addToWishlist = asyncHandler(async (req:Request, res:Response):Promise<void>=>{
-    const req2 = req as IUserRequest
-    const {id} = req2.user;
-    const {proId} = req.body; 
+
+export const getSearchProducts = asyncHandler(async (req: Request, res: Response): Promise<void> => {
     try {
-        if(!proId){
+        const {result} = req.query 
+        let product = Product.find({
+            $or:[
+                {
+                    title: { $regex: result, $options: 'i' }
+                }
+            ]
+        })
+
+        if (req.query.sort) {
+            // const sortBy = req.query.sort.split(",").json(" ");
+            product = product.sort(req.query.sort.toString());
+        } else {
+            product = product.sort("-createdAt");
+        }
+
+
+        const total = await product.clone().count()
+
+        const page: any = req.query.page;
+        const limit: any = req.query.limit;
+        const skip = (page - 1) * limit;
+        product = product.skip(skip).limit(limit)
+        if (req.query.page) {
+            const productCount = await Product.countDocuments();
+            if (skip >= productCount)
+                throw new Error("This page does not exists");
+        }
+
+        if (product) {
             res.json({
-                status:"error miss proId",
-                code:-1,
+                code: 1,
+                total:total,
+                status: "success",
+                data: await product
             })
         }
-        const user1 =await User.findById(id);
-        const alreadyAddList = user1.wishlist.find((id:string)=>id.toString() === proId);
-        if(alreadyAddList){
-            let user = await User.findByIdAndUpdate(
-                id,
-                {
-                    $pull:{wishlist:proId},
-                },
-                {
-                    new:true,
-                }
-            )
+    } catch (err) {
+        if (err)
+            throw new Error(err.toString())
+    }
+})
+
+
+export const addToWishlist = asyncHandler(async (req: Request, res: Response): Promise<void> => {
+    const req2 = req as IUserRequest
+    const { id } = req2.user;
+    const { proId } = req.body;
+    try {
+        if (!proId) {
             res.json({
-                status:"success",
-                code:1,
-                data:user
+                status: "error miss proId",
+                code: -1,
             })
-        }else{
+        }
+        const user1 = await User.findById(id);
+        const alreadyAddList = user1.wishlist.find((id: string) => id.toString() === proId);
+        if (alreadyAddList) {
             let user = await User.findByIdAndUpdate(
                 id,
                 {
-                    $push:{wishlist:proId},
+                    $pull: { wishlist: proId },
                 },
                 {
-                    new:true,
+                    new: true,
                 }
             )
             res.json({
-                status:"success",
-                code:1,
-                data:user
+                status: "success",
+                code: 1,
+                data: user
+            })
+        } else {
+            let user = await User.findByIdAndUpdate(
+                id,
+                {
+                    $push: { wishlist: proId },
+                },
+                {
+                    new: true,
+                }
+            )
+            res.json({
+                status: "success",
+                code: 1,
+                data: user
             })
         }
     } catch (error) {
-        if(error)
+        if (error)
             throw new Error(error.toString())
     }
 })
 
-export const rating = asyncHandler(async (req:Request, res:Response):Promise<void>=>{
+export const rating = asyncHandler(async (req: Request, res: Response): Promise<void> => {
     const req2 = req as IUserRequest
-    const {id} = req2.user;
-    const {star, proId, comment} = req.body; 
+    const { id } = req2.user;
+    const { star, proId, comment } = req.body;
     const setRating = async () => {
         const getProduct = await Product.findById(proId);
         let totalRating = getProduct.ratings.length;
         let ratingsum = getProduct.ratings
-            .map((item:any)=>item.star)
-            .reduce((prev:number, curr:number)=>prev + curr, 0);
+            .map((item: any) => item.star)
+            .reduce((prev: number, curr: number) => prev + curr, 0);
         let actualRating = Math.round(ratingsum / totalRating);
         let finalProduct = await Product.findByIdAndUpdate(
             proId,
             {
-                totalRating:actualRating,
+                totalRating: actualRating,
             },
             {
-                new:true,
+                new: true,
             }
         )
         return finalProduct;
@@ -260,51 +311,51 @@ export const rating = asyncHandler(async (req:Request, res:Response):Promise<voi
     try {
         const product = await Product.findById(proId);
         let alreadyRated = product.ratings.find(
-            (userId:any) => userId.postedby.toString() === id.toString()
+            (userId: any) => userId.postedby.toString() === id.toString()
         );
-        if(alreadyRated){
+        if (alreadyRated) {
             const updateProduct = await Product.updateOne(
                 {
-                    ratings:{$elemMatch:alreadyRated},
+                    ratings: { $elemMatch: alreadyRated },
                 },
                 {
-                    $set:{"ratings.$.star":star,"ratings.$.comment":comment},
+                    $set: { "ratings.$.star": star, "ratings.$.comment": comment },
                 },
                 {
-                    new:true,
+                    new: true,
                 }
             )
             let ratingProduct = await setRating();
             res.json({
-                status:"success",
-                code:1,
-                data:updateProduct,ratingProduct
+                status: "success",
+                code: 1,
+                data: updateProduct, ratingProduct
             })
-        }else{
+        } else {
             const rateProduct = await Product.findByIdAndUpdate(
                 proId,
                 {
-                    $push:{
-                        ratings:{
-                            star:star,
-                            comment:comment,
-                            postedby:id
+                    $push: {
+                        ratings: {
+                            star: star,
+                            comment: comment,
+                            postedby: id
                         },
                     }
                 },
                 {
-                    new:true
+                    new: true
                 }
             )
             let rating = await setRating();
             res.json({
-                status:"success",
-                code:1,
-                data:rating
+                status: "success",
+                code: 1,
+                data: rating
             })
         }
     } catch (error) {
-        if(error)
+        if (error)
             throw new Error(error.toString())
     }
 })

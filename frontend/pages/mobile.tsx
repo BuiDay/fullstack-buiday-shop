@@ -19,7 +19,8 @@ const Mobile: NextPage = ({ query }: any) => {
 
   const {mobile} = useAppSelector((state: RootState) => state.products || {})
   const {isLoading} = useAppSelector((state: RootState) => state || {})
-  return (
+  console.log(query)
+  return ( 
     <div>
       <Meta title={"Điện thoại"} />
       <Breadcrumb title={`Điện thoại / ${query.brand ? query.brand : "Tất cả" }`} />

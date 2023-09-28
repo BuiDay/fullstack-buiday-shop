@@ -421,8 +421,8 @@
         ],
         "price": [
             {
-                "price_show": 0,
-                "price_through": 0
+                "price_show": "0",
+                "price_through": "0"
             }
         ],
         "colors": [],
@@ -458,8 +458,8 @@
         ],
         "price": [
             {
-                "price_show": 0,
-                "price_through": 0
+                "price_show":  "0",
+                "price_through":  "0"
             }
         ],
         "colors": [],
@@ -559,8 +559,8 @@
         ],
         "price": [
             {
-                "price_show": 0,
-                "price_through": 0
+                "price_show":  "0",
+                "price_through":  "0"
             }
         ],
         "colors": [],

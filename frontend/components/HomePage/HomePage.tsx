@@ -1,8 +1,9 @@
-import React,{useEffect,useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import styles from './HomePage.module.scss'
 import Marquee from "react-fast-marquee";
 import Image from 'next/image';
+
 import MainBanner from '../../assets/images/main-banner-1.jpg'
 import CatBanner_1 from '../../assets/images/catbanner-01.jpg'
 import CatBanner_2 from '../../assets/images/catbanner-02.jpg'
@@ -17,15 +18,11 @@ import Camera from '../../assets/images/camera.jpg'
 import Headphone from '../../assets/images/headphone.jpg'
 import Speaker from '../../assets/images/speaker.jpg'
 import Laptop from '../../assets/images/laptop.jpg'
-import SpecialProduct from '../SpecialProduct/SpecialProduct';
-// import ProductCards from '../ProductCards/ProductCards';
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import { Navigation,Autoplay,FreeMode } from "swiper";
+
 import dynamic from 'next/dynamic';
 
-const ProductCards = dynamic(() => import('../ProductCards/ProductCards'))
+const SpecialProducts = dynamic(() => import('./SpecialProducts'));
+const FeaturedProducts = dynamic(() => import('./FeaturedProducts'));
 
 interface IProps{
     mobile?:{
@@ -46,7 +43,7 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
 
     return (    
         <>
-            <section className='home-wrapper-1 py-5'>
+            <section className='home-wrapper-1 py-1'>
                 <div className="container-xxl">
                     <div className="row">
                         <div className="col-6">
@@ -108,47 +105,7 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
                 </div>
             </section>
 
-            <section className={`${styles.home_wrapper_2} py-3`}>
-                <div className="container-xxl">
-                    <div className="d-flex justify-content-between align-items-center">
-                        <div className='d-flex align-items-center gap-15 '>
-                            <Image src={Service} alt="" />
-                            <div>
-                                <h6>Miễn phí giao hàng</h6>
-                                <p>Các đơn trên 300k</p>
-                            </div>
-                        </div>
-                        <div className='d-flex align-items-center gap-15 '>
-                            <Image src={Service_2} alt="" />
-                            <div>
-                                <h6>Ưu đãi hàng ngày</h6>
-                                <p>Tiết kiệm đến 25%</p>
-                            </div>
-                        </div>
-                        <div className='d-flex align-items-center gap-15 '>
-                            <Image src={Service_3} alt="" />
-                            <div>
-                                <h6>Hỗ trợ 24/7</h6>
-                                <p>Yên tâm mua sắm</p>
-                            </div>
-                        </div>
-                        <div className='d-flex align-items-center gap-15 '>
-                            <Image src={Service_4} alt="" />
-                            <div>
-                                <h6>Giá cả phải chăng</h6>
-                                <p>Thoải mái mua sắm</p>
-                            </div>
-                        </div>
-                        <div className='d-flex align-items-center gap-15 '>
-                            <Image src={Service_5} alt="" />
-                            <div>
-                                <h6>Thanh toán an toàn</h6>
-                                <p>Không lo mất tiền</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <SpecialProducts products={products} />
 
             <section className={`py-5`}>
                 <div className="container-xxl">
@@ -224,69 +181,51 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
                 </div>
             </section>
 
-            <section className='featured-wrapper home_wrapper_2 py-5'>
+            <FeaturedProducts products={mobile} title='Điện thoại nổi bật nhất'/>
+
+            <section className={`p-5`}>
                 <div className="container-xxl">
-                    <div className="row">
-                        <div className="col-12">
-                            <h3 className='section-heading'>Điện thoại nổi bật nhất</h3>
+                    <div className="d-flex justify-content-between align-items-center">
+                        <div className='d-flex align-items-center gap-15 '>
+                            <Image src={Service} alt="" />
+                            <div>
+                                <h6>Miễn phí giao hàng</h6>
+                                <p>Các đơn trên 300k</p>
+                            </div>
                         </div>
-                        <Swiper
-                            slidesPerView={5}
-                            spaceBetween={30}
-                            centeredSlides={true}
-                            // freeMode={true}
-                            loop={true}
-                            autoplay={{
-                            delay: 2500,
-                            disableOnInteraction: false,
-                            }}
-                            navigation={true}
-                            modules={[Autoplay, FreeMode, Navigation]}
-                            className="mySwiper"
-                        >
-                        {
-                            mobile?.data && mobile?.data.map((item,index)=>{
-                                return(
-                                    <SwiperSlide key={index}><ProductCards key={index} data={item} grid={5}/></SwiperSlide>
-                                )
-                            })
-                        }
-                       </Swiper>
+                        <div className='d-flex align-items-center gap-15 '>
+                            <Image src={Service_2} alt="" />
+                            <div>
+                                <h6>Ưu đãi hàng ngày</h6>
+                                <p>Tiết kiệm đến 25%</p>
+                            </div>
+                        </div>
+                        <div className='d-flex align-items-center gap-15 '>
+                            <Image src={Service_3} alt="" />
+                            <div>
+                                <h6>Hỗ trợ 24/7</h6>
+                                <p>Yên tâm mua sắm</p>
+                            </div>
+                        </div>
+                        <div className='d-flex align-items-center gap-15 '>
+                            <Image src={Service_4} alt="" />
+                            <div>
+                                <h6>Giá cả phải chăng</h6>
+                                <p>Thoải mái mua sắm</p>
+                            </div>
+                        </div>
+                        <div className='d-flex align-items-center gap-15 '>
+                            <Image src={Service_5} alt="" />
+                            <div>
+                                <h6>Thanh toán an toàn</h6>
+                                <p>Không lo mất tiền</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section className='featured-wrapper home_wrapper_2 pb-5'>
-                <div className="container-xxl">
-                    <div className="row">
-                        <div className="col-12">
-                            <h3 className='section-heading'>Laptop nổi bật nhất</h3>
-                        </div>
-                        <Swiper
-                            slidesPerView={5}
-                            spaceBetween={30}
-                            centeredSlides={true}
-                            freeMode={true}
-                            loop={true}
-                            autoplay={{
-                            delay: 2500,
-                            disableOnInteraction: false,
-                            }}
-                            navigation={true}
-                            modules={[Autoplay, FreeMode, Navigation]}
-                            className="mySwiper"
-                        >
-                        {
-                            laptop?.data && laptop?.data.map((item,index)=>{
-                                return(
-                                    <SwiperSlide key={index}><ProductCards key={index} data={item} grid={5}/></SwiperSlide>
-                                )
-                            })
-                        }
-                       </Swiper>
-                    </div>
-                </div>
-            </section>
+            <FeaturedProducts products={laptop} title='Laptop nổi bật nhất'/>
 
             <section className={`${styles.famous_wrapper} home-wrapper-2 py-5`}>
                 <div className="container-xxl">
@@ -338,74 +277,7 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
                 </div>
             </section>
 
-            <section className={`special-wrapper ${styles.home_wrapper_2} py-5`}>
-                <div className="container-xxl">
-                    <div className="row">
-                        <div className="col-12">
-                            <h3 className={styles.section_heading}>Special Products</h3>
-                        </div>
-                        
-                    </div>
-                    <div className="row mt-3">
-                         <Swiper
-                            slidesPerView={3}
-                            spaceBetween={15}
-                            centeredSlides={true}
-                            // freeMode={true}
-                            loop={true}
-                            autoplay={{
-                            delay: 4000,
-                            disableOnInteraction: false,
-                            }}
-                            modules={[Autoplay, FreeMode]}
-                            className="mySwiper"
-                        >
-                        {
-                            products?.data && products?.data.map((item,index)=>{
-                                // const THREE_DAYS_IN_MS =Math.floor(Math.random()*200000000);
-                                // const NOW_IN_MS = new Date().getTime();
-                                // const timer = NOW_IN_MS + THREE_DAYS_IN_MS
-                                return(
-                                    <SwiperSlide key={index}><SpecialProduct data={item}/></SwiperSlide>
-                                )
-                            })
-                        }
-                       </Swiper>
-                    </div>
-                </div>
-            </section>
-
-            <section className='featured-wrapper home_wrapper_2 pb-5'>
-                <div className="container-xxl">
-                    <div className="row">
-                        <div className="col-12">
-                            <h3 className='section-heading'>Máy tính bảng nổi bật nhất</h3>
-                        </div>
-                        <Swiper
-                            slidesPerView={5}
-                            spaceBetween={30}
-                            centeredSlides={true}
-                            // freeMode={true}
-                            loop={true}
-                            autoplay={{
-                            delay: 2500,
-                            disableOnInteraction: false,
-                            }}
-                            navigation={true}
-                            modules={[Autoplay, FreeMode, Navigation]}
-                            className="mySwiper"
-                        >
-                        {
-                            tablet?.data && tablet?.data.map((item,index)=>{
-                                return(
-                                    <SwiperSlide key={index}><ProductCards key={index} data={item} grid={5}/></SwiperSlide>
-                                )
-                            })
-                        }
-                       </Swiper>
-                    </div>
-                </div>
-            </section>
+           <FeaturedProducts products={tablet} title='Máy tính bảng nổi bật nhất' />
 
             <section className='marquee-wrapper py-5'>
                 <div className="container-xxl">

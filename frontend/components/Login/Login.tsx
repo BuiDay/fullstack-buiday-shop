@@ -31,7 +31,7 @@ const Login:React.FC<Iprops> = ({isLoggedIn,status}) => {
             dispatch(login(values))
         },
       });
-      console.log(status)
+
       useEffect(()=>{
         setIsStatus("")
         if(status==="Password was wrong"){
@@ -40,11 +40,12 @@ const Login:React.FC<Iprops> = ({isLoggedIn,status}) => {
             setIsStatus("Tài khoản không tồn tại")
         }
       },[status])
-      useEffect(()=>{
-        if(isLoggedIn){
-            router.push("/")
-        }
-      },[isLoggedIn])
+
+    //   useEffect(()=>{
+    //     if(isLoggedIn){
+    //         router.push("/")
+    //     }
+    //   },[isLoggedIn])
 
     return (
         <div className="login-wrapper py-5 home_wrapper_2">

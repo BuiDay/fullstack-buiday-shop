@@ -210,7 +210,7 @@ export const getUserById = asyncHandler(async (req:Request, res:Response):Promis
     try{
         const { id } = req2.user 
         validateMongodbId(id);
-        const getUser = await User.findById(id).populate('cartId')
+        const getUser = await User.findById(id).populate('cartId').select("-password")
         if(getUser){
             res.json(
                 {
