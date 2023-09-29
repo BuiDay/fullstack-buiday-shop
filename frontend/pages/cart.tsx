@@ -1,6 +1,7 @@
 import CartPage from '@/components/CartPage/CartPage';
 import Breadcrumb from '@/components/Common/Breadcrumb/Breadcrumb';
 import Meta from '@/components/Common/Meta/Meta';
+import Modal from '@/components/Common/Modal/Modal';
 import { useAppSelector } from '@/redux/hook';
 import { wrapper } from '@/redux/store';
 import { GetServerSideProps } from 'next';

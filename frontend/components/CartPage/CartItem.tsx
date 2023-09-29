@@ -73,7 +73,7 @@ const CartItem = ({ listCarts }: any) => {
     return (
         <tr className={styles.cart_data}>
             <td className='py-3'>
-                <div className='d-flex gap-2 align-items-center'>
+                <div className='ps-3 d-flex gap-2 align-items-center'>
                     <div>
                         {
                             product?.images[0] && <Image src={product?.images[0]} height={70} width={70} alt='img-product' />
