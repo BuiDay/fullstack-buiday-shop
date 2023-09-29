@@ -12,7 +12,6 @@ interface IProps{
 }
 
 const SpecialProduct:React.FC<IProps> = ({timer,data}) => {
-    console.log(data)
     return (
         <div className=''>
             <div className={`${styles.special_product_card}`} style={{minHeight:"350px",height:"100%"}}>

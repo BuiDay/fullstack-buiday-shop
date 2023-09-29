@@ -8,7 +8,7 @@ import { setLaptopProduct, setMobilesProduct, setProducts, setTabletProduct } fr
 import productService from "@/redux/features/products/productsService";
 
 
-const Home: NextPage = ({props}:any) => {
+const Home: NextPage = () => {
   const {mobile,laptop,tablet,products}= useAppSelector((state: RootState) => state.products)
   return (
     <>
@@ -20,8 +20,8 @@ const Home: NextPage = ({props}:any) => {
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async ({ req, res, ...etc }) => { 
   try {
-    const resMobile = await productService.getMobileProducts({limit:20,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage","slug"]});
-    const resLaptop = await productService.getLaptopProducts({limit:20,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage","slug"]});
+    const resMobile = await productService.getMobileProducts({limit:14,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage","slug"]});
+    const resLaptop = await productService.getLaptopProducts({limit:14,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage","slug"]});
     const resTablet= await productService.getTabletProducts({limit:14,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage","slug"]});
     const resProducts= await productService.getProducts({limit:9,sort:"-totalRating",fields:["images","title","price","discount","totalRating","display","ram","storage","slug"]});
         store.dispatch(setMobilesProduct(resMobile));

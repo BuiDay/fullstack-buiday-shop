@@ -54,7 +54,7 @@
 }
 
 .main_product_details .product_heading{
-    font-size: 14px;
+    font-size: 18px;
     color: var(--color-1c1c1b);
     margin-bottom: 0;
 }
@@ -145,3 +145,14 @@
     color: white;
     border: none !important;
 }
+
+.btn_input{
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 30px;
+    padding:0;
+    cursor: pointer;
+    border-left: solid 1px #dee2e6;
+    border-right: solid 1px #dee2e6;
+  }

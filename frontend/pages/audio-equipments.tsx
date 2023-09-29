@@ -15,7 +15,6 @@ const AudioEquipments: NextPage = ({ query }: any) => {
 
   const {audio} = useAppSelector((state: RootState) => state.products || {})
   const {isLoading} = useAppSelector((state: RootState) => state || {})
-  console.log(audio)
   return ( 
     <div>
       <Meta title={"Thiết bị âm thanh"} />

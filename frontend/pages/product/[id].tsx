@@ -11,7 +11,6 @@ import React, { useEffect } from 'react';
 
 const Detail = ({query}:any) => {
     const {product,isLoading} = useAppSelector(state => state.products)
-    console.log(product)
     return (
         <div>
             <Meta title={"Sản phẩm"} />

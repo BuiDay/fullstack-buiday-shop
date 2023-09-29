@@ -45,6 +45,18 @@ export const authSlice = createSlice({
                 productsTotal: count + 1
             }
         },
+        deleteCart:(state, action)=> {
+            const productId = action.payload.id;
+            let count = state.carts.productsTotal || 0
+            let carts = [...state.carts.ProductsCarts];
+            carts = carts.filter((item)=>{
+                return item.id !== productId
+            })
+            state.carts = {
+                ProductsCarts: carts,
+                productsTotal: count - 1
+            }
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -63,6 +75,6 @@ export const authSlice = createSlice({
     }
 })
 
-export const {getAddCard} = authSlice.actions;
+export const {getAddCard,deleteCart} = authSlice.actions;
 
 export default authSlice.reducer;

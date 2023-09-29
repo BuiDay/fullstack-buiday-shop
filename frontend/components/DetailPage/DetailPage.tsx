@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './DetailPage.module.scss'
 import Slider from '../Common/Slider/Slider';
 import 'swiper/css'
@@ -8,32 +8,52 @@ import { useAppSelector } from '@/redux/hook';
 import { TbGitCompare } from 'react-icons/tb'
 import { AiOutlineHeart } from 'react-icons/ai'
 import StarRatings from 'react-star-ratings';
+import { AiOutlinePlus } from 'react-icons/ai'
+import { GrFormSubtract } from 'react-icons/gr'
 
-const DetailPage = ({data}:any) => {
+const DetailPage = ({ data }: any) => {
     const { wishlist, carts } = useAppSelector(state => state.user)
     const [isShowDes, setIsShowDes] = useState(false)
     const [isNewRating, setIsNewRating] = useState<number>()
     const [isColor, setIsColor] = useState<string>()
+    const [isCount, setCount] = useState(1)
 
-    const handleColor =(color:string)=>{
+    const handleColor = (color: string) => {
         setIsColor(color)
     }
 
-    const handlePrice = (price:number,discount:number) =>{
-        if(price !==0 && discount !==0)
-        return <>
+    const handleMinusCount = () => {
+        if (isCount > 1) {
+            setCount((pre) => pre - 1)
+        }else{
+            setCount(1);
+        }
+    }
+
+    const handleAddCount = () => {
+        if(isCount < data?.quantity){
+            setCount((pre) => pre + 1)
+        }
+        else{
+            setCount(data?.quantity)
+        }
+    }
+    
+    const handlePrice = (price: number, discount: number) => {
+        if (price !== 0 && discount !== 0)
+            return <>
                 <p className="price fs-4 text-danger">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.discount)}</p>
                 <del className="price fs-5">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.price)}</del>
             </>
-        else if(price ===0 && discount !==0){
-            return<>
-                 <p className="price fs-4 text-danger">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.discount)}</p>
+        else if (price === 0 && discount !== 0) {
+            return <>
+                <p className="price fs-4 text-danger">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.discount)}</p>
             </>
         }
         else
-            return<>
+            return <>
                 <p className={`price text-danger`}>Giá liên hệ</p>
-            </> 
+            </>
     }
 
     return (
@@ -55,7 +75,7 @@ const DetailPage = ({data}:any) => {
                                     backgroundColor: '#fff',
                                     padding: '20px'
                                 }}>
-                                    {data && <Slider images={data.images && data.images} slidesPerView={5} navigate={true} width={500} height={500}/>}
+                                    {data && <Slider images={data.images && data.images} slidesPerView={5} navigate={true} width={500} height={500} />}
                                 </div>
                             </div>
                         </div>
@@ -68,9 +88,9 @@ const DetailPage = ({data}:any) => {
                                 </div>
                                 <div className={`${styles.border_bottom} py-3`}>
                                     <div className='d-flex gap-4 align-items-end'>
-                                       {
-                                        handlePrice(data.price,data.discount)
-                                       }
+                                        {
+                                            handlePrice(data.price, data.discount)
+                                        }
                                     </div>
                                     <div className='d-flex gap-10 align-items-center'>
                                         <StarRatings
@@ -84,38 +104,44 @@ const DetailPage = ({data}:any) => {
                                 </div>
 
                                 {
-                                   data?.color && data?.color.length !==0 ?
-                                    <>
-                                        <div className='d-flex gap-10 flex-column mt-3'>
-                                        <h3 className={styles.product_heading}>Màu sắc:</h3>
-                                            <div className='d-flex gap-3'>
-                                                {
-                                                    data?.color && data?.color.map((item:string,index:number)=>{
-                                                        return(
-                                                            <div key={index} className={`${isColor?.includes(item) ? styles.activeColor: ""} py-1 px-2`} style={{border:"1px solid rgba(0, 0, 0, 0.25)",borderRadius:"8px",cursor:"pointer"}} onClick={()=>handleColor(item)}>{item}</div>
-                                                        )
-                                                    })
-                                                }
+                                    data?.color && data?.color.length !== 0 ?
+                                        <>
+                                            <div className='d-flex gap-10 flex-column mt-3'>
+                                                <h3 className={styles.product_heading}>Màu sắc:</h3>
+                                                <div className='d-flex gap-3'>
+                                                    {
+                                                        data?.color && data?.color.map((item: string, index: number) => {
+                                                            return (
+                                                                <div key={index} className={`${isColor?.includes(item) ? styles.activeColor : ""} py-1 px-2`} style={{ border: "1px solid rgba(0, 0, 0, 0.25)", borderRadius: "8px", cursor: "pointer" }} onClick={() => handleColor(item)}>{item}</div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
                                             </div>
-                                        </div>
-                                    </> : ""
-                                   
+                                        </> : ""
+
                                 }
 
                                 <div className={`${styles.border_bottom} mt-3`}>
                                     <div className='d-flex gap-10 align-items-center mb-3'>
-                                        <h3 className={styles.product_heading}>Số lượng:</h3>
-                                        <div>
-                                            <input type="number"
+                                        <h3 className={styles.product_heading} style={{ margin: "0" }}>Số lượng:</h3>
+                                        <div className='d-flex align-items-center border-bottom border-top'>
+                                            <div className={styles.btn_input} onClick={() => handleAddCount()}>
+                                                <AiOutlinePlus />
+                                            </div>
+                                            <input
                                                 name=''
-                                                defaultValue={1}
+                                                onChange={(e) => setCount(Number(e.target.value))}
+                                                value={isCount}
                                                 min={1}
                                                 max={10}
                                                 className='form-control'
-                                                style={{ width: "60px", height: "30px", textAlign: "center" }}
+                                                style={{ width: "35px", height: "35px", fontSize: "18px", textAlign: "center", padding: "0", border: "none" }}
                                             />
+                                            <div className={styles.btn_input} onClick={() => handleMinusCount()}>
+                                                <GrFormSubtract />
+                                            </div>
                                         </div>
-
                                     </div>
                                 </div>
 
@@ -200,11 +226,11 @@ const DetailPage = ({data}:any) => {
                                 </div>}
                                 {
                                     isShowDes ? (
-                                        <div className='text-center mt-3' style={{cursor:"pointer",color:"blue"}} onClick={() => setIsShowDes(false)}>
+                                        <div className='text-center mt-3' style={{ cursor: "pointer", color: "blue" }} onClick={() => setIsShowDes(false)}>
                                             Ẩn mô tả
                                         </div>
                                     ) : (
-                                        <div className='text-center mt-3' style={{cursor:"pointer",color:"blue"}} onClick={() => setIsShowDes(true)}>
+                                        <div className='text-center mt-3' style={{ cursor: "pointer", color: "blue" }} onClick={() => setIsShowDes(true)}>
                                             Xem thêm
                                         </div>
                                     )
@@ -270,7 +296,7 @@ const DetailPage = ({data}:any) => {
 
 
                                 <div className={styles.reviews}>
-                                    {data?.ratings && data?.ratings.map((item: any, index:number) => {
+                                    {data?.ratings && data?.ratings.map((item: any, index: number) => {
                                         return (
                                             <div key={index} className={`${styles.review} py-3`}>
                                                 <div className="d-flex gap-10 align-items-center" key={index}>

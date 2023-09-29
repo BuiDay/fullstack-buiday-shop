@@ -19,7 +19,6 @@ const Search: NextPage = ({ query }: any) => {
 
   const {searchProducts} = useAppSelector((state: RootState) => state.products || {})
   const {isLoading} = useAppSelector((state: RootState) => state || {})
-    console.log(searchProducts)
   return ( 
     <div>
       <Meta title={"Search"} />
