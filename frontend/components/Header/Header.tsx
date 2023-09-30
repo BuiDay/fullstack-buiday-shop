@@ -18,7 +18,7 @@ import appService from "@/redux/features/app/appService";
 import { getCategories } from "@/redux/features/app/appSilce";
 import { getUser } from "@/redux/features/user/userSilce";
 import { useRouter } from "next/router";
-import userService from "@/redux/features/user/userService";
+
 
 interface IProps {
   isLoggedIn?: boolean;
@@ -149,6 +149,7 @@ const Header: React.FC<IProps> = () => {
                   <div>
                     <Link
                       href="/compare-products"
+                      prefetch={false}
                       className="d-flex align-items-center gap-10 text-white compare-products"
                     >
                       <Image src={Compare} alt="Compare Icon" />
@@ -158,6 +159,7 @@ const Header: React.FC<IProps> = () => {
                   <div>
                     <Link
                       href="/wishlist"
+                      prefetch={false}
                       className="d-flex align-items-center gap-10 text-white wishlist"
                     >
                       <Image src={Wishlist} alt="Wishlist Icon" />
@@ -168,6 +170,7 @@ const Header: React.FC<IProps> = () => {
                     <div>
                       <Link
                         href="/login"
+                        prefetch={false}
                         className="d-flex align-items-center gap-10 text-white user"
                       >
                         <Image src={User} alt="User Icon" />
@@ -195,6 +198,7 @@ const Header: React.FC<IProps> = () => {
                     <Link
                       href="/cart"
                       className="d-flex align-items-center gap-10 text-white"
+                      prefetch={false}
                     >
                       <Image src={Cart} alt="Cart Icon" />
                       <div className="badge bg-white text-dark position-absolute bottom-50 start-50">{carts.productsTotal && carts.productsTotal}</div>
@@ -226,6 +230,7 @@ const Header: React.FC<IProps> = () => {
                               className="dropdown_item"
                               href={item.href ? `/${item.href}` : "#"}
                               onClick={() => setIsShowDropdown(!isShowDropdown)}
+                              prefetch={false}
                             >
                               <Image
                                 src={item.icon}
@@ -240,7 +245,7 @@ const Header: React.FC<IProps> = () => {
                               <p className="px-2 py-1 fw-bold" style={{fontSize:"14px"}}>Chọn theo hãng</p>
                                 {
                                   item?.brands?.map((brand: { title: string, href: string }, index: number) => <>
-                                    <Link className="dropdown_item" style={{padding:"5px",paddingLeft:"15px"}} href={brand.href}>{brand.title}</Link>
+                                    <Link prefetch={false} className="dropdown_item" style={{padding:"5px",paddingLeft:"15px"}} href={brand.href}>{brand.title}</Link>
                                   </>
                                   )
                                 }

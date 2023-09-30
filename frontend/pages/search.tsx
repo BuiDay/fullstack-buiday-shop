@@ -6,14 +6,12 @@ import { RootState, wrapper } from '@/redux/store';
 import { GetServerSideProps, NextPage } from 'next';
 import productService from '@/redux/features/products/productsService';
 import {setSearchProducts } from '@/redux/features/products/productsSilce';
-import dynamic from 'next/dynamic';
 import { setLoading } from '@/redux/features/loading/loadingSilce';
-import SearchPage from '@/components/SearchPage/SearchPage';
 
-const MobilePage = dynamic(() => import('@/components/MobilePage/MobilePage'), {
-  loading: () => <p>Loading...</p>,
-});
-
+import dynamic from 'next/dynamic';
+const SearchPage = dynamic(()=>import("@/components/SearchPage/SearchPage"),{
+  ssr:false
+})
  
 const Search: NextPage = ({ query }: any) => {
 

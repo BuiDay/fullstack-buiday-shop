@@ -8,7 +8,10 @@ import productService from '@/redux/features/products/productsService';
 import { setAudio } from '@/redux/features/products/productsSilce';
 import dynamic from 'next/dynamic';
 import { setLoading } from '@/redux/features/loading/loadingSilce';
-import AudioPage from '@/components/AudioPage/AudioPage';
+
+const AudioPage = dynamic(()=>import("@/components/AudioPage/AudioPage"),{
+  ssr:false
+})
 
 
 const AudioEquipments: NextPage = ({ query }: any) => {

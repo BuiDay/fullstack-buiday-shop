@@ -8,12 +8,14 @@ import Image from 'next/image';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { Tooltip } from 'react-tooltip'
 import { BsHeart, BsHeartFill } from 'react-icons/bs'
-import ModalConfirm from '../Common/ModalConfirm/ModalConfirm';
 import userService from '@/redux/features/user/userService';
 import { getCompareProducts } from '@/redux/features/app/appSilce';
 import { RootState } from '@/redux/store';
-import { getAddCard } from '@/redux/features/user/userSilce';
-import ModalAddCart from '../Common/ModalAddCart/ModalAddCart';
+
+import dynamic from 'next/dynamic';
+
+const ModalAddCart = dynamic(() => import('../Common/ModalAddCart/ModalAddCart'),{ssr:false});
+const ModalConfirm = dynamic(() => import('../Common/ModalConfirm/ModalConfirm'),{ssr:false});
 
 interface IProps {
     img?: string;
@@ -92,28 +94,31 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
                             <div className="d-flex flex-column gap-10">
                                 <div className={`${styles.wishlist_icon} position-absolute`}>
                                     <div data-tooltip-id="wishs-tooltip"
-                                        data-tooltip-content={wishlist && wishlist.includes(data?._id) ? "Hủy yêu thích" : "Yêu thích"}
+                                        // data-tooltip-content={wishlist && wishlist.includes(data?._id) ? "Hủy yêu thích" : "Yêu thích"}
                                         onClick={() => handleAddWishList(data?._id)}>
                                         {
                                             wishlist && wishlist.includes(data?._id) ? <BsHeartFill color='red' /> : <BsHeart color="black" />
                                         }
-                                        <Tooltip id="wishs-tooltip" />
+                                        {/* <Tooltip id="wishs-tooltip" /> */}
                                     </div>
                                 </div>
                                 <div className={`${styles.action_bar_item} ${compare_products.id && compare_products.id.includes(data?._id) ? styles.active : ""}`}
                                     onClick={() => handleCompareProducts(data?._id)}
-                                    data-tooltip-id="compare-tooltip"
-                                    data-tooltip-content={compare_products.id && compare_products.id.includes(data?._id) ? "Hủy so sánh" : "So sánh"}>
+                                    // data-tooltip-id="compare-tooltip"
+                                    // data-tooltip-content={compare_products.id && compare_products.id.includes(data?._id) ? "Hủy so sánh" : "So sánh"}
+                                    >
                                     <Image src={Prodcompare} alt="" />
-                                    <Tooltip id="compare-tooltip" />
+                                    {/* <Tooltip id="compare-tooltip" /> */}
                                 </div>
                                 <button className={`${styles.action_bar_item} ${handleActiveAddCart(data?._id) ? styles.active : ""}`}
                                     disabled={handleActiveAddCart(data?._id)}
                                     onClick={() => { setIsShowModalAddCart(true) }}
-                                    data-tooltip-id="addcard-tooltip"
-                                    data-tooltip-content="Thêm vào giỏ hàng">
+                                    // data-tooltip-id="addcard-tooltip"
+                                    // data-tooltip-content="Thêm vào giỏ hàng"
+                                    aria-label="AddCart"
+                                    >
                                     <Image src={AddCart} alt="" />
-                                    <Tooltip id="addcard-tooltip" />
+                                    {/* <Tooltip id="addcard-tooltip" /> */}
                                 </button>
                             </div>
                         </div>

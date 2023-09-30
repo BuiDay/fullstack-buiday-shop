@@ -1,14 +1,15 @@
-import Breadcrumb from '@/components/Common/Breadcrumb/Breadcrumb';
-import Meta from '@/components/Common/Meta/Meta';
-import React,{useEffect} from 'react';
+import React from 'react';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { RootState,wrapper } from '@/redux/store';
 import productService from '@/redux/features/products/productsService';
 import { useRouter } from 'next/router';
-import TabletPage from '@/components/TabletPage/TabletPage';
 import { GetServerSideProps, NextPage } from 'next';
 import { setWatchProduct } from '@/redux/features/products/productsSilce';
 
+import dynamic from 'next/dynamic';
+const TabletPage = dynamic(() => import('@/components/TabletPage/TabletPage'));
+const Meta = dynamic(() => import('@/components/Common/Meta/Meta'));
+const Breadcrumb = dynamic(() => import('@/components/Common/Breadcrumb/Breadcrumb'));
 
 const Watch = ({query}:any) => {
 

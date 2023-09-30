@@ -3,6 +3,7 @@ import React from 'react';
 // import Button from '../Button/Button';
 import styles from './ModalComfirm.module.scss'
 import Button from '../Button/Button';
+import ReactDOM from 'react-dom';
 
 interface IProps{
     setIsShowModalConfirm?:any,
@@ -18,7 +19,7 @@ const ModalConfirm:React.FC<IProps> = ({setIsShowModalConfirm,title,onClick,titl
         setIsShowModalConfirm(false)
     }
 
-    return (
+    return ReactDOM.createPortal(
         <div 
         className={styles.body_modal}
         onClick={() => { setIsShowModalConfirm(false) }}
@@ -35,7 +36,7 @@ const ModalConfirm:React.FC<IProps> = ({setIsShowModalConfirm,title,onClick,titl
                     <Button btnId="btn_2" text="Không" bgColor='#232f3e' textColor="#fff" px='px-3' fontSize="18px" onClick={()=>handelShow()}></Button>
                 </div>
             </div>
-        </div>
+        </div>,document.body
     );
 };
 

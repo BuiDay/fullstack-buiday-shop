@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import SideBar from '../Common/SideBar/SideBar';
+import React from 'react';
 import styles from './AudioPage.module.scss'
-
 import ProductCards from '../ProductCards/ProductCards';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -9,6 +7,8 @@ import Color from '../Common/Color/Color';
 import Image from 'next/image';
 import Pagination from '../Common/Pagination/Pagination';
 import { BsHeadphones, BsSpeaker } from 'react-icons/bs';
+import dynamic from 'next/dynamic';
+// import { setLoading } from '@/redux/features/loading/loadingSilce';
 
 
 interface IQuery {

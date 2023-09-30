@@ -1,11 +1,17 @@
 import React,{ReactNode, useCallback, useEffect } from 'react';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 import { useRouter } from 'next/router';
 
 type Props = {
     children: ReactNode;
 }
+import dynamic from 'next/dynamic';
+const Header = dynamic(()=>import("../Header/Header"),{
+  ssr:false
+})
+
+const Footer = dynamic(()=>import("../Footer/Footer"),{
+    ssr:false
+})
 
 const Layout = ({children}:Props) => {
     const getIsLogin:any = useCallback(()=>{
@@ -15,23 +21,6 @@ const Layout = ({children}:Props) => {
             return false
     },[])
 
-    // const router = useRouter();
-    // useEffect(() => {
-    //   const handleStart = () => { console.log(1) };
-    //   const handleComplete = () => { console.log(2) };
-    //   router.events.on('routeChangeStart', handleStart);
-    //   router.events.on('routeChangeComplete', handleComplete);
-    //   router.events.on('routeChangeError', handleComplete);
-    // }, [router]);
-
-    // useEffect(() => {
-    //     const handleStart = () => { console.log(1) };
-    //     const handleComplete = () => { console.log(2) };
-    //     router.events.on('routeChangeStart', handleStart);
-    //     router.events.on('routeChangeComplete', handleComplete);
-    //     router.events.on('routeChangeError', handleComplete);
-    //   }, []);
-    
     return (
         <>
             <Header isLoggedIn={getIsLogin}/>

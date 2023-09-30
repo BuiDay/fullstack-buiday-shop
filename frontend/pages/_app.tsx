@@ -5,11 +5,19 @@ import "bootstrap/dist/css/bootstrap.css"; // Add this line
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { wrapper } from "../redux/store";
-import {store} from "../redux/store";
+import { store } from "../redux/store";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 
 let persistor = persistStore(store);
+
+import { Roboto } from 'next/font/google'
+const inter = Roboto({
+  weight: ['400','500','700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 function App({ Component, pageProps }: AppProps) {
 
@@ -17,9 +25,9 @@ function App({ Component, pageProps }: AppProps) {
     <Provider store={store} >
       <PersistGate loading={null} persistor={persistor}>
         <Layout>
-          <Component {...pageProps} />
+            <Component {...pageProps} />
         </Layout>
-        </PersistGate>
+      </PersistGate>
     </Provider>
   );
 }

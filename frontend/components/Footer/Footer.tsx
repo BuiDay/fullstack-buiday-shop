@@ -13,7 +13,7 @@ const Footer = () => {
                     <div className="row align-items-center">
                         <div className="col-5">
                             <div className="footer-top-data d-flex gap-30 align-items-center">
-                                <Image src={NewsLetter} alt="" />
+                                <Image src={NewsLetter} alt="NewsLetter" />
                                 <h2 className='text-white'>Sign up for NewsLetter</h2>
                             </div>
                         </div>
@@ -40,21 +40,21 @@ const Footer = () => {
                                 <address>
                                     741 Hung Vuong, thi tran Di Linh, tinh Lam Dong
                                 </address>
-                                <a href="" className='text-white my-2'>09 3380 4785</a>
-                                <a href="" className='text-white mt-3 mb-3'>buivanduynhat@gmail.com</a>
+                                <Link href="#" className='text-white my-2'>09 3380 4785</Link>
+                                <Link href="#" className='text-white mt-3 mb-3'>buivanduynhat@gmail.com</Link>
                                 <div className='social-icons d-flex align-items-center gap-30'>
-                                    <a href=""  className='text-white fs-4'>
+                                    <Link href="#"  className='text-white fs-4' aria-label="Read more about Seminole tax hike">
                                         <BsLinkedin/>
-                                    </a>
-                                    <a href="" className='text-white fs-4'>
+                                    </Link>
+                                    <Link href="#" className='text-white fs-4' aria-label="Read more about Seminole tax hike">
                                         <BsInstagram />
-                                    </a>
-                                    <a href="" className='text-white fs-4'>
+                                    </Link>
+                                    <Link href="#" className='text-white fs-4' aria-label="Read more about Seminole tax hike">
                                         <BsGithub />
-                                    </a>
-                                    <a href="" className='text-white fs-4'>
+                                    </Link>
+                                    <Link href="#" className='text-white fs-4' aria-label="Read more about Seminole tax hike">
                                         <BsYoutube />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

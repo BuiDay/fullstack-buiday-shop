@@ -34,7 +34,7 @@ const Slider:React.FC<IProps> = ({images,slidesPerView,navigate,width,height}) =
                images && images.map((item, index) => (
                     <SwiperSlide key={index}>                    
                     {
-                        item &&   <Image src={item} alt="product images" className='border' width={width} height={height} />
+                        item &&   <Image src={item} alt="product images" className='' width={width} height={height} />
                     }
                     </SwiperSlide>
                 ))
@@ -54,7 +54,7 @@ const Slider:React.FC<IProps> = ({images,slidesPerView,navigate,width,height}) =
              images && images.map((item, index) => (
                     <SwiperSlide key={index}>
                         <div className="product-images-slider-thumbs-wrapper">
-                            <img src={item} alt="product images" />
+                            <Image src={item} alt="product images" width={100} height={100}/>
                         </div>
                     </SwiperSlide>
                 ))

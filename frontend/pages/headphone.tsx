@@ -6,9 +6,12 @@ import { RootState, wrapper } from '@/redux/store';
 import { GetServerSideProps, NextPage } from 'next';
 import productService from '@/redux/features/products/productsService';
 import {setHeadphones} from '@/redux/features/products/productsSilce';
-import dynamic from 'next/dynamic';
 import { setLoading } from '@/redux/features/loading/loadingSilce';
-import HeadphonePage from '@/components/HeadphonePage/HeadphonePage';
+
+import dynamic from 'next/dynamic';
+const HeadphonePage = dynamic(()=>import("@/components/HeadphonePage/HeadphonePage"),{
+  ssr:false
+})
 
 
 const Headphone: NextPage = ({ query }: any) => {

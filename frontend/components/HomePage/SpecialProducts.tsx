@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './HomePage.module.scss'
 import SpecialProduct from '../SpecialProduct/SpecialProduct';
 import dynamic from 'next/dynamic';
@@ -54,4 +54,4 @@ const SpecialProducts = ({products}:IProps) => {
     );
 };
 
-export default SpecialProducts;
+export default memo(SpecialProducts);

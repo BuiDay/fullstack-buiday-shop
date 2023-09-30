@@ -1,14 +1,18 @@
 import Breadcrumb from '@/components/Common/Breadcrumb/Breadcrumb';
 import Meta from '@/components/Common/Meta/Meta';
-import React,{useEffect} from 'react';
-import { useAppDispatch, useAppSelector } from '@/redux/hook';
+import React from 'react';
+import { useAppSelector } from '@/redux/hook';
 import { RootState,wrapper } from '@/redux/store';
 import productService from '@/redux/features/products/productsService';
-import { useRouter } from 'next/router';
-import TabletPage from '@/components/TabletPage/TabletPage';
-import { GetServerSideProps, NextPage } from 'next';
+
+import { GetServerSideProps } from 'next';
 import { setTivi} from '@/redux/features/products/productsSilce';
 
+import dynamic from 'next/dynamic';
+const TabletPage = dynamic(()=>import("@/components/TabletPage/TabletPage"),{
+  ssr:false
+})
+ 
 
 const Tivi = ({query}:any) => {
 

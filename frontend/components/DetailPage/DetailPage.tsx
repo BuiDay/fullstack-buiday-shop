@@ -70,12 +70,12 @@ const DetailPage = ({ data }: any) => {
                             }}>
                                 <div style={{
                                     borderRadius: "10px",
-                                    maxWidth: '550px',
+                                    maxWidth: '580px',
                                     width: "100%",
                                     backgroundColor: '#fff',
                                     padding: '20px'
                                 }}>
-                                    {data && <Slider images={data.images && data.images} slidesPerView={5} navigate={true} width={500} height={500} />}
+                                    {data && <Slider images={data.images && data.images} slidesPerView={5} navigate={true} width={500} height={500}/>}
                                 </div>
                             </div>
                         </div>
@@ -129,7 +129,8 @@ const DetailPage = ({ data }: any) => {
                                             <div className={styles.btn_input} onClick={() => handleAddCount()}>
                                                 <AiOutlinePlus />
                                             </div>
-                                            <input
+                                            <label htmlFor="firstname"><input
+                                                id="firstname"
                                                 name=''
                                                 onChange={(e) => setCount(Number(e.target.value))}
                                                 value={isCount}
@@ -137,7 +138,8 @@ const DetailPage = ({ data }: any) => {
                                                 max={10}
                                                 className='form-control'
                                                 style={{ width: "35px", height: "35px", fontSize: "18px", textAlign: "center", padding: "0", border: "none" }}
-                                            />
+                                            /></label>
+                                          
                                             <div className={styles.btn_input} onClick={() => handleMinusCount()}>
                                                 <GrFormSubtract />
                                             </div>

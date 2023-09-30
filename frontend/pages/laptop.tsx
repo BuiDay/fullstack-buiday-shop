@@ -1,13 +1,14 @@
 import Breadcrumb from '@/components/Common/Breadcrumb/Breadcrumb';
-import Meta from '@/components/Common/Meta/Meta';
-import LaptopPage from '@/components/LaptopPage/LaptopPage';
 import { RootState, wrapper } from '@/redux/store';
 import { setLaptopProduct } from '@/redux/features/products/productsSilce';
-import { useAppDispatch, useAppSelector } from '@/redux/hook';
-import { useRouter } from 'next/router';
+import { useAppSelector } from '@/redux/hook';
 import React, { useEffect } from 'react';
 import { GetServerSideProps } from 'next';
 import productService from '@/redux/features/products/productsService';
+
+import dynamic from 'next/dynamic';
+const LaptopPage = dynamic(() => import('@/components/LaptopPage/LaptopPage'));
+const Meta = dynamic(() => import('@/components/Common/Meta/Meta'));
 
 const Mobile = ({query}:any) => {
     const {laptop} = useAppSelector((state: RootState) => state.products || {})
