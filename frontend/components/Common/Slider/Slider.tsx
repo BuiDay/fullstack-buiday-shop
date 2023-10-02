@@ -9,8 +9,8 @@ interface IProps{
     images:[]
     slidesPerView?:number,
     navigate?:boolean,
-    width?:number,
-    height?:number,
+    width:number,
+    height:number,
 }
 
 const Slider:React.FC<IProps> = ({images,slidesPerView,navigate,width,height}) => {
@@ -54,7 +54,9 @@ const Slider:React.FC<IProps> = ({images,slidesPerView,navigate,width,height}) =
              images && images.map((item, index) => (
                     <SwiperSlide key={index}>
                         <div className="product-images-slider-thumbs-wrapper">
-                            <Image src={item} alt="product images" width={100} height={100}/>
+                            {
+                                item && <Image src={item} alt="product images" width={width / 5.25} height={height / 5.25}/>
+                            }
                         </div>
                     </SwiperSlide>
                 ))

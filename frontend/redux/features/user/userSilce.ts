@@ -3,7 +3,7 @@ import authService from "./userService";
 import { IAuthRegister, ICart, IUser } from '../InterfaceReducer'
 import userService from "./userService";
 import { HYDRATE } from "next-redux-wrapper";
-import { array } from "yup";
+import { array, number } from "yup";
 
 const initState:IUser = {
     currentData:{
@@ -12,8 +12,9 @@ const initState:IUser = {
     },
     wishlist:[],
     carts:{
-        ProductsCarts:[],
-        productsTotal:0,     
+        products:[],
+        productsTotal:0,
+        cartTotal:0
     },
 }
 
@@ -33,28 +34,43 @@ export const authSlice = createSlice({
     reducers:{
         getAddCard:(state, action)=> {
             let count = state.carts.productsTotal || 0
+            let cartTotal = 0;
             let cart = {
                 id: action.payload.id,
                 color:action.payload.color || "",
                 count:action.payload.count,
+                price:action.payload.price,
             }
-            let arr = [...state.carts.ProductsCarts]
+            let arr = [...state.carts.products]
             arr.push(cart)
+          
+            arr.forEach(item=>{
+                cartTotal = cartTotal + item.price * item.count
+            })
             state.carts = {
-                ProductsCarts: arr,
-                productsTotal: count + 1
+                products: arr,
+                productsTotal: count + 1,
+                cartTotal: cartTotal
             }
         },
         deleteCart:(state, action)=> {
             const productId = action.payload.id;
             let count = state.carts.productsTotal || 0
-            let carts = [...state.carts.ProductsCarts];
+            let carts = [...state.carts.products];
+            let cartTotal = 0;
+
             carts = carts.filter((item)=>{
                 return item.id !== productId
+            });
+
+            carts.forEach(item=>{
+                cartTotal = cartTotal + item.price * item.count
             })
+
             state.carts = {
-                ProductsCarts: carts,
-                productsTotal: count - 1
+                products: carts,
+                productsTotal: count - 1,
+                cartTotal: cartTotal
             }
         }
     },

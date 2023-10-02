@@ -1,5 +1,5 @@
 import express from 'express'
-import { addCart, createUser, deleteUser, forgotPassword, getAllUser, getUserById, loginUser, logoutUser, resetPassword, updateUser } from '../controller/userController';
+import { addCart, applyCoupon, createUser, deleteUser, forgotPassword, getAllUser, getCart, getUserById, loginUser, logoutUser, resetPassword, updateUser } from '../controller/userController';
 import { authMiddleware } from '../middlewares/authMiddleware';
 const router = express.Router();
 
@@ -17,5 +17,7 @@ router.post("/forgot-password",forgotPassword);
 router.post("/reset-password/:token",resetPassword);
 
 router.post("/cart",authMiddleware,addCart);
+router.get("/cart",authMiddleware,getCart);
+router.post("/cart/apply-coupon",authMiddleware,applyCoupon);
 
 export = router

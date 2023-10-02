@@ -14,7 +14,7 @@ const MainBanner = () => {
                     <div className="row">
                         <div className="col-6">
                             <div className={`${styles.main_banner} position-relative py-3`}>
-                                <Image src={MainBanner_1} alt="MainBanner Image" height={600} width={500}
+                                <Image src={MainBanner_1} alt="MainBanner Image" width={400} height={400}
                                     className='img-fluid w-100 rounded-3'/>
                                 <div className={`${styles.main_banner_content} position-absolute`}>
                                     <h4>SUPERCHARNGED FOR PROS.</h4>
@@ -27,7 +27,7 @@ const MainBanner = () => {
                         <div className="col-6">
                             <div className="d-flex flex-wrap justify-content-between align-content-between h-100 py-3">
                                 <div className={`${styles.small_banner} position-relative`}>
-                                    <Image src={CatBanner_1} alt="CatBanner_1 Image" height={300} width={250}
+                                    <Image src={CatBanner_1} alt="CatBanner_1 Image" 
                                         className='img-fluid w-100 rounded-3'/>
                                     <div className={`${styles.small_banner_content} position-absolute`}>
                                         <h4>BEST SALE</h4>
@@ -37,7 +37,7 @@ const MainBanner = () => {
                                 </div>
 
                                 <div className={`${styles.small_banner} position-relative`}>
-                                    <Image src={CatBanner_2} alt="CatBanner_2 Image" height={300} width={250}
+                                    <Image src={CatBanner_2} alt="CatBanner_2 Image" 
                                         className='img-fluid rounded-3'/>
                                     <div className={`${styles.small_banner_content} position-absolute`}>
                                         <h4>NEW ARRIVAL</h4>
@@ -47,7 +47,7 @@ const MainBanner = () => {
                                 </div>
 
                                 <div className={`${styles.small_banner} position-relative`}>
-                                    <Image src={CatBanner_3} alt="CatBanner_3" height={300} width={250}
+                                    <Image src={CatBanner_3} alt="CatBanner_3"
                                         className='img-fluid rounded-3'/>
                                     <div className={`${styles.small_banner_content} position-absolute`}>
                                         <h4>15% OFF</h4>
@@ -57,7 +57,7 @@ const MainBanner = () => {
                                 </div>
 
                                 <div className={`${styles.small_banner} position-relative`}>
-                                    <Image src={CatBanner_4} alt="CatBanner_4" height={300} width={250}
+                                    <Image src={CatBanner_4} alt="CatBanner_4"
                                         className='img-fluid rounded-3'/>
                                     <div className={`${styles.small_banner_content} position-absolute`}>
                                         <h4>Free ENGRAVING</h4>

@@ -18,7 +18,7 @@ import appService from "@/redux/features/app/appService";
 import { getCategories } from "@/redux/features/app/appSilce";
 import { getUser } from "@/redux/features/user/userSilce";
 import { useRouter } from "next/router";
-
+import userService from "@/redux/features/user/userService";
 
 interface IProps {
   isLoggedIn?: boolean;
@@ -27,13 +27,19 @@ interface IProps {
 const Header: React.FC<IProps> = () => {
   const [keyword, setKeyword] = useState("")
   const { isLoggedIn } = useAppSelector((state) => state?.auth || {});
+
   const dropdownCateRef = useRef<any>(null);
+  const dropdownProfile = useRef<any>(null);
+
   const { currentData } = useAppSelector((state) => state.user || {});
 
   const dispatch = useAppDispatch();
   const router = useRouter();
   const categories = useAppSelector((state: RootState) => state.app.categories || []);
+
   const [isShowDropdown, setIsShowDropdown] = useState<boolean>(false);
+  const [isShowProfileDropdown, setIsShowProfileDropdown] = useState<boolean>(false);
+
   const { wishlist, carts } = useAppSelector(state => state.user)
 
   const handleCategories = async () => {
@@ -46,15 +52,14 @@ const Header: React.FC<IProps> = () => {
     };
   }
 
-  // useEffect(()=>{
-  //   const handleCartApi = async () =>{
-  //     if(carts.ProductsCarts.length > 0){
-  //      const res = await userService.apiAddCart(carts)
-  //      console.log(res)
-  //     }
-  //   }
-   
-  // },[carts])
+  useEffect(()=>{
+    const handleCartApi = async () =>{
+      if(carts.products.length > 0){
+         await userService.apiAddCart(carts.products)
+      }
+    }
+    handleCartApi();
+  },[carts])
 
   useEffect(() => {
     handleCategories();
@@ -69,6 +74,18 @@ const Header: React.FC<IProps> = () => {
       if (event?.target?.id !== "title-categories") {
         if (dropdownCateRef.current && !dropdownCateRef?.current.contains(event.target)) {
           setIsShowDropdown(false)
+        }
+      }
+    }
+    document.addEventListener('click', (e) => handleClick(e));
+    return document.removeEventListener('click', (e) => handleClick(e));
+  }, [])
+
+  useEffect(() => {
+    const handleClick = (event: Event | any) => {
+      if (event?.target?.id !== "title-profile") {
+        if (dropdownProfile.current && !dropdownProfile?.current.contains(event.target)) {
+          setIsShowProfileDropdown(false)
         }
       }
     }
@@ -101,7 +118,7 @@ const Header: React.FC<IProps> = () => {
     if (currentData.status === "error")
       setTimeout(() => {
         dispatch(logout());
-      }, 3000);
+      }, 1000);
   }, []);
 
   return (
@@ -179,18 +196,21 @@ const Header: React.FC<IProps> = () => {
                     </div>
                   </ShowOnLogout>
                   <ShowOnLogin isLoggedIn={isLoggedIn}>
-                    <div className="d-flex align-items-center gap-10 text-white me-3">
+                    <div className="d-flex align-items-center gap-10 text-white me-3 user dropdown" id="title-profile"  ref={dropdownProfile} onClick={()=>setIsShowProfileDropdown(!isShowProfileDropdown)}>
                       <Image src={User} alt="" width={40} height={40} />
-                      <div className="dropdown">
+                      <div className="">
                         <div className={styles.dropdown_btn}>
                           <p>Xin chào,</p>
                           <p className="displayName">{currentData?.data?.name}</p>
                         </div>
-                        <div className={styles.dropdown_content}>
-                          <Link className="dropdown_item" href="/profile">View Profile</Link>
-                          <Link className="dropdown_item" href="/history">History</Link>
-                          <Link className="dropdown_item" href="" onClick={() => { handleLogout() }}>Sign out</Link>
-                        </div>
+                        {
+                          isShowProfileDropdown &&
+                          <div className="dropdown_list" style={{top:"60px"}}>
+                            <Link className="dropdown_item" href="/profile">View Profile</Link>
+                            <Link className="dropdown_item" href="/history">History</Link>
+                            <Link className="dropdown_item" href="" onClick={() => { handleLogout() }}>Sign out</Link>
+                          </div>
+                        }
                       </div>
                     </div>
                   </ShowOnLogin>
@@ -225,7 +245,7 @@ const Header: React.FC<IProps> = () => {
                     {categories &&
                       categories?.map((item: any, index: number) => {
                         return (
-                          <div  key={index} className="dropdown categories">
+                          <div key={index} className="dropdown categories">
                             <Link
                               className="dropdown_item"
                               href={item.href ? `/${item.href}` : "#"}
@@ -241,14 +261,14 @@ const Header: React.FC<IProps> = () => {
                               ></Image>
                               <span>{item.title}</span>
                             </Link>
-                            <div className="dropdown_list list-brands" style={{borderRadius:"5px"}}>
-                              <p className="px-2 py-1 fw-bold" style={{fontSize:"14px"}}>Chọn theo hãng</p>
-                                {
-                                  item?.brands?.map((brand: { title: string, href: string }, index: number) => <>
-                                    <Link prefetch={false} className="dropdown_item" style={{padding:"5px",paddingLeft:"15px"}} href={brand.href}>{brand.title}</Link>
-                                  </>
-                                  )
-                                }
+                            <div className="dropdown_list list-brands" style={{ borderRadius: "5px" }}>
+                              <p className="px-2 py-1 fw-bold" style={{ fontSize: "14px" }}>Chọn theo hãng</p>
+                              {
+                                item?.brands?.map((brand: { title: string, href: string }, index: number) => <>
+                                  <Link prefetch={false} className="dropdown_item" style={{ padding: "5px", paddingLeft: "15px" }} href={brand.href}>{brand.title}</Link>
+                                </>
+                                )
+                              }
                             </div>
                           </div>
                         );

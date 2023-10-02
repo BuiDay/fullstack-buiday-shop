@@ -19,6 +19,9 @@ const apiRegister =  (data:IAuthRegister) => new Promise(async(resolve, reject)=
 const apiLogin =  (data:IAuthLogin) => new Promise(async(resolve, reject)=>{
     try {
         const res = await axiosConfig({
+            headers:{
+                
+            },
             method:"post",
             url:'/api/user/login',
             data:data

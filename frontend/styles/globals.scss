@@ -116,6 +116,7 @@ ul,li{
   border-radius: 25px;
   text-transform: uppercase;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .button:hover{
@@ -181,25 +182,26 @@ ul,li{
   background-color: white ;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   top:45px;
-  left:0;
+  left:-20px;
   max-width: 280px;
   min-width: 180px;
+  border-radius: 10px;
 }
 
 .dropdown_icon{
   margin-right: 10px;
 }
 
-.header-bottom .dropdown_item{
+.dropdown_item{
   display: flex;
   align-items: center;
-  padding:10px 5px;
+  padding:10px 15px;
   margin-bottom: 3px;
   width: 100%;
   color: #131921;
 }
 
-.header-bottom .dropdown_item:hover{
+.dropdown_item:hover{
   background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -216,7 +218,10 @@ ul,li{
 .header-top-upper .user:hover img{
   transform: scale(1.4);
   transition: all 0.6s ease;
+  cursor: pointer;
 }
+
+
 
 footer{
   background-color: var(--color-232f3e);

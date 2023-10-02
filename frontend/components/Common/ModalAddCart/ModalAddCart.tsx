@@ -34,6 +34,8 @@ const ModalAddCart: React.FC<IProps> = ({ setIsShowModalConfirm, title, onClick,
         setIsColor(color)
     }
 
+    console.log(data)
+
     const handlePrice = (price: number, discount: number) => {
         if (price !== 0 && discount !== 0)
             return <>
@@ -72,8 +74,10 @@ const ModalAddCart: React.FC<IProps> = ({ setIsShowModalConfirm, title, onClick,
         dispatch(getAddCard({
             id: data._id,
             color: isColor,
-            count: isCount
-        }))
+            count: isCount,
+            price: data.discount ? data.discount : data.price
+        }));
+        setIsShowModalConfirm(false)
     }
 
     return ReactDOM.createPortal(
@@ -105,7 +109,7 @@ const ModalAddCart: React.FC<IProps> = ({ setIsShowModalConfirm, title, onClick,
                                             width: "100%",
                                             backgroundColor: '#fff',
                                         }}>
-                                            {data && <Slider images={data.images && data.images} slidesPerView={data.images.length} navigate={true} width={270} height={270} />}
+                                            {data.images && <Slider images={data.images && data.images} slidesPerView={data.images.length} navigate={true} width={270} height={270} />}
                                         </div>
                                     </div>
                                 </div>

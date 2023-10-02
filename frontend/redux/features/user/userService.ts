@@ -5,6 +5,9 @@ import axiosConfig from '../../../utils/axiosConfig'
 const getUser =  () => new Promise(async(resolve, reject)=>{
     try {
         const res = await axiosToken({
+            headers:{
+                
+            },
             method:"get",
             url:`/api/user`,
         })

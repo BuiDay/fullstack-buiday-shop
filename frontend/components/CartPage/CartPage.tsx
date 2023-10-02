@@ -3,24 +3,35 @@ import styles from './CartPage.module.scss'
 import Link from 'next/link';
 import { ICart } from '@/redux/features/InterfaceReducer';
 import dynamic from 'next/dynamic';
+import { useAppSelector } from '@/redux/hook';
 
 const CartItem = dynamic(()=>import("./CartItem"), {
     loading: () => <p>Loading...</p>,
 })
 
+
 interface IProps {
     carts: {
-        ProductsCarts: ICart[],
+        products: ICart[],
         productsTotal?: number,
+        cartTotal?:number
     },
+    getCart ?: {
+        cartTotal:number,
+        orderby:string,
+        products:ICart[],
+        productsTotal:number
+    }
 }
 
-const Cart: React.FC<IProps> = ({ carts }) => {
-    const { ProductsCarts } = carts
+const Cart: React.FC<IProps> = ({ carts,getCart }) => {
+    const {currentData:{data}} = useAppSelector(state=>state.user)
+    const { products } = carts
+    console.log(carts)
     return (
         <>
             <div className="cart_wrapper home_wrapper_2 py-5">
-                {ProductsCarts.length > 0 ? (
+                {products.length > 0 ? (
                     <div className="container-xxl">
                         <div className="row">
                             <div className="col-12">
@@ -36,7 +47,7 @@ const Cart: React.FC<IProps> = ({ carts }) => {
                                     </thead>
                                     <tbody>
                                         {
-                                            ProductsCarts.length > 0 && ProductsCarts.map((item, index) => {
+                                            products.length > 0 && products.map((item, index) => {
                                                 return (
                                                     <CartItem listCarts={item} key={item.id} />
                                                 )
@@ -54,10 +65,11 @@ const Cart: React.FC<IProps> = ({ carts }) => {
                                 <div className='d-flex justify-content-between align-items-baseline'>
                                     <p>Order special instructions</p>
                                     <div className='d-flex flex-column gap-15 align-items-end'>
-                                        {/* <h4 className='mb-0'>Sub Total: {cartState.cartTotalAmount}</h4> */}
-                                        <h4 className='mb-0'>Sub Total: 4</h4>
-                                        <p>Taxes and shipping calculated at checkout</p>
-                                        {/* <Link to="/checkout" className='button' onClick={()=>{addCart()}}>Checkout</Link> */}
+                                        <h4 className='mb-0'>Tổng cộng:  
+                                            <span className='fw-bold text-danger'> {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(carts.cartTotal || 0)}</span>
+                                        </h4>
+                                        <p>Thuế và phí ship sẽ được tính ở phần thanh toán</p>
+                                        <Link href="/checkout" className='button'>Thanh toán</Link>
                                     </div>
                                 </div>
                             </div>

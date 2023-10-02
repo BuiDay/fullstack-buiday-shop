@@ -11,14 +11,6 @@ import { PersistGate } from "redux-persist/integration/react";
 
 let persistor = persistStore(store);
 
-import { Roboto } from 'next/font/google'
-const inter = Roboto({
-  weight: ['400','500','700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  display: 'swap',
-})
-
 function App({ Component, pageProps }: AppProps) {
 
   return (

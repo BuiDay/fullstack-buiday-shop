@@ -75,7 +75,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
     }
 
     const handleActiveAddCart = (id: string): boolean => {
-        const productsId = carts.ProductsCarts.map(item => {
+        const productsId = carts.products.map(item => {
             return item.id;
         })
         if (productsId.includes(id))

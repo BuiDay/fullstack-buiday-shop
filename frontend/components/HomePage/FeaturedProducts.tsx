@@ -3,9 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation,Autoplay,FreeMode } from "swiper";
-
-import dynamic from 'next/dynamic';
-const ProductCards = dynamic(() => import('../ProductCards/ProductCards'));
+import ProductCards from '../ProductCards/ProductCards';
 
 interface IProps{
     products?:{

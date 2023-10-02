@@ -166,9 +166,10 @@ export interface IAppPayload{
 }
 
 export interface ICart{
-  id?:string,
-  count?:number,
-  color?:string
+  id:string,
+  count:number,
+  color:string,
+  price:number
 }
 
 export interface IUser{
@@ -180,15 +181,16 @@ export interface IUser{
       email?:string,
       mobile?:string,
       role?:string,
-      cart?:[],
+      cartId?:{},
       isBlock?:boolean,
       wishlist?:[],
     }
   },
   wishlist?:string[],
   carts:{
-    ProductsCarts:ICart[],
+    products:ICart[],
     productsTotal?:number,        
+    cartTotal?:number
   },
 }
 

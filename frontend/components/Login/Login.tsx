@@ -41,16 +41,16 @@ const Login:React.FC<Iprops> = ({isLoggedIn,status}) => {
         }
       },[status])
 
-    //   useEffect(()=>{
-    //     if(isLoggedIn){
-    //         router.push("/")
-    //     }
-    //   },[isLoggedIn])
+      useEffect(()=>{
+        if(isLoggedIn){
+            router.push("/")
+        }
+      },[isLoggedIn])
 
     return (
         <div className="login-wrapper py-5 home_wrapper_2">
         <div className="row">
-            <div className="col-12">
+
                 <div className={styles.auth_card}>
                     <h3 className='text-center mb-4'>Đăng nhập</h3>
                     <form action="" className='d-flex flex-column' onSubmit={formik.handleSubmit}>
@@ -87,7 +87,6 @@ const Login:React.FC<Iprops> = ({isLoggedIn,status}) => {
                     </form>
                 </div>
             </div>
-        </div>
     </div>
     );
 };

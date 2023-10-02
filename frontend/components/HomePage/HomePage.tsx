@@ -10,12 +10,19 @@ import Service_4 from '../../assets/images/service-04.png'
 import Service_5 from '../../assets/images/service-05.png'
 
 import dynamic from 'next/dynamic';
+import { useAppSelector } from '@/redux/hook';
+import { RootState } from '@/redux/store';
+import MainBanner from './MainBanner';
+import SpecialProducts from './SpecialProducts';
+import FeaturedProducts from './FeaturedProducts';
+import Category from './Category';
+import MarqueeBrands from './MarqueeBrands';
 
-const MarqueeBrands = dynamic(() => import('./MarqueeBrands'),{ssr:false});
-const SpecialProducts = dynamic(() => import('./SpecialProducts'),{ssr:false});
-const FeaturedProducts = dynamic(() => import('./FeaturedProducts'),{ssr:false});
-const MainBanner = dynamic(() => import('./MainBanner'),{ssr:false});
-const Category = dynamic(() => import('./Category'),{ssr:false});
+// const MarqueeBrands = dynamic(() => import('./MarqueeBrands'),{ssr:false, loading: () => <p>Loading...</p>,} );
+// const SpecialProducts = dynamic(() => import('./SpecialProducts'),{ssr:false, loading: () => <p>Loading...</p>,});
+// const FeaturedProducts = dynamic(() => import('./FeaturedProducts'),{ssr:false, loading: () => <p>Loading...</p>,});
+// const MainBanner = dynamic(() => import('./MainBanner'),{ssr:false,loading: () => <p>Loading...</p>, });
+// const Category = dynamic(() => import('./Category'),{ssr:false, loading: () => <p>Loading...</p>,});
 
 interface IProps{
     mobile?:{
@@ -32,8 +39,8 @@ interface IProps{
     }
 }
 
-const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
-    console.log()
+const HomePage:React.FC<IProps> = () => {
+    const {mobile,laptop,tablet,products,audio,watch,tivi}= useAppSelector((state: RootState) => state.products)
     return (    
         <>
             <MainBanner />
@@ -41,7 +48,7 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
 
   
             <FeaturedProducts products={mobile} title='Điện thoại nổi bật nhất'/>
-
+            <FeaturedProducts products={watch} title='Đồng hồ thông minh nổi bật nhất'/>
             <Category />
 
             <section className={`p-5`}>
@@ -87,6 +94,7 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
             </section>
 
             <FeaturedProducts products={laptop} title='Laptop nổi bật nhất'/>
+            <FeaturedProducts products={audio} title='Thiết bị âm thanh nổi bật nhất'/>
 
             <section className={`${styles.famous_wrapper} home-wrapper-2 py-5`}>
                 <div className="container-xxl">
@@ -139,7 +147,7 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
             </section>
 
            <FeaturedProducts products={tablet} title='Máy tính bảng nổi bật nhất' />
-
+           <FeaturedProducts products={tivi} title='Ti vi nổi bật nhất'/>
             <MarqueeBrands />
 
             <section className='blog-wrapper home-wrapper-2 py-5'>
@@ -159,4 +167,4 @@ const Home:React.FC<IProps> = ({mobile,laptop,tablet,products}) => {
     );
 };
 
-export default Home;
+export default HomePage;
