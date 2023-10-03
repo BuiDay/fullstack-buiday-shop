@@ -57,8 +57,20 @@ const apiAddCart =  (data:any) => new Promise(async(resolve, reject)=>{
     }
 })
 
+const apiGetCart =  () => new Promise(async(resolve, reject)=>{
+    try {
+        const res = await axiosToken({
+            method:"get",
+            url:`api/user/cart`,
+        })
+        resolve(res.data)
+    } catch (error) {
+        reject(error)
+    }
+})
+
 const userService = {
-    getUser,apiAddToWishlist,apiGetWishlist,apiAddCart
+    getUser,apiAddToWishlist,apiGetWishlist,apiAddCart,apiGetCart
 }
 
 export default userService

@@ -16,7 +16,7 @@ import { logout } from "@/redux/features/auth/authSilce";
 import styles from "./Header.module.scss";
 import appService from "@/redux/features/app/appService";
 import { getCategories } from "@/redux/features/app/appSilce";
-import { getUser } from "@/redux/features/user/userSilce";
+import { getUser, getCart } from "@/redux/features/user/userSilce";
 import { useRouter } from "next/router";
 import userService from "@/redux/features/user/userService";
 
@@ -25,22 +25,19 @@ interface IProps {
 }
 
 const Header: React.FC<IProps> = () => {
+
   const [keyword, setKeyword] = useState("")
   const { isLoggedIn } = useAppSelector((state) => state?.auth || {});
-
+  const { wishlist, carts, currentData } = useAppSelector(state => state.user)
+  const categories = useAppSelector((state: RootState) => state.app.categories || []);
   const dropdownCateRef = useRef<any>(null);
   const dropdownProfile = useRef<any>(null);
 
-  const { currentData } = useAppSelector((state) => state.user || {});
-
   const dispatch = useAppDispatch();
   const router = useRouter();
-  const categories = useAppSelector((state: RootState) => state.app.categories || []);
 
   const [isShowDropdown, setIsShowDropdown] = useState<boolean>(false);
   const [isShowProfileDropdown, setIsShowProfileDropdown] = useState<boolean>(false);
-
-  const { wishlist, carts } = useAppSelector(state => state.user)
 
   const handleCategories = async () => {
     try {
@@ -51,15 +48,6 @@ const Header: React.FC<IProps> = () => {
       console.log(error)
     };
   }
-
-  useEffect(()=>{
-    const handleCartApi = async () =>{
-      if(carts.products.length > 0){
-         await userService.apiAddCart(carts.products)
-      }
-    }
-    handleCartApi();
-  },[carts])
 
   useEffect(() => {
     handleCategories();
@@ -110,7 +98,7 @@ const Header: React.FC<IProps> = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      isLoggedIn && dispatch(getUser());
+      isLoggedIn && dispatch(getUser()) && getCarts();
     }, 1000);
   }, [isLoggedIn]);
 
@@ -118,8 +106,17 @@ const Header: React.FC<IProps> = () => {
     if (currentData.status === "error")
       setTimeout(() => {
         dispatch(logout());
+        getCarts(); 
       }, 1000);
   }, []);
+
+
+  const getCarts = async () => {
+    const res: { code?: number, data?: any } = await userService.apiGetCart() || ""
+    if (res.code === 1) {
+      dispatch(getCart(res.data))
+    }
+  }
 
   return (
     <>
@@ -196,7 +193,7 @@ const Header: React.FC<IProps> = () => {
                     </div>
                   </ShowOnLogout>
                   <ShowOnLogin isLoggedIn={isLoggedIn}>
-                    <div className="d-flex align-items-center gap-10 text-white me-3 user dropdown" id="title-profile"  ref={dropdownProfile} onClick={()=>setIsShowProfileDropdown(!isShowProfileDropdown)}>
+                    <div className="d-flex align-items-center gap-10 text-white me-3 user dropdown" id="title-profile" ref={dropdownProfile} onClick={() => setIsShowProfileDropdown(!isShowProfileDropdown)}>
                       <Image src={User} alt="" width={40} height={40} />
                       <div className="">
                         <div className={styles.dropdown_btn}>
@@ -205,7 +202,7 @@ const Header: React.FC<IProps> = () => {
                         </div>
                         {
                           isShowProfileDropdown &&
-                          <div className="dropdown_list" style={{top:"60px"}}>
+                          <div className="dropdown_list" style={{ top: "60px" }}>
                             <Link className="dropdown_item" href="/profile">View Profile</Link>
                             <Link className="dropdown_item" href="/history">History</Link>
                             <Link className="dropdown_item" href="" onClick={() => { handleLogout() }}>Sign out</Link>
@@ -221,7 +218,7 @@ const Header: React.FC<IProps> = () => {
                       prefetch={false}
                     >
                       <Image src={Cart} alt="Cart Icon" />
-                      <div className="badge bg-white text-dark position-absolute bottom-50 start-50">{carts.productsTotal && carts.productsTotal}</div>
+                      <div className="badge bg-white text-dark position-absolute bottom-50 start-50">{carts?.productsTotal ? carts?.productsTotal : 0}</div>
                       {/* <div className="">
                         <span className='badge bg-white text-dark'>{totalQuantity ? totalQuantity : "0"}</span>
                         <p>{cartTotalAmount ? cartTotalAmount :"0"}$</p>

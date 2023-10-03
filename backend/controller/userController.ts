@@ -2,7 +2,7 @@ import { Response, Request } from 'express';
 import { User } from '../models/userModel';
 import Cart from '../models/cartModel'
 import Product from '../models/productModel';
-import Coupon from '../models/CouponModel';
+import Coupon from '../models/couponModel';
 import bcrypt from 'bcrypt';
 import asyncHandler from 'express-async-handler'
 import { generateRefreshToken } from '../config/refreshToken';
@@ -331,6 +331,7 @@ export const resetPassword = asyncHandler(async (req: Request, res: Response): P
 export const addCart = asyncHandler(async (req: Request, res: Response): Promise<void> => {
 
     interface IProduct {
+        productId:string,
         product: string,
         count: number,
         color: string,
@@ -340,29 +341,30 @@ export const addCart = asyncHandler(async (req: Request, res: Response): Promise
     const newCartId = new ObjectId()
     const req2 = req as IUserRequest
     const { cart } = req.body;
+
     const { id } = req2.user;
     validateMongodbId(id);
 
     try {
         let products: IProduct[] = [];
         const user = await User.findById(id);
+    
         const alreadyExistCart = await Cart.findOne({ orderby: user.id });
-
-        if (alreadyExistCart) {
-            await Cart.findByIdAndDelete(alreadyExistCart.id)
-        }
-
+        let cartTotal: number = 0;
+        let newCart
         for (let i = 0; i < cart.length; i++) {
             let object: IProduct = {
+                productId:"",
                 product: "",
                 count: 0,
                 color: "",
                 price: 0,
             };
-            object.product = cart[i].id;
+            object.productId = cart[i].productId
+            object.product = cart[i].productId;
             object.count = cart[i].count;
             object.color = cart[i].color;
-            let getPrice = await Product.findById(cart[i].id).select("price").select("discount").exec();
+            let getPrice = await Product.findById(cart[i].productId).select("price").select("discount").exec();
             if (getPrice.discount !== 0)
                 object.price = Number(getPrice.discount)
             else {
@@ -370,25 +372,32 @@ export const addCart = asyncHandler(async (req: Request, res: Response): Promise
             }
             products.push(object)
         }
-
-        let cartTotal: number = 0;
-
         for (let i = 0; i < products.length; i++) {
             cartTotal = cartTotal + products[i].price * products[i].count;
         }
+        if (alreadyExistCart) {
+            newCart = {
+                products,
+                productsTotal: products.length,
+                cartTotal,
+                orderby: user?.id
+            }
+           await Cart.findByIdAndUpdate(alreadyExistCart.id,newCart, {new: true})
+        }else{
+            newCart = await new Cart({
+                _id: newCartId,
+                products,
+                productsTotal: products.length,
+                cartTotal,
+                orderby: user?.id
+            }).save();
+            await User.findByIdAndUpdate({
+                _id: user.id
+            }, {
+                cartId: newCartId
+            })
+        }
 
-        let newCart = await new Cart({
-            _id: newCartId,
-            products,
-            productsTotal: products.length,
-            cartTotal,
-            orderby: user?.id
-        }).save();
-        await User.findByIdAndUpdate({
-            _id: user.id
-        }, {
-            cartId: newCartId
-        })
         res.json({
             status: "success",
             code: 1,

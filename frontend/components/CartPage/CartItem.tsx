@@ -7,16 +7,15 @@ import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import productService from '@/redux/features/products/productsService';
 import Image from 'next/image';
 import ModalConfirm from '../Common/ModalConfirm/ModalConfirm';
-import { deleteCart } from '@/redux/features/user/userSilce';
+import { deleteCart, getAddCard } from '@/redux/features/user/userSilce';
+import userService from '@/redux/features/user/userService';
 
 const CartItem = ({ listCarts }: any) => {
-    const { id, color, count } = listCarts;
+    const { color, count, product, price } = listCarts;
     const dispatch = useAppDispatch();
-    const [isCount, setCount] = useState(Number(count))
-    const [product, setProduct] = useState<any>();
-    const { cart } = useAppSelector(state => state.app)
     const [isShowModal, setIsShowModalConfirm] = useState(false);
     const [productId, setProductId] = useState("")
+    const { carts } = useAppSelector(state => state.user)
 
     const handlePrice = (price: number, discount: number) => {
         if (price !== 0 && discount !== 0)
@@ -37,46 +36,15 @@ const CartItem = ({ listCarts }: any) => {
             </>
     }
 
-    const handleMinusCount = (id:string) => {
+    const handleIncreaseCount = async (id?:string) => {
+        const tempCart = {...listCarts,count:listCarts.count + 1}
+        dispatch(getAddCard(tempCart));
+    }
+
+    const handleDecreaseCount = (id:string) => {
         setProductId(id)
-        if (isCount > 0) {
-            setCount((pre) => pre - 1)
-        }else{
-            setCount(0);
-        }
-    }
-
-    const handleAddCount = () => {
-        setCount((pre) => pre + 1)
-    }
-
-    useEffect(() => {
-        handleGetProduct(id)
-    }, [cart])
-
-    useEffect(()=>{
-        if(isCount === 0){
-            dispatch(deleteCart({ id: productId }))
-        }
-    },[isCount])
-
-    const handleGetProduct = useCallback(async (id: string) => {
-        const res: { code?: number, data?: any } = await productService.getProductById({ id }) || ""
-        if (res.code === 1) {
-            setProduct(res.data)
-        }
-    }, [])
-
-    const handleTotalProduct = (price: number, discount: number) => {
-        let tempPrice = 0
-        if (discount !== 0) {
-            tempPrice = discount * isCount
-        } else {
-            tempPrice = price * isCount
-        }
-        return <>
-            <p className={`${styles.price}`}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(tempPrice)}</p>
-        </>
+        const tempCart = {...listCarts,count:listCarts.count - 1}
+        dispatch(getAddCard(tempCart));
     }
 
     const handleDeleteCart = (id: string) => {
@@ -84,9 +52,28 @@ const CartItem = ({ listCarts }: any) => {
         setProductId(id)
     }
 
-    const deleteProduct = () => {
-        dispatch(deleteCart({ id: productId }))
+    useEffect(()=>{
+        if(count < 1){
+            deleteProduct()
+        }
+    },[count])
+
+    const deleteProduct = async () => {
+        dispatch(deleteCart({ productId: productId }));
         setIsShowModalConfirm(false)
+        let cartTotal = 0;
+        let tempCart = [ ...carts.products]
+        tempCart = tempCart.filter((item)=>{
+            return item.productId !== productId
+        });
+        tempCart.forEach(item=>{
+            cartTotal = cartTotal + item.price * item.count
+        })
+        const res:{ code?: number, data?: any } = await userService.apiAddCart(tempCart) || " "
+        if(res.code === 1){
+            // console.log(res)
+        }
+      
     }
 
     return (
@@ -98,13 +85,11 @@ const CartItem = ({ listCarts }: any) => {
                             {
                                 product?.images[0] && <Image src={product?.images[0]} height={70} width={70} alt='img-product' />
                             }
-
                         </div>
                         <div>
                             {product?.title}
                         </div>
                     </div>
-
                 </td>
                 <td className='py-3 text-center'>
                     <p>{color ? color : "Cơ bản"}</p>
@@ -115,9 +100,9 @@ const CartItem = ({ listCarts }: any) => {
                 <td className='py-3'>
                     <div className='d-flex align-items-center justify-content-center py-3 gap-3'>
                         <div className='d-flex align-items-center'>
-                            <AiOutlinePlus style={{ cursor: "pointer" }} onClick={()=>handleAddCount()} />
-                            <input value={isCount} disabled type="text" className='form-control text-center' style={{ width: "60px" }} />
-                            <GrFormSubtract style={{ cursor: "pointer" }} onClick={()=>handleMinusCount(product?._id)} />
+                            <AiOutlinePlus style={{ cursor: "pointer" }} onClick={()=>handleIncreaseCount(product?._id)}/>
+                            <input value={count} disabled type="text" className='form-control text-center' style={{ width: "60px" }} />
+                            <GrFormSubtract style={{ cursor: "pointer" }} onClick={()=>handleDecreaseCount(product?._id)} />
                         </div>
                         <div className={styles.icon_del} onClick={() => handleDeleteCart(product?._id)}>
                             <AiFillDelete />
@@ -125,7 +110,7 @@ const CartItem = ({ listCarts }: any) => {
                     </div>
                 </td>
                 <td className='text-center py-3'>
-                    <h5 className={styles.cart_data_price}>{handleTotalProduct(product?.price, product?.discount)}</h5>
+                    <h5 className={styles.cart_data_price}>{<p className={`${styles.price}`}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price * count)}</p>}</h5>
                 </td>
             </tr>
             {

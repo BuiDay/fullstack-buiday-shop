@@ -11,9 +11,10 @@ import StarRatings from 'react-star-ratings';
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { GrFormSubtract } from 'react-icons/gr'
-import { useAppDispatch } from '@/redux/hook';
+import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { getAddCard } from '@/redux/features/user/userSilce';
 import ReactDOM from 'react-dom';
+import userService from '@/redux/features/user/userService';
 
 interface IProps {
     setIsShowModalConfirm?: any,
@@ -26,15 +27,14 @@ interface IProps {
 }
 
 const ModalAddCart: React.FC<IProps> = ({ setIsShowModalConfirm, title, onClick, titleBtn, link, data }) => {
+    const { isLoggedIn, } = useAppSelector((state) => state?.auth || {});
     const dispatch = useAppDispatch();
     const [isCount, setCount] = useState(1)
     const [isColor, setIsColor] = useState<string>()
-
+    const { carts } = useAppSelector(state => state.user)
     const handleColor = (color: string) => {
         setIsColor(color)
     }
-
-    console.log(data)
 
     const handlePrice = (price: number, discount: number) => {
         if (price !== 0 && discount !== 0)
@@ -70,16 +70,34 @@ const ModalAddCart: React.FC<IProps> = ({ setIsShowModalConfirm, title, onClick,
         }
     }
 
-    const handleAddCart = () => {
+    const handleAddCart = async () => {
+        const temp = {
+            productId: data._id,
+            color: isColor,
+            count: isCount,
+            price: data.discount ? data.discount : data.price
+        }
+        setIsShowModalConfirm(false)
         dispatch(getAddCard({
-            id: data._id,
+            productId: data._id,
             color: isColor,
             count: isCount,
             price: data.discount ? data.discount : data.price
         }));
-        setIsShowModalConfirm(false)
+        handleAddCartApi(temp);
     }
-
+  const handleAddCartApi = (temp:any) => {
+    if (isLoggedIn) {
+        const getCarts = async () => {
+          const res: { code?: number, data?: any } = await userService.apiAddCart([...carts.products,temp]) || ""
+          if (res.code === 1) {
+                  console.log(res)
+          }
+        }
+        getCarts()
+      }
+  }
+       
     return ReactDOM.createPortal(
         <div
             className={styles.body_modal}

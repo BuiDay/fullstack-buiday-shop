@@ -48,9 +48,6 @@ const HomePage:React.FC<IProps> = () => {
 
   
             <FeaturedProducts products={mobile} title='Điện thoại nổi bật nhất'/>
-            <FeaturedProducts products={watch} title='Đồng hồ thông minh nổi bật nhất'/>
-            <Category />
-
             <section className={`p-5`}>
                 <div className="container-xxl">
                     <div className="d-flex justify-content-between align-items-center">
@@ -92,6 +89,10 @@ const HomePage:React.FC<IProps> = () => {
                     </div>
                 </div>
             </section>
+            <FeaturedProducts products={watch} title='Đồng hồ thông minh nổi bật nhất'/>
+            <Category />
+
+
 
             <FeaturedProducts products={laptop} title='Laptop nổi bật nhất'/>
             <FeaturedProducts products={audio} title='Thiết bị âm thanh nổi bật nhất'/>
