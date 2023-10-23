@@ -7,7 +7,7 @@ type headers = {
 };
 const axiosClient = axios.create();
 
-axiosClient.defaults.baseURL = "http://localhost:8000";
+axiosClient.defaults.baseURL = "http://localhost:8002";
 
 // axiosClient.interceptors.request.use(function(config:any){
 //     let token = window.localStorage.getItem('persist:auth') && JSON.parse(window.localStorage.getItem('persist:auth')  || 'Default Value')?.token?.slice(1, -1) 

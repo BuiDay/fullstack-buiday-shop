@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './AudioPage.module.scss'
+import styles from '../../styles/AudioPage.module.scss'
 import ProductCards from '../ProductCards/ProductCards';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -227,7 +227,7 @@ const AudioPage: React.FC<IProps> = ({ data }) => {
                                             </label>
                                         </div>
                                     </div>
-                                    <h5 className={styles.sub_title}>Giá</h5>
+                                    {/* <h5 className={styles.sub_title}>Giá</h5>
                                     <div className="d-flex align-items-center gap-10">
                                         <div className="form-floating">
                                             <input
@@ -243,10 +243,10 @@ const AudioPage: React.FC<IProps> = ({ data }) => {
                                                 id="form-floating-input1"
                                             />
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <h5 className={styles.sub_title}>Màu sắc</h5>
                                     <div>
-                                        <Color />
+                                    <Color handleSort={handleSort}/>
                                     </div>
                                 </div>
                             </div>

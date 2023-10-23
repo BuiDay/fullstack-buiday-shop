@@ -5,22 +5,35 @@
     overflow: hidden;
     box-shadow: 0 0 10px #0000001a;
     min-height: 405px;
-    min-width: 230px;
+    min-width: 227px;
     width: 100%;
+    height: 100%;
+}
+
+.product_hover{
+    height: 100%;
+    padding: 2px;
+    border-radius: 12px;
+}
+
+.product_hover:hover{
+    background-color: red;
+    transition: all 0.9s ease;
 }
 
 .product_item{
     position: relative;
+    height: 100%;
 }
 
 .discount_percent{
-    background-image: url(../../assets//images/dis.svg);
+    background-image: url(../assets/images/dis.svg);
     background-repeat: no-repeat;
     height: 31px;
     width: 80px;
     z-index: 99;
     position: absolute;
-    top: -5px;
+    top: -4px;
     left: -4px;
     font-size: 14px;
     text-align: center;
@@ -29,6 +42,7 @@
 }
 
 .action_bar{
+    position: absolute;
     top:9%;
     right: 7px;
     transition: all 0.4s ease;
@@ -45,12 +59,32 @@
     height: 25px;
     width: 25px;
     border-radius: 50%;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: white;
+}
+
+.wishlist_icon {
+    right: 0px;
+    top:-30px;
+    transition: all 0.4s ease;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
     text-align: center;
-    line-height: 20px;
+    line-height: 22px;
+}
+
+.wishlist_icon:hover{
+    background-color: var(--color-febd69);
 }
 
 .active{
-    background-color: var(--color-febd69);
+    background-color: var(--color-febd69) !important;
 }
 
 .action_bar .action_bar_item:hover{
@@ -65,7 +99,6 @@
 
 .product_card .product_details{
     min-height: 158px;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -96,10 +129,6 @@
 }
 
 
-.wishlist_icon {
-    right: 5px;
-    top:-30px;
-}
 
 .product_card .product_image{
     height: 180px;
@@ -112,16 +141,16 @@
     width: 100%;
 }
 
-.product_card .product_image > img:last-child{
-    display: none;
-}
+// .product_card .product_image > img:last-child{
+//     display: none;
+// }
 
-.product_card:hover .product_image > img:first-child{
-    display: none;
-}
+// .product_card:hover .product_image > img:first-child{
+//     display: none;
+// }
 
-.product_card:hover .product_image > img:last-child{
-    display: block;
-}
+// .product_card:hover .product_image > img:last-child{
+//     display: block;
+// }
 
 

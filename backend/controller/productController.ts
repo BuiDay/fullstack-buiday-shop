@@ -128,8 +128,57 @@ export const getAllProducts = asyncHandler(async (req: Request, res: Response): 
         if (req.query.display) {
             if (Number(req.query.display) === 5) {
                 query.find({ display: { $lte: 6 } })
-            } else {
+            }else if(Number(req.query.display) === 7){
+                query.find({ display: { $lte: 7 } })
+            }
+            else if(Number(req.query.display) === 10){
+                query.find({ display:  { $gte:10, $lt:11}  })
+            }
+            else if(Number(req.query.display) === 12){
+                query.find({ display:  { $lt:12}})
+            }
+            else if(Number(req.query.display) === 14){
+                query.find({ display: { $gte:14, $lt:15} })
+            } 
+            else if(Number(req.query.display) === 15){
+                query.find({ display: { $gt: 14 } })
+            } 
+            else {
                 query.find({ display: { $gte: 6 } })
+            }
+        }
+
+        if (req.query.color) {
+            query.find({ color: req.query.color})
+        }
+
+        if (req.query.gpu) {
+            query.find({ gpu: { $regex: req.query.gpu, $options: 'i' }})
+        }
+
+        if (req.query.cpu) {
+            query.find({ cpu: { $regex: req.query.cpu, $options: 'i' }})
+        }
+
+        if(req.query.storage){
+            switch (req.query.storage) {
+                case "32":
+                    query.find({storage:{$lt:32}})
+                    break;
+                case"64":{
+                    query.find({ storage: { $lte: 64, $gte: 32 } })
+                }
+                case"256":{
+                    query.find({ storage: 256})
+                }
+                case"512":{
+                    query.find({ storage: 256})
+                }
+                case"1TB":{
+                    query.find({ storage:"1TB"})
+                }
+                default:
+                    break;
             }
         }
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SideBar from '../Common/SideBar/SideBar';
-import styles from './LaptopPage.module.scss'
+import styles from '../../styles/LaptopPage.module.scss'
 
 import ProductCards from '../ProductCards/ProductCards';
 import { useRouter } from 'next/router';
@@ -115,13 +115,13 @@ const LaptopPage:React.FC<IProps> = ({data}) => {
                                     <div>
                                         <ul className={styles.sidebar_brands}>
                                             <li>
-                                                <div onClick={()=>handleSort(5,"display")}>Khoảng 13 inch</div>
+                                                <div onClick={()=>handleSort(13,"display")}>Khoảng 13 inch</div>
                                             </li>
                                             <li>
-                                                <div onClick={()=>handleSort(7,"display")}>Khoảng 14 inch</div>
+                                                <div onClick={()=>handleSort(14,"display")}>Khoảng 14 inch</div>
                                             </li>
                                             <li>
-                                                <div onClick={()=>handleSort(7,"display")}>Trên 15 inch</div>
+                                                <div onClick={()=>handleSort(15,"display")}>Trên 15 inch</div>
                                             </li>
                                         </ul>
                                     </div>
@@ -129,13 +129,13 @@ const LaptopPage:React.FC<IProps> = ({data}) => {
                                     <div>
                                         <ul className={styles.sidebar_brands}>
                                             <li>
-                                                <div onClick={()=>handleSort(60,"display")}>Onboard</div>
+                                                <div onClick={()=>handleSort("onboard","gpu")}>Onboard</div>
                                             </li>
                                             <li>
-                                                <div>NVIDIA Geforce Series</div>
+                                                <div onClick={()=>handleSort("GeForce","gpu")}>NVIDIA Geforce Series</div>
                                             </li>
                                             <li>
-                                                <div>AMD Readon Series</div>
+                                                <div  onClick={()=>handleSort("amd","gpu")}>AMD Readon Series</div>
                                             </li>
                                         </ul>
                                     </div>
@@ -143,28 +143,28 @@ const LaptopPage:React.FC<IProps> = ({data}) => {
                                     <div>
                                         <ul className={styles.sidebar_brands}>
                                             <li>
-                                                <div onClick={()=>handleSort(60,"display")}>Intel Core i3</div>
+                                                <div onClick={()=>handleSort("core i3","cpu")}>Intel Core i3</div>
                                             </li>
                                             <li>
-                                                <div>Intel Core i5</div>
+                                                <div onClick={()=>handleSort("i5","cpu")}>Intel Core i5</div>
                                             </li>
                                             <li>
-                                                <div>Intel Core i7</div>
+                                                <div onClick={()=>handleSort("i7","cpu")}>Intel Core i7</div>
                                             </li>
                                             <li>
-                                                <div>Intel Core i9</div>
+                                                <div onClick={()=>handleSort("core i9","cpu")}>Intel Core i9</div>
                                             </li>
                                             <li>
-                                                <div>AMD Ryzen 3</div>
+                                                <div onClick={()=>handleSort("Ryzen 3","cpu")}>AMD Ryzen 3</div>
                                             </li>
                                             <li>
-                                                <div>AMD Ryzen 5</div>
+                                                <div onClick={()=>handleSort("Ryzen 5","cpu")}>AMD Ryzen 5</div>
                                             </li>
                                             <li>
-                                                <div>AMD Ryzen 7</div>
+                                                <div onClick={()=>handleSort("Ryzen 3","cpu")}>AMD Ryzen 7</div>
                                             </li>
                                             <li>
-                                                <div>Intel Celeron / Pentinum</div>
+                                                <div onClick={()=>handleSort("celeron pentinum","cpu")}>Intel Celeron / Pentinum</div>
                                             </li>
                                         </ul>
                                     </div>
@@ -174,7 +174,7 @@ const LaptopPage:React.FC<IProps> = ({data}) => {
                                             <div >256GB</div>
                                         </li>
                                         <li>
-                                            <div>512GB</div>
+                                            <div >512GB</div>
                                         </li>
                                         <li>
                                             <div >1TB</div>
@@ -202,26 +202,10 @@ const LaptopPage:React.FC<IProps> = ({data}) => {
                                             </label>
                                         </div>
                                     </div>
-                                    <h5 className={styles.sub_title}>Giá</h5>
-                                    <div className="d-flex align-items-center gap-10">
-                                        <div className="form-floating">
-                                            <input
-                                                type="range"
-
-                                                id="form-floating-input"
-                                            />
-                                        </div>
-                                        <div className="form-floating">
-                                            <input
-                                                type="range"
-
-                                                id="form-floating-input1"
-                                            />
-                                        </div>
-                                    </div>
+                                    
                                     <h5 className={styles.sub_title}>Màu sắc</h5>
                                     <div>
-                                        <Color />
+                                        <Color handleSort={handleSort}/>
                                     </div>
                                 </div>
                             </div>

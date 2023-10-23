@@ -13,12 +13,13 @@ import { RootState } from "@/redux/store";
 import { useAppSelector } from "@/redux/hook";
 import ShowOnLogin, { ShowOnLogout } from "../hiddenLink/hiddendLink";
 import { logout } from "@/redux/features/auth/authSilce";
-import styles from "./Header.module.scss";
+import styles from "../../styles/Header.module.scss";
 import appService from "@/redux/features/app/appService";
 import { getCategories } from "@/redux/features/app/appSilce";
-import { getUser, getCart } from "@/redux/features/user/userSilce";
+import { getUser, getCart, addWishlist } from "@/redux/features/user/userSilce";
 import { useRouter } from "next/router";
 import userService from "@/redux/features/user/userService";
+import toast from "react-hot-toast";
 
 interface IProps {
   isLoggedIn?: boolean;
@@ -55,6 +56,8 @@ const Header: React.FC<IProps> = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    location.reload()
+    toast.success('Đăng xuất thành công!')
   };
 
   useEffect(() => {
@@ -109,12 +112,38 @@ const Header: React.FC<IProps> = () => {
         getCarts(); 
       }, 1000);
   }, []);
+  
+  useEffect(()=>{
+    const handleAddWishList = async () => {
+        if (isLoggedIn) {
+            const res:any = await userService.getUser()
+            if (res.code === 1) {
+                dispatch(addWishlist(res.data.wishlist))
+        
+            }
+        }
+    }
+    handleAddWishList ()
+},[])
+
+ useEffect(()=>{
+    if(!isLoggedIn){
+      try {
+        const cart = JSON.parse(localStorage?.getItem("carts" || " ") || " ")
+        dispatch(getCart(cart))
+      } catch (error) {
+        console.log(error)
+      }
+    }
+ },[])
 
 
   const getCarts = async () => {
-    const res: { code?: number, data?: any } = await userService.apiGetCart() || ""
-    if (res.code === 1) {
-      dispatch(getCart(res.data))
+    if(isLoggedIn){
+      const res: { code?: number, data?: any } = await userService.apiGetCart() || ""
+      if (res.code === 1) {
+        dispatch(getCart(res.data))
+      }
     }
   }
 
@@ -134,22 +163,23 @@ const Header: React.FC<IProps> = () => {
           </div>
         </div>
       </header>
+      
       <header>
         <div className="header-top-upper py-3">
           <div className="container-xxl">
-            <div className="row align-items-center">
+            <div className="row align-items-center justify-content-between">
               <div className="col-2">
-                <h1>
+                <h1 className="">
                   <Link href="/" className="text-white">
                     NHAT BUI
                   </Link>
                 </h1>
               </div>
-              <div className="col-5">
+              <div className="col-5 w-25">
                 <div className="input-group py-2">
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control "
                     placeholder="Search product here..."
                     onChange={(e) => setKeyword(e.target.value)}
                   />
@@ -237,7 +267,7 @@ const Header: React.FC<IProps> = () => {
             <div className="col-12">
               <div className="menu-bottom d-flex align-items-center justify-content-between">
                 <div className="menu-links">
-                  <div className="d-flex align-items-center gap-20">
+                  <div className="d-none d-lg-flex align-items-center gap-20 ">
                     <Link href="/">Trang chủ</Link>
                     {categories &&
                       categories?.map((item: any, index: number) => {
@@ -272,7 +302,7 @@ const Header: React.FC<IProps> = () => {
                       })}
                   </div>
                 </div>
-                <div className="dropdown">
+                <div className="d-lg-none dropdown">
                   <div
                     className="title-categories"
                     id="title-categories"
@@ -280,7 +310,7 @@ const Header: React.FC<IProps> = () => {
                     onClick={() => setIsShowDropdown(!isShowDropdown)}
                     ref={dropdownCateRef}
                   >
-                    <Image src={Menu} className="img fluid me-1" alt="" />
+                    <Image src={Menu} className="img fluid me-1 p-1" alt="" />
                     Shop
                   </div>
                   {isShowDropdown && (

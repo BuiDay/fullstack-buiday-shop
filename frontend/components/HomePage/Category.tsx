@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import styles from './HomePage.module.scss'
+import styles from '../../styles/HomePage.module.scss'
 
 import Camera from '../../assets/images/camera.jpg'
 import Headphone from '../../assets/images/headphone.jpg'

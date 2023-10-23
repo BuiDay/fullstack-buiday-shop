@@ -12,7 +12,6 @@ const TabletPage = dynamic(()=>import("@/components/TabletPage/TabletPage"),{
   ssr:false
 })
  
-
 const Tablet = ({query}:any) => {
     const {tablet} = useAppSelector((state: RootState) => state.products || {})
     return (

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from './ProductCards.module.scss'
+import styles from '../../styles/ProductCards.module.scss'
 import StarRatings from 'react-star-ratings';
 import Link from "next/link"
 import Prodcompare from '../../assets/images/prodcompare.svg'
@@ -11,8 +11,10 @@ import { BsHeart, BsHeartFill } from 'react-icons/bs'
 import userService from '@/redux/features/user/userService';
 import { getCompareProducts } from '@/redux/features/app/appSilce';
 import { RootState } from '@/redux/store';
+import { addWishlist} from "@/redux/features/user/userSilce";
 
 import dynamic from 'next/dynamic';
+import toast from 'react-hot-toast';
 
 const ModalAddCart = dynamic(() => import('../Common/ModalAddCart/ModalAddCart'),{ssr:false});
 const ModalConfirm = dynamic(() => import('../Common/ModalConfirm/ModalConfirm'),{ssr:false});
@@ -64,10 +66,17 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
     }
 
     const handleAddWishList = async (id: string) => {
+       
         if (isLoggedIn) {
-            const res: { code?: number } = await userService.apiAddToWishlist({ proId: id }) || ""
+            const res:any = await userService.apiAddToWishlist({ proId: id }) || ""
             if (res.code === 1) {
-                // dispatch(getUser())
+                dispatch(addWishlist(res.data.wishlist))
+                if(wishlist?.includes(data?._id)){
+                    toast.success('Xóa vào danh sách yêu thích thành công!')
+                }else{
+                    toast.success('Thêm vào danh sách yêu thích thành công!')
+                }
+                
             }
         } else {
             setIsShowModalConfirm(true)

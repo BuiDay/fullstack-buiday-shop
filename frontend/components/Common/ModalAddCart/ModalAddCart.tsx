@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import { IEditPost } from '../../pages/system/ManagePost';
 // import Button from '../Button/Button';
-import styles from './ModalAddCart.module.scss'
+import styles from '../../../styles/ModalAddCart.module.scss'
 import Button from '../Button/Button';
 import Slider from '../../Common/Slider/Slider';
 import 'swiper/css'
@@ -15,6 +15,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { getAddCard } from '@/redux/features/user/userSilce';
 import ReactDOM from 'react-dom';
 import userService from '@/redux/features/user/userService';
+import toast from 'react-hot-toast';
 
 interface IProps {
     setIsShowModalConfirm?: any,
@@ -91,7 +92,7 @@ const ModalAddCart: React.FC<IProps> = ({ setIsShowModalConfirm, title, onClick,
         const getCarts = async () => {
           const res: { code?: number, data?: any } = await userService.apiAddCart([...carts.products,temp]) || ""
           if (res.code === 1) {
-                  console.log(res)
+                toast.success('Thêm vào giỏ hàng thành công')
           }
         }
         getCarts()

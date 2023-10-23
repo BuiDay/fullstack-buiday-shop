@@ -8,6 +8,7 @@ import { wrapper } from "../redux/store";
 import { store } from "../redux/store";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
+import {Toaster} from "react-hot-toast"
 
 let persistor = persistStore(store);
 
@@ -18,6 +19,7 @@ function App({ Component, pageProps }: AppProps) {
       <PersistGate loading={null} persistor={persistor}>
         <Layout>
             <Component {...pageProps} />
+            <Toaster position="top-right" reverseOrder={false}/>
         </Layout>
       </PersistGate>
     </Provider>

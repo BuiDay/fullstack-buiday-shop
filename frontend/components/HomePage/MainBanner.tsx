@@ -6,7 +6,7 @@ import CatBanner_3 from '../../assets/images/catbanner-03.jpg'
 import CatBanner_4 from '../../assets/images/catbanner-04.jpg'
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './HomePage.module.scss'
+import styles from '../../styles/HomePage.module.scss'
 const MainBanner = () => {
     return (
         <section className='home-wrapper-1 py-1'>

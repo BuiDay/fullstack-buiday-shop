@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Link from 'next/link';
-import styles from './ResetPassword.module.scss'
+import styles from '../../styles/ResetPassword.module.scss'
 import authService from '@/redux/features/auth/authService';
 import Swal from 'sweetalert2'
 import { useRouter } from 'next/router';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './DetailPage.module.scss'
+import styles from '../../styles/DetailPage.module.scss'
 import Slider from '../Common/Slider/Slider';
 import 'swiper/css'
 import 'swiper/css/navigation'

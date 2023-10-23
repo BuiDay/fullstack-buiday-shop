@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Link from 'next/link';
-import styles from './Register.module.scss'
+import styles from '../../styles/Register.module.scss'
 import authService from '@/redux/features/auth/authService';
 import { IAuthRegister } from '@/redux/features/InterfaceReducer';
 import Swal from 'sweetalert2'

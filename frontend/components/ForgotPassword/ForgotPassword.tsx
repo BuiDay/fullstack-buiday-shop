@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './ForgotPassword.module.scss'
+import styles from '../../styles/ForgotPassword.module.scss'
 import authService from '@/redux/features/auth/authService';
 import { IForgotPassword } from '@/redux/features/InterfaceReducer';
 import Swal from 'sweetalert2'

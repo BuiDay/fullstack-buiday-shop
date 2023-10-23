@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { useRouter } from 'next/router';
-import styles from './Pagination.module.scss'
+import styles from '../../../styles/Pagination.module.scss'
 
 
 interface IProps{

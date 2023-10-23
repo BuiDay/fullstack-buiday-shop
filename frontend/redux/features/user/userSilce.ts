@@ -30,6 +30,9 @@ export const authSlice = createSlice({
     name: "user",
     initialState: initState,
     reducers: {
+        addWishlist: (state, action) => {
+            state.wishlist = action.payload
+        },
         getCart: (state, action) => {
             state.carts = action.payload
         },
@@ -63,15 +66,20 @@ export const authSlice = createSlice({
                 productsTotal: arr.length,
                 cartTotal: cartTotal
             }
+            localStorage.setItem("carts",JSON.stringify(state.carts))
         },
         deleteCart: (state, action) => {
-            const productId = action.payload.productId;
+            const {productId} = action.payload;
+         
             let count = state.carts.productsTotal || 0
             let carts = [...state.carts.products];
+            console.log(productId)
             let cartTotal = 0;
+            
             carts = carts.filter((item) => {
                 return item.productId !== productId
             });
+            console.log(carts)
             carts.forEach(item => {
                 cartTotal = cartTotal + item.price * item.count
             })
@@ -80,6 +88,7 @@ export const authSlice = createSlice({
                 productsTotal: count - 1,
                 cartTotal: cartTotal
             }
+            localStorage.setItem("carts",JSON.stringify(state.carts))
         }
     },
     extraReducers: (builder) => {
@@ -100,6 +109,6 @@ export const authSlice = createSlice({
     }
 })
 
-export const { getAddCard, deleteCart, getCart } = authSlice.actions;
+export const { getAddCard, deleteCart, getCart,addWishlist } = authSlice.actions;
 
 export default authSlice.reducer;

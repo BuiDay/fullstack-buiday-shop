@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from './TabletPage.module.scss'
+import styles from '../../styles/TabletPage.module.scss'
 
 import ProductCards from '../ProductCards/ProductCards';
 import { useRouter } from 'next/router';

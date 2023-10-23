@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './SpecialProduct.module.scss'
+import styles from '../../styles/SpecialProduct.module.scss'
 import StarRatings from 'react-star-ratings';
 import Link from 'next/link';
 import CountdownTimer from '../Common/Countdown/CountdownTimer';

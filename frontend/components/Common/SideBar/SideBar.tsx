@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from 'next/link';
 import Color from '../Color/Color';
 import Image from 'next/image';
-import styles from './SideBar.module.scss'
+import styles from '../../../styles/SideBar.module.scss'
 import { useRouter } from 'next/router';
 
 const SideBar = () => {
@@ -155,16 +155,16 @@ const SideBar = () => {
                     </div>
                     <h5 className={styles.sub_title}>Bộ nhớ trong</h5>
                     <ul className={styles.sidebar_brands}>
-                        <li>
+                        <li onClick={() => handleSort("32", "storage")}>
                             <div>Dưới 32Gb</div>
                         </li>
-                        <li>
+                        <li onClick={() => handleSort("64", "storage")}>
                             <div>32Gb-64Gb</div>
                         </li>
-                        <li>
+                        <li onClick={() => handleSort("128", "storage")}>
                             <div>128Gb-256Gb</div>
                         </li>
-                        <li>
+                        <li onClick={() => handleSort("512", "storage")} >
                             <div>Trên 512Gb</div>
                         </li>
                     </ul>
@@ -190,7 +190,7 @@ const SideBar = () => {
                             </label>
                         </div>
                     </div>
-                    <h5 className={styles.sub_title}>Giá</h5>
+                    {/* <h5 className={styles.sub_title}>Giá</h5>
                     <div className="d-flex align-items-center gap-10">
                         <div className="form-floating">
                             <input
@@ -218,10 +218,10 @@ const SideBar = () => {
                                 // }}
                             />
                         </div>
-                    </div>
+                    </div> */}
                     <h5 className={styles.sub_title}>Màu sắc</h5>
                     <div>
-                        <Color />
+                        <Color handleSort={handleSort}/>
                     </div>
                 </div>
             </div>

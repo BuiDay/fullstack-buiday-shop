@@ -55,7 +55,7 @@ const Slider:React.FC<IProps> = ({images,slidesPerView,navigate,width,height}) =
                     <SwiperSlide key={index}>
                         <div className="product-images-slider-thumbs-wrapper">
                             {
-                                item && <Image src={item} alt="product images" width={width / 5.25} height={height / 5.25}/>
+                                item && <Image src={item} alt="product images" width={ slidesPerView === 2 ? width / 2.25 : width / 5.25} height={slidesPerView === 2 ? width / 2.25 :height / 5.25}/>
                             }
                         </div>
                     </SwiperSlide>

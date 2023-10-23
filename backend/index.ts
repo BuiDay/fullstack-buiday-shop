@@ -6,6 +6,7 @@ import productRouter from './routes/productRoute';
 import insertRouter from './routes/insertRoute';
 import categoryRouter from './routes/categoryRoute';
 import colorRouter from './routes/colorRoute';
+import vnpayRouter from './routes/vnPayRoute';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cookie from 'cookie-parser'
@@ -15,7 +16,7 @@ const app: express.Application = express();
 
 // Take a port 3000 for running server.
 
-const port: number = 8000;
+const port: number = 8002;
 dotenv.config();
 dbConnect();
 app.use(cors())
@@ -28,11 +29,12 @@ app.use('/api/product',productRouter);
 app.use('/api/insert',insertRouter);
 app.use('/api/category',categoryRouter);
 app.use('/api/color',colorRouter);
+app.use('/api/vnpay',vnpayRouter);
 app.use(errorHandler);
 
 // Server setup
 app.listen(port, () => {
-    console.log(`TypeScript with Express http://localhost:${port}/`);
+    console.log(`TypeScript with Express${port}/`);
 });
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './HomePage.module.scss'
+import styles from '../../styles/HomePage.module.scss'
 import Image from 'next/image';
 
 import Service from '../../assets/images/service.png'

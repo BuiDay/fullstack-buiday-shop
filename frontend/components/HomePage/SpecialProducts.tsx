@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import styles from './HomePage.module.scss'
+import styles from '../../styles/HomePage.module.scss'
 import SpecialProduct from '../SpecialProduct/SpecialProduct';
 import dynamic from 'next/dynamic';
 import { Swiper, SwiperSlide } from "swiper/react";

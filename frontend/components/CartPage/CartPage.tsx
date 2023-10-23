@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
-import styles from './CartPage.module.scss'
+import React, { useEffect, useState } from 'react';
+import styles from '../../styles/CartPage.module.scss'
 import Link from 'next/link';
 import { ICart } from '@/redux/features/InterfaceReducer';
 import dynamic from 'next/dynamic';
 import { useAppSelector } from '@/redux/hook';
 import userService from '@/redux/features/user/userService';
+import ModalConfirm from '../Common/ModalConfirm/ModalConfirm';
+import { useRouter } from 'next/navigation';
 
 const CartItem = dynamic(() => import("./CartItem"), {
     loading: () => <p>Loading...</p>,
@@ -26,7 +28,9 @@ interface IProps {
 }
 
 const Cart: React.FC<IProps> = ({ carts }) => {
+    const [isShowModalConfirm, setIsShowModalConfirm] = useState<boolean>(false)
     const { isLoggedIn } = useAppSelector((state) => state?.auth || {});
+    const router = useRouter()
     useEffect(() => {
         if (isLoggedIn) {
             handleAddCartApi();
@@ -43,6 +47,15 @@ const Cart: React.FC<IProps> = ({ carts }) => {
         }
         getCarts()
        }
+    }
+
+    const handleCheckout =  () => {
+        if (isLoggedIn) {
+            setIsShowModalConfirm(false)
+            router.push('/checkout')
+        } else {
+            setIsShowModalConfirm(true)
+        }
     }
 
     return (
@@ -75,7 +88,7 @@ const Cart: React.FC<IProps> = ({ carts }) => {
                             </div>
                             <div className="col-12 py-5 ">
                                 <div className=''>
-                                    <Link href="/ourstore" className='button border-0'>Continue to shopping</Link>
+                                    <span className='button border-0' onClick={()=>window.history.back()}>Tiếp tục mua sắm</span>
                                 </div>
                             </div>
                             <div className="col-12">
@@ -86,7 +99,7 @@ const Cart: React.FC<IProps> = ({ carts }) => {
                                             <span className='fw-bold text-danger'> {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(carts.cartTotal || 0)}</span>
                                         </h4>
                                         <p>Thuế và phí ship sẽ được tính ở phần thanh toán</p>
-                                        <Link href="/checkout" className='button'>Thanh toán</Link>
+                                        <div className='button' onClick={handleCheckout}>Thanh toán</div>
                                     </div>
                                 </div>
                             </div>
@@ -95,6 +108,15 @@ const Cart: React.FC<IProps> = ({ carts }) => {
                 ) :
                     <div className='text-center' style={{ height: "300px" }}><h5>Không có sản phẩm nào</h5></div>
                 }
+
+                {isShowModalConfirm && <ModalConfirm
+                    setIsShowModalConfirm={setIsShowModalConfirm}
+                    titleBtn='Đăng nhập'
+                    link="/login"
+                    // postEdit = {postEdit} 
+                    // handle = {handleDelete}
+                    title='Bạn cần phải đăng nhập để thanh toán?'
+            />}
             </div>
         </>
     );

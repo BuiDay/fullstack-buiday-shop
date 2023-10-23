@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import styles from './CompareProductsPage.module.scss'
+import styles from '../../styles/CompareProductsPage.module.scss'
 import Image from 'next/image';
 import productService from '@/redux/features/products/productsService';
 import {AiFillDelete} from 'react-icons/ai'

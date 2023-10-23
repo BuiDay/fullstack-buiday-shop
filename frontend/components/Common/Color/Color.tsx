@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from './Color.module.scss'
+import styles from '../../../styles/Color.module.scss'
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { RootState } from '@/redux/store';
 import { getColors } from '@/redux/features/app/appSilce';
@@ -7,7 +7,11 @@ import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 import appService from '@/redux/features/app/appService';
 
-const Color = () => {
+interface IProps{
+    handleSort:any
+}
+
+const Color:React.FC<IProps> = ({handleSort}) => {
     const dispatch = useAppDispatch();
     const colors = useAppSelector((state) => state.app?.colors || {})
 
@@ -23,13 +27,15 @@ const Color = () => {
     useEffect(() => {
         handleColors()
     }, [])
+
+
     return (
         <div>
             <ul className={`${styles.colors} ps-0`}>
                 {
                     colors && colors.map((item:any,index:number)=>{
                         return(
-                            <li key={index} style={{background:`${item.code}`}} data-tooltip-id="my-tooltip"
+                            <li onClick={()=>handleSort(item.title,"color")} key={index} style={{background:`${item.code}`}} data-tooltip-id="my-tooltip"
                             data-tooltip-content={item.title}></li>
                         )
                     })

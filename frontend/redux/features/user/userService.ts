@@ -5,9 +5,6 @@ import axiosConfig from '../../../utils/axiosConfig'
 const getUser =  () => new Promise(async(resolve, reject)=>{
     try {
         const res = await axiosToken({
-            headers:{
-                
-            },
             method:"get",
             url:`/api/user`,
         })
@@ -69,8 +66,36 @@ const apiGetCart =  () => new Promise(async(resolve, reject)=>{
     }
 })
 
+const apiCreateUrlVnPay = (params:{amount:number}) => new Promise(async(resolve, reject)=>{
+    try {
+        const res = await axiosToken({
+            method:"post",
+            url:`api/vnpay/create_payment_url`,
+            headers:{  'Access-Control-Allow-Origin': '*'},
+            data:params
+        })
+        resolve(res.data)
+    } catch (error) {
+        reject(error)
+    }
+})
+
+const apiGetVnPay = (params:any) => new Promise(async(resolve, reject)=>{
+    console.log(params)
+    try {
+        const res = await axiosToken({
+            method:"get",
+            url:`api/vnpay/vnpay_ipn`,
+            params
+        })
+        resolve(res.data)
+    } catch (error) {
+        reject(error)
+    }
+})
+
 const userService = {
-    getUser,apiAddToWishlist,apiGetWishlist,apiAddCart,apiGetCart
+    getUser,apiAddToWishlist,apiGetWishlist,apiAddCart,apiGetCart,apiCreateUrlVnPay,apiGetVnPay
 }
 
 export default userService

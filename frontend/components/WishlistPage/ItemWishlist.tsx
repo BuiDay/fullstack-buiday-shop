@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProductCards from '../ProductCards/ProductCards';
 import productService from '@/redux/features/products/productsService';
-import styles from './WishlistPage.module.scss'
+import styles from '../../styles/WishlistPage.module.scss'
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { Tooltip } from 'react-tooltip';
 import { BsHeart, BsHeartFill } from 'react-icons/bs'

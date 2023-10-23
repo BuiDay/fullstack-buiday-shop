@@ -1,7 +1,7 @@
 import React from 'react';
 // import { IEditPost } from '../../pages/system/ManagePost';
 // import Button from '../Button/Button';
-import styles from './ModalComfirm.module.scss'
+import styles from '../../../styles/ModalComfirm.module.scss'
 import Button from '../Button/Button';
 import ReactDOM from 'react-dom';
 

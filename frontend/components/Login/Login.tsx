@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './Login.module.scss'
+import styles from '../../styles/Login.module.scss'
 import { useAppDispatch } from '@/redux/hook';
 import { login } from '@/redux/features/auth/authSilce';
 import { useRouter } from 'next/router';
+import toast from 'react-hot-toast';
 
 interface Iprops{
     isLoggedIn?:boolean,
@@ -43,7 +44,8 @@ const Login:React.FC<Iprops> = ({isLoggedIn,status}) => {
 
       useEffect(()=>{
         if(isLoggedIn){
-            router.push("/")
+            window.history.back();
+            toast.success("Đăng nhập thành công!")
         }
       },[isLoggedIn])
 

@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const path = require('path')
 const nextConfig = {
   reactStrictMode: true,
   swcMinify:true,
@@ -6,6 +7,7 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
+  
   images: {
     remotePatterns: [
       {
@@ -23,10 +25,10 @@ const nextConfig = {
   },
  
 }
+
 // const withSass = require('@zeit/next-sass')
 // module.exports = withSass({
 // cssModules: true
 // })
-
 
 module.exports = nextConfig

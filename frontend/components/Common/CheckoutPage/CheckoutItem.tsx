@@ -2,13 +2,14 @@ import { ICart } from '@/redux/features/InterfaceReducer';
 import productService from '@/redux/features/products/productsService';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import appService from '@/redux/features/app/appService';
 
 interface IProps {
     product?:any;
 }
 
 const CheckoutItem:React.FC<IProps> = ({product}) => {
-    console.log(product.product)
+
     return (
         <div className='d-flex justify-content-between align-items-center pb-4'>
             <div className='w-75 d-flex gap-20'>
