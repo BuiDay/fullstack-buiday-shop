@@ -6,8 +6,8 @@ import React from 'react';
 const Register = () => {
     return (
         <div>
-            <Meta title={"Register"} />
-            <Breadcrumb title={"Register"} />
+            <Meta title={"Đăng kí"} />
+            <Breadcrumb title={"Đăng kí"} />
             <RegisterPage />
         </div>
     );

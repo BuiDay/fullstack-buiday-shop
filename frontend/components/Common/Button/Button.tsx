@@ -51,7 +51,7 @@ const Button:React.FC<IPropsButton> = ({text, bgColor, textColor,icon,onClick,fu
             {
                 icon ?  <span className='mt-0.5'>{icon}</span> :""
             }
-            {link ? <Link className='btn_link' target={target} href={link}>{text} </Link> :text}
+            {link ? <Link className='btn_link' target={target} href={link || "#"}>{text} </Link> :text}
         </button>
         </>
     );

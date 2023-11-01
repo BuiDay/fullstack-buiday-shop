@@ -21,7 +21,7 @@ const ModalConfirm:React.FC<IProps> = ({setIsShowModalConfirm,title,onClick,titl
 
     return ReactDOM.createPortal(
         <div 
-        className={styles.body_modal}
+        className={`${styles.body_modal} p-4`}
         onClick={() => { setIsShowModalConfirm(false) }}
         >
             <div

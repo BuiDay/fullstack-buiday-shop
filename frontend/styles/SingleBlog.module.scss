@@ -1,0 +1,25 @@
+.single_blog_card{
+    background: white;
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px #0000001a;
+    border-radius: 20px;
+}
+
+.single_blog_card h3{
+    font-size:24px;
+    font-weight: 600;
+    color:var(--color-1c1c1b);
+}
+
+.single_blog_card p{
+    color: var(--color-777777);
+    font-size: 14px;
+    text-align: justify;
+}
+
+.single_blog_card a{
+    color: var(--color-777777);
+    font-size: 15px;
+    margin-bottom: 40px;
+}

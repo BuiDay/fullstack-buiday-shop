@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../../styles/SpecialProduct.module.scss'
 import StarRatings from 'react-star-ratings';
 import Link from 'next/link';
 import CountdownTimer from '../Common/Countdown/CountdownTimer';
 import Image from 'next/image';
 import Slider from '../Common/Slider/Slider';
+import ModalConfirm from '../Common/ModalConfirm/ModalConfirm';
+import ModalAddCart from '../Common/ModalAddCart/ModalAddCart';
 
 interface IProps{
     timer?:number,
@@ -12,10 +14,12 @@ interface IProps{
 }
 
 const SpecialProduct:React.FC<IProps> = ({timer,data}) => {
+    const [isShowModalConfirm, setIsShowModalConfirm] = useState<boolean>(false)
+    const [isShowModalAddCart, setIsShowModalAddCart] = useState<boolean>(false)
     return (
         <div className=''>
             <div className={`${styles.special_product_card}`} style={{minHeight:"350px",height:"100%"}}>
-                <div className="d-flex">
+                <Link href={`/product/${data.slug}`} className="d-flex text-dark">
                     <div>
                             <div style={{
 
@@ -43,24 +47,38 @@ const SpecialProduct:React.FC<IProps> = ({timer,data}) => {
                             starDimension="15px"
                             starRatedColor="#ffd700"
                         />
-                        <p className="price mt-2">
-                            <span style={{fontSize:"18px"}} className="text-danger">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.discount)}</span>
+                        <div className="price mt-2 d-lg-flex d-block">
+                            <p style={{fontSize:"18px"}} className="text-danger">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.discount)}</p>
                             <del style={{fontSize:"14px"}} className="text-drak ms-2">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.price)}</del>
                             {/* <strike>$200</strike> */}
-                        </p>
+                        </div>
                         <div className={`${styles.discount_till} d-flex align-items-center gap-2 mt-2`}>
                             <CountdownTimer targetDate={timer} />
                         </div>
                         <div className='prod-count mt-3'>
                             <p>Sản phẩm còn lại: 5</p>
-                            <div className='progress mt-3'>
+                            <div className='progress w-75 mt-3'>
                                 <div className={`${styles.progress_bar} w-75`} role="progressbar" aria-valuenow={75} aria-valuemin={0} aria-valuemax={100}></div>
                             </div>
                         </div>
-                        <Link href="#" className='button py-2 px-3 mt-3'>Mua ngay</Link>
+  
                     </div>
+                </Link>
+                <div className='w-100 text-end'>
+                    <button className='button py-2 px-3 mt-3 ' onClick={() => { setIsShowModalAddCart(true) }}>Mua ngay</button>
                 </div>
             </div>
+            {isShowModalConfirm && <ModalConfirm
+                setIsShowModalConfirm={setIsShowModalConfirm}
+                titleBtn='Đăng nhập'
+                link="/login"
+                // postEdit = {postEdit} 
+                // handle = {handleDelete}
+                title='Bạn cần phải đăng nhập ?'
+            />}
+            {
+                isShowModalAddCart && <ModalAddCart setIsShowModalConfirm={setIsShowModalAddCart} titleBtn='Thêm' data={data} />
+            }
         </div>
     );
 };

@@ -11,7 +11,7 @@ import { deleteCart, getAddCard } from '@/redux/features/user/userSilce';
 import userService from '@/redux/features/user/userService';
 import appService from '@/redux/features/app/appService';
 
-const CartItem = ({ listCarts }: any) => {
+const CartItem = ({ listCarts, view }: any) => {
     const { color, count, product, price } = listCarts;
     const dispatch = useAppDispatch();
     const [isShowModal, setIsShowModalConfirm] = useState(false);
@@ -91,57 +91,90 @@ const CartItem = ({ listCarts }: any) => {
         }
     }
 
-    useEffect(()=>{
-        if(isLoggedIn){
+    useEffect(() => {
+        if (isLoggedIn) {
             setItemProduct(product)
-        }else{
+        } else {
             const handleProductAPI = async () => {
-                const res:any = await productService.getProductById({id:listCarts.productId})
-                if(res.code === 1){
+                const res: any = await productService.getProductById({ id: listCarts.productId })
+                if (res.code === 1) {
                     setItemProduct(res.data)
                 }
-            } 
+            }
             handleProductAPI()
         }
-    },[])
+    }, [])
 
     return (
         <>
-            <tr className={styles.cart_data}>
-                <td className='py-3'>
-                    <div className='ps-3 d-flex gap-2 align-items-center'>
-                        <div>
-                            {
-                                itemProduct?.images[0] && <Image src={itemProduct?.images[0]} height={70} width={70} alt='img-product' />
-                            }
+            {
+                view === 1
+                    ?
+                    <tr className={`${styles.cart_data}`}>
+                        <td className='py-3'>
+                            <div className='ps-3 d-flex gap-2 align-items-center'>
+                                <div>
+                                    {
+                                        itemProduct?.images[0] && <Image src={itemProduct?.images[0]} height={70} width={70} alt='img-product' />
+                                    }
+                                </div>
+                                <div>
+                                    {itemProduct?.title}
+                                </div>
+                            </div>
+                        </td>
+                        <td className='py-3 text-center'>
+                            <p>{color ? color : "Cơ bản"}</p>
+                        </td>
+                        <td className='text-center py-3'>
+                            <h5 className={styles.cart_data_price}>{handlePrice(itemProduct?.price, itemProduct?.discount)}</h5>
+                        </td>
+                        <td className='py-3'>
+                            <div className='d-flex align-items-center justify-content-center py-3 gap-3'>
+                                <div className='d-flex align-items-center'>
+                                    <AiOutlinePlus style={{ cursor: "pointer" }} onClick={() => handleIncreaseCount(itemProduct?._id)} />
+                                    <input value={count} disabled type="text" className='form-control text-center' style={{ width: "60px" }} />
+                                    <GrFormSubtract style={{ cursor: "pointer" }} onClick={() => handleDecreaseCount(itemProduct?._id)} />
+                                </div>
+                                <div className={styles.icon_del} onClick={() => handleDeleteCart(itemProduct?._id)}>
+                                    <AiFillDelete />
+                                </div>
+                            </div>
+                        </td>
+                        <td className='text-center py-3'>
+                            <h5 className={styles.cart_data_price}>{<p className={`${styles.price}`}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price * count)}</p>}</h5>
+                        </td>
+                    </tr>
+                    : <div className='align-items-center d-md-none d-flex border-bottom py-2'>
+                        <div className='col-3'>
+                            <div>
+                                {
+                                    itemProduct?.images[0] && <Image src={itemProduct?.images[0]} height={70} width={70} alt='img-product' />
+                                }
+                            </div>
                         </div>
-                        <div>
-                            {itemProduct?.title}
+                        <div className='col-9'>
+                            <div style={{ fontSize: "14px" }}>
+                                {itemProduct?.title}
+                            </div>
+                            <div className='d-flex align-items-center justify-content-between'>
+                                <div className='d-flex align-items-center justify-content-center py-3 gap-3'>
+                                    <div className='d-flex align-items-center'>
+                                        <AiOutlinePlus style={{ cursor: "pointer" }} onClick={() => handleIncreaseCount(itemProduct?._id)} />
+                                        <input value={count} disabled type="text" className='form-control text-center' style={{ width: "40px" }} />
+                                        <GrFormSubtract style={{ cursor: "pointer" }} onClick={() => handleDecreaseCount(itemProduct?._id)} />
+                                    </div>
+                                    <div className={styles.icon_del} onClick={() => handleDeleteCart(itemProduct?._id)}>
+                                        <AiFillDelete />
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 style={{ fontSize: "16px" }} className={styles.cart_data_price}>{<p className={`${styles.price}`}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price * count)}</p>}</h5>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </td>
-                <td className='py-3 text-center'>
-                    <p>{color ? color : "Cơ bản"}</p>
-                </td>
-                <td className='text-center py-3'>
-                    <h5 className={styles.cart_data_price}>{handlePrice(itemProduct?.price, itemProduct?.discount)}</h5>
-                </td>
-                <td className='py-3'>
-                    <div className='d-flex align-items-center justify-content-center py-3 gap-3'>
-                        <div className='d-flex align-items-center'>
-                            <AiOutlinePlus style={{ cursor: "pointer" }} onClick={() => handleIncreaseCount(itemProduct?._id)} />
-                            <input value={count} disabled type="text" className='form-control text-center' style={{ width: "60px" }} />
-                            <GrFormSubtract style={{ cursor: "pointer" }} onClick={() => handleDecreaseCount(itemProduct?._id)} />
-                        </div>
-                        <div className={styles.icon_del} onClick={() => handleDeleteCart(itemProduct?._id)}>
-                            <AiFillDelete />
-                        </div>
-                    </div>
-                </td>
-                <td className='text-center py-3'>
-                    <h5 className={styles.cart_data_price}>{<p className={`${styles.price}`}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price * count)}</p>}</h5>
-                </td>
-            </tr>
+            }
             {
                 isShowModal &&
                 <ModalConfirm setIsShowModalConfirm={setIsShowModalConfirm}

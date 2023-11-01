@@ -126,3 +126,11 @@
     color: black;
 }
 
+@media screen and (max-width: 400px) {
+    .main_banner_content h5{
+        font-size: 24px;
+    };
+    .small_banner_content{
+        top:10%;
+    }
+  }

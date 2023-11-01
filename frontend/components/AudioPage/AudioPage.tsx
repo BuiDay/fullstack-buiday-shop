@@ -50,7 +50,7 @@ const AudioPage: React.FC<IProps> = ({ data }) => {
         <div className={`store-wrapper home_wrapper_2 py-4`}>
             <div className="container-xxl">
                 <div className="row">
-                    <div className="col-3">
+                    <div className="col-md-3 col-12">
                         <div className="">
                             <div className={`${styles.filter_card} mb-3`}>
                                 <h3 className={styles.filter_tilte}>Chọn loại sản phẩm</h3>
@@ -268,7 +268,7 @@ const AudioPage: React.FC<IProps> = ({ data }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-9">
+                    <div className="col-md-9 col-12">
                         <div className="filter-sort-grid mb-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="d-flex align-items-center gap-10">

@@ -158,8 +158,8 @@ const Checkout: React.FC<IProps> = ({ carts }) => {
         <>
             <div className="checkout-wrapper py-4 home_wrapper_2">
                 <div className="container-xxl">
-                    <div className="row justify-content-between">
-                        <div className="col-6">
+                    <div className="row justify-content-between flex-md-row flex-column-reverse">
+                        <div className="col-md-6 col-12  mt-2">
                             <div className="checkout-left-data">
                                 <h4 className="title">Thông tin liên lạc</h4>
                                 {/* <p className='user-details'>buivanduynhat@gmail.com</p> */}
@@ -276,7 +276,7 @@ const Checkout: React.FC<IProps> = ({ carts }) => {
                                 </form>
                             </div>
                         </div>
-                        <div className="col-5">
+                        <div className="col-md-5 col-12">
                             {carts?.products &&
                                 carts.products.map((item: any, key) => {
                                     return <CheckoutItem product={item} key={item.productId} />;

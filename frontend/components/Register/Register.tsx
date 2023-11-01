@@ -56,11 +56,11 @@ const Register = () => {
     }
 
     return (
-        <div className="forgot-password-wrapper py-5 home-wrapper-2">
+        <div className="forgot-password-wrapper py-md-5 py-1 px-4 home_wrapper_2">
             <div className="row">
                 <div className="col-12">
                     <div className={styles.auth_card}>
-                        <h3 className='text-center mb-4'>Create Account</h3>
+                        <h3 className='text-center mb-4'>Tạo tài khoản</h3>
                         <form action="" className='d-flex flex-column' onSubmit={formik.handleSubmit}>
                             <div>
                                 <input type="text"
@@ -81,7 +81,7 @@ const Register = () => {
                             <div className='mt-3'>
                                 <input type="text"
                                     name='mobile'
-                                    placeholder='Mobile'
+                                    placeholder='Số điện thoại'
                                     className={`${styles.form_control} form-control`}
                                     onChange={formik.handleChange}
                                     value={formik.values.mobile}
@@ -114,7 +114,7 @@ const Register = () => {
                             <div className='mt-3'>
                                 <input type="password"
                                     name='password'
-                                    placeholder='Password'
+                                    placeholder='Mật khẩu'
                                     className={`${styles.form_control} form-control`}
                                     onChange={formik.handleChange("password")}
                                     value={formik.values.password}
@@ -131,7 +131,7 @@ const Register = () => {
                                 <input
                                     type="password"
                                     name='passwordConfirmation'
-                                    placeholder='Comfirm Password'
+                                    placeholder='Xác nhận lại mật khẩu'
                                     className={`${styles.form_control} form-control`}
                                     onChange={formik.handleChange("passwordConfirmation")}
                                     value={formik.values.passwordConfirmation}
@@ -148,8 +148,8 @@ const Register = () => {
                                 {isError}
                             </span>
                             <div className="mt-3 d-flex flex-column justify-content-center gap-15 align-items-center">
-                                <button type='submit' className={`${styles.button} button border-0`}>Create</button>
-                                <Link href='/login' className='forgot'>Cancel</Link>
+                                <button type='submit' className={`${styles.button} button border-0`}>Tạo</button>
+                                <Link href='/login' className='forgot'>Bỏ qua</Link>
                             </div>
                         </form>
                     </div>

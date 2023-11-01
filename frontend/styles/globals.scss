@@ -105,7 +105,7 @@ ul,li{
   font-size: 26px;
   line-height: 32px;
   font-weight: 500;
-  margin-bottom: 30px;
+  margin-bottom: 30px !important;
 }
 
 .button{
@@ -117,6 +117,8 @@ ul,li{
   text-transform: uppercase;
   transition: all 0.2s ease;
   cursor: pointer;
+  outline: none;
+  border: none;
 }
 
 .button:hover{
@@ -178,7 +180,7 @@ ul,li{
 
 .dropdown_list{
   position: absolute;
-  z-index: 99 ;
+  z-index: 999 ;
   background-color: white ;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   top:45px;
@@ -368,3 +370,34 @@ footer .input-group-text{
 //   width: 60%;
 // }
 
+@media screen and (max-width: 400px) {
+  .section-heading{
+    font-size: 22px;
+    margin-bottom: 10px !important;
+  }
+  .header-top-upper .header-top-upper img{
+    height: 25px;
+    width: 25px;
+  }
+  .button{
+    padding: 5px 10px;
+  }
+}
+
+@media screen and (min-width: 300px) {
+  .gr-4{
+      width: 48%;
+  };
+}
+
+@media screen and (min-width: 600px) {
+  .gr-4{
+      width: 32%;
+  };
+}
+
+@media screen and (min-width: 900px) {
+  .gr-4{
+      width: 24%;
+  };
+}

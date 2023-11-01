@@ -8,7 +8,7 @@ import Image from 'next/image';
 const Footer = () => {
     return (
         <>
-            <footer className='py-4'>
+            <footer className='py-4 d-md-block d-none'>
                 <div className="container-xxl">
                     <div className="row align-items-center">
                         <div className="col-5">
@@ -34,7 +34,7 @@ const Footer = () => {
             <footer className='py-4'>
                 <div className="container-xxl">
                     <div className="row">
-                        <div className="col-4 text-white">
+                        <div className="col-md-4 col-12 text-white">
                             <h4 className='mb-4'>Contact Us</h4>
                             <div className='footer-links d-flex flex-column'>
                                 <address>
@@ -42,7 +42,7 @@ const Footer = () => {
                                 </address>
                                 <Link href="#" className='text-white my-2'>09 3380 4785</Link>
                                 <Link href="#" className='text-white mt-3 mb-3'>buivanduynhat@gmail.com</Link>
-                                <div className='social-icons d-flex align-items-center gap-30'>
+                                <div className='social-icons d-flex align-items-center gap-30 mb-3 '>
                                     <Link href="#"  className='text-white fs-4' aria-label="Read more about Seminole tax hike">
                                         <BsLinkedin/>
                                     </Link>
@@ -58,7 +58,7 @@ const Footer = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-3 text-white">
+                        <div className="col-md-3 col-12 text-white">
                             <h4 className='mb-4'>Information</h4>
                             <div className='footer-links d-flex flex-column'>
                                 <Link href="/privacy-policy" className='text-white py-2 mb-1'>Privacy Policy</Link>
@@ -68,7 +68,7 @@ const Footer = () => {
                                 <Link href="/blogs" className='text-white py-2 mb-1'>Blogs</Link>
                             </div>
                         </div>
-                        <div className="col-3 text-white">
+                        <div className="col-md-3 col-12 text-white">
                             <h4 className='mb-4'>Account</h4>
                             <div className='footer-links d-flex flex-column'>
                                 <Link href="#" className='text-white py-2 mb-1'>About Us</Link>
@@ -76,7 +76,7 @@ const Footer = () => {
                                 <Link href="#" className='text-white py-2 mb-1'>Contact</Link>
                             </div>
                         </div>
-                        <div className="col-2 text-white">
+                        <div className="col-md-2 col-12 text-white">
                             <h4 className='mb-4'>Quick Links</h4>
                             <div className='footer-links d-flex flex-column'>
                                 <Link href="#"  className='text-white py-2 mb-1'>Laptops</Link>

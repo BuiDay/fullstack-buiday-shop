@@ -63,12 +63,7 @@ const ModalAddCart: React.FC<IProps> = ({ setIsShowModalConfirm, title, onClick,
     }
 
     const handleAddCount = () => {
-        if (isCount < data?.quantity) {
             setCount((pre) => pre + 1)
-        }
-        else {
-            setCount(data?.quantity)
-        }
     }
 
     const handleAddCart = async () => {
@@ -98,7 +93,7 @@ const ModalAddCart: React.FC<IProps> = ({ setIsShowModalConfirm, title, onClick,
         getCarts()
       }
   }
-       
+
     return ReactDOM.createPortal(
         <div
             className={styles.body_modal}
@@ -108,15 +103,14 @@ const ModalAddCart: React.FC<IProps> = ({ setIsShowModalConfirm, title, onClick,
                 onClick={(e) => {
                     e.stopPropagation()
                 }}
-                className='bg-white rounded-4 position-relative p-4'
-                style={{ maxHeight: "420px", maxWidth: "650px", width: "100%", height: "100%" }}
+                className='bg-white rounded-4 position-relative p-4 content_modal'
             >
                 <div onClick={() => setIsShowModalConfirm(false)} className={`text-end fs-4 position-absolute ${styles.modal_addCart__close}`} style={{ top: "0px", right: "10px" }}><AiFillCloseCircle /></div>
                 <div className='d-flex justify-content-center gap-2'>
                     <div>
                         <div className="container-xxl">
                             <div className="row">
-                                <div className="col-6">
+                                <div className="col-md-6 col-12 mb-md-0 mb-4">
                                     <div style={{
                                         display: 'flex',
                                         alignItems: 'center',
@@ -132,7 +126,7 @@ const ModalAddCart: React.FC<IProps> = ({ setIsShowModalConfirm, title, onClick,
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-6">
+                                <div className="col-md-6 col-12">
                                     <div className={styles.main_product_details}>
                                         <div className={styles.border_bottom}>
                                             <h5 className='title'>
@@ -195,9 +189,9 @@ const ModalAddCart: React.FC<IProps> = ({ setIsShowModalConfirm, title, onClick,
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className='text-end'>
+                                            {/* <div className='text-end'>
                                                 <span style={{ fontSize: "14px", color: "gray" }}>{`${data?.quantity} Sản phẩm sẵn có`}</span>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
 

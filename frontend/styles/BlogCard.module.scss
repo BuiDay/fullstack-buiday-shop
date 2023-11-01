@@ -1,0 +1,42 @@
+.blog_card{
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.blog_card img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.blog_content{
+    padding: 15px;
+}
+
+.blog_content .date{
+    font-size: 13px;
+    line-height: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: var(--color-777777);
+    padding: 0;
+}
+
+.blog_content h5{
+    font-size: 18px;
+    color: var(--color-131921);
+}
+
+.blog_content p.desc{
+    font-size: 13px;
+    line-height: 22px;
+    color: var(--color-777777);
+}
+
+.blog_btn{
+    padding: 8px 20px;
+    font-size: 12px;
+    margin-top: 30px;
+}
+

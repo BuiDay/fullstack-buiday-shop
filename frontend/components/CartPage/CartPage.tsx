@@ -38,18 +38,18 @@ const Cart: React.FC<IProps> = ({ carts }) => {
     }, [carts])
 
     const handleAddCartApi = () => {
-       if(carts.products.length > 0){
-        const getCarts = async () => {
-            const res: { code?: number, data?: any } = await userService.apiAddCart(carts.products) || ""
-            if (res.code === 1) {
-                console.log(res)
+        if (carts.products.length > 0) {
+            const getCarts = async () => {
+                const res: { code?: number, data?: any } = await userService.apiAddCart(carts.products) || ""
+                if (res.code === 1) {
+                    console.log(res)
+                }
             }
+            getCarts()
         }
-        getCarts()
-       }
     }
 
-    const handleCheckout =  () => {
+    const handleCheckout = () => {
         if (isLoggedIn) {
             setIsShowModalConfirm(false)
             router.push('/checkout')
@@ -64,9 +64,9 @@ const Cart: React.FC<IProps> = ({ carts }) => {
                 {carts && carts?.products.length > 0 ? (
                     <div className="container-xxl">
                         <div className="row">
-                            <div className="col-12">
+                            <div className="col-12 d-md-block d-none">
                                 <table className='w-100'>
-                                    <thead className={styles.cart_header}>
+                                    <thead className={`${styles.cart_header}`}>
                                         <tr className={`text-center`}>
                                             <td className={`${styles.cart_col_4} pb-3`}><h4>Sản phẩm</h4></td>
                                             <td className={`${styles.cart_col_2} pb-3`}><h4>Màu sắc</h4></td>
@@ -79,31 +79,41 @@ const Cart: React.FC<IProps> = ({ carts }) => {
                                         {
                                             carts?.products.length > 0 && carts?.products.map((item, index) => {
                                                 return (
-                                                    <CartItem listCarts={item} key={index} />
+                                                    <CartItem listCarts={item} key={index} view={1}/>
                                                 )
                                             })
                                         }
                                     </tbody>
                                 </table>
                             </div>
+                            <div>
+                                {
+                                    carts?.products.length > 0 && carts?.products.map((item, index) => {
+                                        return (
+                                            <CartItem listCarts={item} key={index} />
+                                        )
+                                    })
+                                }
+                            </div>
                             <div className="col-12 py-5 ">
                                 <div className=''>
-                                    <span className='button border-0' onClick={()=>window.history.back()}>Tiếp tục mua sắm</span>
+                                    <span className='button border-0' onClick={() => window.history.back()}>Tiếp tục mua sắm</span>
                                 </div>
                             </div>
                             <div className="col-12">
                                 <div className='d-flex justify-content-between align-items-baseline'>
-                                    <p>Order special instructions</p>
+                                    <p></p>
                                     <div className='d-flex flex-column gap-15 align-items-end'>
-                                        <h4 className='mb-0'>Tổng cộng:
+                                        <h4 className='mb-0 text-end'>Tổng cộng:
                                             <span className='fw-bold text-danger'> {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(carts.cartTotal || 0)}</span>
                                         </h4>
-                                        <p>Thuế và phí ship sẽ được tính ở phần thanh toán</p>
+                                        {/* <p>Thuế và phí ship sẽ được tính ở phần thanh toán</p> */}
                                         <div className='button' onClick={handleCheckout}>Thanh toán</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 ) :
                     <div className='text-center' style={{ height: "300px" }}><h5>Không có sản phẩm nào</h5></div>
@@ -116,7 +126,7 @@ const Cart: React.FC<IProps> = ({ carts }) => {
                     // postEdit = {postEdit} 
                     // handle = {handleDelete}
                     title='Bạn cần phải đăng nhập để thanh toán?'
-            />}
+                />}
             </div>
         </>
     );

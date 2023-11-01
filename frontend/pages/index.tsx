@@ -13,28 +13,28 @@ const HomePage = dynamic(() => import('@/components/HomePage/HomePage'));
 
 const Home = (props: any) => {
   const dispatch = useAppDispatch()
-  useEffect(() => {
-    const handleApi = async () => {
-      const resLaptop = productService.getLaptopProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
-      const resMobile = productService.getMobileProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
-      const resTablet = productService.getTabletProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
-      const resAudio = productService.getAudioProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
-      const resWatch = productService.getWatchProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
-      const resTivi = productService.getTiviProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
-      const resProducts = productService.getProducts({ limit: 5, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
+  // useEffect(() => {
+  //   const handleApi = async () => {
+  //     const resLaptop = productService.getLaptopProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
+  //     const resMobile = productService.getMobileProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
+  //     const resTablet = productService.getTabletProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
+  //     const resAudio = productService.getAudioProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
+  //     const resWatch = productService.getWatchProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
+  //     const resTivi = productService.getTiviProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
+  //     const resProducts = productService.getProducts({ limit: 5, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
 
-      await Promise.all([resLaptop, resMobile, resTablet, resAudio, resWatch, resTivi, resProducts]).then(function (values) {
-        dispatch(setLaptopProduct(values[0]));
-        dispatch(setMobilesProduct(values[1]));
-        dispatch(setTabletProduct(values[2]));
-        dispatch(setAudio(values[3]));
-        dispatch(setWatchProduct(values[4]));
-        dispatch(setTivi(values[5]));
-        dispatch(setProducts(values[6]));
-      });
-    }
-    handleApi()
-  }, [])
+  //     await Promise.all([resLaptop, resMobile, resTablet, resAudio, resWatch, resTivi, resProducts]).then(function (values) {
+  //       dispatch(setLaptopProduct(values[0]));
+  //       dispatch(setMobilesProduct(values[1]));
+  //       dispatch(setTabletProduct(values[2]));
+  //       dispatch(setAudio(values[3]));
+  //       dispatch(setWatchProduct(values[4]));
+  //       dispatch(setTivi(values[5]));
+  //       dispatch(setProducts(values[6]));
+  //     });
+  //   }
+  //   handleApi()
+  // }, [])
 
   return (
     <>
@@ -44,45 +44,44 @@ const Home = (props: any) => {
   )
 }
 
-// export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async ({ req, res, ...etc }) => {
-//   try {
-//     res.setHeader(
-//       'Cache-Control',
-//       'public, s-maxage=10, stale-while-revalidate=59'
-//     )
-//     const resLaptop = await productService.getLaptopProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
-//     store.dispatch(setLaptopProduct(resLaptop));
-//     // const resLaptop = productService.getLaptopProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
-//     // const resMobile = productService.getMobileProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
-//     // const resTablet = productService.getTabletProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
-//     // const resAudio = productService.getAudioProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
-//     // const resWatch = productService.getWatchProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
-//     // const resTivi = productService.getTiviProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
-//     // const resProducts = productService.getProducts({ limit: 5, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async ({ req, res, ...etc }) => {
+  try {
+    res.setHeader(
+      'Cache-Control',
+      'public, s-maxage=10, stale-while-revalidate=59'
+    )
+    
+    const resLaptop = productService.getLaptopProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
+    const resMobile = productService.getMobileProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
+    const resTablet = productService.getTabletProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
+    const resAudio = productService.getAudioProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
+    const resWatch = productService.getWatchProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
+    const resTivi = productService.getTiviProducts({ limit: 11, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
+    const resProducts = productService.getProducts({ limit: 5, sort: "-totalRating", fields: ["images", "title", "price", "discount", "totalRating", "display", "ram", "storage", "slug"] });
 
-//     // await Promise.all([resLaptop, resMobile, resTablet, resAudio, resWatch, resTivi, resProducts]).then(function (values) {
-//     //   store.dispatch(setLaptopProduct(values[0]));
-//     //   store.dispatch(setMobilesProduct(values[1]));
-//     //   store.dispatch(setTabletProduct(values[2]));
-//     //   store.dispatch(setAudio(values[3]));
-//     //   store.dispatch(setWatchProduct(values[4]));
-//     //   store.dispatch(setTivi(values[5]));
-//     //   store.dispatch(setProducts(values[6]));
-//     // });
+    await Promise.all([resLaptop, resMobile, resTablet, resAudio, resWatch, resTivi, resProducts]).then(function (values) {
+      store.dispatch(setLaptopProduct(values[0]));
+      store.dispatch(setMobilesProduct(values[1]));
+      store.dispatch(setTabletProduct(values[2]));
+      store.dispatch(setAudio(values[3]));
+      store.dispatch(setWatchProduct(values[4]));
+      store.dispatch(setTivi(values[5]));
+      store.dispatch(setProducts(values[6]));
+    });
 
-//     return {
-//       props: {
-//       }
-//     };
-//   } catch (error) {
-//     res.statusCode = 404;
-//     return {
-//       props: {
+    return {
+      props: {
+      }
+    };
+  } catch (error) {
+    res.statusCode = 404;
+    return {
+      props: {
 
-//       }
-//     };
-//   }
-// });
+      }
+    };
+  }
+});
 
 
 export default Home

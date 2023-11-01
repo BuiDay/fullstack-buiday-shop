@@ -17,6 +17,7 @@ import SpecialProducts from './SpecialProducts';
 import FeaturedProducts from './FeaturedProducts';
 import Category from './Category';
 import MarqueeBrands from './MarqueeBrands';
+import BlogCard from '../Common/BlogCard/BlogCard';
 
 // const MarqueeBrands = dynamic(() => import('./MarqueeBrands'),{ssr:false, loading: () => <p>Loading...</p>,} );
 // const SpecialProducts = dynamic(() => import('./SpecialProducts'),{ssr:false, loading: () => <p>Loading...</p>,});
@@ -48,9 +49,9 @@ const HomePage:React.FC<IProps> = () => {
 
   
             <FeaturedProducts products={mobile} title='Điện thoại nổi bật nhất'/>
-            <section className={`p-5`}>
+            <section className={`p-lg-5 p-3`}>
                 <div className="container-xxl">
-                    <div className="d-flex justify-content-between align-items-center">
+                    <div className="d-flex justify-md-content-between justify-content-center align-items-center flex-wrap gap-4">
                         <div className='d-flex align-items-center gap-15 '>
                             <Image src={Service} alt="Service" />
                             <div>
@@ -96,71 +97,71 @@ const HomePage:React.FC<IProps> = () => {
 
             <FeaturedProducts products={laptop} title='Laptop nổi bật nhất'/>
             <FeaturedProducts products={audio} title='Thiết bị âm thanh nổi bật nhất'/>
+{/* 
+            // <section className={`${styles.famous_wrapper} home-wrapper-2 py-5`}>
+            //     <div className="container-xxl">
+            //         <div className="row pt-4">
+            //             <div className="col-3">
+            //                 <div className={`${styles.famous_card} p-3 bg-dark`}>
+            //                     <div className={`${styles.famous_content} mb-3`}>
+            //                         <h5 className='text-white'>Big Screen</h5>
+            //                         <h6 className='text-white'>Smart Watch Series 8</h6>
+            //                         <p className='text-white'>Form $399</p>
+            //                     </div>
+            //                     <Image className='img-fluid' src={require('../../assets/images/apple-watch-series-8.png')} alt="apple-watch-series" />
+            //                 </div>
+            //             </div>
 
-            <section className={`${styles.famous_wrapper} home-wrapper-2 py-5`}>
-                <div className="container-xxl">
-                    <div className="row pt-4">
-                        <div className="col-3">
-                            <div className={`${styles.famous_card} p-3 bg-dark`}>
-                                <div className={`${styles.famous_content} mb-3`}>
-                                    <h5 className='text-white'>Big Screen</h5>
-                                    <h6 className='text-white'>Smart Watch Series 8</h6>
-                                    <p className='text-white'>Form $399</p>
-                                </div>
-                                <Image className='img-fluid' src={require('../../assets/images/apple-watch-series-8.png')} alt="apple-watch-series" />
-                            </div>
-                        </div>
+            //             <div className="col-3">
+            //                 <div className={`${styles.famous_card} p-3`}>
+            //                     <div className={`${styles.famous_content} mb-3`}>
+            //                         <h5>Studio Display</h5>
+            //                         <h6>600 nits of brightness</h6>
+            //                         <p>Form $399</p>
+            //                     </div>
+            //                     <Image className='img-fluid famous-img' src={require('../../assets/images/tab1.jpg')} alt="tab1" />
+            //                 </div>
+            //             </div>
 
-                        <div className="col-3">
-                            <div className={`${styles.famous_card} p-3`}>
-                                <div className={`${styles.famous_content} mb-3`}>
-                                    <h5>Studio Display</h5>
-                                    <h6>600 nits of brightness</h6>
-                                    <p>Form $399</p>
-                                </div>
-                                <Image className='img-fluid famous-img' src={require('../../assets/images/tab1.jpg')} alt="tab1" />
-                            </div>
-                        </div>
+            //             <div className="col-3">
+            //                 <div className={`${styles.famous_card} p-3`}>
+            //                     <div className={`${styles.famous_content} mb-3`}>
+            //                         <h5>Smartphone</h5>
+            //                         <h6>Iphone 13 Pro</h6>
+            //                         <p>Form $399</p>
+            //                     </div>
+            //                     <Image className='img-fluid famous-img' src={require('../../assets/images/png.monster-209.png')} alt="monster" />
+            //                 </div>
+            //             </div>
 
-                        <div className="col-3">
-                            <div className={`${styles.famous_card} p-3`}>
-                                <div className={`${styles.famous_content} mb-3`}>
-                                    <h5>Smartphone</h5>
-                                    <h6>Iphone 13 Pro</h6>
-                                    <p>Form $399</p>
-                                </div>
-                                <Image className='img-fluid famous-img' src={require('../../assets/images/png.monster-209.png')} alt="monster" />
-                            </div>
-                        </div>
-
-                        <div className="col-3">
-                            <div className={`${styles.famous_card} p-3`}>
-                                <div className={`${styles.famous_content} mb-3`}>
-                                    <h5>Home Speaker</h5>
-                                    <h6>Room-filling sound</h6>
-                                    <p>Form $399</p>
-                                </div>
-                                <Image className='img-fluid famous-img' src={require('../../assets/images/favpng_jbl-clip-2-loudspeaker-enclosure-wireless-speaker.png')} alt="speaker" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            //             <div className="col-3">
+            //                 <div className={`${styles.famous_card} p-3`}>
+            //                     <div className={`${styles.famous_content} mb-3`}>
+            //                         <h5>Home Speaker</h5>
+            //                         <h6>Room-filling sound</h6>
+            //                         <p>Form $399</p>
+            //                     </div>
+            //                     <Image className='img-fluid famous-img' src={require('../../assets/images/favpng_jbl-clip-2-loudspeaker-enclosure-wireless-speaker.png')} alt="speaker" />
+            //                 </div>
+            //             </div>
+            //         </div>
+            //     </div>
+            // </section> */}
 
            <FeaturedProducts products={tablet} title='Máy tính bảng nổi bật nhất' />
            <FeaturedProducts products={tivi} title='Ti vi nổi bật nhất'/>
             <MarqueeBrands />
 
-            <section className='blog-wrapper home-wrapper-2 py-5'>
+            <section className='blog-wrapper home_wrapper_2 py-5'>
                 <div className="container-xxl">
                     <div className="row">
                         <div className="col-12">
-                            <h3 className='section-heading'>Our Latest Blogs</h3>
+                            <h3 className='section-heading'>Tin tức công nghệ</h3>
                         </div>
-                       {/* <BlogCard />
                        <BlogCard />
                        <BlogCard />
-                       <BlogCard /> */}
+                       <BlogCard />
+                       <BlogCard />
                     </div>
                 </div>
             </section>

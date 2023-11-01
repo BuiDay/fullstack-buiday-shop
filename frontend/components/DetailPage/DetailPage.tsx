@@ -10,6 +10,7 @@ import { AiOutlineHeart } from 'react-icons/ai'
 import StarRatings from 'react-star-ratings';
 import { AiOutlinePlus } from 'react-icons/ai'
 import { GrFormSubtract } from 'react-icons/gr'
+import ModalAddCart from '../Common/ModalAddCart/ModalAddCart';
 
 const DetailPage = ({ data }: any) => {
     const { wishlist, carts } = useAppSelector(state => state.user)
@@ -17,7 +18,7 @@ const DetailPage = ({ data }: any) => {
     const [isNewRating, setIsNewRating] = useState<number>()
     const [isColor, setIsColor] = useState<string>()
     const [isCount, setCount] = useState(1)
-
+    const [isShowModalAddCart, setIsShowModalAddCart] = useState<boolean>(false)
     const handleColor = (color: string) => {
         setIsColor(color)
     }
@@ -58,28 +59,33 @@ const DetailPage = ({ data }: any) => {
 
     return (
         <div>
-            <div className="main-product-wrapper py-5 home_wrapper_2">
+            <div className="main-product-wrapper py-md-4 py-4 home_wrapper_2">
                 <div className="container-xxl">
                     <div className="row">
-                        <div className="col-6">
+                        <div className="col-md-6 col-12 mb-4">
                             <div style={{
-
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center'
                             }}>
                                 <div style={{
                                     borderRadius: "10px",
-                                    maxWidth: '580px',
+                                    maxWidth: '500px',
                                     width: "100%",
                                     backgroundColor: '#fff',
                                     padding: '20px'
                                 }}>
-                                    {data && <Slider images={data.images && data.images} slidesPerView={5} navigate={true} width={500} height={500}/>}
+                                    {data && (
+                                        <>
+                                        <div className='d-md-block d-none'><Slider images={data.images && data.images} slidesPerView={5} navigate={true} width={420} height={420}/></div>
+                                        <div className='d-md-none d-block'><Slider images={data.images && data.images} slidesPerView={5} navigate={true} width={280} height={280}/></div>
+                                        </>
+                                    )
+                                    }
                                 </div>
                             </div>
                         </div>
-                        <div className="col-6">
+                        <div className="col-md-6 col-12">
                             <div className={styles.main_product_details}>
                                 <div className={styles.border_bottom}>
                                     <h3 className='title'>
@@ -152,7 +158,7 @@ const DetailPage = ({ data }: any) => {
                                 </div>
 
                                 <div className="d-flex gap-15 align-items-center py-3 ">
-                                    <button className={`${styles.button} button border-0`}>Thêm vào giỏ hàng</button>
+                                    <button className={`${styles.button} button border-0`} onClick={() => { setIsShowModalAddCart(true)}}>Thêm vào giỏ hàng</button>
                                     <button className={`${styles.button} button border-0 ${styles.orange_color}`}>Mua ngay</button>
                                 </div>
 
@@ -210,7 +216,7 @@ const DetailPage = ({ data }: any) => {
                 </div>
             </div>
 
-            <section className='description-wrapper py-5 home_wrapper_2'>
+            <section className='description-wrapper py-md-5 py-2 home_wrapper_2'>
                 <div className="container-xxl">
                     <div className="row">
                         <div className="col-12">
@@ -245,7 +251,7 @@ const DetailPage = ({ data }: any) => {
                 </div>
             </section>
 
-            <section className={`${styles.reviews_wrapper} py-5 home_wrapper_2`}>
+            <section className={`${styles.reviews_wrapper} py-md-5 py-2 home_wrapper_2`}>
                 <div className="container-xxl">
                     <div className="row">
                         <div className="col-12">
@@ -274,7 +280,7 @@ const DetailPage = ({ data }: any) => {
                                 {/* {
                                         !isSuccess ? ( */}
                                 <div className={`${styles.review_form} py-4`} id="review">
-                                    <h4>Write a review</h4>
+                                    <h4>Viết đánh giá</h4>
                                     <form action="" className='d-flex flex-column gap-20'>
                                         <div>
                                             <StarRatings
@@ -289,7 +295,7 @@ const DetailPage = ({ data }: any) => {
                                             <textarea name="" id="" cols={30} rows={4} placeholder='Comments' className='w-100 form-control'></textarea>
                                         </div>
                                         <div className="mt-3 d-flex justify-content-end gap-15 align-items-center">
-                                            <button className='button border-0'>Submit Review</button>
+                                            <button className='button border-0'>Xác nhận</button>
                                         </div>
                                     </form>
                                 </div>
@@ -343,6 +349,9 @@ const DetailPage = ({ data }: any) => {
                     </div>
                 </div>
             </section> */}
+            {
+                isShowModalAddCart && <ModalAddCart setIsShowModalConfirm={setIsShowModalAddCart} titleBtn='Thêm' data={data} />
+            }
         </div>
     );
 };

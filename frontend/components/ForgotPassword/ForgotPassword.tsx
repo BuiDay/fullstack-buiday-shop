@@ -42,7 +42,7 @@ const ForgotPassword = () => {
 
 
     return (
-        <div className="forgot-password-wrapper py-5 home-wrapper-2">
+        <div className="forgot-password-wrapper py-md-5 py-1 px-4 home-wrapper-2">
             <div className="row">
                 <div className="col-12">
                     <div className={styles.auth_card}>
@@ -63,7 +63,7 @@ const ForgotPassword = () => {
                                 </div>
                                 <div className="mt-3 d-flex flex-column justify-content-center gap-15 align-items-center">
                                     <button type='submit' className={`${styles.button} ${styles.signup} button border-0`}>Xác nhận</button>
-                                    <Link href='/reset-password' className='forgot'>Bỏ qua</Link>
+                                    <Link href='/login' className='forgot'>Bỏ qua</Link>
                                 </div>
                             </form>
                         </>

@@ -52,7 +52,7 @@ const ResetPassword:React.FC<IProps> = ({token}) => {
       }
 
     return (
-        <div className="reset-password-wrapper py-5 home-wrapper-2">
+        <div className="reset-password-wrapper py-md-5 py-1 px-4 home_wrapper_2">
         <div className="row">
             <div className="col-12">
                 <div className={styles.auth_card}>

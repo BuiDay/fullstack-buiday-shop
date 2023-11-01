@@ -149,7 +149,7 @@ const Header: React.FC<IProps> = () => {
 
   return (
     <>
-      <header className="header-top-stric py-3">
+      <header className="header-top-stric py-3 d-md-block d-none">
         <div className="container-xxl">
           <div className="row">
             <div className="col-6">
@@ -170,12 +170,12 @@ const Header: React.FC<IProps> = () => {
             <div className="row align-items-center justify-content-between">
               <div className="col-2">
                 <h1 className="">
-                  <Link href="/" className="text-white">
+                  <Link href="/" className="text-white display-6" style={{whiteSpace:"nowrap"}}>
                     NHAT BUI
                   </Link>
                 </h1>
               </div>
-              <div className="col-5 w-25">
+              <div className="col-4 d-md-block d-none">
                 <div className="input-group py-2">
                   <input
                     type="text"
@@ -188,13 +188,13 @@ const Header: React.FC<IProps> = () => {
                   </span>
                 </div>
               </div>
-              <div className="col-5">
+              <div className="col-lg-5 col-3">
                 <div className="header-top-upper d-flex align-items-center justify-content-end gap-3">
                   <div>
                     <Link
                       href="/compare-products"
                       prefetch={false}
-                      className="d-flex align-items-center gap-10 text-white compare-products"
+                      className="align-items-center gap-10 text-white compare-products d-lg-flex d-none"
                     >
                       <Image src={Compare} alt="Compare Icon" />
                       <p>So sánh</p>
@@ -204,7 +204,7 @@ const Header: React.FC<IProps> = () => {
                     <Link
                       href="/wishlist"
                       prefetch={false}
-                      className="d-flex align-items-center gap-10 text-white wishlist"
+                      className="d-flex align-items-center gap-10 text-white wishlist d-lg-flex d-none"
                     >
                       <Image src={Wishlist} alt="Wishlist Icon" />
                       <p>Yêu thích</p>
@@ -215,9 +215,10 @@ const Header: React.FC<IProps> = () => {
                       <Link
                         href="/login"
                         prefetch={false}
-                        className="d-flex align-items-center gap-10 text-white user"
+                        className="align-items-center gap-10 text-white user d-flex"
+                        style={{whiteSpace:"nowrap"}}
                       >
-                        <Image src={User} alt="User Icon" />
+                        <Image src={User} alt="User Icon" width={10} height={10}/>
                         <p>Đăng nhập</p>
                       </Link>
                     </div>
@@ -227,7 +228,7 @@ const Header: React.FC<IProps> = () => {
                       <Image src={User} alt="" width={40} height={40} />
                       <div className="">
                         <div className={styles.dropdown_btn}>
-                          <p>Xin chào,</p>
+                          <p style={{whiteSpace:"nowrap"}}>Xin chào,</p>
                           <p className="displayName">{currentData?.data?.name}</p>
                         </div>
                         {
@@ -235,7 +236,7 @@ const Header: React.FC<IProps> = () => {
                           <div className="dropdown_list" style={{ top: "60px" }}>
                             <Link className="dropdown_item" href="/profile">View Profile</Link>
                             <Link className="dropdown_item" href="/history">History</Link>
-                            <Link className="dropdown_item" href="" onClick={() => { handleLogout() }}>Sign out</Link>
+                            <Link className="dropdown_item" href="#" onClick={() => { handleLogout() }}>Sign out</Link>
                           </div>
                         }
                       </div>
@@ -266,8 +267,8 @@ const Header: React.FC<IProps> = () => {
           <div className="row">
             <div className="col-12">
               <div className="menu-bottom d-flex align-items-center justify-content-between">
-                <div className="menu-links">
-                  <div className="d-none d-lg-flex align-items-center gap-20 ">
+                <div className="menu-links w-100">
+                  <div className="d-lg-flex d-none align-items-center gap-20">
                     <Link href="/">Trang chủ</Link>
                     {categories &&
                       categories?.map((item: any, index: number) => {
@@ -288,11 +289,11 @@ const Header: React.FC<IProps> = () => {
                               ></Image>
                               <span>{item.title}</span>
                             </Link>
-                            <div className="dropdown_list list-brands" style={{ borderRadius: "5px" }}>
+                            <div className="dropdown_list list-brands" style={{ borderRadius: "5px"}}>
                               <p className="px-2 py-1 fw-bold" style={{ fontSize: "14px" }}>Chọn theo hãng</p>
                               {
                                 item?.brands?.map((brand: { title: string, href: string }, index: number) => <>
-                                  <Link prefetch={false} className="dropdown_item" style={{ padding: "5px", paddingLeft: "15px" }} href={brand.href}>{brand.title}</Link>
+                                  <Link prefetch={false} className="dropdown_item" style={{ padding: "5px", paddingLeft: "15px" }} href={brand.href || "#"}>{brand.title}</Link>
                                 </>
                                 )
                               }
@@ -301,8 +302,33 @@ const Header: React.FC<IProps> = () => {
                         );
                       })}
                   </div>
+                  <div className="d-lg-none d-flex align-items-center gap-20 w-100" style={{overflowY:"auto"}}>
+                    <Link href="/">Trang chủ</Link>
+                    {categories &&
+                      categories?.map((item: any, index: number) => {
+                        return (
+                          <div key={index} className="dropdown categories">
+                            <Link
+                              className="dropdown_item"
+                              href={item.href ? `/${item.href}` : "#"}
+                              onClick={() => setIsShowDropdown(!isShowDropdown)}
+                              prefetch={false}
+                            >
+                              <Image
+                                src={item.icon}
+                                width={25}
+                                height={25}
+                                alt=""
+                                className="dropdown_icon img fluid"
+                              ></Image>
+                              <span>{item.title}</span>
+                            </Link>
+                          </div>
+                        );
+                      })}
+                  </div>
                 </div>
-                <div className="d-lg-none dropdown">
+                {/* <div className="d-lg-none dropdown">
                   <div
                     className="title-categories"
                     id="title-categories"
@@ -320,7 +346,7 @@ const Header: React.FC<IProps> = () => {
                       <Link className="dropdown_item" href="contact">Contact</Link>
                     </div>
                   )}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

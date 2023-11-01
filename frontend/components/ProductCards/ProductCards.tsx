@@ -35,10 +35,10 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
 
     const handlePrice = (price: number, discount: number) => {
         if (price !== 0 && discount !== 0)
-            return <>
+            return <div className='d-md-flex d-block'>
                 <p className={`${styles.price} text-danger`}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(discount)}</p>
                 <del className={`${styles.price}`} style={{ fontSize: "14px" }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}</del>
-            </>
+            </div>
         else if (price === 0 && discount !== 0) {
             return <>
                 <p className={`${styles.price} text-danger`}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(data?.discount)}</p>
@@ -46,7 +46,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
         }
         else
             return <>
-                <div className='d-flex align-items-center gap-2'>
+                <div className='d-md-flex d-block align-items-center gap-2'>
                     <div className='px-1 text-danger' style={{ background: "#feecf0", fontSize: "14px", textAlign: "center", borderRadius: "5px" }}>Hàng sắp về</div>
                     <p className={`${styles.price} text-danger`}>Giá liên hệ</p>
                 </div>
@@ -103,7 +103,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
                             <div className="d-flex flex-column gap-10">
                                 <div className={`${styles.wishlist_icon} position-absolute`}>
                                     <div data-tooltip-id="wishs-tooltip"
-                                        // data-tooltip-content={wishlist && wishlist.includes(data?._id) ? "Hủy yêu thích" : "Yêu thích"}
+                                        data-tooltip-content={wishlist && wishlist.includes(data?._id) ? "Hủy yêu thích" : "Yêu thích"}
                                         onClick={() => handleAddWishList(data?._id)}>
                                         {
                                             wishlist && wishlist.includes(data?._id) ? <BsHeartFill color='red' /> : <BsHeart color="black" />
@@ -113,8 +113,8 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
                                 </div>
                                 <div className={`${styles.action_bar_item} ${compare_products.id && compare_products.id.includes(data?._id) ? styles.active : ""}`}
                                     onClick={() => handleCompareProducts(data?._id)}
-                                    // data-tooltip-id="compare-tooltip"
-                                    // data-tooltip-content={compare_products.id && compare_products.id.includes(data?._id) ? "Hủy so sánh" : "So sánh"}
+                                    data-tooltip-id="compare-tooltip"
+                                    data-tooltip-content={compare_products.id && compare_products.id.includes(data?._id) ? "Hủy so sánh" : "So sánh"}
                                     >
                                     <Image src={Prodcompare} alt="" />
                                     {/* <Tooltip id="compare-tooltip" /> */}
@@ -124,7 +124,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
                                     onClick={() => { setIsShowModalAddCart(true) }}
                                     // data-tooltip-id="addcard-tooltip"
                                     // data-tooltip-content="Thêm vào giỏ hàng"
-                                    aria-label="AddCart"
+                                    // aria-label="AddCart"
                                     >
                                     <Image src={AddCart} alt="" />
                                     {/* <Tooltip id="addcard-tooltip" /> */}
@@ -159,7 +159,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
                                 <div className='d-flex gap-2 align-items-center'>
                                     {
                                         data.ram !== 0 && (
-                                            <div className='' style={{ fontSize: "12px", background: "#e9ecef", padding: "2px 5px", borderRadius: "7px", color: "black" }}>
+                                            <div className='' style={{ fontSize: "12px", background: "#e9ecef", padding: "2px 5px", borderRadius: "7px", color: "black",whiteSpace:"nowrap" }}>
                                                 {data.ram} GB
                                             </div>
                                         )
@@ -167,7 +167,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
 
                                     {
                                         data.display !== 0 && (
-                                            <div style={{ fontSize: "12px", background: "#e9ecef", padding: "2px 5px", borderRadius: "7px", color: "black" }}>
+                                            <div style={{ fontSize: "12px", background: "#e9ecef", padding: "2px 5px", borderRadius: "7px", color: "black" ,whiteSpace:"nowrap"}}>
                                                 {data.display} inch
                                             </div>
                                         )
@@ -175,7 +175,7 @@ const ProductCards: React.FC<IProps> = ({ grid, img, data }) => {
 
                                     {
                                         data.storage !== 0 && (
-                                            <div style={{ fontSize: "12px", background: "#e9ecef", padding: "2px 5px", borderRadius: "7px", color: "black" }}>
+                                            <div style={{ fontSize: "12px", background: "#e9ecef", padding: "2px 5px", borderRadius: "7px", color: "black" ,whiteSpace:"nowrap"}}>
                                                 {data.storage} GB
                                             </div>
                                         )

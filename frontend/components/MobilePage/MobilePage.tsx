@@ -46,10 +46,10 @@ const MobilePage:React.FC<IProps> = ({data,isLoading}) => {
         <div className={`store-wrapper home_wrapper_2 py-4`}>
             <div className="container-xxl">
                 <div className="row">
-                    <div className="col-3">
+                    <div className="col-md-3 col-12">
                        <SideBar />
-                    </div>
-                    <div className="col-9">
+                    </div> 
+                    <div className="col-md-9 col-12">
                         <div className="filter-sort-grid mb-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="d-flex align-items-center gap-10">
@@ -75,7 +75,7 @@ const MobilePage:React.FC<IProps> = ({data,isLoading}) => {
                             </div>
                         </div>
 
-                        <div className="products-list pb-5 d-flex flex-wrap gap-10">
+                        <div className="products-list pb-5 d-flex flex-wrap gap-md-10 gap-2">
                             {isLoading && <div className='d-flex w-100 justify-content-center'> <Loading /></div>}
                             {
                                products && products.length > 0 ? products?.map((item:any, index:any) => {

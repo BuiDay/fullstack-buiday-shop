@@ -7,8 +7,6 @@ import { useRouter } from 'next/router';
 
 const SideBar = () => {
     const router = useRouter()
-    const [persent1, setPersent1] = useState()
-    const [persent2, setPersent2] = useState()
     const handleSort = (value: string | number, title: string) => {
         if (value !== "All") {
             router.push(
