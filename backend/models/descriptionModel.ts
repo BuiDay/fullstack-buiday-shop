@@ -5,11 +5,9 @@ var descriptionSchema = new mongoose.Schema(
 
     features_description:{
         type:String,
-        required:true, 
     },
     detail_description:{
         type:String,
-        required:true, 
     },
     }
     ,{

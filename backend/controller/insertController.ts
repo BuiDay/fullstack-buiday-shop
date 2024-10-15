@@ -80,8 +80,8 @@ const fn = async (product:any) =>{
     await Product.create({
         title:product?.title[0] || "null",
         slug:slugify(product?.title[0] || "null"),
-        price:product?.price[0].price_through && Number(product?.price[0].price_through.match(/\d/g).join('')) || 0,
-        discount:product?.price[0].price_show &&  Number(product?.price[0].price_show.match(/\d/g).join('')) || 0,
+        price:product?.price[0]?.price_through && Number(product?.price[0]?.price_through.match(/\d/g).join('')) || 0,
+        discount:product?.price[0]?.price_show &&  Number(product?.price[0]?.price_show.match(/\d/g).join('')) || 0,
         category:product?.category[0] || "null",
         brand:product?.brand[0] || "null",
         color:product?.colors || "null",
@@ -109,8 +109,8 @@ const fn = async (product:any) =>{
 
     await Description.create({
         _id:newIdDes,
-        features_description:product?.description[0].features_des && product?.description[0].features_des || "",
-        detail_description:product?.description[0].features_detail &&  product?.description[0].features_detail || ""
+        features_description:product?.description[0]?.features_des && product?.description[0]?.features_des || "",
+        detail_description:product?.description[0]?.features_detail &&  product?.description[0]?.features_detail || ""
     })
 
     await Image.create({
@@ -138,13 +138,13 @@ export const insertProduct= asyncHandler(async (req:Request, res:Response):Promi
     //      }
     // }
 
-    // const arrayLaptop = [apple_laptop,hp_laptop,acer_laptop,asus_laptop,dell_laptop,lenovo_laptop]
+    const arrayLaptop = [apple_laptop,hp_laptop,acer_laptop,asus_laptop,dell_laptop,lenovo_laptop]
     
-    // for (let i of arrayLaptop){
-    //     for (let product of i) {
-    //         await promies.push(fn(product))
-    //      }
-    // }
+    for (let i of arrayLaptop){
+        for (let product of i) {
+            await promies.push(fn(product))
+         }
+    }
 
     // const arrayTablet = [book_tablet,apple_tablet,xiaomi_tablet,nokia_tablet,samsung_tablet,lenovo_tablet,oppo_table]
     
@@ -184,13 +184,13 @@ export const insertProduct= asyncHandler(async (req:Request, res:Response):Promi
 
 
 
-  const arrayTivi= [ samsung_tivi,toshiba_tivi,xiaomi_tivi]
+//   const arrayTivi= [ samsung_tivi,toshiba_tivi,xiaomi_tivi]
     
-    for (let i of arrayTivi){
-        for (let product of i) {
-            await promies.push(fn(product))
-         }
-    }
+//     for (let i of arrayTivi){
+//         for (let product of i) {
+//             await promies.push(fn(product))
+//          }
+//     }
 
     await Promise.all(promies)
     return res.json("Done")
