@@ -14,7 +14,7 @@ import ModalAddCart from '../Common/ModalAddCart/ModalAddCart';
 
 const DetailPage = ({ data }: any) => {
     const { wishlist, carts } = useAppSelector(state => state.user)
-    const [isShowDes, setIsShowDes] = useState(false)
+    const [isShowDes, setIsShowDes] = useState(true)
     const [isNewRating, setIsNewRating] = useState<number>()
     const [isColor, setIsColor] = useState<string>()
     const [isCount, setCount] = useState(1)
@@ -26,20 +26,20 @@ const DetailPage = ({ data }: any) => {
     const handleMinusCount = () => {
         if (isCount > 1) {
             setCount((pre) => pre - 1)
-        }else{
+        } else {
             setCount(1);
         }
     }
 
     const handleAddCount = () => {
-        if(isCount < data?.quantity){
+        if (isCount < data?.quantity) {
             setCount((pre) => pre + 1)
         }
-        else{
+        else {
             setCount(data?.quantity)
         }
     }
-    
+
     const handlePrice = (price: number, discount: number) => {
         if (price !== 0 && discount !== 0)
             return <>
@@ -77,8 +77,8 @@ const DetailPage = ({ data }: any) => {
                                 }}>
                                     {data && (
                                         <>
-                                        <div className='d-md-block d-none'><Slider images={data.images && data.images} slidesPerView={5} navigate={true} width={420} height={420}/></div>
-                                        <div className='d-md-none d-block'><Slider images={data.images && data.images} slidesPerView={5} navigate={true} width={280} height={280}/></div>
+                                            <div className='d-md-block d-none' ><Slider images={data.images && data.images} slidesPerView={5} navigate={true} width={420} height={420} /></div>
+                                            <div className='d-md-none d-block'><Slider images={data.images && data.images} slidesPerView={5} navigate={true} width={280} height={280} /></div>
                                         </>
                                     )
                                     }
@@ -145,23 +145,33 @@ const DetailPage = ({ data }: any) => {
                                                 className='form-control'
                                                 style={{ width: "35px", height: "35px", fontSize: "18px", textAlign: "center", padding: "0", border: "none" }}
                                             /></label>
-                                          
+
                                             <div className={styles.btn_input} onClick={() => handleMinusCount()}>
                                                 <GrFormSubtract />
                                             </div>
+                                          
                                         </div>
+                                        <button style={{background:"#633bd4"}} className={`${styles.button} button border-0`} onClick={() => { setIsShowModalAddCart(true) }}>Thêm vào giỏ hàng</button>
                                     </div>
                                 </div>
 
-                                <div className={`${styles.border_bottom} py-3`}>
-                                    <div className='detail_technical' dangerouslySetInnerHTML={{ __html: `${data?.technicalInfo && data?.technicalInfo.technicalInfo}` }} />
+                                <div className="d-flex gap-15 align-items-center py-3 justify-content-center">
+                                    <button className={`${styles.button} button border-0 ${styles.orange_color}`} style={{background:"#ea55e0",color:"white"}}>
+                                        <p style={{fontWeight:"600",fontSize:"16px",}}> Mua ngay</p>
+                                        <p>Giao hàng tận nhà hoặc Nhận tại cửa hàng</p>
+                                    </button>
                                 </div>
-
-                                <div className="d-flex gap-15 align-items-center py-3 ">
-                                    <button className={`${styles.button} button border-0`} onClick={() => { setIsShowModalAddCart(true)}}>Thêm vào giỏ hàng</button>
-                                    <button className={`${styles.button} button border-0 ${styles.orange_color}`}>Mua ngay</button>
+                                <div className="d-flex gap-15 align-items-center justify-content-center">
+                                    <button className={`${styles.button} button border-0 `} style={{background:"#633bd4",color:"white",width:"50%"}}>
+                                        <p style={{fontWeight:"600",fontSize:"14px",}}> Liên hệ</p>
+                                        <p>Đặt hàng</p>
+                                    </button>
+                                    <button className={`${styles.button} button border-0 `} style={{background:"#633bd4",color:"white",width:"50%"}}>
+                                        <p style={{fontWeight:"600",fontSize:"14px",}}>Mua trả góp</p>
+                                        <p>Thủ tục đơn giản</p>
+                                    </button>
                                 </div>
-
+{/* 
                                 <div className='d-flex gap-15 align-items-center mb-4'>
                                     <div>
                                         <a href="">
@@ -175,7 +185,7 @@ const DetailPage = ({ data }: any) => {
                                             Thêm vào yêu thích
                                         </a>
                                     </div>
-                                </div>
+                                </div> */}
 
 
                                 {/* <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -219,8 +229,8 @@ const DetailPage = ({ data }: any) => {
             <section className='description-wrapper py-md-5 py-2 home_wrapper_2'>
                 <div className="container-xxl">
                     <div className="row">
-                        <div className="col-12">
-                            <h4 className='mb-4'>Thông tin mô tả</h4>
+                        <div className="col-8">
+                            {/* <h4 className='mb-4'>Thông tin mô tả</h4> */}
                             <div className="bg-white p-4 " style={{ borderRadius: "10px" }}>
                                 <div className='p-3 px-5' style={{ background: "#f2f2f2", borderRadius: "10px" }}>
                                     <p>
@@ -246,6 +256,13 @@ const DetailPage = ({ data }: any) => {
 
 
                             </div>
+                        </div>
+                        <div className="col-4" >
+                            <div className={`${styles.border_bottom} p-3`} style={{ background: "white",borderRadius: "10px" }}>
+                                <h4 className='mb-4' style={{ background: "white",fontSize:"18px" }}>Thông tin số kỹ thuật</h4>
+                                <div className='detail_technical' dangerouslySetInnerHTML={{ __html: `${data?.technicalInfo && data?.technicalInfo.technicalInfo}` }} />
+                            </div>
+
                         </div>
                     </div>
                 </div>

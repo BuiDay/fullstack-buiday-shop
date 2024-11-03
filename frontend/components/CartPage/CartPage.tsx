@@ -38,7 +38,7 @@ const Cart: React.FC<IProps> = ({ carts }) => {
     }, [carts])
 
     const handleAddCartApi = () => {
-        if (carts.products.length > 0) {
+        if (carts?.products.length > 0) {
             const getCarts = async () => {
                 const res: { code?: number, data?: any } = await userService.apiAddCart(carts.products) || ""
                 if (res.code === 1) {

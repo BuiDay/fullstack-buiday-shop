@@ -30,7 +30,7 @@
 }
 
 .small_banner{
-    width: 49%;
+    width: 100%;
 }
 
 .small_banner_content{
@@ -63,7 +63,7 @@
 }
 
 .home_wrapper_2{
-    background-color: var(--color-f7f7f7);
+    background-color: #fef9ca;
     user-select: none;
 }
 
@@ -134,3 +134,14 @@
         top:10%;
     }
   }
+
+.main_menu{
+
+}
+
+.main_menu_content{
+    background: white;
+    height: 100%;
+    padding: 10px;
+    border-radius: 20px;
+}

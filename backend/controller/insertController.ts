@@ -130,7 +130,7 @@ export const insertProduct= asyncHandler(async (req:Request, res:Response):Promi
     let promies = []
     
 
-    // const arrayMobile = [apple_mobile, oppo_mobile,xiaomi_mobile,asus_mobile,realme_mobile,samsung_mobile,vivo_mobile,nokia_mobile]
+    // const arrayMobile = [apple_mobile]
     
     // for (let i of arrayMobile){
     //     for (let product of i) {
@@ -138,7 +138,7 @@ export const insertProduct= asyncHandler(async (req:Request, res:Response):Promi
     //      }
     // }
 
-    const arrayLaptop = [apple_laptop,hp_laptop,acer_laptop,asus_laptop,dell_laptop,lenovo_laptop]
+    const arrayLaptop = [apple_laptop]
     
     for (let i of arrayLaptop){
         for (let product of i) {
@@ -146,29 +146,29 @@ export const insertProduct= asyncHandler(async (req:Request, res:Response):Promi
          }
     }
 
-    // const arrayTablet = [book_tablet,apple_tablet,xiaomi_tablet,nokia_tablet,samsung_tablet,lenovo_tablet,oppo_table]
+    const arrayTablet = [apple_tablet]
     
-    // for (let i of arrayTablet){
-    //     for (let product of i) {
-    //         await promies.push(fn(product))
-    //      }
-    // }
+    for (let i of arrayTablet){
+        for (let product of i) {
+            await promies.push(fn(product))
+         }
+    }
 
-    // const arrayWatch = [apple_watch,samsung_watch,xiaomi_watch,amazfit_watch,coros_watch, garmin_watch]
+    const arrayWatch = [apple_watch]
     
-    // for (let i of arrayWatch){
-    //     for (let product of i) {
-    //         await promies.push(fn(product))
-    //      }
-    // }
+    for (let i of arrayWatch){
+        for (let product of i) {
+            await promies.push(fn(product))
+         }
+    }
 
-    // const arrayHeadphone = [apple_headphone,jbl_headphone,lg_headphone,samsung_headphone,sony_headphone,soundpeats_headphone,xiaomi_headphone]
+    const arrayHeadphone = [apple_headphone]
     
-    // for (let i of arrayHeadphone){
-    //     for (let product of i) {
-    //         await promies.push(fn(product))
-    //      }
-    // }
+    for (let i of arrayHeadphone){
+        for (let product of i) {
+            await promies.push(fn(product))
+         }
+    }
 
 
 

@@ -7,6 +7,7 @@ import Wishlist from "../../assets/images/wishlist.svg";
 import User from "../../assets/images/user.svg";
 import Cart from "../../assets/images/cart.svg";
 import Menu from "../../assets/images/menu.svg";
+import Logo from "../../assets/images/logo.png";
 import { useAppDispatch } from "@/redux/hook";
 import { useEffect } from "react";
 import { RootState } from "@/redux/store";
@@ -20,6 +21,10 @@ import { getUser, getCart, addWishlist } from "@/redux/features/user/userSilce";
 import { useRouter } from "next/router";
 import userService from "@/redux/features/user/userService";
 import toast from "react-hot-toast";
+import { PiPhoneLight } from "react-icons/pi";
+import { CiLocationOn } from "react-icons/ci";
+import { LuUser } from "react-icons/lu";
+import { CiShoppingCart } from "react-icons/ci";
 
 interface IProps {
   isLoggedIn?: boolean;
@@ -109,25 +114,25 @@ const Header: React.FC<IProps> = () => {
     if (currentData.status === "error")
       setTimeout(() => {
         dispatch(logout());
-        getCarts(); 
+        getCarts();
       }, 1000);
   }, []);
-  
-  useEffect(()=>{
-    const handleAddWishList = async () => {
-        if (isLoggedIn) {
-            const res:any = await userService.getUser()
-            if (res.code === 1) {
-                dispatch(addWishlist(res.data.wishlist))
-        
-            }
-        }
-    }
-    handleAddWishList ()
-},[])
 
- useEffect(()=>{
-    if(!isLoggedIn){
+  useEffect(() => {
+    const handleAddWishList = async () => {
+      if (isLoggedIn) {
+        const res: any = await userService.getUser()
+        if (res.code === 1) {
+          dispatch(addWishlist(res.data.wishlist))
+
+        }
+      }
+    }
+    handleAddWishList()
+  }, [])
+
+  useEffect(() => {
+    if (!isLoggedIn) {
       try {
         const cart = JSON.parse(localStorage?.getItem("carts" || " ") || " ")
         dispatch(getCart(cart))
@@ -135,11 +140,11 @@ const Header: React.FC<IProps> = () => {
         console.log(error)
       }
     }
- },[])
+  }, [])
 
 
   const getCarts = async () => {
-    if(isLoggedIn){
+    if (isLoggedIn) {
       const res: { code?: number, data?: any } = await userService.apiGetCart() || ""
       if (res.code === 1) {
         dispatch(getCart(res.data))
@@ -149,7 +154,7 @@ const Header: React.FC<IProps> = () => {
 
   return (
     <>
-      <header className="header-top-stric py-3 d-md-block d-none">
+      {/* <header className="header-top-stric py-3 d-md-block d-none">
         <div className="container-xxl">
           <div className="row">
             <div className="col-6">
@@ -161,35 +166,110 @@ const Header: React.FC<IProps> = () => {
               <p className="text-end m-0 text-white">Hot line: 0933 804 785</p>
             </div>
           </div>
-        </div>
-      </header>
-      
+        </div> 
+      </header> */}
+
       <header>
-        <div className="header-top-upper py-3">
+        <div className="header-top-upper" style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "70px", background: "white" }}>
           <div className="container-xxl">
             <div className="row align-items-center justify-content-between">
-              <div className="col-2">
-                <h1 className="">
-                  <Link href="/" className="text-white display-6" style={{whiteSpace:"nowrap"}}>
-                    NHAT BUI
-                  </Link>
-                </h1>
-              </div>
-              <div className="col-4 d-md-block d-none">
-                <div className="input-group py-2">
-                  <input
-                    type="text"
-                    className="form-control "
-                    placeholder="Search product here..."
-                    onChange={(e) => setKeyword(e.target.value)}
-                  />
-                  <span className="input-group-text py-3" style={{ cursor: "pointer" }} onClick={handleSearch} >
-                    <BsSearch className="fs-6" />
-                  </span>
+              <div className="col-3">
+                <div style={{ display: "flex", justifyContent: "start", alignItems: "center" }}>
+                  <div className="" style={{ maxWidth: "50px", width: "100%", marginRight: "10px" }}>
+                    <Image src={Logo} alt="logo" style={{ width: "100%", height: "100%" }} />
+                  </div>
+                  <h1 className="" style={{display:"flex",justifyContent:"center",alignItems:"center",padding:"2px 10px",borderRadius:"8px",background:"white"}}>
+                    <Link href="/" className="" style={{ whiteSpace: "nowrap",fontSize:"14px",fontWeight:"700",color:"#633bd4"}}>
+                     TAO YAI TAO YOU
+                    </Link>
+                  </h1>
                 </div>
               </div>
-              <div className="col-lg-5 col-3">
-                <div className="header-top-upper d-flex align-items-center justify-content-end gap-3">
+              <div className="col-9 row align-items-center justify-content-end">
+                <div className="col-3 d-md-block d-none">
+                  <div className="input-group py-1">
+                    <input
+                      type="text"
+                      className="form-control "
+                      placeholder="Tìm kiếm..."
+                      style={{ height: "30px", }}
+                      onChange={(e) => setKeyword(e.target.value)}
+                    />
+                    <span className="input-group-text py-1" style={{ cursor: "pointer" }} onClick={handleSearch} >
+                      <BsSearch className="fs-5" />
+                    </span>
+                  </div>
+                </div>
+                <div className="col-lg-6 col-8">
+                  <div className="header-top-upper d-flex align-items-center justify-content-end gap-3">
+                    <div>
+                      <Link
+                        href="/compare-products"
+                        prefetch={false}
+                        className="align-items-center gap-10 compare-products d-lg-flex d-none text-black"
+                      >
+                        <PiPhoneLight size={24} color="#633bd4"/>
+                        <div>
+                          <p style={{ fontWeight: "400" ,color:"#633bd4"}}>So sánh</p>
+                          <p style={{ fontWeight: "600" ,color:"#633bd4"}}>0908295283</p>
+                        </div>
+                      </Link>
+                    </div>
+                    <div>
+                      <Link
+                        href="/wishlist"
+                        prefetch={false}
+                        className="d-flex align-items-center gap-1 wishlist d-lg-flex d-none text-black"
+                      >
+                        <CiLocationOn size={24} color="#633bd4"/>
+                        <p style={{ fontWeight: "400",whiteSpace: "nowrap",color:"#633bd4"}}>Về chúng tôi</p>
+                      </Link>
+                    </div>
+                    <ShowOnLogout isLoggedIn={isLoggedIn}>
+                      <div>
+                        <Link
+                          href="/login"
+                          prefetch={false}
+                          className="align-items-center gap-1 user d-flex text-black"
+                          style={{ whiteSpace: "nowrap" }}
+                        >
+                          <LuUser color="#633bd4"/>
+                          <p style={{ fontWeight: "400",whiteSpace: "nowrap",color:"#633bd4"}}>Đăng nhập</p>
+                        </Link>
+                      </div>
+                    </ShowOnLogout>
+                    <ShowOnLogin isLoggedIn={isLoggedIn}>
+                      <div className="d-flex align-items-center gap-10  me-3 user dropdown" id="title-profile" ref={dropdownProfile} onClick={() => setIsShowProfileDropdown(!isShowProfileDropdown)}>
+                        <Image src={User} alt="" width={40} height={40} />
+                        <div className="">
+                          <div className={styles.dropdown_btn}>
+                            <p style={{ whiteSpace: "nowrap" }}>Xin chào,</p>
+                            <p className="displayName">{currentData?.data?.name}</p>
+                          </div>
+                          {
+                            isShowProfileDropdown &&
+                            <div className="dropdown_list" style={{ top: "60px" }}>
+                              <Link className="dropdown_item" href="/profile">View Profile</Link>
+                              <Link className="dropdown_item" href="/history">History</Link>
+                              <Link className="dropdown_item" href="#" onClick={() => { handleLogout() }}>Sign out</Link>
+                            </div>
+                          }
+                        </div>
+                      </div>
+                    </ShowOnLogin>
+                    <div className="position-relative">
+                      <Link
+                        href="/cart"
+                        className="d-flex align-items-center gap-10 text-black"
+                        prefetch={false}
+                      >
+                        {/* <Image src={Cart} alt="Cart Icon" /> */}
+                        <CiShoppingCart size={25} color="#633bd4"/>
+                        <div className="badge bg-danger text-white position-absolute bottom-50 start-50">{carts?.productsTotal ? carts?.productsTotal : 0}</div>
+                      </Link>
+                    </div>
+                  </div>
+                  {/* <div className="header-top-upper d-flex align-items-center justify-content-end gap-3">
                   <div>
                     <Link
                       href="/compare-products"
@@ -216,9 +296,9 @@ const Header: React.FC<IProps> = () => {
                         href="/login"
                         prefetch={false}
                         className="align-items-center gap-10 text-white user d-flex"
-                        style={{whiteSpace:"nowrap"}}
+                        style={{ whiteSpace: "nowrap" }}
                       >
-                        <Image src={User} alt="User Icon" width={10} height={10}/>
+                        <Image src={User} alt="User Icon" width={10} height={10} />
                         <p>Đăng nhập</p>
                       </Link>
                     </div>
@@ -228,7 +308,7 @@ const Header: React.FC<IProps> = () => {
                       <Image src={User} alt="" width={40} height={40} />
                       <div className="">
                         <div className={styles.dropdown_btn}>
-                          <p style={{whiteSpace:"nowrap"}}>Xin chào,</p>
+                          <p style={{ whiteSpace: "nowrap" }}>Xin chào,</p>
                           <p className="displayName">{currentData?.data?.name}</p>
                         </div>
                         {
@@ -250,21 +330,22 @@ const Header: React.FC<IProps> = () => {
                     >
                       <Image src={Cart} alt="Cart Icon" />
                       <div className="badge bg-white text-dark position-absolute bottom-50 start-50">{carts?.productsTotal ? carts?.productsTotal : 0}</div>
-                      {/* <div className="">
+                      <div className="">
                         <span className='badge bg-white text-dark'>{totalQuantity ? totalQuantity : "0"}</span>
                         <p>{cartTotalAmount ? cartTotalAmount :"0"}$</p>
-                      </div> */}
+                      </div>
                     </Link>
                   </div>
+                </div> */}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </header>
-      <header className="header-bottom">
-        <div className="container-xxl">
-          <div className="row">
+      {/* <header className="header-bottom">
+        <div className="container-xxl"> */}
+          {/* <div className="row">
             <div className="col-12">
               <div className="menu-bottom d-flex align-items-center justify-content-between">
                 <div className="menu-links w-100">
@@ -289,7 +370,7 @@ const Header: React.FC<IProps> = () => {
                               ></Image>
                               <span>{item.title}</span>
                             </Link>
-                            <div className="dropdown_list list-brands" style={{ borderRadius: "5px"}}>
+                            <div className="dropdown_list list-brands" style={{ borderRadius: "5px" }}>
                               <p className="px-2 py-1 fw-bold" style={{ fontSize: "14px" }}>Chọn theo hãng</p>
                               {
                                 item?.brands?.map((brand: { title: string, href: string }, index: number) => <>
@@ -302,7 +383,7 @@ const Header: React.FC<IProps> = () => {
                         );
                       })}
                   </div>
-                  <div className="d-lg-none d-flex align-items-center gap-20 w-100" style={{overflowY:"auto"}}>
+                  <div className="d-lg-none d-flex align-items-center gap-20 w-100" style={{ overflowY: "auto" }}>
                     <Link href="/">Trang chủ</Link>
                     {categories &&
                       categories?.map((item: any, index: number) => {
@@ -328,7 +409,7 @@ const Header: React.FC<IProps> = () => {
                       })}
                   </div>
                 </div>
-                {/* <div className="d-lg-none dropdown">
+                <div className="d-lg-none dropdown">
                   <div
                     className="title-categories"
                     id="title-categories"
@@ -346,12 +427,12 @@ const Header: React.FC<IProps> = () => {
                       <Link className="dropdown_item" href="contact">Contact</Link>
                     </div>
                   )}
-                </div> */}
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </header >
+          </div> */}
+        {/* </div>
+      </header > */}
     </>
   );
 };

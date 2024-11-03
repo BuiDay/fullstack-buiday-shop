@@ -5,63 +5,63 @@ import { Navigation, Thumbs } from 'swiper'
 import { useState } from 'react'
 import Image from 'next/image';
 
-interface IProps{
-    images:[]
-    slidesPerView?:number,
-    navigate?:boolean,
-    width:number,
-    height:number,
+interface IProps {
+    images: []
+    slidesPerView?: number,
+    navigate?: boolean,
+    width: number,
+    height: number,
 }
 
-const Slider:React.FC<IProps> = ({images,slidesPerView,navigate,width,height}) => {
-    
+const Slider: React.FC<IProps> = ({ images, slidesPerView, navigate, width, height }) => {
+
     const [activeThumb, setActiveThumb] = useState<any>(null)
-    const handle = (e:any) =>{
+    const handle = (e: any) => {
         setActiveThumb(e)
     }
     return (
         <div>
-             <Swiper
-            loop={true}
-            spaceBetween={10}
-            navigation={navigate}
-            modules={[Navigation, Thumbs]}
-            grabCursor={true}
-            thumbs={{ swiper: activeThumb && !activeThumb.destroyed ? activeThumb : null }}
-            className='product-images-slider'
-        >
-            {
-               images && images.map((item, index) => (
-                    <SwiperSlide key={index}>                    
-                    {
-                        item &&   <Image src={item} alt="product images" className='' width={width} height={height} />
-                    }
-                    </SwiperSlide>
-                ))
-            }
-        </Swiper>
-
-
-        <Swiper
-            onSwiper={(e)=>{handle((e))}}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={slidesPerView}
-            modules={[Navigation, Thumbs]}
-            className='product-images-slider-thumbs'
-        >
-            {
-             images && images.map((item, index) => (
-                    <SwiperSlide key={index}>
-                        <div className="product-images-slider-thumbs-wrapper">
+            <Swiper
+                loop={true}
+                spaceBetween={10}
+                navigation={navigate}
+                modules={[Navigation, Thumbs]}
+                grabCursor={true}
+                thumbs={{ swiper: activeThumb && !activeThumb.destroyed ? activeThumb : null }}
+                className='product-images-slider'
+            >
+                {
+                    images && images.map((item, index) => (
+                        <SwiperSlide key={index}>
                             {
-                                item && <Image src={item} alt="product images" width={ slidesPerView === 2 ? width / 2.25 : width / 5.25} height={slidesPerView === 2 ? width / 2.25 :height / 5.25}/>
+                                item && <Image src={item} alt="product images" className='' width={width} height={height} />
                             }
-                        </div>
-                    </SwiperSlide>
-                ))
-            }
-        </Swiper>
+                        </SwiperSlide>
+                    ))
+                }
+            </Swiper>
+
+
+            <Swiper
+                onSwiper={(e) => { handle((e)) }}
+                loop={true}
+                spaceBetween={10}
+                slidesPerView={slidesPerView}
+                modules={[Navigation, Thumbs]}
+                className='product-images-slider-thumbs'
+            >
+                {
+                    images && images.map((item, index) => (
+                        <SwiperSlide key={index}>
+                            <div className="product-images-slider-thumbs-wrapper">
+                                {
+                                    item && <Image src={item} alt="product images" width={slidesPerView === 2 ? width / 2.25 : width / 5.25} height={slidesPerView === 2 ? width / 2.25 : height / 5.25} />
+                                }
+                            </div>
+                        </SwiperSlide>
+                    ))
+                }
+            </Swiper>
         </div>
     );
 };

@@ -270,7 +270,7 @@ const Checkout: React.FC<IProps> = ({ carts }) => {
                                                 <BiArrowBack className="me-2" />
                                                 Return to Cart
                                             </Link>
-                                            <button className="button" type='submit' style={{ outline: "none", border: "none" }}>Thanh toán</button>
+                                            <button className="button" type='submit' style={{ outline: "none", border: "none",background:"#633bd4" }}>Thanh toán</button>
                                         </div>
                                     </div>
                                 </form>

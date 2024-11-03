@@ -56,6 +56,7 @@ const Category = () => {
 
                         <div className='d-flex gap-lg-30 gap-10 justify-content-evenly align-items-center'>
                             <div>
+                             
                                 <h6>Home App</h6>
                                 <p>17 Items</p>
                             </div>

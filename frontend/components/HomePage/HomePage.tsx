@@ -3,11 +3,14 @@ import React from 'react';
 import styles from '../../styles/HomePage.module.scss'
 import Image from 'next/image';
 
-import Service from '../../assets/images/service.png'
-import Service_2 from '../../assets/images/service-02.png'
-import Service_3 from '../../assets/images/service-03.png'
-import Service_4 from '../../assets/images/service-04.png'
-import Service_5 from '../../assets/images/service-05.png'
+// import Service from '../../assets/images/service.png'
+// import Service_2 from '../../assets/images/service-02.png'
+// import Service_3 from '../../assets/images/service-03.png'
+// import Service_4 from '../../assets/images/service-04.png'
+// import Service_5 from '../../assets/images/service-05.png'
+
+import ICON_1 from '../../assets/images/icon_1.png'
+import ICON_2 from '../../assets/images/icon_2.png'
 
 import dynamic from 'next/dynamic';
 import { useAppSelector } from '@/redux/hook';
@@ -45,11 +48,19 @@ const HomePage:React.FC<IProps> = () => {
     return (    
         <>
             <MainBanner />
-            <SpecialProducts products={products} />
-
-  
-            <FeaturedProducts products={mobile} title='Điện thoại nổi bật nhất'/>
-            <section className={`p-lg-5 p-3`}>
+            {/* <SpecialProducts products={products} /> */}
+            {/* <FeaturedProducts products={tablet} title='Máy tính bảng nổi bật nhất' /> */}
+            <div style={{position:"relative"}}>
+                <FeaturedProducts products={mobile} title='Iphone'/>
+                <div className='' style={{position:"absolute",top:"-300px",left:"100px",width:"70px"}}>
+                    <Image src={ICON_2} alt='' style={{width:"100%",height:"100%"}}/>
+                </div>
+                <div className='' style={{position:"absolute",top:"100px",right:"100px",width:"70px"}}>
+                    <Image src={ICON_1} alt='' style={{width:"100%",height:"100%"}}/>
+                </div>
+            </div>
+     
+            {/* <section className={`p-lg-5 p-3`}>
                 <div className="container-xxl">
                     <div className="d-flex justify-md-content-between justify-content-center align-items-center flex-wrap gap-4">
                         <div className='d-flex align-items-center gap-15 '>
@@ -89,14 +100,12 @@ const HomePage:React.FC<IProps> = () => {
                         </div>
                     </div>
                 </div>
-            </section>
-            <FeaturedProducts products={watch} title='Đồng hồ thông minh nổi bật nhất'/>
-            <Category />
+            </section> */}
+            <FeaturedProducts products={watch} title='Apple Watch'/>
+            {/* <Category /> */}
 
-
-
-            <FeaturedProducts products={laptop} title='Laptop nổi bật nhất'/>
-            <FeaturedProducts products={audio} title='Thiết bị âm thanh nổi bật nhất'/>
+            <FeaturedProducts products={laptop} title='Macbook'/>
+            <FeaturedProducts products={audio} title='Airpod'/>
 {/* 
             // <section className={`${styles.famous_wrapper} home-wrapper-2 py-5`}>
             //     <div className="container-xxl">
@@ -148,9 +157,9 @@ const HomePage:React.FC<IProps> = () => {
             //     </div>
             // </section> */}
 
-           <FeaturedProducts products={tablet} title='Máy tính bảng nổi bật nhất' />
-           <FeaturedProducts products={tivi} title='Ti vi nổi bật nhất'/>
-            <MarqueeBrands />
+{/*   
+           <FeaturedProducts products={tivi} title='Ti vi nổi bật nhất'/> */}
+            {/* <MarqueeBrands /> */}
 
             <section className='blog-wrapper home_wrapper_2 py-5'>
                 <div className="container-xxl">

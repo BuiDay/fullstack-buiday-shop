@@ -8,8 +8,8 @@ interface IProps{
 const Breadcrumb:React.FC<IProps> = (props) => {
     const {title} = props
     return (
-        <div className='breadcrumb m-0 py-4'>
-            <div className="container-xxl">
+        <div className='breadcrumb m-0 py-4'  style={{background:"#e7fc93"}}>
+            <div className="container-xxl" >
                 <div className="row">
                     <div className="col-12">
                         <p className='text-center'>
